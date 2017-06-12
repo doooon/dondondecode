@@ -1,0 +1,55 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>decodon</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="Lib_decode_basic.js"></script>
+    <script type="text/javascript" src="Lib_decode.js"></script>
+    <script type="text/javascript" src="Lib_一括func.js"></script>
+	<script type="text/javascript">
+	  function decodeStart() {
+      
+		  var meta = document.createElement("meta");
+		  meta.name = "format-detection";
+		  meta.content = "telephone=no";
+		  document.getElementsByTagName("head")[0].appendChild(meta);
+
+		  var script = document.createElement("script");
+		  script.src = "Lib_一括.js";
+		  document.getElementsByTagName("head")[0].appendChild(script);	  
+	  	  
+		  //w = window.open("test.html", "Test", "width=1500,height=1000");
+	  
+      //var myDiv = document.getElementById('output');
+      //console.log(html);
+      //myDiv.textContent = html;
+      
+      
+      /*
+      w = window.open("test.html", "Test", "width=1500,height=1000");
+      w.document.open();
+      w.document.write(html);
+      w.document.close();
+      */
+
+      
+
+    }
+	TEXT=""; //グローバル
+    
+	</script>
+</head>
+<body>
+	<div>
+		<form id="clipboardForm">
+			<textarea id="clipboardTextarea"></textarea>
+			<input type="button" value="decode" onClick="TEXT=document.getElementById('clipboardTextarea').value; decodeStart();">
+		</form>
+	</div>
+	<div id="output">
+	output area
+	</div>
+</body>
+</html>
+
+
