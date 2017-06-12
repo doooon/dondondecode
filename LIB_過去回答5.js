@@ -1808,8 +1808,18 @@ if ((TEXT.match(/^([mdclxvi]+[\s\.,\/\\\|\-]?)+$/i) || TEXT.match(/^([nwxocer]+[
 }
 
 // 全てがN×ローマ数字
-if ((TEXT.match(/^((\d*[mdclxvi])+[\s\.,\/\\\|\-]?)+$/i) || TEXT.match(/^((\d*[nwxocer])+[\s\.,\/\\\|\-]?)+$/i)) && TEXT.match(/\d/) && kouseimoji.length>=4 && TEXT.length>=5) {
-if ((((TEXT.match(/^(([2-9]|[1-9][0-9])?[MDCLXVI][\s\.,\/\|\\\-]?)+$/i) && !TEXT.match(/([MDCLXVI])\1/i)) || ((TEXT.match(/^((\d*)?[nwxocer][\s\.,\/\|\\\-]?)+$/i) && !TEXT.match(/([nwxocer])\1/i))) && TEXT.match(/\d/) && kouseimoji.length>=4 && TEXT.length>=5) {
+//if ((TEXT.match(/^((\d*[mdclxvi])+[\s\.,\/\\\|\-]?)+$/i) || TEXT.match(/^((\d*[nwxocer])+[\s\.,\/\\\|\-]?)+$/i)) && TEXT.match(/\d/) && kouseimoji.length>=4 && TEXT.length>=5) {
+if (
+  (
+    (
+      TEXT.match(/^(([2-9]|[1-9][0-9])?[MDCLXVI][\s\.,\/\|\\\-]?)+$/i) && 
+      !TEXT.match(/([MDCLXVI])\1/i)
+    ) || (
+      TEXT.match(/^((\d*)?[nwxocer][\s\.,\/\|\\\-]?)+$/i) && 
+      !TEXT.match(/([nwxocer])\1/i)
+    )
+  ) && TEXT.match(/\d/) && kouseimoji.length>=4 && TEXT.length>=5
+) {
   htmlTmp.push(TEXT);
   var str=TEXT;
   if (TEXT.match(/^((\d*[nwxocer])+[\s\.,\/\\\|\-]?)+$/i)) {

@@ -1341,7 +1341,7 @@ function htmlHeader() {
   h+=".elapsedtime {color: blue; font-size: xx-small; display: inline; }\n";
   h+=".elapsedtime2 {color: red;  font-size: xx-small; display: inline; }\n";
   h+="</style>\n";
-  /*
+  */
   return h;
 }
 
