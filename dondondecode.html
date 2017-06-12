@@ -107,6 +107,7 @@
 		<form id="clipboardForm">
 			<textarea id="clipboardTextarea"></textarea>
 			<input type="button" value="decode" onClick="TEXT=document.getElementById('clipboardTextarea').value; decodeStart();">
+			<input type="button" value="getCookie" onClick="document.getElementById('clipboardTextarea').value=docCookies.getItem('dondondecode')">
 		</form>
 	</div>
 	<div id="output">
@@ -114,7 +115,7 @@
 	</div>
 </body>
 	<script type="text/javascript">
-		var tmp=docCookies.getItem(name);
+		var tmp=docCookies.getItem("dondondecode");
 		document.getElementById('clipboardTextarea').value=tmp;
 	</script>
 </html>
