@@ -1059,7 +1059,7 @@ function leetKeyws() {
   
   
   
-  
+  ["smiles","kodama","登場人物 Kodama Smiles"], 
   ["[1i][5s][0o][6b]r[0o]n[7t]","isobront","leet"], ["spacthtime","spacetime","homonym"], 
 ["(the ?)?Explorer",'Hank Johnson',"13アーキタイプ"], 
 ["(the ?)?Dreamer",'Misty Hannah',"13アーキタイプ"], 
