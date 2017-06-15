@@ -3,6 +3,60 @@
 
 // function kakokaitou6() {
 
+
+// 3行にわけて奇数偶数をそれぞれ上へ下へ
+if (
+  kouseimoji.length>=4 && 
+  TEXT.length%3==0
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(3行にわけて奇数偶数をそれぞれ上へ下へ)</b>");
+  var tmpRE=new RegExp(".{"+TEXT.length/3+"}", "g");
+  var tmp=TEXT.match(tmpRE);
+  var result=[];
+  var result2=[];
+  for (var i in tmp) {
+    var tmpL1=[];
+    var tmpL2=[];
+
+    for (var j in tmp[i]) {
+      var k=i;
+      var k2=i;
+      if (j%2==0) {
+        k=Number(k)+1;
+        k2=Number(k2)-1;
+      } else {
+        k=Number(k)-1;
+        k2=Number(k2)+1;
+      }
+      if (k<0) {
+        k=2; 
+      } else if (k>2) {
+        k=0; 
+      }
+      if (k2>2) {
+        k2=0; 
+      } else if (k2<0) {
+        k2=2; 
+      }
+      tmpL1.push(tmp[k][j]);
+      tmpL2.push(tmp[k2][j]);
+    }
+    result[i]=tmpL1.join("");
+    result2[i]=tmpL2.join("");
+ }
+  
+  htmlCode(result.join("\n"));
+  htmlCode(result2.join("\n"));
+  htmlTmp.push("-----------------");
+  htmlCode(result.join(""));
+  htmlCode(result2.join(""));
+  htmlTmp.push("==============");
+  
+}
+
+
+
 /*
 // 使用文字5種で単独使用文字が1つ。モールスからBase64
 // aeueeueuaaeuiiiuiuaeaauaeeeuioiiuiooiuiooouiiiiiueaauiooiuoiiiuaeaaueaaueeueaeuoiiiiuiiiuiooiuiouaeee
