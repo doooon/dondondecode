@@ -1057,7 +1057,7 @@ function leetKeyws() {
   
   
   
-  
+  ["subject ?28","akira","大友克洋のAKIRAより"], 
   ["[1L][0o][5s][5s]","loss","leet"], 
   ["smiles","kodama","登場人物 Kodama Smiles"], 
   ["[1i][5s][0o][6b]r[0o]n[7t]","isobront","leet"], ["spacthtime","spacetime","homonym"], 
