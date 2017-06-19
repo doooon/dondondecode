@@ -748,15 +748,9 @@ if (TEXT.match(/^[\.\-\s]+$/)) {
 }
 
 
-<<<<<<< HEAD
 //元素記号からdecASCII 元素記号２文字優先
 htmlTmp.push(TEXT);
 htmlTmp.push("(原子番号 元素記号２文字優先)");
-=======
-//元素記号からdecASCII (最大)
-htmlTmp.push(TEXT);
-htmlTmp.push("(原子番号 大きい並び順)");
->>>>>>> origin/master
 function atomOut(L) {
   var tmp2="<table id='atom'><tr>";
   for (var i in L[1]) {
@@ -799,16 +793,9 @@ atomOut(tmp);
 htmlTmp.push("===============");
 
 
-<<<<<<< HEAD
-
 //元素記号からdecASCII 元素記号1文字優先
 htmlTmp.push(TEXT);
 htmlTmp.push("(原子番号 元素記号1文字優先)");
-=======
-//元素記号からdecASCII (最小)
-htmlTmp.push(TEXT);
-htmlTmp.push("(原子番号 小さい並び順)");
->>>>>>> origin/master
 function atomOut(L) {
   var tmp2="<table id='atom'><tr>";
   for (var i in L[1]) {
