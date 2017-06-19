@@ -748,9 +748,9 @@ if (TEXT.match(/^[\.\-\s]+$/)) {
 }
 
 
-//元素記号からdecASCII
+//元素記号からdecASCII (最大)
 htmlTmp.push(TEXT);
-htmlTmp.push("(原子番号)");
+htmlTmp.push("(原子番号 大きい並び順)");
 function atomOut(L) {
   var tmp2="<table id='atom'><tr>";
   for (var i in L[1]) {
@@ -786,6 +786,50 @@ atomOut(tmp);
 
 htmlTmp.push("(reverse & atbash)");
 var tmp=atomicNum(
+  atbash19(strReverse(TEXT)),2);
+atomOut(tmp);
+
+htmlTmp.push("===============");
+
+
+//元素記号からdecASCII (最小)
+htmlTmp.push(TEXT);
+htmlTmp.push("(原子番号 小さい並び順)");
+function atomOut(L) {
+  var tmp2="<table id='atom'><tr>";
+  for (var i in L[1]) {
+    tmp2+="<td>"+L[1][i]+"</td>";
+  }
+  tmp2+="</tr><tr>";
+  for (var i in L[2]) {
+    var tmp3=L[2][i];
+    if (tmp3.match(/^\d+$/)) {
+      tmp3="<span class='num'>"+
+        tmp3+"</span>";
+    }
+    tmp2+="<td>"+tmp3+"</td>";
+  }
+  tmp2+="</tr></table>";
+  htmlTmp.push(tmp2);
+  if (L[0].match(/^\d+$/g) && L[0].length>15) {
+      htmlTmp.push("<span class='alert'>全てが置き換わった！</span>");
+    }
+  htmlCode(L[0]);
+}
+var tmp=atomicNumSmall(TEXT,2);
+atomOut(tmp);
+htmlTmp.push("(reverse)");
+var tmp=atomicNumSmall(
+  strReverse(TEXT),2);
+atomOut(tmp);
+
+htmlTmp.push("(atbash)");
+var tmp=atomicNumSmall(
+  atbash19(TEXT),2);
+atomOut(tmp);
+
+htmlTmp.push("(reverse & atbash)");
+var tmp=atomicNumSmall(
   atbash19(strReverse(TEXT)),2);
 atomOut(tmp);
 
