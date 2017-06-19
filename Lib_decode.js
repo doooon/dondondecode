@@ -1460,7 +1460,11 @@ function atomicNum(source, flag) {
   }
 } // end function
 
+<<<<<<< HEAD
 //元素記号から原子番号 (元素記号1文字優先)
+=======
+//元素記号からdecASCII (最小番号)
+>>>>>>> origin/master
 function atomicNumSmall(source, flag) {
   if (!source) return;
   var elms=[
