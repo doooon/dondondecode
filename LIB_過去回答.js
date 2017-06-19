@@ -836,6 +836,53 @@ atomOut(tmp);
 htmlTmp.push("===============");
 
 
+//元素記号からdecASCII (1〜9)
+if (TEXT.match(/^(he|li|be|h|b|c|n|o|f)+$/i) && kouseimoji.length >=4) {
+htmlTmp.push(TEXT);
+htmlTmp.push("(原子番号 1〜9)");
+function atomOut(L) {
+  var tmp2="<table id='atom'><tr>";
+  for (var i in L[1]) {
+    tmp2+="<td>"+L[1][i]+"</td>";
+  }
+  tmp2+="</tr><tr>";
+  for (var i in L[2]) {
+    var tmp3=L[2][i];
+    if (tmp3.match(/^\d+$/)) {
+      tmp3="<span class='num'>"+
+        tmp3+"</span>";
+    }
+    tmp2+="<td>"+tmp3+"</td>";
+  }
+  tmp2+="</tr></table>";
+  htmlTmp.push(tmp2);
+  if (L[0].match(/^\d+$/g) && L[0].length>15) {
+      htmlTmp.push("<span class='alert'>全てが置き換わった！</span>");
+    }
+  htmlCode(L[0]);
+}
+var tmp2=TEXT.match(/(he|li|be|h|b|c|n|o|f)/ig) ;
+var tmp=atomicNum(tmp2.join(" "),2);
+atomOut(tmp);
+htmlTmp.push("(reverse)");
+var tmp=atomicNum(
+  strReverse(TEXT),2);
+atomOut(tmp);
+
+htmlTmp.push("(atbash)");
+var tmp=atomicNum(
+  atbash19(TEXT),2);
+atomOut(tmp);
+
+htmlTmp.push("(reverse & atbash)");
+var tmp=atomicNum(
+  atbash19(strReverse(TEXT)),2);
+atomOut(tmp);
+
+htmlTmp.push("===============");
+}
+
+
 //base64toHex>4line>refrect>hexASCII
 if (
   TEXT.match(/[A-Z]/)&&
