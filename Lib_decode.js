@@ -1464,7 +1464,7 @@ function atomicNum(source, flag) {
 } // end function
 
 //元素記号からdecASCII (最小番号)
-function atomicNum(source, flag) {
+function atomicNumSmall(source, flag) {
   if (!source) return;
   var elms=[
 ["元素番号","元素記号","名称"], 
