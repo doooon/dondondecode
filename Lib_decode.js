@@ -1255,7 +1255,7 @@ function bin2code128(bin) {
   return result;
 }
 
-//元素記号からdecASCII (最大番号)
+//元素記号から原子番号 (元素記号2文字優先)
 function atomicNum(source, flag) {
   if (!source) return;
   var elms=[
@@ -1382,22 +1382,19 @@ function atomicNum(source, flag) {
   
   var elmsSorted=copyArray(elms);
   elmsSorted.sort(function(a,b){
-    if( a[1].length > b[1].length ) return -1;
-    if( a[1].length < b[1].length ) return 1;
-    if( a[1] > b[1] ) return -1;
-    if( a[1] < b[1] ) return 1;
+    if( a[1].length > b[1].length) return -1;
+    if( a[1].length < b[1].length) return 1;
     return 0;
   });
   
   var tmp=[];
   for (var i in elmsSorted) {
-    if (i==0) continue;
+    if (i==0) continue; // 1行目はラベル
     else if(elmsSorted[i][1]=="") continue;
     tmp.push(elmsSorted[i][1]);
   }
   var elmRE= new RegExp(
-    "\("+tmp.join("|")+"\)", "ig");
-
+    "("+tmp.join("|")+")", "ig");
   var result=[];
   var tmplist=source.match(elmRE);
   if (tmplist && tmplist.length>0) {
@@ -1463,8 +1460,8 @@ function atomicNum(source, flag) {
   }
 } // end function
 
-//元素記号からdecASCII (最小番号)
-function atomicNum(source, flag) {
+//元素記号から原子番号 (元素記号1文字優先)
+function atomicNumSmall(source, flag) {
   if (!source) return;
   var elms=[
 ["元素番号","元素記号","名称"], 
@@ -1590,21 +1587,19 @@ function atomicNum(source, flag) {
   
   var elmsSorted=copyArray(elms);
   elmsSorted.sort(function(a,b){
-    if( a[1].length < b[1].length ) return -1;
-    if( a[1].length > b[1].length ) return 1;
-    if( a[1] < b[1] ) return -1;
-    if( a[1] > b[1] ) return 1;
+    if( a[1].length < b[1].length) return -1;
+    if( a[1].length > b[1].length) return 1;
     return 0;
   });
   
   var tmp=[];
   for (var i in elmsSorted) {
-    if (i==0) continue;
+    if (i==0) continue; // 1行目はラベル
     else if(elmsSorted[i][1]=="") continue;
     tmp.push(elmsSorted[i][1]);
   }
   var elmRE= new RegExp(
-    "\("+tmp.join("|")+"\)", "ig");
+    "("+tmp.join("|")+")", "ig");
 
   var result=[];
   var tmplist=source.match(elmRE);
@@ -1670,6 +1665,183 @@ function atomicNum(source, flag) {
       resultstr];
   }
 } // end function
+
+//元素記号から原子番号 (配列で受け取る)
+function atomicNumFromArrey(sourceArrey, flag) {
+  if (!sourceArrey) return;
+  var elms=[
+["元素番号","元素記号","名称"], 
+["1","H","Hydrogen","水素"], 
+["2","He","Helium","ヘリウム"], 
+["3","Li","Lithium","リチウム"], 
+["4","Be","Beryllium","ベリリウム"], 
+["5","B","Boron","ホウ素"], 
+["6","C","Carbon","炭素"], 
+["7","N","Nitrogen","窒素"], 
+["8","O","Oxygen","酸素"], 
+["9","F","Fluorine","フッ素"], 
+["10","Ne","Neon","ネオン"], 
+["11","Na","Natrium,Sodium","ナトリウム"], 
+["12","Mg","Magnesium","マグネシウム"], 
+["13","Al","Aluminium","アルミニウム"], 
+["14","Si","Silicon","ケイ素"], 
+["15","P","Phosphorus","リン"], 
+["16","S","Sulfur","硫黄"], 
+["17","Cl","Chlorine","塩素"], 
+["18","Ar","Argon","アルゴン"], 
+["19","K","kalium,Potassium","カリウム"], 
+["20","Ca","Calcium","カルシウム"], 
+["21","Sc","Scandium","スカンジウム"], 
+["22","Ti","Titanium","チタン"], 
+["23","V","Vanadium","バナジウム"], 
+["24","Cr","Chromium","クロム"], 
+["25","Mn","Manganese","マンガン"], 
+["26","Fe","Ferrum,Iron","鉄"], 
+["27","Co","Cobalt","コバルト"], 
+["28","Ni","Nickel","ニッケル"], 
+["29","Cu","Cuprum,Copper","銅"], 
+["30","Zn","Zinc","亜鉛"], 
+["31","Ga","Gallium","ガリウム"], 
+["32","Ge","Germanium","ゲルマニウム"], 
+["33","As","Arsenic","ヒ素"], 
+["34","Se","Selenium","セレン"], 
+["35","Br","Bromine","臭素"], 
+["36","Kr","Krypton","クリプトン"], 
+["37","Rb","Rubidium","ルビジウム"], 
+["38","Sr","Strontium","ストロンチウム"], 
+["39","Y","Yttrium","イットリウム"], 
+["40","Zr","Zirconium","ジルコニウム"], 
+["41","Nb","Niobium","ニオブ"], 
+["42","Mo","Molybdenum","モリブデン"], 
+["43","Tc","Technetium","テクネチウム"], 
+["44","Ru","Ruthenium","ルテニウム"], 
+["45","Rh","Rhodium","ロジウム"], 
+["46","Pd","Palladium","パラジウム"], 
+["47","Ag","Argentum,Silver","銀"], 
+["48","Cd","Cadmium","カドミウム"], 
+["49","In","Indium","インジウム"], 
+["50","Sn","Stannum,Tin","スズ"], 
+["51","Sb","Stibium,Antimony","アンチモン"], 
+["52","Te","Tellurium","テルル"], 
+["53","I","Iodine","ヨウ素"], 
+["54","Xe","Xenon","キセノン"], 
+["55","Cs","Caesium","セシウム"], 
+["56","Ba","Barium","バリウム"], 
+["57","La","Lanthanum","ランタン"], 
+["58","Ce","Cerium","セリウム"], 
+["59","Pr","Praseodymium","プラセオジム"], 
+["60","Nd","Neodymium","ネオジム"], 
+["61","Pm","Promethium","プロメチウム"], 
+["62","Sm","Samarium","サマリウム"], 
+["63","Eu","Europium","ユウロピウム"], 
+["64","Gd","Gadolinium","ガドリニウム"], 
+["65","Tb","Terbium","テルビウム"], 
+["66","Dy","Dysprosium","ジスプロシウム"], 
+["67","Ho","Holmium","ホルミウム"], 
+["68","Er","Erbium","エルビウム"], 
+["69","Tm","Thulium","ツリウム"], 
+["70","Yb","Ytterbium","イッテルビウム"], 
+["71","Lu","Lutetium","ルテチウム"], 
+["72","Hf","Hafnium","ハフニウム"], 
+["73","Ta","Tantalum","タンタル"], 
+["74","W","Wolfram,Tungsten","タングステン"], 
+["75","Re","Rhenium","レニウム"], 
+["76","Os","Osmium","オスミウム"], 
+["77","Ir","Iridium","イリジウム"], 
+["78","Pt","Platinum","白金"], 
+["79","Au","Aurum,Gold","金"], 
+["80","Hg","Hydrargyrum,Mercury","水銀"], 
+["81","Tl","Thallium","タリウム"], 
+["82","Pb","Plumbum,Lead","鉛"], 
+["83","Bi","Bismuth","ビスマス"], 
+["84","Po","Polonium","ポロニウム"], 
+["85","At","Astatine","アスタチン"], 
+["86","Rn","Radon","ラドン"], 
+["87","Fr","Francium","フランシウム"], 
+["88","Ra","Radium","ラジウム"], 
+["89","Ac","Actinium","アクチニウム"], 
+["90","Th","Thorium","トリウム"], 
+["91","Pa","Protactinium","プロトアクチニウム"], 
+["92","U","Uranium","ウラン"], 
+["93","Np","Neptunium","ネプツニウム"], 
+["94","Pu","Plutonium","プルトニウム"], 
+["95","Am","Americium","アメリシウム"], 
+["96","Cm","Curium","キュリウム"], 
+["97","Bk","Berkelium","バークリウム"], 
+["98","Cf","Californium","カリホルニウム"], 
+["99","Es","Einsteinium","アインスタイニウム"], 
+["100","Fm","Fermium","フェルミウム"], 
+["101","Md","Mendelevium","メンデレビウム"], 
+["102","No","Nobelium","ノーベリウム"], 
+["103","Lr","Lawrencium","ローレンシウム"], 
+["104","Rf","Rutherfordium","ラザホージウム"], 
+["105","Db","Dubnium","ドブニウム"], 
+["106","Sg","Seaborgium","シーボーギウム"], 
+["107","Bh","Bohrium","ボーリウム"], 
+["108","Hs","Hassium","ハッシウム"], 
+["109","Mt","Meitnerium","マイトネリウム"], 
+["110","Ds","Darmstadtium","ダームスタチウム"], 
+["111","Rg","Roentgenium","レントゲニウム"], 
+["112","Cn","Copernicium","コペルニシウム"], 
+["113","Nh","Nihonium","ニホニウム"], 
+["114","Fl","Flerovium","フレロビウム"], 
+["115","Mc","Moscovium","モスコビウム"], 
+["116","Lv","Livermorium","リバモリウム"], 
+["117","Ts","Tennessine","テネシン"], 
+["118","Og","Oganesson","オガネソン"]
+  ];
+  
+  var result=[];
+  for (var i in sourceArrey) {
+    var tmpRE=new RegExp("^"+sourceArrey[i]+"$", "i");
+    var findFlag=0;
+    for (var j in elms) {
+      if (elms[j][1].match(tmpRE)) {
+        result.push(elms[j]);
+        findFlag=1;
+        break;
+      }
+    }
+    if (!findFlag) result.push(["", sourceArrey[i], ""]);
+  }
+
+  if (!flag) {
+    // 2次元配列で渡す 
+    // [["番号","記号","名称"],…]
+    return result; 
+  } else if (flag==1) {
+    //文字列として渡す
+    var resultstr=[];
+    for (var i in result) {
+      if (!result[i]) continue;
+      if (result[i][0]=="") {
+        resultstr.push(result[i][1]);
+      } else {
+        resultstr.push(result[i][0]);
+      }
+    }
+    return resultstr.join("");
+  } else if (flag==2) {
+    //文字列と区切り文字列と区切り数字の3つを渡す
+    var resultstr=[];
+    var resultstr2=[];
+    for (var i in result) {
+      if (!result[i]) continue;
+      if (result[i][0]=="") {
+        resultstr.push(result[i][1]);
+        resultstr2.push(result[i][1]);
+      } else {
+        resultstr.push(result[i][0]);
+        resultstr2.push(result[i][1]);
+      }
+    }
+    return [
+      resultstr.join(""), 
+      resultstr2,
+      resultstr];
+  }
+} // end function
+
 
 // semaphore セマフォ(手旗信号)
 function semaphore(str) {
