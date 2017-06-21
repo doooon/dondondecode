@@ -55,6 +55,16 @@ if (
   
 }
 
+// ポケベル打ち
+if (
+  TEXT.match(/^(([0-9][0-9])[\s\.,\\\|\/:;\-\+]?)+$/) && 
+  kouseimoji.length>=4
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(ポケベル打ち)</b>");
+  htmlCode(pokebellDec(TEXT));
+  htmlTmp.push("==============");
+}
 
 
 /*
