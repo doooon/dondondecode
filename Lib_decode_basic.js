@@ -970,7 +970,7 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
 
 // leet Keywordを返す
 function leetKeyws() {
-  return [
+    var kwlist=[
   /*
   ["fire7", "forget", " 7→& 軍事用語 fire & forget"], 
   ["311nt", "elint", "leet"], 
@@ -1060,20 +1060,21 @@ function leetKeyws() {
   ["subject ?28","akira","大友克洋のAKIRAより"], 
   ["[1L][0o][5s][5s]","loss","leet"], 
   ["smiles","kodama","登場人物 Kodama Smiles"], 
-  ["[1i][5s][0o][6b]r[0o]n[7t]","isobront","leet"], ["spacthtime","spacetime","homonym"], 
-["(the ?)?Explorer",'Hank Johnson',"13アーキタイプ"], 
-["(the ?)?Dreamer",'Misty Hannah',"13アーキタイプ"], 
-["(the ?)?Alchemist",'Victor Kureze',"13アーキタイプ"], 
-["(the ?)?Humanist",'Yuri Nagassa',"13アーキタイプ"], 
-["(the ?)?Spiritualist",'Roland Jarvis',"13アーキタイプ"], 
-["(the ?)?Omniscient",'ADA',"13アーキタイプ"], 
-["(the ?)?Interpreter",'Stein Lightman',"13アーキタイプ"], 
-["(the ?)?Trickster",'Oliver Lynton-Wolfe',"13アーキタイプ"], 
-["(the ?)?Skeptic",'Martin Schubert',"13アーキタイプ"], 
-["(the ?)?Listener",'Enoch Dalby',"13アーキタイプ"], 
-["(the ?)?Visionary",'Carrie Campbell',"13アーキタイプ"], 
-["(the ?)?Patron",'Ezekiel “Zeke” Calvin',"13アーキタイプ"], 
-["(the ?)?Catalyst",'Devra Bogdanovich',"13アーキタイプ"], 
+  ["[1i][5s][0o][6b]r[0o]n[7t]","isobront","leet"], 
+  ["spacthtime","spacetime","homonym"], 
+  ["(the ?)?Explorer",'Hank Johnson',"13アーキタイプ"], 
+  ["(the ?)?Dreamer",'Misty Hannah',"13アーキタイプ"], 
+  ["(the ?)?Alchemist",'Victor Kureze',"13アーキタイプ"], 
+  ["(the ?)?Humanist",'Yuri Nagassa',"13アーキタイプ"], 
+  ["(the ?)?Spiritualist",'Roland Jarvis',"13アーキタイプ"], 
+  ["(the ?)?Omniscient",'ADA',"13アーキタイプ"], 
+  ["(the ?)?Interpreter",'Stein Lightman',"13アーキタイプ"], 
+  ["(the ?)?Trickster",'Oliver Lynton-Wolfe',"13アーキタイプ"], 
+  ["(the ?)?Skeptic",'Martin Schubert',"13アーキタイプ"], 
+  ["(the ?)?Listener",'Enoch Dalby',"13アーキタイプ"], 
+  ["(the ?)?Visionary",'Carrie Campbell',"13アーキタイプ"], 
+  ["(the ?)?Patron",'Ezekiel “Zeke” Calvin',"13アーキタイプ"], 
+  ["(the ?)?Catalyst",'Devra Bogdanovich',"13アーキタイプ"], 
   ["hungry ?like ?the","wolfe","曲 Hungry Like The Wolf"], 
   ["wolf","wolfe","同音"], 
   ["[1L][3E][5S][5S]", "less", "leet"], 
@@ -1147,7 +1148,7 @@ function leetKeyws() {
   ["5er1ty","verity","leet"],
   ["scanner","ingress","関連"],
   ["great", "magnus", "ラテン語"], 
-  ["subject28","akira","web検索"],
+  ["subject[2][8]","akira","web検索"],
   ["5ucc355","success","leet"],
   ["9781626361737","discover","図書コード?"], 
   ["BLKOPS","blackops","略"],
@@ -1233,6 +1234,12 @@ function leetKeyws() {
   ["j0hn51", "johnsone", "leet"], 
   ["311nt", "elint", "leet"]
   ];
+  kwlist.sort(function(a,b){
+    if( a[0].length > b[0].length) return -1;
+    if( a[0].length < b[0].length) return 1;
+    return 0;
+  });
+  return kwlist;
 }
 
 // Keyword配列を返す

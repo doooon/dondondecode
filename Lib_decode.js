@@ -236,21 +236,21 @@ function htmlCode(tmp, addstr) {
 		}
 		
 		// 完全文字数字rvs
-	if (str.match(numRE_full_rvs)) { 
+	  if (str.match(numRE_full_rvs)) { 
 			var tmpnum_full_rvs = one1full_rvs(str, 1);
 			if (formatExchangeLetter( tmpnum_full_rvs, "full_rvs", str, msg ) == "fix") return "fix";
 			if (formatExchangeRoman( tmpnum_full_rvs, str, msg ) == "fix") return "fix";
 		}
 		
-                // フランス文字数字
+    // フランス文字数字
 		if (str.match(numRE_french)) { 
 			var tmpnum_french = one1french(str, 1);
 			if (formatExchangeLetter( tmpnum_french, "french", str, msg ) == "fix") return "fix";
 			if (formatExchangeRoman( tmpnum_french, str, msg ) == "fix") return "fix";
 		}
 		
-                // ドイツ文字数字
-	if (str.match(numRE_german)) { 
+    // ドイツ文字数字
+	  if (str.match(numRE_german)) { 
 			var tmpnum_german = one1german(str, 1);
 			if (formatExchangeLetter( tmpnum_german, "german", str, msg ) == "fix") return "fix";
 			if (formatExchangeRoman( tmpnum_german, str, msg ) == "fix") return "fix";
@@ -439,8 +439,8 @@ var numRE_fix            = new RegExp( "^" + addNum().join("|") + "$",          
 var numRE_full           = new RegExp( addNumFull().join("|"),                  "ig");
 var numRE_full_fix       = new RegExp( "^" + addNumFull().join("|") + "$",      "ig");
 
-var numRE_full_rvs           = new RegExp( addNumFull_rvs().join("|"),                  "ig");
-var numRE_full_rvs_fix       = new RegExp( "^" + addNumFull_rvs().join("|") + "$",      "ig");
+var numRE_full_rvs       = new RegExp( addNumFull_rvs().join("|"),              "ig");
+var numRE_full_rvs_fix   = new RegExp( "^" + addNumFull_rvs().join("|") + "$",  "ig");
 
 var numRE_french         = new RegExp( addNumFrench().join("|"),                "ig");
 var numRE_french_fix     = new RegExp( "^" + addNumFrench().join("|") + "$",    "ig");
@@ -469,8 +469,8 @@ var numRE_latin_fix      = new RegExp( "^" + addNumLatin().join("|") + "$",     
 var numRE_latin4less     = new RegExp( addNumLatin4less().join("|"),            "ig");
 var numRE_latin4less_fix = new RegExp( "^" + addNumLatin4less().join("|") + "$","ig");
 
-var numRE_homophone     = new RegExp( addNumHomophone().join("|"),            "ig");
-var numRE_homophone_fix = new RegExp( "^" + addNumHomophone().join("|") + "$","ig");
+var numRE_homophone      = new RegExp( addNumHomophone().join("|"),            "ig");
+var numRE_homophone_fix  = new RegExp( "^" + addNumHomophone().join("|") + "$","ig");
 
 
 // ローマ数字入りパスコを正規化
