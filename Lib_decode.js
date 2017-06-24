@@ -3393,7 +3393,7 @@ function one1(a, flg) {
   var list=keywordCheck(a);
   if (list.length) {
     for (var i in list) {
-      if (list[i]=="i") continue;
+      if (list[i].match(/^i$/i) || list[i].match(/^ni$/i)) continue;
       a=a.replace(
         list[i]
         , "-"+list[i].split("").join("-")+"-");
@@ -3497,7 +3497,7 @@ function one1full(a, flg) {
   var list=keywordCheck(a);
   if (list.length) {
     for (var i in list) {
-      if (list[i]=="i") continue;
+      if (list[i].match(/^i$/i) || list[i].match(/^ni$/i)) continue;
       a=a.replace(
         list[i]
         , "-"+list[i].split("").join("-")+"-");
@@ -3533,7 +3533,7 @@ function one1full_rvs(a, flg) {
   var list=keywordCheck(a);
   if (list.length) {
     for (var i in list) {
-      if (list[i]=="i") continue;
+      if (list[i].match(/^i$/i) || list[i].match(/^ni$/i)) continue;
       a=a.replace(
         list[i]
         , "-"+list[i].split("").join("-")+"-");
@@ -3568,7 +3568,7 @@ function one1french(a, flg) {
   var list=keywordCheck(a);
   if (list.length) {
     for (var i in list) {
-      if (list[i]=="i") continue;
+      if (list[i].match(/^i$/i) || list[i].match(/^ni$/i)) continue;
       a=a.replace(
         list[i]
         , "-"+list[i].split("").join("-")+"-");
@@ -3603,7 +3603,7 @@ function one1german(a, flg) {
   var list=keywordCheck(a);
   if (list.length) {
     for (var i in list) {
-      if (list[i]=="i") continue;
+      if (list[i].match(/^i$/i) || list[i].match(/^ni$/i)) continue;
       a=a.replace(
         list[i]
         , "-"+list[i].split("").join("-")+"-");
@@ -3638,7 +3638,7 @@ function one1four(a, flg) {
   var list=keywordCheck(a);
   if (list.length) {
     for (var i in list) {
-      if (list[i]=="i") continue;
+      if (list[i].match(/^i$/i) || list[i].match(/^ni$/i)) continue;
       a=a.replace(
         list[i]
         , "-"+list[i].split("").join("-")+"-");
@@ -3667,7 +3667,7 @@ function one1three(a, flg) {
   var list=keywordCheck(a);
   if (list.length) {
     for (var i in list) {
-      if (list[i]=="i") continue;
+      if (list[i].match(/^i$/i) || list[i].match(/^ni$/i)) continue;
       a=a.replace(
         list[i]
         , "-"+list[i].split("").join("-")+"-");
@@ -3700,7 +3700,7 @@ function one1two(a, flg) {
   var list=keywordCheck(a);
   if (list.length) {
     for (var i in list) {
-      if (list[i]=="i") continue;
+      if (list[i].match(/^i$/i) || list[i].match(/^ni$/i)) continue;
       a=a.replace(
         list[i]
         , "-"+list[i].split("").join("-")+"-");
@@ -3736,7 +3736,7 @@ function one1last(a, flg) {
   var list=keywordCheck(a);
   if (list.length) {
     for (var i in list) {
-      if (list[i]=="i") continue;
+      if (list[i].match(/^i$/i) || list[i].match(/^ni$/i)) continue;
       a=a.replace(
         list[i]
         , "-"+list[i].split("").join("-")+"-");
@@ -3772,7 +3772,7 @@ function one1mid3(a, flg) {
   var list=keywordCheck(a);
   if (list.length) {
     for (var i in list) {
-      if (list[i]=="i") continue;
+      if (list[i].match(/^i$/i) || list[i].match(/^ni$/i)) continue;
       a=a.replace(
         list[i]
         , "-"+list[i].split("").join("-")+"-");
@@ -3808,7 +3808,7 @@ function one1latin(a, flg) {
   var list=keywordCheck(a);
   if (list.length) {
     for (var i in list) {
-      if (list[i]=="i") continue;
+      if (list[i].match(/^i$/i) || list[i].match(/^ni$/i)) continue;
       a=a.replace(
         list[i]
         , "-"+list[i].split("").join("-")+"-");
@@ -3845,7 +3845,7 @@ function one1latin4less(a, flg) {
   var list=keywordCheck(a);
   if (list.length) {
     for (var i in list) {
-      if (list[i]=="i") continue;
+      if (list[i].match(/^i$/i) || list[i].match(/^ni$/i)) continue;
       a=a.replace(
         list[i]
         , "-"+list[i].split("").join("-")+"-");
@@ -3883,7 +3883,7 @@ function one1homophone(a, flg) {
   var list=keywordCheck(a);
   if (list.length) {
     for (var i in list) {
-      if (list[i]=="i") continue;
+      if (list[i].match(/^i$/i) || list[i].match(/^ni$/i)) continue;
       a=a.replace(
         list[i]
         , "-"+list[i].split("").join("-")+"-");
