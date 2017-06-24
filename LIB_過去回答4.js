@@ -987,7 +987,6 @@ if (TEXT.match(/^([01]+\s)*[01]+$/i)){
 if (TEXT.match(/^[a-z]+$/i)) {
   
   function tmpRect(str) {
-    debug(str);
     var tmpKW=keySyougou(str);
     tmpKW.sort(function(a,b){
       if( a.length > b.length ) return -1;
@@ -1006,12 +1005,9 @@ if (TEXT.match(/^[a-z]+$/i)) {
     }
     var result=
       str.replace(/(.)(.)(.)/g, "$3$2$1");
-    debug(str.replace(/(...)/g, "$1\n"));
     htmlCode(result);
-    debug(result.replace(/(...)/g, "$1\n"));
     htmlTmp.push("==============");
   }
-
   
   var tmp=strReverse(TEXT);
   tmp=one1two(tmp);
