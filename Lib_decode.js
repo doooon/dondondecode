@@ -4731,9 +4731,15 @@ function checkCodeHTML(str, noA) {
       
       var re=
         new RegExp("("+kList[0]+")", "i");
+      var re2=new RegExp("^"+kList[0]+"$", "i");
       var sstr=str.split(re);
-      for (var i in sstr) {
-        if (i==1) continue;
+      for (var i=0; i<sstr.length; i=i+1) {
+        if (!sstr[i]) {
+          sstr.splice(i,1); //空の配列を削除
+          i=i-1;
+          continue;
+        }
+        if (sstr[i].match(re2)) continue;
         sstr[i]=sstr[i].replace(/\d+/g, "<span class='num'>$&</span>");
       }
       result="";
