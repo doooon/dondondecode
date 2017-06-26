@@ -1056,7 +1056,8 @@ function leetKeyws() {
   
   
   
- ["veruminvenirisur","visur","vi+sur"], 
+  ["my ?only ?friend","end","doorsの曲「The End」の歌詞から"], 
+["veruminvenirisur","visur","vi+sur"], 
   ["subject ?28","akira","大友克洋のAKIRAより"], 
   ["[1L][0o][5s][5s]","loss","leet"], 
   ["smiles","kodama","登場人物 Kodama Smiles"], 
