@@ -225,7 +225,7 @@ function analyzeText(str) {
   result.push("反転 mirror ");
   result.push("kwが単一文字 > グリフ");
   result.push("kwが単一文字 > 読み換え c→seeとか");
-  result.push("kw検索 (ことわざ quote) (反対語 Antonyms opposite) (類義語 synonyms thesaurus) (数字は適当なところで別けた方がいい「2001 006b」のように)");
+  result.push("kw検索 (ことわざ quotes|phrase) (歌詞 lyrics) (反対語 Antonyms|opposite) (類義語 synonyms|thesaurus) (数字は適当なところで別けた方がいい「2001 006b」のように)");
   result.push("kw部分の6はvi, verum, inveniri");
   result.push("0=o=q, 1=i, 5=s");
   result.push("フォーマットにiとLは使われない(daily, JoJo, VI, 長持ち, で確認済み");
