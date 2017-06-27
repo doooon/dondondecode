@@ -291,6 +291,13 @@ function htmlCode(tmp, addstr) {
 			if (formatExchangeRoman( tmpnum_mid3, str, msg ) == "fix") return "fix";
 		}
 		
+		// 途中2文字数字
+		if (str.match(numRE_mid2)) { 
+			var tmpnum_mid2 = one1mid2(str, 1);
+			if (formatExchangeLetter( tmpnum_mid2, "mid2", str, msg ) == "fix") return "fix";
+			if (formatExchangeRoman( tmpnum_mid2, str, msg ) == "fix") return "fix";
+		}
+		
 		// ラテン完全文字数字
 		if (str.match(numRE_latin)) { 
 			var tmpnum_latin = one1latin(str, 1);
@@ -325,7 +332,7 @@ function htmlCode(tmp, addstr) {
 		var leetL=leetKeyws();
 		for (var i in leetL) {
 			var leetRE=new RegExp(leetL[i][0], "ig");
-			//tmp3=tmp3.replace( leetRE, leetL[i][1]);
+			tmp3=tmp3.replace( leetRE, leetL[i][1]);
 			//debug("tmp3=tmp3.replace("+leetRE+", "+leetL[i][1]+");");
 		}
 		
@@ -366,8 +373,12 @@ function htmlCode(tmp, addstr) {
 			
 		} else {
 			// デフォルト （初めてなので表示させる）
-			htmlTmp.push( addstr+checkCodeHTML(tmp3));
-			if (checkPasscode(tmp3)=="fix") return "fix";
+			htmlTmp.push( addstr+checkCodeHTML(tmp3a));
+
+			if (checkPasscode(tmp3)=="fix") {
+ 			  htmlTmp.push( addstr+checkCodeHTML(tmp3));
+        return "fix";
+      }
 
 			// ローマ数字や文字数字変換
 			if (formatExchange(tmp3) == "fix") return "fix";
@@ -423,6 +434,9 @@ function addNumLast() {
 function addNumMid3() {
   return "one|two|hre|our|ive|six|eve|igh|ine|ero".split("|");
 }
+function addNumMid2() {
+  return "ne|wo|hr|ou|iv|ix|ev|ig|in|er".split("|");
+}
 function addNumLatin() {
   return "singul|bin|tern|trin|quatern|quin|sen|septen|octon|noven".split("|");
 }
@@ -462,6 +476,9 @@ var numRE_last_fix       = new RegExp( "^" + addNumLast().join("|") + "$",      
 
 var numRE_mid3           = new RegExp( addNumMid3().join("|"),                  "ig");
 var numRE_mid3_fix       = new RegExp( "^" + addNumMid3().join("|") + "$",      "ig");
+
+var numRE_mid2           = new RegExp( addNumMid2().join("|"),                  "ig");
+var numRE_mid2_fix       = new RegExp( "^" + addNumMid2().join("|") + "$",      "ig");
 
 var numRE_latin          = new RegExp( addNumLatin().join("|"),                 "ig");
 var numRE_latin_fix      = new RegExp( "^" + addNumLatin().join("|") + "$",     "ig");
@@ -570,19 +587,43 @@ function replaceKw012(str, kw) {
 		var tmpRE5 = new RegExp("^"+tmp5+"$", "i");
 		
 		var str2 = "";
-		     if (str.match(tmpRE1) && len==10) { str2 = str.replace(tmpRE1, function (p0,p1,p2,p3,p4,p5,p6,p7,p8,p9) { return abc012(p1)+p2+abc012(p3)+p4+p5+abc012(p6)+p7+abc012(p8)+p9;}); } 
-
-		else if (str.match(tmpRE2) && len==10) { str2 = str.replace(tmpRE2, function (p0,p1,p2,p3,p4,p5,p6,p7,p8,p9) { return p1+abc012(p2)+p3+abc012(p4)+p5;}); } 
-
-		else if (str.match(tmpRE3) && len==8) { str2 = str.replace(tmpRE3, function (p0,p1,p2,p3,p4,p5,p6,p7,p8,p9) { 	
-return p1+abc123(p2)+p3+abc123(p4)+p5+p6+abc123(p7)+p8;}); } 
-
-		else if (str.match(tmpRE4) && len==8) { str2 = str.replace(tmpRE4, function (p0,p1,p2,p3,p4,p5,p6,p7,p8,p9) { 	
-return p1+abc012(p2)+p3+abc012(p4)+p5+abc012(p6);}); } 
-	
-		else if (str.match(tmpRE5) && len==12) { str2 = str.replace(tmpRE5, function (p0,p1,p2,p3,p4,p5,p6,p7,p8,p9) { 	
-return p1+abc012(p2)+p3+abc012(p4);}); 
-debug(str2); }	
+		if (str.match(tmpRE1) && len==10) { 
+      str2 = str.replace(
+        tmpRE1, 
+        function (p0,p1,p2,p3,p4,p5,p6,p7,p8,p9) { 
+          return abc012(p1)+p2+abc012(p3)+p4+p5+abc012(p6)+p7+abc012(p8)+p9;
+        }
+      ); 
+    } else if (str.match(tmpRE2) && len==10) { 
+      str2 = str.replace(
+        tmpRE2, 
+        function (p0,p1,p2,p3,p4,p5,p6,p7,p8,p9) { 
+          return p1+abc012(p2)+p3+abc012(p4)+p5;
+        }
+      ); 
+    } else if (str.match(tmpRE3) && len==8) { 
+      str2 = str.replace(
+        tmpRE3, 
+        function (p0,p1,p2,p3,p4,p5,p6,p7,p8,p9) { 	
+          return p1+abc123(p2)+p3+abc123(p4)+p5+p6+abc123(p7)+p8;
+        }
+      ); 
+    }	else if (str.match(tmpRE4) && len==8) { 
+      str2 = str.replace(
+        tmpRE4, 
+        function (p0,p1,p2,p3,p4,p5,p6,p7,p8,p9) { 	
+          return p1+abc012(p2)+p3+abc012(p4)+p5+abc012(p6);
+        }
+      ); 
+    } else if (str.match(tmpRE5) && len==12) { 
+      str2 = str.replace(
+        tmpRE5, 
+        function (p0,p1,p2,p3,p4,p5,p6,p7,p8,p9) { 	
+          return p1+abc012(p2)+p3+abc012(p4);
+        }
+      ); 
+      debug(str2); 
+    }	
  	
 		return(str2);
 	} else {
@@ -3792,6 +3833,42 @@ function one1mid3(a, flg) {
     if (flg) {
       a=a.replace(/one/ig, "1");
       a=a.replace(/ero/ig, "0");
+    }
+    var kwl=a.match(/-(\w-)+/g);
+    for (var i in kwl) {
+      a=a.replace(
+        kwl[i], kwl[i].replace(/-/g, ""));
+    }
+    return a;
+}
+
+
+//途中2文字英数字変換
+function one1mid2(a, flg) {
+  if (!a) return false;
+  var list=keywordCheck(a);
+  if (list.length) {
+    for (var i in list) {
+      if (list[i].match(/^i$/i) || list[i].match(/^ni$/i)) continue;
+      a=a.replace(
+        list[i]
+        , "-"+list[i].split("").join("-")+"-");
+      if (list[i].match(numRE_mid2_fix)) {
+        break;
+      }
+    }
+  }
+    a=a.replace(/wo/ig, "2");
+    a=a.replace(/hr/ig, "3");
+    a=a.replace(/ou/ig, "4");
+    a=a.replace(/iv/ig, "5");
+    a=a.replace(/ix/ig, "6");
+    a=a.replace(/ev/ig, "7");
+    a=a.replace(/ig/ig, "8");
+    a=a.replace(/in/ig, "9");
+    if (flg) {
+      a=a.replace(/ne/ig, "1");
+      a=a.replace(/er/ig, "0");
     }
     var kwl=a.match(/-(\w-)+/g);
     for (var i in kwl) {
