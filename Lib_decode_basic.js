@@ -1055,7 +1055,7 @@ function leetKeyws() {
   
   
   
-  
+  ["Worlds ?Enough","time","本 Worlds Enough & Time"],   
   ["my ?only ?friend","end","doorsの曲「The End」の歌詞から"], 
 ["veruminvenirisur","visur","vi+sur"], 
   ["subject ?28","akira","大友克洋のAKIRAより"], 
