@@ -25,6 +25,10 @@ function goBinary(binstr) {
       "(バイナリにならなかった)"); 
     return;
   }
+  var myByte=binstr.length/8;
+  var myByteAmari=binstr.length%8;
+  htmlTmp.push("<div class='alert'>"+myByte+"byte + "+myByteAmari+"bit</div>"); 
+
   
   htmlTmp.push(
     "<b>(binBase64)</b>"); 
