@@ -1053,7 +1053,7 @@ function leetKeyws() {
   
   
   
-  
+  ["Pobednik","victor","ボスニア語で「勝者」"]
   ["i ?am ?not ?dead","roland","不死身のRoland Jarvis"], 
   ["Worlds ?Enough","time","本 Worlds Enough & Time"],   
   ["my ?only ?friend","end","doorsの曲「The End」の歌詞から"], 
