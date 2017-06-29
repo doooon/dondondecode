@@ -14,9 +14,39 @@ if (
 
   function pigpen(str) {
     if (!str.match(/^([JULƆOC7nΓ]|[<^>Vv])\.?$/) return null;
-    var map={"J":"a","U":"b","L":"c","Ɔ":"d","O":"e","C":"f","7":"g","n":"h","Γ":"i","J.":"j","U.":"k","L.":"l","Ɔ.":"m","O.":"n","C.":"o","7.":"p","n.":"q","Γ.":"r","v":"s","V":"s",">":"t","<":"u","^":"v","v.":"w","V.":"w",">.":"x","<.":"y","^.":"z"};
-    if (map[str]) return map[str];
-    return null;
+    var map={
+    	"J":"a",
+    	"U":"b",
+    	"L":"c",
+    	"Ɔ":"d",
+    	"O":"e",
+    	"C":"f",
+    	"7":"g",
+    	"n":"h",
+    	"Γ":"i",
+    	"J.":"j",
+    	"U.":"k",
+    	"L.":"l",
+    	"Ɔ.":"m",
+    	"O.":"n",
+    	"C.":"o",
+    	"7.":"p",
+    	"n.":"q",
+    	"Γ.":"r",
+    	"v":"s",
+    	"V":"s",
+    	">":"t",
+    	"<":"u",
+    	"^":"v",
+    	"v.":"w",
+    	"V.":"w",
+    	">.":"x",
+    	"<.":"y",
+    	"^.":"z"
+    };
+    //if (map[str]) 
+    return map[str];
+    //return null;
   }
   
   htmlTmp.push(TEXT);
