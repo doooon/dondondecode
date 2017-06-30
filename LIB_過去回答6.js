@@ -55,7 +55,8 @@ if (
   for (var i in tmps) {
     result.push(pigpen(tmps[i]));
   }
-  
+  debug(tmps);
+  debug(result);
   htmlCode(result.join(""));
   htmlTmp.push("==============");
 }
