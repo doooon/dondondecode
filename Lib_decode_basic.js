@@ -1441,7 +1441,7 @@ function addKeywsJoJo() {
   SKILAMALINK|TINFOILHAT|GAMBIT|APOTHEOSIS|SIBYLLING|TRUEBELIEVER|INTHEWILD|EPANALEPSIS|PARETOEFFICIENCY|BLACKSITE
   KA|DIESNATALIS|DEMOGORGON|HYPERTHYMESIA|ANTIMETABOLE|OUTOFRANGE|SAMHAIN|COOKEDINTEL|FATAMORGANA|PARACUSIA
   ETERNALRETURN|COLLECTIVEUNCONSCIOUS|SOLITON|TIANDIHUI|AKASHICRECORDS|temporalprojection|CARGOCULT|INVERSEPROBLEM|HOLWG|infooverload
-  metanoia|timeeventchart`.replace(/\n/g, "|").split("|");
+  metanoia|timeeventchart`.replace(/\s*\n\s*/g, "|").split("|");
   kwlist.sort(function(a,b){
     if( a.length > b.length) return -1;
     if( a.length < b.length) return 1;
