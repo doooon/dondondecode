@@ -1293,7 +1293,7 @@ function getKeyws() {
   truth|turing|tycho|tyro|ultra|unbounded|urban|urbdrone|us|use
   verum|vi(?!f)|victor|victory|visur|voynich|want|war|wave|we
   weak|whydah|win|wolfe|worth|write|xm|yantra|yeats|you
-  your|yuen|yuri|zurich`.replace(/\n/g, "|").split("|");
+  your|yuen|yuri|zurich`.replace(/\s*\n\s*/g, "|").split("|");
   var addkw=[];
   addkw.push("veritas"); //2016-04-09
   addkw.push("obsidian"); //2016-04-18
