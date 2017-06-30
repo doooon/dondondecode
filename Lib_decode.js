@@ -3814,7 +3814,7 @@ function one1last(a, flg) {
     a=a.replace(/ht/ig, "8");
     a=a.replace(/ne/ig, "9");
     if (flg) {
-      //a=a.replace(/ne/ig, "1");
+      a=a.replace(/ne/ig, "1");
       a=a.replace(/ro/ig, "0");
     }
     
@@ -3851,7 +3851,7 @@ function one1twoFirstEnd(a, flg) {
     a=a.replace(/et/ig, "8");
     a=a.replace(/ne/ig, "9");
     if (flg) {
-      //a=a.replace(/oe/ig, "1");
+      a=a.replace(/oe/ig, "1");
       a=a.replace(/zo/ig, "0");
     }
     
