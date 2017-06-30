@@ -4,7 +4,7 @@
 // function kakokaitou6() {
 
 
-/*
+
 // pigpen (freemason)
 // https://en.wikipedia.org/wiki/Pigpen_cipher
 if (
@@ -45,7 +45,7 @@ if (
     	"^.":"z"
     };
     //if (map[str]) 
-    return map[str];
+    return str; //map[str];
     //return null;
   }
   
@@ -59,7 +59,8 @@ if (
   
   htmlCode(result.join(""));
   htmlTmp.push("==============");
-}*/
+}
+
 
 // 3行にわけて奇数偶数をそれぞれ上へ下へ
 if (
