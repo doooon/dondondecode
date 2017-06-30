@@ -13,7 +13,7 @@ if (
 ) {
 
   function pigpen(str) {
-    if (!str.match(/^([JULƆOC7nΓ]|[<^>Vv])\.?$/) return null;
+    if (!str.match(/^([JULƆOC7nΓ]|[<^>Vv])\.?$/)) return null;
     var map={
     	"J":"a",
     	"U":"b",
@@ -44,9 +44,8 @@ if (
     	"<.":"y",
     	"^.":"z"
     };
-    //if (map[str]) 
-    return str; //map[str];
-    //return null;
+    if (map[str]) return map[str];
+    return null;
   }
   
   htmlTmp.push(TEXT);
