@@ -44,6 +44,7 @@ if (
     	"<.":"y",
     	"^.":"z"
     };
+    debug(map[str]);
     if (map[str]) return map[str];
     return null;
   }
