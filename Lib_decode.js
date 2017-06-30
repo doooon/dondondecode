@@ -285,11 +285,17 @@ function htmlCode(tmp, addstr) {
 		}
 		
 		// 先頭と末尾で2文字数字
+     if (str.match(/aby/i)) debug(str);
+     if (str.match(/aby/i)) debug(numRE_firstEnd);
 		if (str.match(numRE_firstEnd)) { 
-			var tmpnum_firstEnd = one1twoFirstEnd(str, 1);
+			if (str.match(/aby/i)) debug("FirstEnd match");
+        var tmpnum_firstEnd = one1twoFirstEnd(str, 1);
+        if (str.match(/aby/i)) debug(tmpnum_firstEnd);
 			if (formatExchangeLetter( tmpnum_firstEnd, "firstEnd", str, msg ) == "fix") return "fix";
 			if (formatExchangeRoman( tmpnum_firstEnd, str, msg ) == "fix") return "fix";
-		}
+		} else {
+        if (str.match(/aby/i)) debug("FirstEnd don't match…");
+      }
 		
 		// 途中3文字数字
 		if (str.match(numRE_mid3)) { 
