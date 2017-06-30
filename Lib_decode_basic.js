@@ -1057,7 +1057,7 @@ function leetKeyws() {
   ["i ?am ?not ?dead","roland","不死身のRoland Jarvis"], 
   ["Worlds ?Enough","time","本 Worlds Enough & Time"],   
   ["my ?only ?friend","end","doorsの曲「The End」の歌詞から"], 
-["veruminvenirisur","visur","vi+sur"], 
+  ["veruminvenirisur","visur","vi+sur"], 
   ["subject ?28","akira","大友克洋のAKIRAより"], 
   ["[1L][0o][5s][5s]","loss","leet"], 
   ["smiles","kodama","登場人物 Kodama Smiles"], 
@@ -1291,7 +1291,7 @@ function getKeyws() {
   truth|turing|tycho|tyro|ultra|unbounded|urban|urbdrone|us|use
   verum|vi(?!f)|victor|victory|visur|voynich|want|war|wave|we
   weak|whydah|win|wolfe|worth|write|xm|yantra|yeats|you
-  your|yuen|yuri|zurich`.replace(/\n/g, "|").split("|");
+  your|yuen|yuri|zurich`.replace(/\s*\n\s*/g, "|").split("|");
   var addkw=[];
   addkw.push("veritas"); //2016-04-09
   addkw.push("obsidian"); //2016-04-18
@@ -1441,7 +1441,7 @@ function addKeywsJoJo() {
   SKILAMALINK|TINFOILHAT|GAMBIT|APOTHEOSIS|SIBYLLING|TRUEBELIEVER|INTHEWILD|EPANALEPSIS|PARETOEFFICIENCY|BLACKSITE
   KA|DIESNATALIS|DEMOGORGON|HYPERTHYMESIA|ANTIMETABOLE|OUTOFRANGE|SAMHAIN|COOKEDINTEL|FATAMORGANA|PARACUSIA
   ETERNALRETURN|COLLECTIVEUNCONSCIOUS|SOLITON|TIANDIHUI|AKASHICRECORDS|temporalprojection|CARGOCULT|INVERSEPROBLEM|HOLWG|infooverload
-  metanoia|timeeventchart`.replace(/\n/g, "|").split("|");
+  metanoia|timeeventchart`.replace(/\s*\n\s*/g, "|").split("|");
   kwlist.sort(function(a,b){
     if( a.length > b.length) return -1;
     if( a.length < b.length) return 1;
