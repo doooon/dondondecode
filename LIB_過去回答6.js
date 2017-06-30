@@ -3,57 +3,61 @@
 
 // function kakokaitou6() {
 
+
 // pigpen (freemason)
 // https://en.wikipedia.org/wiki/Pigpen_cipher
 if (
-TEXT.match(/^(([JULƆOC7nΓ]|[<^>Vv])\.?){4,}$/) &&
-kouseimoji.length>=4
+  TEXT.match(/^(([JULƆOC7nΓ]|[<^>Vv])\.?){4,}$/) && 
+  kouseimoji.length>=4
 ) {
-function pigpen(str) {
-if (!str.match(/^([JULƆOC7nΓ]|[<^>Vv])\.?$/)) return null;
-var map={
-"J":"a",
-"U":"b",
-"L":"c",
-"Ɔ":"d",
-"O":"e",
-"C":"f",
-"7":"g",
-"n":"h",
-"Γ":"i",
-"J.":"j",
-"U.":"k",
-"L.":"l",
-"Ɔ.":"m",
-"O.":"n",
-"C.":"o",
-"7.":"p",
-"n.":"q",
-"Γ.":"r",
-"v":"s",
-"V":"s",
-">":"t",
-"<":"u",
-"^":"v",
-"v.":"w",
-"V.":"w",
-">.":"x",
-"<.":"y",
-"^.":"z"
-};
-if (map[str]) return map[str];
-return null;
+
+  function pigpen(str) {
+    if (!str.match(/^([JULƆOC7nΓ]|[<^>Vv])\.?$/)) return null;
+    var map={
+    	"J":"a",
+    	"U":"b",
+    	"L":"c",
+    	"Ɔ":"d",
+    	"O":"e",
+    	"C":"f",
+    	"7":"g",
+    	"n":"h",
+    	"Γ":"i",
+    	"J.":"j",
+    	"U.":"k",
+    	"L.":"l",
+    	"Ɔ.":"m",
+    	"O.":"n",
+    	"C.":"o",
+    	"7.":"p",
+    	"n.":"q",
+    	"Γ.":"r",
+    	"v":"s",
+    	"V":"s",
+    	">":"t",
+    	"<":"u",
+    	"^":"v",
+    	"v.":"w",
+    	"V.":"w",
+    	">.":"x",
+    	"<.":"y",
+    	"^.":"z"
+    };
+    if (map[str]) return map[str];
+    return null;
+  }
+  
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(pigpen cipher)</b>");
+  var tmps=TEXT.match(/([JULƆOC7nΓ]|[<^>Vv])\.?/g);
+  var result=[];
+  for (var i in tmps) {
+    result.push(pigpen(tmps[i]));
+  }
+  htmlCode(result.join(""));
+  htmlTmp.push("==============");
 }
-htmlTmp.push(TEXT);
-htmlTmp.push("<b>(pigpen cipher)</b>");
-var tmps=TEXT.match(/([JULƆOC7nΓ]|[<^>Vv])\.?/g);
-var result=[];
-for (var i in tmps) {
-result.push(pigpen(tmps[i]));
-}
-htmlCode(result.join(""));
-htmlTmp.push("==============");
-}
+
 
 // 3行にわけて奇数偶数をそれぞれ上へ下へ
 if (
