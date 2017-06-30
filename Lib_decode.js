@@ -284,6 +284,13 @@ function htmlCode(tmp, addstr) {
 			if (formatExchangeRoman( tmpnum_last, str, msg ) == "fix") return "fix";
 		}
 		
+		// 先頭と末尾で2文字数字
+		if (str.match(numRE_firstEnd)) { 
+			var tmpnum_firstEnd = one1twoFirstEnd(str, 1);
+			if (formatExchangeLetter( tmpnum_firstEnd, "firstEnd", str, msg ) == "fix") return "fix";
+			if (formatExchangeRoman( tmpnum_firstEnd, str, msg ) == "fix") return "fix";
+		}
+		
 		// 途中3文字数字
 		if (str.match(numRE_mid3)) { 
 			var tmpnum_mid3 = one1mid3(str, 1);
@@ -429,7 +436,10 @@ function addNumTwo() {
   return "on|tw|th|fo|fi|si|se|ei|ni|ze".split("|");
 }
 function addNumLast() {
-  return "wo|ee|ur|ve|ix|en|ht|ne|ro".split("|");
+  return "ne|wo|ee|ur|ve|ix|en|ht|ne|ro".split("|");
+}
+function addNumFirstEnd() {
+  return "oe|to|te|fr|fe|sx|sn|et|ne|zo".split("|");
 }
 function addNumMid3() {
   return "one|two|hre|our|ive|six|eve|igh|ine|ero".split("|");
@@ -473,6 +483,9 @@ var numRE_two_fix        = new RegExp( "^" + addNumTwo().join("|") + "$",       
 
 var numRE_last           = new RegExp( addNumLast().join("|"),                  "ig");
 var numRE_last_fix       = new RegExp( "^" + addNumLast().join("|") + "$",      "ig");
+
+var numRE_firstEnd           = new RegExp( addNumFirstEnd().join("|"),                  "ig");
+var numRE_firstEnd_fix       = new RegExp( "^" + addNumFirstEnd().join("|") + "$",      "ig");
 
 var numRE_mid3           = new RegExp( addNumMid3().join("|"),                  "ig");
 var numRE_mid3_fix       = new RegExp( "^" + addNumMid3().join("|") + "$",      "ig");
@@ -3771,7 +3784,7 @@ function one1two(a, flg) {
     return a;
 }
 
-//最後2文字英数字変換
+//末尾2文字英数字変換
 function one1last(a, flg) {
   if (!a) return false;
   var list=keywordCheck(a);
@@ -3797,6 +3810,43 @@ function one1last(a, flg) {
     if (flg) {
       //a=a.replace(/ne/ig, "1");
       a=a.replace(/ro/ig, "0");
+    }
+    
+    var kwl=a.match(/-(\w-)+/g);
+    for (var i in kwl) {
+      a=a.replace(
+        kwl[i], kwl[i].replace(/-/g, ""));
+    }
+    return a;
+}
+
+
+//先頭と最末尾の2文字英数字変換
+function one1twoFirstEnd(a, flg) {
+  if (!a) return false;
+  var list=keywordCheck(a);
+  if (list.length) {
+    for (var i in list) {
+      if (list[i].match(/^i$/i) || list[i].match(/^ni$/i)) continue;
+      a=a.replace(
+        list[i]
+        , "-"+list[i].split("").join("-")+"-");
+      if (list[i].match(numRE_firstEnd_fix)) {
+        break;
+      }
+    }
+  }
+    a=a.replace(/to/ig, "2");
+    a=a.replace(/te/ig, "3");
+    a=a.replace(/fr/ig, "4");
+    a=a.replace(/fe/ig, "5");
+    a=a.replace(/sx/ig, "6");
+    a=a.replace(/sn/ig, "7");
+    a=a.replace(/et/ig, "8");
+    a=a.replace(/ne/ig, "9");
+    if (flg) {
+      //a=a.replace(/oe/ig, "1");
+      a=a.replace(/zo/ig, "0");
     }
     
     var kwl=a.match(/-(\w-)+/g);
