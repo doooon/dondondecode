@@ -2493,7 +2493,7 @@ function checkCodeHTML(str, noA) {
     fmCheck.match(/^nokeyword$/)) {
     result=result.replace(
       /[2-9][a-z]{3}[2-9][a-z][2-9][a-z][2-9][a-z]/ig, "<span class='nokeyword'>$&</span>");
-    */
+    
   } else if (result.match(
       /[a-z]{3}[2-9]{2}[2-9]{3}[a-z]{2}/i)) {
     result=result.replace(
@@ -2509,6 +2509,7 @@ function checkCodeHTML(str, noA) {
     result="<span>";
     result+=result2;
     result+="</span>";
+    */
   }
   
   var reNum=new RegExp("(<span class=')keyw('>("+addNum().join("|")+")</span>)", "ig");
