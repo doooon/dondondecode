@@ -2542,6 +2542,9 @@ function checkCodeHTML(str, noA) {
 function formatCheck(str, keyw) {
   if (!str) return false;
   var result="";
+  var strKouseimoji = str.split("").filter((x, i, self) => self.indexOf(x) === i);
+
+
   var kwStr="";
   if (keyw) kwStr=keyw;
   else kwStr=".*";
@@ -2551,71 +2554,72 @@ function formatCheck(str, keyw) {
   var re01result="standard old";
   var re01resultFix="standard old fix";
 
-  var re02s="^[c-j][a-hjkm-z05]{3}[c-j]"+kwStr+"[a-hjkm-z05][c-j][a-hjkm-z05][c-j][a-hjkm-z05]$";
-  var re02=new RegExp(re02s, "i");      // #aaa#[kw]a#a#a 旧 Daily abc012
-  var re02result="standard old abc012";
-  var re02resultFix="standard old abc012 fix";
+  //var re02s="^[c-j][a-hjkm-z05]{3}[c-j]"+kwStr+"[a-hjkm-z05][c-j][a-hjkm-z05][c-j][a-hjkm-z05]$";
+  //var re02=new RegExp(re02s, "i");      // #aaa#[kw]a#a#a 旧 Daily abc012
+  //var re02result="standard old abc012";
+  //var re02resultFix="standard old abc012 fix";
 
   var re03s="^"+kwStr+"[0-9][a-hjkm-z05]{2}[0-9][0-9][a-hjkm-z05]{2}[0-9]$";
   var re03=new RegExp(re03s, "i");      // [kw]#aa##aa# 長持ちパスコ
   var re03result="infinite";
   var re03resultFix="infinite fix";
 
-  var re04s="^"+kwStr+"[a-j][a-hjkm-z05]{2}[a-j][a-j][a-hjkm-z05]{2}[a-j]$";
-  var re04=new RegExp(re04s, "i");      // [kw]#aa##aa# 長持ちパスコ abc012
-  var re04result="infinite abc012";
-  var re04resultFix="infinite abc012 fix";
+  //var re04s="^"+kwStr+"[a-j][a-hjkm-z05]{2}[a-j][a-j][a-hjkm-z05]{2}[a-j]$";
+  //var re04=new RegExp(re04s, "i");      // [kw]#aa##aa# 長持ちパスコ abc012
+  //var re04result="infinite abc012";
+  //var re04resultFix="infinite abc012 fix";
 
   var re05s="^[a-hjkm-z05]{3}[2-9]{2}"+kwStr+"[2-9]{3}[a-hjkm-z05]{2}$";
   var re05=new RegExp(re05s, "i");      // aaa##[kw]###aa new Daily 2016/06/16
   var re05result="standard new";
   var re05resultFix="standard new fix";
 
-  var re06s="^[a-hjkm-z05]{3}[c-j]{2}"+kwStr+"[c-j]{3}[a-hjkm-z05]{2}$";
-  var re06=new RegExp(re06s, "i");      // aaa##[kw]###aa new Daily 2016/06/16 abc012
-  var re06result="standard abc012 new";
-  var re06resultFix="standard abc012 new fix";
+  //var re06s="^[a-hjkm-z05]{3}[c-j]{2}"+kwStr+"[c-j]{3}[a-hjkm-z05]{2}$";
+  //var re06=new RegExp(re06s, "i");      // aaa##[kw]###aa new Daily 2016/06/16 abc012
+  //var re06result="standard abc012 new";
+  //var re06resultFix="standard abc012 new fix";
 
   var re07s="^[a-hjkm-z05][0-9][a-hjkm-z05][0-9]"+kwStr+"[a-hjkm-z05][0-9][a-hjkm-z05]{2}$";
   var re07=new RegExp(re07s, "i");      // a#a#[kw]a#aa new JoJo 2016/07/00
   var re07result="new JoJo";
   var re07resultFix="new JoJo fix";
 
-  var re08s="^[a-hjkm-z05][a-j][a-hjkm-z05][a-j]"+kwStr+"[a-hjkm-z05][a-j][a-hjkm-z05]{2}$";
-  var re08=new RegExp(re08s, "i");      // a#a#[kw]a#aa new JoJo 2016/07/00 abc012
-  var re08result="new JoJo abc012";
-  var re08resultFix="new JoJo abc012 fix";
+  //var re08s="^[a-hjkm-z05][a-j][a-hjkm-z05][a-j]"+kwStr+"[a-hjkm-z05][a-j][a-hjkm-z05]{2}$";
+  //var re08=new RegExp(re08s, "i");      // a#a#[kw]a#aa new JoJo 2016/07/00 abc012
+  //var re08result="new JoJo abc012";
+  //var re08resultFix="new JoJo abc012 fix";
 
   var re09s="^[a-hjkm-z05]{8}[2-9]"+kwStr+"[2-9]$";
   var re09=new RegExp(re09s, "i");      // aaaaaaaa#[kw]# anomaly
   var re09result="anomaly";
   var re09resultFix="anomaly fix";
 
-  var re10s="^[a-hjkm-z05]{8}[c-j]"+kwStr+"[c-j]$";
-  var re10=new RegExp(re10s, "i");      // aaaaaaaa#[kw]# anomaly abc012
-  var re10result="anomaly abc012";
-  var re10resultFix="anomaly abc012 fix";
+  //var re10s="^[a-hjkm-z05]{8}[c-j]"+kwStr+"[c-j]$";
+  //var re10=new RegExp(re10s, "i");      // aaaaaaaa#[kw]# anomaly abc012
+  //var re10result="anomaly abc012";
+  //var re10resultFix="anomaly abc012 fix";
 
-       if (str.match(re01) && keyw) result = re04resultFix;
-  else if (str.match(re01)        ) result = re01result;
-  else if (str.match(re02) && keyw) result = re02resultFix;
-  else if (str.match(re02)        ) result = re02result;
-  else if (str.match(re03) && keyw) result = re03resultFix;
-  else if (str.match(re03)        ) result = re03result;
-  else if (str.match(re04) && keyw) result = re04resultFix;
-  else if (str.match(re04)        ) result = re04result;
-  else if (str.match(re05) && keyw) result = re05resultFix;
-  else if (str.match(re05)        ) result = re05result;
-  else if (str.match(re06) && keyw) result = re06resultFix;
-  else if (str.match(re06)        ) result = re06result;
-  else if (str.match(re07) && keyw) result = re07resultFix;
-  else if (str.match(re07)        ) result = re07result;
-  else if (str.match(re08) && keyw) result = re08resultFix;
-  else if (str.match(re08)        ) result = re08result;
-  else if (str.match(re09) && keyw) result = re09resultFix;
-  else if (str.match(re09)        ) result = re09result;
-  else if (str.match(re10) && keyw) result = re10resultFix;
-  else if (str.match(re10)        ) result = re10result;
+  // 大体パスコは文字種5以上で30字以内だろうと思う
+       if (str.match(re01) && keyw)                                     result = re04resultFix;
+  else if (str.match(re01) && str.length<30 && strKouseimoji.length>=5) result = re01result;
+//else if (str.match(re02) && keyw)                                     result = re02resultFix;
+//else if (str.match(re02) && str.length<30 && strKouseimoji.length>=5) result = re02result;
+  else if (str.match(re03) && keyw)                                     result = re03resultFix;
+  else if (str.match(re03) && str.length<30 && strKouseimoji.length>=5) result = re03result;
+//else if (str.match(re04) && keyw)                                     result = re04resultFix;
+//else if (str.match(re04) && str.length<30 && strKouseimoji.length>=5) result = re04result;
+  else if (str.match(re05) && keyw)                                     result = re05resultFix;
+  else if (str.match(re05) && str.length<30 && strKouseimoji.length>=5) result = re05result;
+//else if (str.match(re06) && keyw)                                     result = re06resultFix;
+//else if (str.match(re06) && str.length<30 && strKouseimoji.length>=5) result = re06result;
+  else if (str.match(re07) && keyw)                                     result = re07resultFix;
+  else if (str.match(re07) && str.length<30 && strKouseimoji.length>=5) result = re07result;
+//else if (str.match(re08) && keyw)                                     result = re08resultFix;
+//else if (str.match(re08) && str.length<30 && strKouseimoji.length>=5) result = re08result;
+  else if (str.match(re09) && keyw)                                     result = re09resultFix;
+  else if (str.match(re09) && str.length<30 && strKouseimoji.length>=5) result = re09result;
+//else if (str.match(re10) && keyw)                                     result = re10resultFix;
+//else if (str.match(re10) && str.length<30 && strKouseimoji.length>=5) result = re10result;
 
   return result;
 }
