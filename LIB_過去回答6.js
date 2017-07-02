@@ -46,10 +46,12 @@ if (
   }
   htmlTmp.push(resultPlusTmp);
   htmlTmp.push(resultPlus.join(" "));
+  htmlCode(decASCII(resultPlus.join(" ")));
   htmlCode(resultPlus.join(""));
   htmlTmp.push("--------");
   htmlTmp.push(resultMinusTmp);
   htmlTmp.push(resultMinus.join(" "));  
+  htmlCode(decASCII(resultMinus.join(" ")));
   htmlCode(resultMinus.join(""));  
   htmlTmp.push("==============");
 }
