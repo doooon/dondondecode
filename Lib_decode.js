@@ -3316,7 +3316,7 @@ function decASCII(str, kakko) {
 
   var nums=[];
   if (str.match(/^(\d{2,3}\s+)*(\d{2,3})$/)) {
-    nums=str.split(/\s/g);
+    nums=str.split(/\s+/g);
   } else {
     nums=str.match(asciiREplus);
   }
