@@ -2534,7 +2534,7 @@ function checkCodeHTML(str, noA) {
     }
   }
   
-  return result;
+  return "<div class="result">"+result+"</div>";
 }
 
 
