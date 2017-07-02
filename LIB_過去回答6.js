@@ -24,6 +24,8 @@ if (
       resultMinusTmp+=tmp[i];
       currentValuePlus=Number(tmp[i]);
       currentValueMinus=Number(tmp[i]);
+      resultPlus.push(currentValuePlus);
+      resultMinus.push(currentValueMinus);
       continue;
     }
     if (i%2==1) {
