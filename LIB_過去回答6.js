@@ -4,6 +4,55 @@
 // function kakokaitou6() {
 
 
+// 交互に足し引き 結果保持
+if (
+  TEXT.match(/^(([1-9][0-9][0-9]|[1-9][0-9]|[1-9])[\s.,|\/\\\-]){3,}([1-9][0-9][0-9]|[1-9][0-9]|[1-9])$/i) && 
+  kouseimoji.length>=3
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(交互に足し引き 結果保持)</b>");
+  var tmp=TEXT.match(/\d+/g);
+  var resultPlus=[];
+  var resultPlusTmp="";
+  var resultMinus=[];
+  var resultMinusTmp="";
+  var currentValuePlus=0;
+  var currentValueMinus=0;
+  for (var i in tmp) {
+    if (i==0) {
+      resultPlusTmp+=tmp[i];
+      resultMinusTmp+=tmp[i];
+      currentValuePlus=Number(tmp[i]);
+      currentValueMinus=Number(tmp[i]);
+      continue;
+    }
+    if (i%2==1) {
+      currentValuePlus=currentValuePlus+Number(tmp[i]);
+      resultPlus.push(currentValuePlus);
+      resultPlusTmp+=" +"+tmp[i];
+      currentValueMinus=currentValueMinus-Number(tmp[i]);
+      resultMinus.push(currentValueMinus);
+      resultMinusTmp+=" -"+tmp[i];
+    } else {
+      currentValuePlus=currentValuePlus-Number(tmp[i]);
+      resultPlus.push(currentValuePlus);
+      resultPlusTmp+=" -"+tmp[i];
+      currentValueMinus=currentValueMinus+Number(tmp[i]);
+      resultMinus.push(currentValueMinus);
+      resultMinusTmp+=" +"+tmp[i];
+    }
+  }
+  htmlTmp.push(resultPlusTmp);
+  htmlTmp.push(resultPlus.join(" "));
+  htmlCode(resultPlus.join(""));
+  htmlTmp.push("--------");
+  htmlTmp.push(resultMinusTmp);
+  htmlTmp.push(resultMinus.join(" "));  
+  htmlCode(resultMinus.join(""));  
+  htmlTmp.push("==============");
+}
+
+
 // 交互に足し引き
 if (
   TEXT.match(/^(([1-9][0-9][0-9]|[1-9][0-9]|[1-9])[\s.,|\/\\\-]){3,}([1-9][0-9][0-9]|[1-9][0-9]|[1-9])$/i) && 
@@ -25,14 +74,14 @@ if (
     }
     if (i%2==1) {
       resultPlus.push(Number(tmp[i-1])+Number(tmp[i]));
-      resultPlusTmp+="+"+tmp[i];
+      resultPlusTmp+=" +"+tmp[i];
       resultMinus.push(Number(tmp[i-1])-Number(tmp[i]));
-      resultMinusTmp+="-"+tmp[i];
+      resultMinusTmp+=" -"+tmp[i];
     } else {
       resultPlus.push(Number(tmp[i-1])-Number(tmp[i]));
-      resultPlusTmp+="-"+tmp[i];
+      resultPlusTmp+=" -"+tmp[i];
       resultMinus.push(Number(tmp[i-1])+Number(tmp[i]));
-      resultMinusTmp+="+"+tmp[i];
+      resultMinusTmp+=" +"+tmp[i];
     }
   }
   htmlTmp.push(resultPlusTmp);
@@ -44,6 +93,7 @@ if (
   htmlCode(resultMinus.join(""));  
   htmlTmp.push("==============");
 }
+
 
 
 // pigpen (freemason)
