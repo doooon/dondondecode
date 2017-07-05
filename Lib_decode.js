@@ -359,8 +359,7 @@ function htmlCode(tmp, addstr) {
 		if (addstr) { addstr+=" "; }
 		else { addstr=""; }
 		
-		var tmp3RE=new RegExp("^"+tmp3a+"$", "i");
-     if (!tmp3.match(tmp3RE)) {
+		if (tmp3!=tmp3a) {
 			if (checkPasscode(tmp3a)=="fix") { 
 				htmlTmp.push( addstr+checkCodeHTML(tmp3a)+" <span class='leet'>置換&gt;&gt;</span> ");
 				return "fix"; 
