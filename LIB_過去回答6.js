@@ -286,6 +286,28 @@ if (
 }
 */
 
+
+// 半分で前後入れ替えて連結&ペアで前後入れ替え
+if (
+  TEXT.length%2==0 && 
+  kouseimoji.length>=4
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(半分で前後入れ替えて連結&ペアで前後入れ替え)</b>");
+  var tmpRE=new RegExp(".{"+TEXT.length/2+"}", "g");
+  var tmps=TEXT.match(tmpRE);
+  var tmp=tmps[1]+tmps[0];
+  htmlTmp.push(tmps[1]+" "+tmps[0]);
+  var tmps=tmp.match(/../g);
+  for (var i in tmps) {
+    tmps[i]=tmps[i].replace(/(.)(.)/g, "$2$1");
+  }
+  htmlTmp.push(tmps.join(" "));
+  htmlCode(tmps.join(""));
+  htmlTmp.push("==============");
+}
+
+
 // 半分で2段に分けて上下読み出し
 // 7777755555
 if (
