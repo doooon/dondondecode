@@ -359,8 +359,9 @@ function htmlCode(tmp, addstr) {
 		if (addstr) { addstr+=" "; }
 		else { addstr=""; }
 		
-		var tmp3RE=new RegExp("^"+tmp3a+"$", "i");
-     if (!tmp3.match(tmp3RE)) {
+    var tmp3RE=new RegExp("^"+tmp3a.replace(/[\]\[{}.\\?+*()|\-]/ig, "\\$&")+"$", "i");
+    if (!tmp3.match(tmp3RE)) {
+    //if (tmp3!=tmp3a) {
 			if (checkPasscode(tmp3a)=="fix") { 
 				htmlTmp.push( addstr+checkCodeHTML(tmp3a)+" <span class='leet'>置換&gt;&gt;</span> ");
 				return "fix"; 
@@ -2420,7 +2421,9 @@ function checkCodeHTML(str, noA) {
         }
       }
     
-      if (str!=str2) {
+      var strRE=new RegExp("^"+str2.replace(/[\]\[{}.\\?+*()|\-]/ig, "\\$&")+"$", "i");
+      if (!str.match(strRE)) {
+      //if (str!=str2) {
         var re=new RegExp(kList[0], "i");
         var sstr=str.split(re);
         for (var i in sstr) {
