@@ -1207,6 +1207,10 @@ if (tmp.match(/^(\d*[a-z]*\d*)+$/i)) {
     var tmpa=vigenereAutoDec(
       tmp, key);
     htmlCode(tmpa);
+    htmlTmp.push("reverse");
+    var tmpa=vigenereAutoDec(
+      strReverse(tmp), key);
+    htmlCode(strReverse(tmpa));
   }
   
   vigeA("a");
