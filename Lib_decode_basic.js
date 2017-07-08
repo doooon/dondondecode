@@ -1317,7 +1317,7 @@ function getKeyws() {
   addkw.push("kodama"); //2017/01/20
   addkw.push("nova"); //2017/02/01
   addkw.push("cthulhu"); //2017/03/11
-  
+  addkw.push("tecthulhu"); //勝手追加
   addkw.push("oxilium"); //勝手に追加
   addkw.push("tectulu"); //勝手追加
   addkw.push("exogenous"); //勝手追加
