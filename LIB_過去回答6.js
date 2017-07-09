@@ -3,6 +3,41 @@
 
 // function kakokaitou6() {
 
+// 反転×3
+if (
+  TEXT.match(/^([2-9]{2})([a-hjkm-z50]{3})(...)(...)([a-hjkm-z50]{2})([2-9]{3})$/i) && 
+  kouseimoji.length>=4
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(反転×3)</b>");
+  var tmp=RegExp.$2+RegExp.$1+RegExp.$4+RegExp.$3+RegExp.$6+RegExp.$5;
+  htmlCode(tmp);
+  htmlTmp.push("==============");
+}
+
+// 反転×3
+if (
+  TEXT.match(/^([2-9]{2})([a-hjkm-z50]{3})(...)(..)([a-hjkm-z50]{2})([2-9]{3})$/i) && 
+  kouseimoji.length>=4
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(反転×3)</b>");
+  var tmp=RegExp.$2+RegExp.$1+RegExp.$4+RegExp.$3+RegExp.$6+RegExp.$5;
+  htmlCode(tmp);
+  htmlTmp.push("==============");
+}
+
+// 反転×3
+if (
+  TEXT.match(/^([2-9]{2})([a-hjkm-z50]{3})(..)(...)([a-hjkm-z50]{2})([2-9]{3})$/i) && 
+  kouseimoji.length>=4
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(反転×3)</b>");
+  var tmp=RegExp.$2+RegExp.$1+RegExp.$4+RegExp.$3+RegExp.$6+RegExp.$5;
+  htmlCode(tmp);
+  htmlTmp.push("==============");
+}
 
 // elint→intel
 // 58ruaelintxg825
