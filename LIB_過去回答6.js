@@ -4,6 +4,21 @@
 // function kakokaitou6() {
 
 
+// elint→intel
+// 58ruaelintxg825
+if (
+  TEXT.match(/^([2-9]{2})([a-hjkm-z50]{3})(el)(int)([a-hjkm-z50]{2})([2-9]{3})$/i) && 
+  kouseimoji.length>=6
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(elint→intel)</b>");
+  var tmp=RegExp.$2+RegExp.$1+RegExp.$4+RegExp.$3+RegExp.$6+RegExp.$5;
+  htmlCode(tmp);
+  htmlTmp.push("==============");
+}
+
+
+
 // 交互に足し引き 結果保持
 if (
   TEXT.match(/^(([1-9][0-9][0-9]|[1-9][0-9]|[1-9])[\s.,|\/\\\-]){3,}([1-9][0-9][0-9]|[1-9][0-9]|[1-9])$/i) && 
