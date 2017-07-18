@@ -2604,7 +2604,7 @@ function formatCheck(str, keyw) {
   //var re10resultFix="anomaly abc012 fix";
 
   // 大体パスコは文字種5以上で30字以内だろうと思う
-       if (str.match(re01) && keyw)                                     result = re04resultFix;
+       if (str.match(re01) && keyw)                                     result = re01resultFix;
   else if (str.match(re01) && str.length<30 && strKouseimoji.length>=5) result = re01result;
 //else if (str.match(re02) && keyw)                                     result = re02resultFix;
 //else if (str.match(re02) && str.length<30 && strKouseimoji.length>=5) result = re02result;
