@@ -1495,7 +1495,7 @@ function playfairOld(str) {
 //======================================
 
 // bifidデコード
-function bifid(str) {
+function bifid(str,mode) {
   // Polybius square
   var  map=[
     ["","","","","",""],
@@ -1523,6 +1523,22 @@ function bifid(str) {
       if (matchFlag) break;
     }
   }
+  var tmp2Result=[];
+
+if (mode && mode.match(/encode/i)) {
+  // encode mode
+  var tmpResultX=[];
+  var tmpResultY=[];
+  for (var i in tmpResult) {
+    if (i%2==0) {
+      tmpResultX.push(tmpResult[i]);
+    } else {
+      tmpResultY.push(tmpResult[i]);
+    }
+  }
+  tmp2Result=tmpResultX.concat(tmpResultY);
+} else {
+  // decode mode
   var tmpResult1="";
   var tmpResult2="";
   for (var i in tmpResult) {
@@ -1532,18 +1548,20 @@ function bifid(str) {
       tmpResult2+=tmpResult[i];
     }
   }
-  var tmpResult=[];
   for (var i in tmpResult1) {
-    tmpResult.push(tmpResult1[i]);
-    tmpResult.push(tmpResult2[i]);
+    tmp2Result.push(tmpResult1[i]);
+    tmp2Result.push(tmpResult2[i]);
   }
+} // end if mode
+
   var result=[];
-  for (var i=0; i<tmpResult.length;i=i+2) {
+  for(var i=0; i<tmp2Result.length;i=i+2){
     result.push(
-      map[tmpResult[i]][tmpResult[i+1]]);
-  }
+     map[tmp2Result[i]][tmp2Result[i+1]]);
+  } 
   return result.join("");
 }
+
 
 // 連続する同じ数字を数えて二桁へ
 function renzojuNum(str) {
