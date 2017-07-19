@@ -2087,17 +2087,21 @@ if (TEXT.match(/^([5-9][5-9])+$/)) {
 // Bifid変換
 if (TEXT.match(/^[a-z]+$/i)) {
   // Bifid変換
-  var r=bifid(TEXT);
   htmlTmp.push("アルファベットのみ");
-  htmlTmp.push("<b>Bifid変換 (i→j可能性あり)</b>");
-  htmlCode(r);
-  
+  htmlTmp.push("<b>Bifid decode (i→j可能性あり)</b>");
+  htmlCode(bifid(TEXT));
+  htmlTmp.push("<b>Bifid encode  (i→j可能性あり)</b>");
+  htmlCode(bifid(TEXT,"encode"));
+   
   htmlTmp.push("------------");
   htmlTmp.push("(reverse)");
-  htmlTmp.push(strReverse(TEXT));
-  var r=bifid(strReverse(TEXT));
-  htmlCode(r);
-  htmlTmp.push("===============");
+  var r=strReverse(TEXT);
+  htmlTmp.push(r);
+  htmlTmp.push("<b>Bifid decode (i→j可能性あり)</b>");
+  htmlCode(bifid(r));
+  htmlTmp.push("<b>Bifid encode  (i→j可能性あり)</b>");
+  htmlCode(bifid(r,"encode"));
+   htmlTmp.push("===============");
 }
 
 // Playfair変換
