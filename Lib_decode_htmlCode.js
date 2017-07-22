@@ -21,25 +21,16 @@ function htmlCode(tmp, label) {
 function printCheck(tmp2) {
   if ( !tmp2 ) return "";
   
-  if (printMain(tmp2)=="fix") return;
+  if (printMain(tmp2)=="fix") return; // そのままでfix
   
-  if ( printMain( strReverse( tmp2 ), "more", "(more reverse)" )                       == "fix") return;
-  if ( printMain( atbash19( tmp2 ), "more", "(more atbash19)" )                          == "fix") return;
-  if ( printMain( atbash09( tmp2 ), "more", "(more atbash09)" )                        == "fix") return;
-  if ( printMain( atbash19( strReverse( tmp2 )), "more", "(more reverse & atbash19)" )   == "fix") return;
-  if ( printMain( atbash09( strReverse( tmp2 )), "more", "(more reverse & atbash09)" ) == "fix") return;
+  // 以下様々な一括変換を試していく
+  if ( printMain( strReverse( tmp2 ),             "more", "(more reverse)" )              == "fix") return;
+  if ( printMain( atbash19( tmp2 ),               "more", "(more atbash19)" )             == "fix") return;
+  if ( printMain( atbash09( tmp2 ),               "more", "(more atbash09)" )             == "fix") return;
+  if ( printMain( atbash19( strReverse( tmp2 )),  "more", "(more reverse & atbash19)" )   == "fix") return;
+  if ( printMain( atbash09( strReverse( tmp2 )),  "more", "(more reverse & atbash09)" )   == "fix") return;
   
-  var decRE      = new RegExp( "^(0??[4][8-9]|0??[5][0-7]|0??[6][5-9]|0??[7-8][0-9]|0??[9][0]|0??[9][7-9]|[1][0-1][0-9]|[1][2][0-2])+$", "");
-  var octRE      = new RegExp( "^(0??[6][0-7]|0??[7][1]|[1][0][1-7]|[1][1-2][0-7]|[1][3][0-2]|[1][4][1-7]|[1][5-6][0-7]|[1][7][0-2])+$", "");
-  var hexRE      = new RegExp( "^([3][0-9]|[4][1-9a-f]|[5][0-9a]|[6][1-9a-f]|[7][0-9a])+$", "i");
-  var to012abcRE = new RegExp( "^([0-1][0-9]|2[0-5])+$", "i");
-  var to123abcRE = new RegExp( "^(0[1-9]|1[0-9]|2[0-6])+$", "i");
-  var qwertyXYRE = new RegExp( "^([0-9][0-3]\s*)+$", "i");
-  var kwabc012RE = new RegExp( "^[a-z]+$", "i");
-  var symbolRE   = new RegExp( "[!@#$%^&*()]", "g");
   
-  //var abc012RE=new RegExp(
-  //  "^[a-j]+$", "i");
   
   
   // バイナリ
