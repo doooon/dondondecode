@@ -5,18 +5,17 @@ function htmlCode(tmp, label) {
   if (tmp==null) return "";
   if (label && label!="") htmlCodeLabel=label;
 
-	// チェック
-	printCheck(tmp);  // 内部でprintMain()を呼び出していく
-	
+  // チェック
+  printCheck(tmp);  // 内部でprintMain()を呼び出していく
+    
   // タイムスタンプ
   var d=new Date();
   htmlTmp.push(  
-    "<div class='elapsedtime'>"+ 
-    (  
-(d.getTime() -startTime.getTime()) /1000  
-     ) + "s</div>"  
+    "<div class='elapsedtime'>"+(  
+      (d.getTime() -startTime.getTime()) /1000  
+    )+"s</div>"  
   );
-	
+    
 }
 
 function printCheck(tmp2) {
@@ -41,14 +40,6 @@ function printCheck(tmp2) {
   
   //var abc012RE=new RegExp(
   //  "^[a-j]+$", "i");
-  
-  //base64 decode
-  function decodeBase64print(str) {
-    if ( str.length%4 == 0 && str.match( /^[a-zA-Z0-9+\/]+=*$/ )) {
-      if ( printMain( base64Dec(str), "more", "(more Base64 decode)" ) == "fix") return;
-    }
-  }
-  
   
   
   // バイナリ
@@ -240,6 +231,13 @@ function printMain(tmp3, moreF, msg) {
   }		
   
 } // END function printMain()
+
+//base64 decode
+function decodeBase64print(str) {
+  if ( str.length%4 == 0 && str.match( /^[a-zA-Z0-9+\/]+=*$/ )) {
+    if ( printMain( base64Dec(str), "more", "(more Base64 decode)" ) == "fix") return;
+  }
+}
 
 // フォーマットになっているローマ数字を変換
 function formatExchangeRoman(ferstr, orignal, msg) {
