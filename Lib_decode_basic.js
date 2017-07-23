@@ -1054,7 +1054,7 @@ function leetKeyws() {
   
   
   
-  
+  ["franken","stein","フランケンシュタイン"], 
   ["terras ?astraea ?reliquit","titus","web検索"], 
   ["pobednik","victor","ボスニア語「勝者」"], 
   ["m[0o][1L][3e]","mole","leet"], 
