@@ -389,6 +389,12 @@ function analyzeText(str) {
 	      "構成文字が3種類。モールスの可能性。連続しない文字は "+tmp);
 	  }
   }
+  if (
+  str.match(/^[eish5]+$/i) && 
+  kouseimoji.length>=3 && 
+  str.length%2==0 &&
+  str.length>8
+) {
   if (str.match(/^[0mcxi\s]+$/i)) {
     alertMsg.push(
       "構成文字がMCXI+0でローマ数字バイナリ");
