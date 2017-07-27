@@ -22,7 +22,12 @@ if (
   htmlCode(result.join(""));
   htmlTmp.push("<b>(polybius)</b>");
   htmlCode(polybius(result.join("")));
-  htmlTmp.push("==============");
+  
+  var tmp2=polybius(result.join(""));
+  htmlTmp.push(tmp2);
+  htmlCode(tmp2);
+
+htmlTmp.push("==============");
 }
 
 
