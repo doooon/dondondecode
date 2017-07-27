@@ -391,9 +391,7 @@ function analyzeText(str) {
   }
   if (
   str.match(/^[eish5]+$/i) && 
-  kouseimoji.length>=3 && 
   str.length%2==0 &&
-  str.length>8
 ) {
   alertMsg.push(
       "短符のみモールスからPolybiusの可能性");
