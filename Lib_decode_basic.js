@@ -395,6 +395,9 @@ function analyzeText(str) {
   str.length%2==0 &&
   str.length>8
 ) {
+  alertMsg.push(
+      "短符のみモールスからPolybiusの可能性");
+  }
   if (str.match(/^[0mcxi\s]+$/i)) {
     alertMsg.push(
       "構成文字がMCXI+0でローマ数字バイナリ");
