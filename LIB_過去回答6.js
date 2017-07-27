@@ -47,6 +47,10 @@ if (
   htmlTmp.push("<b>(反転×3)</b>");
   var tmp=RegExp.$2+RegExp.$1+RegExp.$4+RegExp.$3+RegExp.$6+RegExp.$5;
   htmlCode(tmp);
+  
+  var tmp=polybius(result.join(""));
+  htmlTmp.push(tmp);
+  htmlCode(tmp);
   htmlTmp.push("==============");
 }
 
