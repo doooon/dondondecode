@@ -3,6 +3,29 @@
 
 // function kakokaitou6() {
 
+
+// 短符のみモールスからpolybius
+if (
+  TEXT.match(/^[eish5]+$/i) && 
+  kouseimoji.length>=3 && 
+  TEXT.length%2==0 &&
+  TEXT.length>8
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(短符のみモールスからpolybius)</b>");
+  var tmp=morseExchange(TEXT);
+  var tmpL=tmp.split(/\s/g);
+  var result=[];
+  for (var i in tmpL) {
+    result.push(tmpL[i].length);
+  }
+  htmlCode(result.join(""));
+  htmlTmp.push("<b>(polybius)</b>");
+  htmlCode(polybius(result.join("")));
+  htmlTmp.push("==============");
+}
+
+
 // 反転×3
 if (
   TEXT.match(/^([2-9]{2})([a-hjkm-z50]{3})(...)(...)([a-hjkm-z50]{2})([2-9]{3})$/i) && 
