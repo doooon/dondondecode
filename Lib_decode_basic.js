@@ -390,10 +390,10 @@ function analyzeText(str) {
 	  }
   }
   if (
-  str.match(/^[eish5]+$/i) && 
-  str.length%2==0 &&
-) {
-  alertMsg.push(
+    str.match(/^[eish5]+$/i) && 
+    str.length%2==0
+  ) {
+    alertMsg.push(
       "短符のみモールスからPolybiusの可能性");
   }
   if (str.match(/^[0mcxi\s]+$/i)) {
