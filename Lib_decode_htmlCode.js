@@ -333,6 +333,13 @@ function formatExchange(str, msg) {
     if (formatExchangeRoman( tmpnum_last, str, msg ) == "fix") return "fix";
   }
   
+  // ラスト3文字数字
+  if (str.match(numRE_last3)) { 
+    var tmpnum_last3 = one1last3(str, 1);
+    if (formatExchangeLetter( tmpnum_last3, "last3", str, msg ) == "fix") return "fix";
+    if (formatExchangeRoman( tmpnum_last3, str, msg ) == "fix") return "fix";
+  }
+  
   // 先頭と末尾で2文字数字
   if (str.match(numRE_firstEnd)) { 
       var tmpnum_firstEnd = one1twoFirstEnd(str, 1);
@@ -407,6 +414,9 @@ function addNumTwo() {
 function addNumLast() {
   return "ne|wo|ee|ur|ve|ix|en|ht|ne|ro".split("|");
 }
+function addNumLast3() {
+  return "one|two|ree|our|ive|six|ven|ght|ine|ero".split("|");
+}
 function addNumFirstEnd() {
   return "oe|to|te|fr|fe|sx|sn|et|ne|zo".split("|");
 }
@@ -452,6 +462,9 @@ var numRE_two_fix        = new RegExp( "^" + addNumTwo().join("|") + "$",       
 
 var numRE_last           = new RegExp( addNumLast().join("|"),                  "ig");
 var numRE_last_fix       = new RegExp( "^" + addNumLast().join("|") + "$",      "ig");
+
+var numRE_last3           = new RegExp( addNumLast3().join("|"),                  "ig");
+var numRE_last3_fix       = new RegExp( "^" + addNumLast3().join("|") + "$",      "ig");
 
 var numRE_firstEnd           = new RegExp( addNumFirstEnd().join("|"),                  "ig");
 var numRE_firstEnd_fix       = new RegExp( "^" + addNumFirstEnd().join("|") + "$",      "ig");
@@ -1078,6 +1091,43 @@ function one1last(a, flg) {
     if (flg) {
       a=a.replace(/ne/ig, "1");
       a=a.replace(/ro/ig, "0");
+    }
+    
+    var kwl=a.match(/-(\w-)+/g);
+    for (var i in kwl) {
+      a=a.replace(
+        kwl[i], kwl[i].replace(/-/g, ""));
+    }
+    return a;
+}
+
+
+//末尾3文字英数字変換
+function one1last3(a, flg) {
+  if (!a) return false;
+  var list=keywordCheck(a);
+  if (list.length) {
+    for (var i in list) {
+      if (list[i].match(/^i$/i) || list[i].match(/^ni$/i)) continue;
+      a=a.replace(
+        list[i]
+        , "-"+list[i].split("").join("-")+"-");
+      if (list[i].match(numRE_last3_fix)) {
+        break;
+      }
+    }
+  }
+    a=a.replace(/two/ig, "2");
+    a=a.replace(/ree/ig, "3");
+    a=a.replace(/our/ig, "4");
+    a=a.replace(/ive/ig, "5");
+    a=a.replace(/six/ig, "6");
+    a=a.replace(/ven/ig, "7");
+    a=a.replace(/ght/ig, "8");
+    a=a.replace(/ine/ig, "9");
+    if (flg) {
+      a=a.replace(/one/ig, "1");
+      a=a.replace(/ero/ig, "0");
     }
     
     var kwl=a.match(/-(\w-)+/g);
