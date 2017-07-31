@@ -567,11 +567,11 @@ function romanExchange(str, str2) {
 function replaceKw012(str, kw) {	
    //alert("kw: "+kw+"\nkw.length: "+kw.length);
    var len = str.length - kw.length;
-	var tmp1 = "([c-j])([a-z]{3})([c-j])("+kw+")([a-z])([c-j])([a-z])([c-j])([a-z])";
-	var tmp2 = "([a-z]{3})([c-j]{2})("+kw+")([c-j]{3})([a-z]{2})";
-	var tmp3 = "([a-z])([a-j])([a-z])([a-j])("+kw+")([a-z])([a-j])([a-z][a-z])";
-	var tmp4 = "("+kw+")([c-j])([a-z][a-z])([c-j][c-j])([a-z][a-z])([c-j])";
-	var tmp5 = "([a-z]{8})([c-j][c-j])("+kw+")([c-j][c-j])";
+	var tmp1 = "([c-j])([a-hjkm-z]{3})([c-j])("+kw+")([a-hjkm-z])([c-j])([a-hjkm-z])([c-j])([a-hjkm-z])";
+	var tmp2 = "([a-hjkm-z]{3})([c-j]{2})("+kw+")([c-j]{3})([a-hjkm-z]{2})";
+	var tmp3 = "([a-hjkm-z])([a-j])([a-hjkm-z])([a-j])("+kw+")([a-hjkm-z])([a-j])([a-hjkm-z][a-hjkm-z])";
+	var tmp4 = "("+kw+")([c-j])([a-hjkm-z][a-hjkm-z])([c-j][c-j])([a-hjkm-z][a-hjkm-z])([c-j])";
+	var tmp5 = "([a-hjkm-z]{8})([c-j][c-j])("+kw+")([c-j][c-j])";
 	var tmpRE = new RegExp( `^(${tmp1}|${tmp2}|${tmp3}|${tmp4}|${tmp5})$`, "i");
 	
 	if ( str.match(tmpRE) && len>=8 && len<=12) {
@@ -629,11 +629,11 @@ function replaceKw012(str, kw) {
 // go→stay
 function replaceGo(str) {
 	
-	var tmp1 = "([2-9][a-z]{3}[2-9])(go)([a-z][2-9][a-z][2-9][a-z])";
-	var tmp2 = "([a-z]{3}[2-9]{2})(go)([2-9]{3}[a-z]{2})";
-	var tmp3 = "([a-z][0-9][a-z][0-9])(go)([a-z][0-9][a-z][a-z])";
-	var tmp4 = "(go)([2-9][a-z][a-z][2-9][2-9][a-z][a-z][2-9])";
-	var tmp5 = "([a-z]{8}[2-9][2-9])(go)([2-9][2-9])";
+	var tmp1 = "([2-9][a-hjkm-z]{3}[2-9])(go)([a-hjkm-z][2-9][a-hjkm-z][2-9][a-hjkm-z])";
+	var tmp2 = "([a-hjkm-z]{3}[2-9]{2})(go)([2-9]{3}[a-hjkm-z]{2})";
+	var tmp3 = "([a-hjkm-z][0-9][a-hjkm-z][0-9])(go)([a-hjkm-z][0-9][a-hjkm-z][a-hjkm-z])";
+	var tmp4 = "(go)([2-9][a-hjkm-z][a-hjkm-z][2-9][2-9][a-hjkm-z][a-hjkm-z][2-9])";
+	var tmp5 = "([a-hjkm-z]{8}[2-9][2-9])(go)([2-9][2-9])";
 	var tmpRE = new RegExp( `^(${tmp1}|${tmp2}|${tmp3}|${tmp4}|${tmp5})$`, "i");
 	
 	if ( str.match(tmpRE) ) {
@@ -661,11 +661,11 @@ function replaceGo(str) {
 // 82→lead
 function replace82(str) {
 	
-	var tmp1 = "([2-9][a-z]{3}[2-9])(82)([a-z][2-9][a-z][2-9][a-z])";
-	var tmp2 = "([a-z]{3}[2-9]{2})(82)([2-9]{3}[a-z]{2})";
-	var tmp3 = "([a-z][0-9][a-z][0-9])(82)([a-z][0-9][a-z][a-z])";
-	var tmp4 = "(82)([2-9][a-z][a-z][2-9][2-9][a-z][a-z][2-9])";
-	var tmp5 = "([a-z]{8}[2-9][2-9])(82)([2-9][2-9])";
+	var tmp1 = "([2-9][a-hjkm-z]{3}[2-9])(82|R)([a-hjkm-z][2-9][a-hjkm-z][2-9][a-hjkm-z])";
+	var tmp2 = "([a-hjkm-z]{3}[2-9]{2})(82|R)([2-9]{3}[a-hjkm-z]{2})";
+	var tmp3 = "([a-hjkm-z][0-9][a-hjkm-z][0-9])(82|R)([a-hjkm-z][0-9][a-hjkm-z][a-hjkm-z])";
+	var tmp4 = "(82|R)([2-9][a-hjkm-z][a-hjkm-z][2-9][2-9][a-hjkm-z][a-hjkm-z][2-9])";
+	var tmp5 = "([a-hjkm-z]{8}[2-9][2-9])(82|R)([2-9][2-9])";
 	var tmpRE = new RegExp( `^(${tmp1}|${tmp2}|${tmp3}|${tmp4}|${tmp5})$`, "i");
 	
 	if ( str.match(tmpRE) ) {
@@ -692,11 +692,11 @@ function replace82(str) {
 // 6→vi
 function replaceVI(str) {
 	
-	var tmp1 = "([2-9][a-z]{3}[2-9])(6)([a-z][2-9][a-z][2-9][a-z])";
-	var tmp2 = "([a-z]{3}[2-9]{2})(6)([2-9]{3}[a-z]{2})";
-	var tmp3 = "([a-z][0-9][a-z][0-9])(6)([a-z][0-9][a-z][a-z])";
-	var tmp4 = "(6)([2-9][a-z][a-z][2-9][2-9][a-z][a-z][2-9])";
-	var tmp5 = "([a-z]{8}[2-9][2-9])(6)([2-9][2-9])";
+	var tmp1 = "([2-9][a-hjkm-z]{3}[2-9])(6)([a-hjkm-z][2-9][a-hjkm-z][2-9][a-hjkm-z])";
+	var tmp2 = "([a-hjkm-z]{3}[2-9]{2})(6)([2-9]{3}[a-hjkm-z]{2})";
+	var tmp3 = "([a-hjkm-z][0-9][a-hjkm-z][0-9])(6)([a-hjkm-z][0-9][a-hjkm-z][a-hjkm-z])";
+	var tmp4 = "(6)([2-9][a-hjkm-z][a-hjkm-z][2-9][2-9][a-hjkm-z][a-hjkm-z][2-9])";
+	var tmp5 = "([a-hjkm-z]{8}[2-9][2-9])(6)([2-9][2-9])";
 	var tmpRE = new RegExp( `^(${tmp1}|${tmp2}|${tmp3}|${tmp4}|${tmp5})$`, "i");
 	
 	if ( str.match(tmpRE) ) {
