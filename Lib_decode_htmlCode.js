@@ -661,11 +661,11 @@ function replaceGo(str) {
 // 82→lead
 function replace82(str) {
 	
-	var tmp1 = "([2-9][a-hjkm-z]{3}[2-9])(82|R)([a-hjkm-z][2-9][a-hjkm-z][2-9][a-hjkm-z])";
-	var tmp2 = "([a-hjkm-z]{3}[2-9]{2})(82|R)([2-9]{3}[a-hjkm-z]{2})";
-	var tmp3 = "([a-hjkm-z][0-9][a-hjkm-z][0-9])(82|R)([a-hjkm-z][0-9][a-hjkm-z][a-hjkm-z])";
-	var tmp4 = "(82|R)([2-9][a-hjkm-z][a-hjkm-z][2-9][2-9][a-hjkm-z][a-hjkm-z][2-9])";
-	var tmp5 = "([a-hjkm-z]{8}[2-9][2-9])(82|R)([2-9][2-9])";
+	var tmp1 = "([2-9][a-hjkm-z]{3}[2-9])(Pb|82|R)([a-hjkm-z][2-9][a-hjkm-z][2-9][a-hjkm-z])";
+	var tmp2 = "([a-hjkm-z]{3}[2-9]{2})(Pb|82|R)([2-9]{3}[a-hjkm-z]{2})";
+	var tmp3 = "([a-hjkm-z][0-9][a-hjkm-z][0-9])(Pb|82|R)([a-hjkm-z][0-9][a-hjkm-z][a-hjkm-z])";
+	var tmp4 = "(Pb|82|R)([2-9][a-hjkm-z][a-hjkm-z][2-9][2-9][a-hjkm-z][a-hjkm-z][2-9])";
+	var tmp5 = "([a-hjkm-z]{8}[2-9][2-9])(Pb|82|R)([2-9][2-9])";
 	var tmpRE = new RegExp( `^(${tmp1}|${tmp2}|${tmp3}|${tmp4}|${tmp5})$`, "i");
 	
 	if ( str.match(tmpRE) ) {
