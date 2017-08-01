@@ -659,7 +659,7 @@ if ((
     }
     b64TEXT=tmpsNew.join("");
     htmlTmp.push("(ドットが大文字小文字の目印)");
-    htmlTmp.push(tmpsNew.join(""));
+    htmlTmp.push(b64TEXT);
   }
   
   function checkMoreBase64Dec(str) {
