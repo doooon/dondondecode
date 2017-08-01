@@ -636,7 +636,6 @@ if ((
   if (
     TEXT.match(/[.,\-\+:|\\\s]/)
   ) {
-    htmlTmp.push("(ドットが大文字小文字の目印)");
     var tmps=TEXT.split(/[.,\-\+:|\\\s]+/g);
     var tmpsNew=[];
     for (var i in tmps) {
@@ -659,6 +658,8 @@ if ((
       }
     }
     b64TEXT=tmpsNew.join("");
+    htmlTmp.push("(ドットが大文字小文字の目印)");
+    htmlTmp.push(tmpsNew.join(""));
   }
   
   function checkMoreBase64Dec(str) {
