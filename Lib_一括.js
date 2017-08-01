@@ -614,8 +614,8 @@ if ((
     ) || (
     TEXT.match(
     /^[a-zA-Z0-9+\/=]+$/) 
-    && TEXT[0].match(/[QRSTUVWYZabcde]/i)
-    && TEXT[4].match(/[MNO]/i)
+    && ((TEXT[0].match(/[QRSTUVWYZabcde]/i)
+    && TEXT[4].match(/[MNO]/i)) ||TEXT[0].match(/[MNO]/i))
     )
   ) {
     
@@ -636,6 +636,7 @@ if ((
   if (
     TEXT.match(/[.,\-\+:|\\\s]/)
   ) {
+    htmlTmp.push("(ドットが大文字小文字の目印)");
     var tmps=TEXT.split(/[.,\-\+:|\\\s]+/g);
     var tmpsNew=[];
     for (var i in tmps) {
