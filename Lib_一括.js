@@ -1543,7 +1543,7 @@ function goMorse(sorce) {
   htmlTmp.push("(reverse)");
   var rev=morse.split(
     "").reverse().join("");
-  //htmlTmp.push(rev);
+  htmlTmp.push(rev);
   htmlTmp.push("(de-morse)");
   var demrs=morseExchange(rev);
   htmlCode(demrs);
@@ -1591,7 +1591,7 @@ function goMorse(sorce) {
     else if (tmp[i]==".") { tmp[i]="-"; }
   }
   var swap=tmp.join("");
-  //htmlTmp.push(swap);
+  htmlTmp.push(swap);
   htmlTmp.push("(de-morse)");
   var demrs=morseExchange(swap);
   htmlCode(demrs);
@@ -1636,7 +1636,7 @@ function goMorse(sorce) {
   var swpRev;
   swpRev=swap.split(
     "").reverse().join("");
-  //htmlTmp.push(swpRev);
+  htmlTmp.push(swpRev);
   htmlTmp.push("(de-morse)");
   var demrs=morseExchange(swpRev);
   htmlCode(demrs);
