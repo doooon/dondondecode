@@ -4,7 +4,27 @@
 // function kakokaitou6() {
 
 
+// 大文字／小文字／数字、でモールス
+if (
+  TEXT.match(/^(([a-z]{1,6})\d)+[a-z]{1,6}$/i) && 
+  !TEXT.match(/[a-z]{6}/) && 
+  !TEXT.match(/[A-Z]{6}/) && 
+  (TEXT.match(/[a-z]/) && TEXT.match(/[A-Z]/)) && 
+  kouseimoji.length>=3
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(大文字／小文字／数字、でモールス)</b>");
+  var tmp=TEXT.replace(/\d/g, " ");
+  tmp=tmp.replace(/[a-z]/g, "-");
+  tmp=tmp.replace(/[A-Z]/g, ".");
+  htmlTmp.push(tmp);
+  goMorse(tmp);
+  htmlTmp.push("==============");
+}
+
+
 // 短符のみモールスからpolybius
+// (長符のみは----が無いので出来ない)
 if (
   TEXT.match(/^[eish5]+$/i) && 
   kouseimoji.length>=3 && 
