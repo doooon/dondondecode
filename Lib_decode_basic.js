@@ -1058,10 +1058,9 @@ function leetKeyws() {
   
   
   
-  
-  
+  ["[0O]P[3E]R[4A][7T][1I][5V][3E]","operative","leet"], 
   ["confront","avoid","意味bash"], 
-["WQnh0diWkxk","ghost","youtube"], 
+  ["WQnh0diWkxk","ghost","youtube"], 
   ["franken","stein","フランケンシュタイン"], 
   ["terras ?astraea ?reliquit","titus","web検索"], 
   ["pobednik","victor","ボスニア語「勝者」"], 

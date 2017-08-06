@@ -4,11 +4,56 @@
 // function kakokaitou6() {
 
 
+// 大文字／小文字／記号、でモールス
+if (
+  !TEXT.match(/[a-z]{6,}/) && 
+  !TEXT.match(/[A-Z]{6,}/) && 
+  !TEXT.match(/[!@#$%^&*()]{6,}/) && 
+  TEXT.match(/[a-z]/) && 
+  TEXT.match(/[A-Z]/) && 
+  TEXT.match(/[!@#$%^&*()]/) && 
+  kouseimoji.length>=3
+) {
+  var tmp="";
+  if (TEXT.match(/^(([a-z]{1,6})[!@#$%^&*()])+[a-z]{1,6}$/i)) {
+    htmlTmp.push(TEXT);
+    htmlTmp.push("<b>(大文字／小文字／記号区切り、でモールス)</b>");
+    tmp=TEXT.replace(/[!@#$%^&*()]/g, " ");
+    tmp=tmp.replace(/[a-z]/g, "-");
+    tmp=tmp.replace(/[A-Z]/g, ".");
+    htmlTmp.push(tmp);
+    goMorse(tmp);
+    htmlTmp.push("==============");
+  } else if (TEXT.match(/^(([A-Z!@#$%^&*()]{1,6})[a-z])+[A-Z!@#$%^&*()]{1,6}$/)) {
+    htmlTmp.push(TEXT);
+    htmlTmp.push("<b>(大文字／記号／小文字区切り、でモールス)</b>");
+    tmp=TEXT.replace(/[a-z]/g, " ");
+    tmp=tmp.replace(/[!@#$%^&*()]/g, "-");
+    tmp=tmp.replace(/[A-Z]/g, ".");
+    htmlTmp.push(tmp);
+    goMorse(tmp);
+    htmlTmp.push("==============");
+  } else if (TEXT.match(/^(([a-z!@#$%^&*()]{1,6})[A-Z])+[a-z!@#$%^&*()]{1,6}$/)) {
+    htmlTmp.push(TEXT);
+    htmlTmp.push("<b>(記号／小文字／大文字区切り、でモールス)</b>");
+    tmp=TEXT.replace(/[A-Z]/g, " ");
+    tmp=tmp.replace(/[a-z]/g, "-");
+    tmp=tmp.replace(/[!@#$%^&*()]/g, ".");
+    htmlTmp.push(tmp);
+    goMorse(tmp);
+    htmlTmp.push("==============");
+  }
+}
+
+
 // 大文字／小文字／数字、でモールス
 if (
   !TEXT.match(/[a-z]{6,}/) && 
   !TEXT.match(/[A-Z]{6,}/) && 
-  (TEXT.match(/[a-z]/) && TEXT.match(/[A-Z]/)) && 
+  !TEXT.match(/\d{6,}/) && 
+  TEXT.match(/[a-z]/) && 
+  TEXT.match(/[A-Z]/) && 
+  TEXT.match(/\d/) && 
   kouseimoji.length>=3
 ) {
   var tmp="";
@@ -30,7 +75,7 @@ if (
     htmlTmp.push(tmp);
     goMorse(tmp);
     htmlTmp.push("==============");
-  } else if (TEXT.match(/^(([a-zd]{1,6})[A-Z])+[a-z\d]{1,6}$/)) {
+  } else if (TEXT.match(/^(([a-z\d]{1,6})[A-Z])+[a-z\d]{1,6}$/)) {
     htmlTmp.push(TEXT);
     htmlTmp.push("<b>(数字／小文字／大文字区切り、でモールス)</b>");
     tmp=TEXT.replace(/[A-Z]/g, " ");
