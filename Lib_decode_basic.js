@@ -1058,6 +1058,8 @@ function leetKeyws() {
   
   
   
+
+  ["apart","together","意味bash"], 
   ["[0O]P[3E]R[4A][7T][1I][5V][3E]","operative","leet"], 
   ["confront","avoid","意味bash"], 
   ["WQnh0diWkxk","ghost","youtube"], 
