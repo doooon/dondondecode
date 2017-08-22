@@ -221,7 +221,7 @@ function analyzeText(str) {
   result.push("kw無し > destroy, separateなど、altタグならimageの内容やfile名、gryphは見当たらないか？");
   result.push("kw無し > aタグなら Link");
   result.push("kw無し > \\ならescape");
-  result.push("繰り返し > repeat, again, recursion, ITERATIONなど");
+  result.push("繰り返し > repeat, again, recursion, iteration, self, togetherなど");
   result.push("引き算 less、引き算 lose、足し算 gain、足し引き signs");
   result.push("置換え transpose transposition");
   result.push("反転 mirror ");
