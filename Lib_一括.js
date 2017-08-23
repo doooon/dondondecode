@@ -662,7 +662,7 @@ if ((
     htmlTmp.push(b64TEXT);
   }
   
-  
+  /*
   if (
     TEXT.match(/[.,\-\+:|\\\s]/)
   ) {
@@ -691,7 +691,8 @@ if ((
     htmlTmp.push("(ドットが前の文字の大文字小文字の目印)");
     htmlTmp.push(b64TEXT);
   }
-  
+  */
+
   function checkMoreBase64Dec(str) {
     if (str.match(/^[a-z]{4,}$/) || str.match(/^[A-Z]{4,}$/)) {
       htmlTmp.push("<span class='alert'>(文字列が揃いすぎ。あやしい…)</span>");
