@@ -662,6 +662,36 @@ if ((
     htmlTmp.push(b64TEXT);
   }
   
+  
+  if (
+    TEXT.match(/[.,\-\+:|\\\s]/)
+  ) {
+    var tmps=TEXT.split(/[.,\-\+:|\\\s]+/g);
+    var tmpsNew=[];
+    for (var i in tmps) {
+      if (i==tmps.length-1) {
+        tmpsNew[i]=tmps[i];
+        break;
+      }
+      if (tmps[i][0].match(/[a-z]/)) {
+        tmpsNew[i]=
+          tmps[i][-1].toUpperCase();
+      } else if (tmps[i][0].match(/[A-Z]/)) {
+        tmpsNew[i]=
+          tmps[i][-1].toLowerCase();
+      } else {
+        tmpsNew[i]=tmps[i][-1];
+      }
+      for (var j in tmps[i]) {
+        if (j==0) continue;
+        tmpsNew[i]+=tmps[i][j];
+      }
+    }
+    b64TEXT=tmpsNew.join("");
+    htmlTmp.push("(ドットが前の文字の大文字小文字の目印)");
+    htmlTmp.push(b64TEXT);
+  }
+  
   function checkMoreBase64Dec(str) {
     if (str.match(/^[a-z]{4,}$/) || str.match(/^[A-Z]{4,}$/)) {
       htmlTmp.push("<span class='alert'>(文字列が揃いすぎ。あやしい…)</span>");
