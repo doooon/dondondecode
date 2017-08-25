@@ -615,6 +615,7 @@ if ((
     TEXT.match(
     /^[a-zA-Z0-9+\/=]+$/) 
     && ((TEXT[0].match(/[QRSTUVWYZabcde]/i)
+    && TEXT.length>=4
     && TEXT[4].match(/[MNO]/i)) ||TEXT[0].match(/[MNO]/i))
     )
   ) {
