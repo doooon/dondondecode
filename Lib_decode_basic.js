@@ -1063,7 +1063,7 @@ function leetKeyws() {
 
 
 
-  
+  ["M[3E][ZN][7T][4A][1L][1I][5VS]M","mentalism","leet"], 
   ["100ern","cern","ローマ数字"], 
   ["apart","together","意味bash"], 
   ["[0O]P[3E]R[4A][7T][1I][5V][3E]","operative","leet"], 
