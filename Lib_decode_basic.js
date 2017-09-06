@@ -1062,7 +1062,8 @@ function leetKeyws() {
 
 
 
-
+  ["honesty","deception","意味bash"], 
+  ["D[3E]C[3E]P[7T][1I][0O]N","deception","leet"], 
   ["M[3E][ZN][7T][4A][1L][1I][5VS]M","mentalism","leet"], 
   ["100ern","cern","ローマ数字"], 
   ["apart","together","意味bash"], 
