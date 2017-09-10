@@ -13,7 +13,7 @@ if (
 ) {
   htmlTmp.push(TEXT);
   htmlTmp.push("<b>(prifix, suffixを反転[旧フォーマット])</b>");
-  var tmp=TEXT.replace(/^([2-9][a-hjkm-z]{3}[2-9])(\w+)([a-hjkm-z][2-9][a-hjkm-z][2-9][a-hjkm-z])$/i, "0");
+  var tmp=TEXT.match(/^([2-9][a-hjkm-z]{3}[2-9])(\w+)([a-hjkm-z][2-9][a-hjkm-z][2-9][a-hjkm-z])$/i);
   var result=[];
   for (var i in tmp) {
     if (i%2==0) {
