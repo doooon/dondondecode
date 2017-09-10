@@ -4,6 +4,29 @@
 // function kakokaitou6() {
 
 
+
+// prifix, suffixを反転(旧フォーマット)
+if (
+  TEXT.match(/^[a-z0-9]+$/i) && 
+  kouseimoji.length>=3 && 
+  TEXT.match(/^[2-9][a-hjkm-z]{3}[2-9]\w+[a-hjkm-z][2-9][a-hjkm-z][2-9][a-hjkm-z]$/i)
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(prifix, suffixを反転[旧フォーマット])</b>");
+  var tmp=TEXT.replace(/^([2-9][a-hjkm-z]{3}[2-9])(\w+)([a-hjkm-z][2-9][a-hjkm-z][2-9][a-hjkm-z])$/i, "0");
+  var result=[];
+  for (var i in tmp) {
+    if (i%2==0) {
+      result.push(strReverse(tmp[i]));
+    } else {
+      result.push(tmp[i]);
+    }
+  }
+  htmlCode(result.join(""));
+  htmlTmp.push("==============");
+}
+
+
 // 大文字／小文字／記号、でモールス
 if (
   !TEXT.match(/[a-z]{6,}/) && 
