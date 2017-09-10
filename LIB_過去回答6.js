@@ -23,6 +23,7 @@ if (
     }
   }
   htmlCode(result.join(""));
+  debug(tmp);
   htmlTmp.push("==============");
 }
 
