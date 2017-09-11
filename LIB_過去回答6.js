@@ -15,15 +15,14 @@ if (
   htmlTmp.push("<b>(prifix, suffixを反転[旧フォーマット])</b>");
   var tmp=TEXT.match(/^([2-9][a-hjkm-z]{3}[2-9])(\w+)([a-hjkm-z][2-9][a-hjkm-z][2-9][a-hjkm-z])$/i);
   var result=[];
-  for (var i in tmp) {
-    if (i%2==0) {
+  for (var i=1;i<=3;i++) {
+    if (i%2!=0) {
       result.push(strReverse(tmp[i]));
     } else {
       result.push(tmp[i]);
     }
   }
   htmlCode(result.join(""));
-  debug(tmp);
   htmlTmp.push("==============");
 }
 
