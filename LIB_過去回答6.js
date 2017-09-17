@@ -4,6 +4,38 @@
 // function kakokaitou6() {
 
 
+// 数字からモールスRLE
+if (
+  TEXT.match(/(0?[1-6]{1,5}\D){3,}0?[1-5]{1,6}/) && 
+  kouseimoji.length>=3
+) {
+  var tmp=[];
+  var tmp2=[];
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(数字からモールスRLE)</b>");
+  tmp=TEXT.split(/\D/g);
+  htmlTmp.push(tmp);
+  for (var i in tmp) {
+    for (var j in tmp[i]) {
+      var tmp3="";
+      if (j%2==0) {
+        if (tmp[i][0]=="0") continue;
+        for (var k=1;k<=Number(tmp[i][j]);k++){
+          tmp3+=".";
+        }
+      } else {
+        for (var k=1;k<=Number(tmp[i][j]);k++){
+          tmp3+="-";
+        }
+      }
+      tmp2.push(tmp3);
+    }
+  }
+  goMorse(tmp2.join(" "));
+  htmlTmp.push("==============");
+
+}
+
 
 // prifix, suffixを反転(旧フォーマット)
 if (
