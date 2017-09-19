@@ -963,6 +963,12 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
   if (tmp && tmp.length>=3) {
     alertMsg.push("decASCIIの三乗を3つ以上発見 [ "+tmp.join(", ")+" ]");
   }  
+  if (
+    str.match(/^(([a-f][1-6]){3,}[a-f]?|([1-6][a-f]){3,}[1-6]?)$/i) && 
+    kouseimoji.length>=5
+  ) {
+    alertMsg.push("123とabcが交互でRLEバイナリの可能性");
+  }
 
 
 
