@@ -241,6 +241,7 @@ function analyzeText(str) {
   result.push("6bit→braille");
   result.push("8bit→ASCII");
   result.push("reverseで意味を成すkw evil<>live");
+  result.push("構成文字が同じkw elint<>intel");
 
   var alertMsg=[];
   if (str.match(
