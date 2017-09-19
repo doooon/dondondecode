@@ -31,7 +31,7 @@ if (
 
     tmp[i]=tmp3;
   }
-  debug(tmp);
+  debug(tmp.join(" "));
   goMorse(tmp.join(" "));
   htmlTmp.push("==============");
 
