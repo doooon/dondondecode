@@ -240,6 +240,7 @@ function analyzeText(str) {
   result.push("5bit→baconian, baudot code");
   result.push("6bit→braille");
   result.push("8bit→ASCII");
+  result.push("reverseで意味を成すkw evil<>live");
 
   var alertMsg=[];
   if (str.match(
