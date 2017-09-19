@@ -22,7 +22,6 @@ if (
     debug("tmp3= "+tmp3);
     for (var j=0; j<tmp[i].length; j++) {
       
-      
       debug("j= "+j);
       debug("tmp["+i+"]["+j+"]= "+tmp[i][j]);
       if (j%2==0) {
