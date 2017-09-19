@@ -16,6 +16,7 @@ if (
   tmp=TEXT.split(/\D/g);
   htmlTmp.push(tmp);
   for (var i in tmp) {
+
     for (var j in tmp[i]) {
       var tmp3="";
       if (j%2==0) {
@@ -29,10 +30,11 @@ if (
         }
       }
     }
-    tmp2.push(tmp3);
+
+    tmp[i]=tmp3;
   }
-  debug(tmp2.join(" ");
-  goMorse(tmp2.join(" "));
+  //debug(tmp.join(" "));
+  goMorse(tmp.join(" "));
   htmlTmp.push("==============");
 
 }
