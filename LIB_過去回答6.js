@@ -17,7 +17,7 @@ if (
   for (var i in tmp) {
 
     var tmp3="";
-    for (var j in tmp[i]) {
+    for (var j=0; j<tmp[i].length; j++) {
       if (j%2==0) {
         for (var k=1;k<=Number(tmp[i][j]);k++){
           tmp3+=".";
