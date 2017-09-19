@@ -20,7 +20,7 @@ if (
     for (var j in tmp[i]) {
       var tmp3="";
       if (j%2==0) {
-        if (tmp[i][0]=="0") continue;
+        if (tmp[i][0]==0) continue;
         for (var k=1;k<=Number(tmp[i][j]);k++){
           tmp3+=".";
         }
@@ -33,7 +33,7 @@ if (
 
     tmp[i]=tmp3;
   }
-  //debug(tmp.join(" "));
+  debug(tmp.join(" "));
   goMorse(tmp.join(" "));
   htmlTmp.push("==============");
 
