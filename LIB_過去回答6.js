@@ -31,6 +31,7 @@ if (
       tmp2.push(tmp3);
     }
   }
+  htmlTmp.push(tmp2.join(" ");
   goMorse(tmp2.join(" "));
   htmlTmp.push("==============");
 
