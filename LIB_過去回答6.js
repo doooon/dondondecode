@@ -6,7 +6,7 @@
 
 // 数字からモールスRLE
 if (
-  TEXT.match(/(0?[1-6]{1,5}\D){3,}0?[1-5]{1,6}/) && 
+  TEXT.match(/^(0?[1-6]{1,5}\D){3,}0?[1-5]{1,6}$/) && 
   kouseimoji.length>=3
 ) {
   var tmp=[];
@@ -15,15 +15,8 @@ if (
   tmp=TEXT.split(/\D/g);
   htmlTmp.push(tmp);
   for (var i in tmp) {
-
-    debug("i= "+i);
-    debug("tmp["+i+"]= "+tmp[i]);
     var tmp3="";
-    debug("tmp3= "+tmp3);
     for (var j=0; j<tmp[i].length; j++) {
-      
-      debug("j= "+j);
-      debug("tmp["+i+"]["+j+"]= "+tmp[i][j]);
       if (j%2==0) {
         for (var k=1;k<=Number(tmp[i][j]);k++){
           tmp3+=".";
@@ -33,16 +26,10 @@ if (
           tmp3+="-";
         }
       }
-      debug("tmp3= "+tmp3);
-
     }
-    debug("finish tmp3= "+tmp3);
     tmp[i]=tmp3;
-    debug("tmp["+i+"]= "+tmp[i]);
-    debug("---- tmp["+i+"] end ----");
-    
   }
-  debug(tmp.join(" "));
+  htmlTmp.push(tmp.join(" "));
   goMorse(tmp.join(" "));
   htmlTmp.push("==============");
 
