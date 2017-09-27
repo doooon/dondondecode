@@ -1068,8 +1068,7 @@ function leetKeyws() {
   
 
 
-
-
+  ["precursor","exogenous","関連"], 
   ["pass","code","関連"], 
   ["honesty","deception","意味bash"], 
   ["D[3E]C[3E]P[7T][1I][0O]N","deception","leet"], 
@@ -1351,6 +1350,8 @@ function getKeyws() {
   addkw.push("endogenous"); //勝手追加
   addkw.push("reawaken"); //勝手追加
   
+
+
   addkw.push("cologne"); //一回きりかも2016/07/25
   addkw.push("singapore"); //一回きりかも2016/07/25
   addkw.push("denver"); //一回きりかも2016/07/25
