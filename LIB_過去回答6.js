@@ -27,6 +27,8 @@ if (
     newText=newText.replace(/\$/g, "e");
     newText=newText.replace(/%/g, "f");
     newText=newText.replace(/\^/g, "g");
+    htmlTmp.push(newText);
+    
   } else if (newText.match(/^(((viiii|9)|(iiii|4)|(viii|8)|(iii|3)|(vii|7)|(ii|2)|(vi|6)|(iv|4)|(v|5))?[b-g]){4,}$/i)) {
     newText=newText.replace(/viiii/ig, "9");
     newText=newText.replace(/iiii/ig, "4");
@@ -37,9 +39,9 @@ if (
     newText=newText.replace(/vi/ig, "6");
     newText=newText.replace(/iv/ig, "4");
     newText=newText.replace(/v/ig, "5");
+    htmlTmp.push(newText);
   }
 
-  htmlTmp.push(newText);
   
   for (var i=0; i<newText.length; i++) {
     if (TEXT[i].match(/\d/)) {
