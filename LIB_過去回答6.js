@@ -48,9 +48,9 @@ if (
     }
   }
 
-  htmlTmp.push("tmp");
+  htmlTmp.push(tmp);
   tmp=tmp.replace(/b/ig, "1").replace(/c/ig, "2").replace(/d/ig, "3").replace(/e/ig, "4").replace(/f/ig, "5").replace(/g/ig, "6");
-  htmlTmp.push("tmp");
+  htmlTmp.push(tmp);
   
   runLength(tmp);
   htmlTmp.push("==============");
