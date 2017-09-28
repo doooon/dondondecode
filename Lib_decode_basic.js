@@ -971,7 +971,7 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
   }
   if (
     str.match(/^([2-9]?[b-g]){4,}$/i) && 
-    str.match(/(.)\1/) && 
+    !str.match(/(.)\1/) && 
     kouseimoji.length>=3
   ) {
     alertMsg.push("n×abc012でRLE×RLEバイナリの可能性");
