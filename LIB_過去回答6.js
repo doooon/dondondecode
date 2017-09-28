@@ -4,6 +4,59 @@
 // function kakokaitou6() {
 
 
+// RLE☓RLE
+if (
+  (
+    TEXT.match(/^([2-9]?[b-g]){4,}$/i) || 
+    TEXT.match(/^([2-9]?[@#$%^&]){4,}$/) || 
+    TEXT.match(/^([2-9]?(iiii|iii|ii|vi|iv|v)){4,}$/i)
+  ) && 
+  kouseimoji.length>=3
+) {
+  var tmp=[];
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(RLE ☓ RLE)</b>");
+
+  var tmp="";
+  var newText=TEXT;
+  var k=1;
+  if (newText.match(/^([2-9]?[!@#$%^]){4,}$/)) {
+    newText=newText.replace(/!/g, "b");
+    newText=newText.replace(/@/g, "c");
+    newText=newText.replace(/#/g, "d");
+    newText=newText.replace(/\$/g, "e");
+    newText=newText.replace(/%/g, "f");
+    newText=newText.replace(/\^/g, "g");
+  } else if (newText.match(/^([2-9]?(iiii|iii|ii|vi|iv|v)){4,}$/i)) {
+    newText=newText.replace(/iiii/ig, "e");
+    newText=newText.replace(/iii/ig, "d");
+    newText=newText.replace(/ii/ig, "c");
+    newText=newText.replace(/vi/ig, "g");
+    newText=newText.replace(/iv/ig, "e");
+    newText=newText.replace(/v/ig, "f");
+    newText=newText.replace(/i/ig, "b");
+  }
+
+  for (var i=0; i<newText.length; i++) {
+    if (TEXT[i].match(/\d/)) {
+      k=Number(newText[i]);
+    } else {
+      for (var j=1; j<=k; j++) {
+        tmp+=newText[i];
+      }
+      if (k>1) k=1;
+    }
+  }
+
+  htmlTmp.push("tmp");
+  tmp=tmp.replace(/b/ig, "1").replace(/c/ig, "2").replace(/d/ig, "3").replace(/e/ig, "4").replace(/f/ig, "5").replace(/g/ig, "6");
+  htmlTmp.push("tmp");
+  
+  runLength(tmp);
+  htmlTmp.push("==============");
+
+}
+
 // 数字からモールスRLE
 if (
   TEXT.match(/^(0?[1-6]{1,5}\D){3,}0?[1-5]{1,6}$/) && 
