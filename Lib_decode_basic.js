@@ -977,7 +977,7 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
     alertMsg.push("n×abc012でRLE×RLEバイナリの可能性");
   }
   if (
-    str.match(/^([1-9]{4,}$/i) && 
+    str.match(/^[1-9]{4,}$/i) && 
     kouseimoji.length>=3
   ) {
     var tmps=str.split("");
@@ -987,13 +987,13 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
     }
     if (mynum%8==0) {
       var n=mynum/8;
-      alertMsg.push("RLEバイナリの可能性(8×"+n+")");
+      alertMsg.push("RLEバイナリの可能性 sum:"+mysum+" (8×"+n+")");
     } else if (mynum%7==0) {
       var n=mynum/7;
-      alertMsg.push("RLEバイナリの可能性(7×"+n+") 7seg");
+      alertMsg.push("RLEバイナリの可能性 sum:"+mysum+" (7×"+n+") 7seg");
     } else if (mynum%5==0) {
       var n=mynum/5;
-      alertMsg.push("RLEバイナリの可能性(5×"+n+") baicon");
+      alertMsg.push("RLEバイナリの可能性 sum:"+mysum+" (5×"+n+") baicon");
     }
    }
   }
