@@ -44,7 +44,7 @@ if (
 
   
   for (var i=0; i<newText.length; i++) {
-    if (TEXT[i].match(/\d/)) {
+    if (newText[i].match(/\d/)) {
       k=Number(newText[i]);
     } else {
       for (var j=1; j<=k; j++) {
