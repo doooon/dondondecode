@@ -997,16 +997,16 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
     var tmps=str.split("");
     var mysum=0;
     for (var i in tmps) {
-      mynum+=Number(tmps[i]);
+      mysum+=Number(tmps[i]);
     }
-    if (mynum%8==0) {
-      var n=mynum/8;
+    if (mysum%8==0) {
+      var n=mysum/8;
       alertMsg.push("RLEバイナリの可能性 sum:"+mysum+" (8×"+n+")");
-    } else if (mynum%7==0) {
-      var n=mynum/7;
+    } else if (mysum%7==0) {
+      var n=mysum/7;
       alertMsg.push("RLEバイナリの可能性 sum:"+mysum+" (7×"+n+") 7seg");
-    } else if (mynum%5==0) {
-      var n=mynum/5;
+    } else if (mysum%5==0) {
+      var n=mysum/5;
       alertMsg.push("RLEバイナリの可能性 sum:"+mysum+" (5×"+n+") baicon");
     }
   }
