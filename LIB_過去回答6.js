@@ -39,6 +39,8 @@ if (
     newText=newText.replace(/v/ig, "5");
   }
 
+  htmlTmp.push(newText);
+  
   for (var i=0; i<newText.length; i++) {
     if (TEXT[i].match(/\d/)) {
       k=Number(newText[i]);
