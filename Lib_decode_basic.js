@@ -995,7 +995,6 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
       var n=mynum/5;
       alertMsg.push("RLEバイナリの可能性 sum:"+mysum+" (5×"+n+") baicon");
     }
-   }
   }
 
 
