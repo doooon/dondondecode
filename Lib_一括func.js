@@ -720,9 +720,8 @@ function runLength(str) {
         }
       }
     }
-    htmlTmp.push(TEXT);
-    htmlTmp.push("<b>(奇偶を0/1の数 Run Length Decoding)</b>");
     htmlTmp.push(str);
+    htmlTmp.push("<b>(奇偶を0/1の数 Run Length Decoding)</b>");
     htmlTmp.push(tmp);
     if(tmp.match(/^[01]+$/)) goBinary(tmp);
   }
