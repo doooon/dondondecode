@@ -1008,6 +1008,8 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
     } else if (mysum%5==0) {
       var n=mysum/5;
       alertMsg.push("RLEバイナリの可能性 sum:"+mysum+" (5×"+n+") baicon");
+    } else {
+      alertMsg.push("0を除く数字のみ RLE? sum:"+mysum);
     }
   }
 
