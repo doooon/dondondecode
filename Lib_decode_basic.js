@@ -984,8 +984,7 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
     alertMsg.push("n × symbol012でRLE×RLEバイナリの可能性");
   }
   if (
-    str.match(/^([2-9]?(iiii|iii|ii|vi|iv|v|i)){4,}$/i) && 
-    !str.match(/(.)\1/) && 
+    str.match(/^(((viiii|9)|(iiii|4)|(viii|8)|(iii|3)|(vii|7)|(ii|2)|(vi|6)|(iv|4)|(v|5))?[b-g]){4,}$/i) && 
     kouseimoji.length>=3
   ) {
     alertMsg.push("n × ローマ数字でRLE×RLEバイナリの可能性");
