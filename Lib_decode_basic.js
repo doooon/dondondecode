@@ -969,6 +969,36 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
   ) {
     alertMsg.push("123とabcが交互でRLEバイナリの可能性");
   }
+  if (
+    str.match(/^([2-9]?[b-g]){4,}$/i) && 
+    str.match(/(.)\1/) && 
+    kouseimoji.length>=3
+  ) {
+    alertMsg.push("n×abc012でRLE×RLEバイナリの可能性");
+  }
+  if (
+    str.match(/^([1-9]{4,}$/i) && 
+    kouseimoji.length>=3
+  ) {
+    var tmps=str.split("");
+    var mysum=0;
+    for (var i in tmps) {
+      mynum+=Number(tmps[i]);
+    }
+    if (mynum%8==0) {
+      var n=mynum/8;
+      alertMsg.push("RLEバイナリの可能性(8×"+n+")");
+    } else if (mynum%7==0) {
+      var n=mynum/7;
+      alertMsg.push("RLEバイナリの可能性(7×"+n+") 7seg");
+    } else if (mynum%5==0) {
+      var n=mynum/5;
+      alertMsg.push("RLEバイナリの可能性(5×"+n+") baicon");
+    }
+   }
+  }
+
+
 
 
 
