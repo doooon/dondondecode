@@ -27,7 +27,7 @@ if (
     newText=newText.replace(/\$/g, "e");
     newText=newText.replace(/%/g, "f");
     newText=newText.replace(/\^/g, "g");
-  } else if (newText.match(/^([2-9]?(iiii|iii|ii|vi|iv|v)){4,}$/i)) {
+  } else if (newText.match(/^([2-9]?(iiii|iii|ii|vi|iv|v|i)){4,}$/i)) {
     newText=newText.replace(/iiii/ig, "e");
     newText=newText.replace(/iii/ig, "d");
     newText=newText.replace(/ii/ig, "c");

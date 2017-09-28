@@ -974,7 +974,21 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
     !str.match(/(.)\1/) && 
     kouseimoji.length>=3
   ) {
-    alertMsg.push("n×abc012でRLE×RLEバイナリの可能性");
+    alertMsg.push("n × abc012でRLE×RLEバイナリの可能性");
+  }
+  if (
+    str.match(/^([2-9]?[!@#$%^]){4,}$/i) && 
+    !str.match(/(.)\1/) && 
+    kouseimoji.length>=3
+  ) {
+    alertMsg.push("n × symbol012でRLE×RLEバイナリの可能性");
+  }
+  if (
+    str.match(/^([2-9]?(iiii|iii|ii|vi|iv|v|i)){4,}$/i) && 
+    !str.match(/(.)\1/) && 
+    kouseimoji.length>=3
+  ) {
+    alertMsg.push("n × ローマ数字でRLE×RLEバイナリの可能性");
   }
   if (
     str.match(/^[1-9]{4,}$/i) && 
