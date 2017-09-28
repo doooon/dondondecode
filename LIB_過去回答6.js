@@ -27,6 +27,7 @@ if (
     newText=newText.replace(/\$/g, "e");
     newText=newText.replace(/%/g, "f");
     newText=newText.replace(/\^/g, "g");
+    htmlTmp.push("Symbolを012abc");
     htmlTmp.push(newText);
     
   } else if (newText.match(/^(((viiii|9)|(iiii|4)|(viii|8)|(iii|3)|(vii|7)|(ii|2)|(vi|6)|(iv|4)|(v|5))?[b-g]){4,}$/i)) {
@@ -39,6 +40,7 @@ if (
     newText=newText.replace(/vi/ig, "6");
     newText=newText.replace(/iv/ig, "4");
     newText=newText.replace(/v/ig, "5");
+    htmlTmp.push("ローマ数字をアラビア数字へ");
     htmlTmp.push(newText);
   }
 
