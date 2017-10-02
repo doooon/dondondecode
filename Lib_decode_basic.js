@@ -1113,6 +1113,11 @@ function leetKeyws() {
   
 
 
+
+
+
+
+  ["acceptance","denial","意味bash"], 
   ["precursor","exogenous","関連"], 
   ["pass","code","関連"], 
   ["honesty","deception","意味bash"], 
