@@ -218,7 +218,7 @@ function analyzeText(str) {
   result.push("フォーマット通りならキーワード置換やモールスswap、atbash、rotをチェックを試す(atbashとrot±13ならkwの意味bash、rot+1ならkwの1つ先の意味を探す");
   result.push("ほぼほぼフォーマットならモールス+leetを試す");
   result.push("daily 5文字目MNO、1文字目 A-Z QRSTUVW、a-z YZabcde");
-  result.push("旧daily 1文字目MNO、5文字目MNO");
+  result.push("旧daily 1文字目MNO");
   result.push("kw無し > destroy, separateなど、altタグならimageの内容やfile名、gryphは見当たらないか？");
   result.push("kw無し > aタグなら Link");
   result.push("kw無し > \\ならescape");
