@@ -2288,6 +2288,229 @@ function base32Enc(str, inBase) {
 function vigenereAutoEnc(phrase, key) {
   if (key=="") return phrase;
   if (!phrase) return phrase;
+  //大文字小文字を保存
+  var updown=phrase.replace(/[^A-Z]/ig, "*").replace(/[a-z]/g, "0").replace(/[A-Z]/g, "1");
+  var keyLenRE=new RegExp(
+    ".{0,"+key.length+"}","g");
+  var phraseL=phrase.match(keyLenRE);
+  //alert(phraseL.length+" : "+phraseL);
+  //alert(keyLenRE);
+  var result="";
+  var newKey="";
+  for (var j in phraseL) {
+    if (phraseL[j]=="") continue;
+    for (var i in key) {
+      /*alert(
+        "j="+j+"\n"+
+        "i="+i+"\n"+
+        phraseL[j][i]);*/
+      if (phraseL[j][i].match(/\d/)) {
+        var p=Number(phraseL[j][i]);
+        var k=Number(letter2Num(key[i]));
+        var c=rotN(String(p),+k);
+        result+=c;
+        newKey+=phraseL[j][i];
+      } else {
+        var p=Number(
+          letter2Num(phraseL[j][i]));
+        var k=Number(letter2Num(key[i]));
+        var c=(p+k)%26;
+        result+=to012abc(c);
+        newKey+=phraseL[j][i];
+      }
+      if (result.length>=phrase.length) {
+        break;
+      }
+    }
+    /*alert(
+        "key="+key+"\n"+
+        "newKey="+newKey);*/
+    key=newKey;
+    newKey="";
+  }
+  //大文字小文字を復元
+  var resulttmp=result.split("");
+  for (var i in updown) {
+    if (updown[i].match(/1/)) {
+      if(resulttmp[i].match(/[a-z]/)) resulttmp[i]=resulttmp[i].toUpperCase();
+    } else if (updown[i].match(/0/)) {
+      if(resulttmp[i].match(/[A-Z]/)) resulttmp[i]=resulttmp[i].toLowerCase();
+    }
+  }
+  result=resulttmp.join("");
+  
+  return result;
+}
+
+// ヴィジュネルautokeyデコード
+function vigenereAutoDec(cipher, key) {
+  if (key=="") return cipher;
+  if (!cipher) return cipher;
+  //大文字小文字を保存
+  var updown=cipher.replace(/[^A-Z]/ig, "*").replace(/[a-z]/g, "0").replace(/[A-Z]/g, "1");
+  var keyLenRE=new RegExp(
+    ".{0,"+key.length+"}","g");
+  var cipherL=cipher.match(keyLenRE);
+  //alert(cipherL.length+" : "+cipherL);
+  //alert(keyLenRE);
+  var result="";
+  var newKey="";
+  for (var j in cipherL) {
+    if (cipherL[j]=="") continue;
+    for (var i in key) {
+      if (!cipherL[j][i]) {
+        debug(
+          "j="+j+"\n"+
+          "i="+i+"\n"+
+          cipherL[j][i]);
+        }
+      if (cipherL[j][i] && cipherL[j][i].match(/\d/)) {
+        var c=Number(cipherL[j][i]);
+        var k=Number(letter2Num(key[i]));
+        var p=rotN(String(c),-k);
+        result+=p;
+        newKey+=p;
+      } else {
+        var c=Number(
+          letter2Num(cipherL[j][i]));
+        var k=Number(letter2Num(key[i]));
+        var p=(c-k+26)%26;
+        result+=to012abc(p);
+        newKey+=to012abc(p);
+      }
+      if (result.length>=cipher.length) {
+        break;
+      }
+    }
+    /*alert(
+        "key="+key+"\n"+
+        "newKey="+newKey);*/
+    key=newKey;
+    newKey="";
+  }
+  //大文字小文字を復元
+  var resulttmp=result.split("");
+  for (var i in updown) {
+    if (updown[i].match(/1/)) {
+      if(resulttmp[i].match(/[a-z]/)) resulttmp[i]=resulttmp[i].toUpperCase();
+    } else if (updown[i].match(/0/)) {
+      if(resulttmp[i].match(/[A-Z]/)) resulttmp[i]=resulttmp[i].toLowerCase();
+    }
+  }
+  result=resulttmp.join("");
+  
+  return result;
+}
+
+//ビジュネルエンコード
+function vigenereEnc(str,key) {
+  if (!str) return str;
+  //大文字小文字を保存
+  var updown=str.replace(/[^A-Z]/ig, "*").replace(/[a-z]/g, "0").replace(/[A-Z]/g, "1");
+
+  //keyを作る
+  if (key=="") key="a";
+  if (key.length>str.length) {
+    var keys=key.split("");
+    keys.splice(
+      str.length, key.length-str.length);
+    key=keys.join("");
+  } else if (key.length<str.length) {
+    var j=0;
+    for (
+      var i=str.length-key.length; i>0; i--
+    ) {
+      key+=key[j];
+      j++;
+      if (j>key.length-1) j=0;
+    }
+  }
+  
+  var ciphered="";
+  for (var i in str) {
+    if (str[i].match(/\d/)) {
+      var p=Number(str[i]);
+      var k=Number(letter2Num(key[i]));
+      var c=rotN(String(p),+k);
+      ciphered+=c;
+    } else {
+      var p=Number(letter2Num(str[i]));
+      var k=Number(letter2Num(key[i]));
+      var c=(p+k)%26;
+      ciphered+=to012abc(c);
+    }
+  }
+  //大文字小文字を復元
+  var resulttmp=ciphered.split("");
+  for (var i in updown) {
+    if (updown[i].match(/1/)) {
+      if(resulttmp[i].match(/[a-z]/)) resulttmp[i]=resulttmp[i].toUpperCase();
+    } else if (updown[i].match(/0/)) {
+      if(resulttmp[i].match(/[A-Z]/)) resulttmp[i]=resulttmp[i].toLowerCase();
+    }
+  }
+  ciphered=resulttmp.join("");
+  
+  return ciphered;
+}
+
+//ヴィジュネルデコード
+function vigenereDec(str,key) {
+  if (!str) return str;
+  //大文字小文字を保存
+  var updown=str.replace(/[^A-Z]/ig, "*").replace(/[a-z]/g, "0").replace(/[A-Z]/g, "1");
+
+  //keyを作る
+  if (key=="") key="a";
+  if (key.length>str.length) {
+    var keys=key.split("");
+    keys.splice(
+      str.length, key.length-str.length);
+    key=keys.join("");
+  } else if (key.length<str.length) {
+    var j=0;
+    for (
+      var i=str.length-key.length; i>0; i--
+    ) {
+      key+=key[j];
+      j++;
+      if (j>key.length-1) j=0;
+    }
+  }
+  
+  var ciphered="";
+  for (var i in str) {
+    if (str[i].match(/\d/)) {
+      var c=Number(str[i]);
+      var k=Number(letter2Num(key[i]));
+      var p=rotN(String(c),-k);
+      ciphered+=p;
+    } else {
+      var c=Number(letter2Num(str[i]));
+      var k=Number(letter2Num(key[i]));
+      var p=(c-k+26)%26;
+      ciphered+=to012abc(p);
+    }
+  }
+  //大文字小文字を復元
+  var resulttmp=ciphered.split("");
+  for (var i in updown) {
+    if (updown[i].match(/1/)) {
+      if(resulttmp[i].match(/[a-z]/)) resulttmp[i]=resulttmp[i].toUpperCase();
+    } else if (updown[i].match(/0/)) {
+      if(resulttmp[i].match(/[A-Z]/)) resulttmp[i]=resulttmp[i].toLowerCase();
+    }
+  }
+  ciphered=resulttmp.join("");
+  
+  return ciphered;
+}
+
+/* 大文字小文字非対応版
+// ヴィジュネルautokeyエンコード
+function vigenereAutoEnc(phrase, key) {
+  if (key=="") return phrase;
+  if (!phrase) return phrase;
   var keyLenRE=new RegExp(
     ".{0,"+key.length+"}","g");
   var phraseL=phrase.match(keyLenRE);
@@ -2457,6 +2680,7 @@ function vigenereDec(str,key) {
   }
   return ciphered;
 }
+*/
 
 //======================================
 
