@@ -4,79 +4,6 @@
 
 // function kakokaitou5() {
 
-// 同じ文字列長の3行を縦読み
-var tmp=TEXT.split(/\n/g);
-if (
-  tmp && tmp.length==3 &&
-  tmp[0].length==tmp[1].length &&
-  tmp[1].length==tmp[2].length
-) {
-  htmlTmp.push(TEXT);
-  htmlTmp.push("<b>(同じ文字列長の3行を縦読み)</b>");
-  
-  function threeLineTateyomi(arry) {
-    if (arry.length==3 && 
-      arry[0].length==arry[1].length && 
-      arry[1].length==arry[2].length
-    ) {
-      
-      //debug(rect);
-      htmlTmp.push(arry.join("\n"));
-      
-      htmlTmp.push("(縦読み)");
-      var result=[];
-      for (var i in arry[0]) {
-        result.push(arry[0][i]);
-        result.push(arry[1][i]);
-        result.push(arry[2][i]);
-      }
-      htmlCode(result.join(""));
-      
-      htmlTmp.push("-------");
-      
-      htmlTmp.push("(2行目reverse縦読み)");
-      var result=[];
-      arry[1]=strReverse(arry[1]);
-      for (var i in arry[0]) {
-        result.push(arry[0][i]);
-        result.push(arry[1][i]);
-        result.push(arry[2][i]);
-      }
-      htmlCode(result.join(""));
-      
-      htmlTmp.push("-------");
-      
-    }
-    htmlTmp.push("-----------------");
-  }
-  
-  var tmpjoin=[tmp[0], tmp[1], tmp[2]];
-  htmlTmp.push("([1] [2] [3]の順に連結)");
-  threeLineTateyomi(tmpjoin);
-  
-  var tmpjoin=[tmp[0], tmp[2], tmp[1]];
-  htmlTmp.push("([1] [3] [2]の順に連結)");
-  threeLineTateyomi(tmpjoin);
-  
-  var tmpjoin=[tmp[1], tmp[0], tmp[2]];
-  htmlTmp.push("([2] [1] [3]の順に連結)");
-  threeLineTateyomi(tmpjoin);
-  
-  var tmpjoin=[tmp[1], tmp[2], tmp[0]];
-  htmlTmp.push("([2] [3] [1]の順に連結)");
-  threeLineTateyomi(tmpjoin);
-  
-  var tmpjoin=[tmp[2], tmp[0], tmp[1]];
-  htmlTmp.push("([3] [1] [2]の順に連結)");
-  threeLineTateyomi(tmpjoin);
-  
-  var tmpjoin=[tmp[2], tmp[1], tmp[0]];
-  htmlTmp.push("([3] [2] [1]の順に連結)");
-  threeLineTateyomi(tmpjoin);
- 
-  htmlTmp.push("==============");
-}
-
 
 // ze=0, on=1, te=10, el=11, hu=100, th=1000, でバイナリ
 if (
@@ -1211,6 +1138,156 @@ if (
   htmlCode(result.join(""));
   
   }
+  htmlTmp.push("==============");
+}
+
+/*
+// 同じ文字列長の3行をジグザク読み
+var tmp=TEXT.split(/\n/g);
+if (
+  tmp && tmp.length==3 &&
+  tmp[0].length==tmp[1].length &&
+  tmp[1].length==tmp[2].length
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(同じ文字列長の3行をジグザク読み)</b>");
+  
+  function threeLineZigzag(arry) {
+    if (arry.length==3 && 
+      arry[0].length==arry[1].length && 
+      arry[1].length==arry[2].length
+    ) {
+      
+      //debug(arry);
+      arry=rectReflect(arry);
+      //debug(arry);
+
+      htmlTmp.push(arry.join("\n"));
+      
+      debug(arry[0]);
+      
+      var result=[];
+      var x0=2; // 0<2>4
+      var x1=3; // 1<3>5
+      var x2=4; // 2<4>6
+      for (var i in arry) {
+        result[0].push(arry[i][x0]);
+        result[1].push(arry[i][x1]);
+        result[2].push(arry[i][x2]);
+        if (x0) {
+
+        } else if () {
+
+        } else {
+
+        }
+      }
+      htmlCode(result[0].join(""));      
+      htmlCode(result[1].join(""));      
+      htmlCode(result[2].join(""));      
+    }
+    htmlTmp.push("-----------------");
+  }
+  
+  var tmpjoin=[tmp[0], tmp[1], tmp[2]];
+  htmlTmp.push("([1] [2] [3]の順に連結)");
+  threeLineZigzag(tmpjoin);
+  
+  var tmpjoin=[tmp[0], tmp[2], tmp[1]];
+  htmlTmp.push("([1] [3] [2]の順に連結)");
+  threeLineZigzag(tmpjoin);
+  
+  var tmpjoin=[tmp[1], tmp[0], tmp[2]];
+  htmlTmp.push("([2] [1] [3]の順に連結)");
+  threeLineZigzag(tmpjoin);
+  
+  var tmpjoin=[tmp[1], tmp[2], tmp[0]];
+  htmlTmp.push("([2] [3] [1]の順に連結)");
+  threeLineZigzag(tmpjoin);
+  
+  var tmpjoin=[tmp[2], tmp[0], tmp[1]];
+  htmlTmp.push("([3] [1] [2]の順に連結)");
+  threeLineZigzag(tmpjoin);
+  
+  var tmpjoin=[tmp[2], tmp[1], tmp[0]];
+  htmlTmp.push("([3] [2] [1]の順に連結)");
+  threeLineZigzag(tmpjoin);
+ 
+  htmlTmp.push("==============");
+}
+*/
+
+
+// 同じ文字列長の3行を縦読み
+var tmp=TEXT.split(/\n/g);
+if (
+  tmp && tmp.length==3 &&
+  tmp[0].length==tmp[1].length &&
+  tmp[1].length==tmp[2].length
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(同じ文字列長の3行を縦読み)</b>");
+  
+  function threeLineTateyomi(arry) {
+    if (arry.length==3 && 
+      arry[0].length==arry[1].length && 
+      arry[1].length==arry[2].length
+    ) {
+      
+      //debug(rect);
+      htmlTmp.push(arry.join("\n"));
+      
+      htmlTmp.push("(縦読み)");
+      var result=[];
+      for (var i in arry[0]) {
+        result.push(arry[0][i]);
+        result.push(arry[1][i]);
+        result.push(arry[2][i]);
+      }
+      htmlCode(result.join(""));
+      
+      htmlTmp.push("-------");
+      
+      htmlTmp.push("(2行目reverse縦読み)");
+      var result=[];
+      arry[1]=strReverse(arry[1]);
+      for (var i in arry[0]) {
+        result.push(arry[0][i]);
+        result.push(arry[1][i]);
+        result.push(arry[2][i]);
+      }
+      htmlCode(result.join(""));
+      
+      htmlTmp.push("-------");
+      
+    }
+    htmlTmp.push("-----------------");
+  }
+  
+  var tmpjoin=[tmp[0], tmp[1], tmp[2]];
+  htmlTmp.push("([1] [2] [3]の順に連結)");
+  threeLineTateyomi(tmpjoin);
+  
+  var tmpjoin=[tmp[0], tmp[2], tmp[1]];
+  htmlTmp.push("([1] [3] [2]の順に連結)");
+  threeLineTateyomi(tmpjoin);
+  
+  var tmpjoin=[tmp[1], tmp[0], tmp[2]];
+  htmlTmp.push("([2] [1] [3]の順に連結)");
+  threeLineTateyomi(tmpjoin);
+  
+  var tmpjoin=[tmp[1], tmp[2], tmp[0]];
+  htmlTmp.push("([2] [3] [1]の順に連結)");
+  threeLineTateyomi(tmpjoin);
+  
+  var tmpjoin=[tmp[2], tmp[0], tmp[1]];
+  htmlTmp.push("([3] [1] [2]の順に連結)");
+  threeLineTateyomi(tmpjoin);
+  
+  var tmpjoin=[tmp[2], tmp[1], tmp[0]];
+  htmlTmp.push("([3] [2] [1]の順に連結)");
+  threeLineTateyomi(tmpjoin);
+ 
   htmlTmp.push("==============");
 }
 

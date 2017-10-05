@@ -2521,10 +2521,7 @@ function vigenereAutoEnc(phrase, key) {
   for (var j in phraseL) {
     if (phraseL[j]=="") continue;
     for (var i in key) {
-      /*alert(
-        "j="+j+"\n"+
-        "i="+i+"\n"+
-        phraseL[j][i]);*/
+      //alert("j="+j+"\n"+"i="+i+"\n"+phraseL[j][i]);
       if (phraseL[j][i].match(/\d/)) {
         var p=Number(phraseL[j][i]);
         var k=Number(letter2Num(key[i]));
@@ -2543,9 +2540,7 @@ function vigenereAutoEnc(phrase, key) {
         break;
       }
     }
-    /*alert(
-        "key="+key+"\n"+
-        "newKey="+newKey);*/
+    //alert("key="+key+"\n"+"newKey="+newKey);
     key=newKey;
     newKey="";
   }
@@ -2592,9 +2587,7 @@ function vigenereAutoDec(cipher, key) {
         break;
       }
     }
-    /*alert(
-        "key="+key+"\n"+
-        "newKey="+newKey);*/
+    //alert("key="+key+"\n"+"newKey="+newKey);
     key=newKey;
     newKey="";
   }
