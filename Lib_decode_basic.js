@@ -221,6 +221,8 @@ function analyzeText(str) {
   result.push("旧daily 1文字目MNO");
   result.push("kw無し > destroy, separateなど、altタグならimageの内容やfile名、gryphは見当たらないか？");
   result.push("kw無し > aタグなら Link");
+  result.push("kw空白 > space");
+  result.push("kw 空白(nothing) atbash > all");
   result.push("kw無し > \\ならescape");
   result.push("繰り返し > repeat, again, recursion, iteration, self, togetherなど");
   result.push("引き算 less、引き算 lose、足し算 gain、足し引き signs");
