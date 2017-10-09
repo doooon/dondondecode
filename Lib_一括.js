@@ -780,11 +780,11 @@ if ((
 if (
   (
   (TEXT.match(
-    /^=*[A-Z0-9]+=*$/)
+    /^=*[A-Z0-9]+=*$/i)
     && TEXT.match(/[A-Z]/)
     && TEXT.match(/[0-9]/)) ||
     (TEXT.match(
-    /^=*[A-Z0-9]+=*$/)
+    /^=*[A-Z0-9]+=*$/i)
     && TEXT.match(/[a-z]/)
     && TEXT.match(/[0-9]/)
   )
