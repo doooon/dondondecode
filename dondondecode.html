@@ -59,45 +59,49 @@
 
 	  function decodeStart() {
 
-			//alert(TEXT);
-			/*
-			var expire = new Date();
-			expire.setTime( expire.getTime() + 1000 * 3600 * 24 * 365 * 10);
-			var cookieStr='TEXT='+encodeURIComponent(TEXT)+"; path=/dondondecode/; expires=" + expire.toUTCString();
-      alert(cookieStr);
-			document.cookie=cookieStr;
-			*/
+			if (str.match(/^Passcode confirmed/)) {
+				document.getElementById('clipboardTextarea').value=acquiredItems(str);
+			} else {
 
-			// cookie保存
-		var expire = new Date();
-		expire.setTime( expire.getTime() + 1000 * 3600 * 24 * 365 * 10);
-		/* docCookies.setItem(name, value[, end[, path[, domain[, secure]]]]) */
-		//docCookies.setItem("dondondecode", TEXT, expire);
-		docCookies.setItem("dondondecode", TEXT, 60*60*24*365*10);
+				//alert(TEXT);
+				/*
+				var expire = new Date();
+				expire.setTime( expire.getTime() + 1000 * 3600 * 24 * 365 * 10);
+				var cookieStr='TEXT='+encodeURIComponent(TEXT)+"; path=/dondondecode/; expires=" + expire.toUTCString();
+				alert(cookieStr);
+				document.cookie=cookieStr;
+				*/
 
-		  var meta = document.createElement("meta");
-		  meta.name = "format-detection";
-		  meta.content = "telephone=no";
-		  document.getElementsByTagName("head")[0].appendChild(meta);
+				// cookie保存
+				var expire = new Date();
+				expire.setTime( expire.getTime() + 1000 * 3600 * 24 * 365 * 10);
+				/* docCookies.setItem(name, value[, end[, path[, domain[, secure]]]]) */
+				//docCookies.setItem("dondondecode", TEXT, expire);
+				docCookies.setItem("dondondecode", TEXT, 60*60*24*365*10);
 
-		  var script = document.createElement("script");
-		  script.src = "Lib_一括.js";
-		  document.getElementsByTagName("head")[0].appendChild(script);	  
-	  	  
-		  //w = window.open("test.html", "Test", "width=1500,height=1000");
-	  
-      //var myDiv = document.getElementById('output');
-      //console.log(html);
-      //myDiv.textContent = html;
-      
-      
-      /*
-      w = window.open("test.html", "Test", "width=1500,height=1000");
-      w.document.open();
-      w.document.write(html);
-      w.document.close();
-      */
+				var meta = document.createElement("meta");
+				meta.name = "format-detection";
+				meta.content = "telephone=no";
+				document.getElementsByTagName("head")[0].appendChild(meta);
 
+				var script = document.createElement("script");
+				script.src = "Lib_一括.js";
+				document.getElementsByTagName("head")[0].appendChild(script);	  
+
+				//w = window.open("test.html", "Test", "width=1500,height=1000");
+
+				//var myDiv = document.getElementById('output');
+				//console.log(html);
+				//myDiv.textContent = html;
+
+
+				/*
+				w = window.open("test.html", "Test", "width=1500,height=1000");
+				w.document.open();
+				w.document.write(html);
+				w.document.close();
+				*/
+			}
       
 
     }

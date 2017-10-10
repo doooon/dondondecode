@@ -18,6 +18,15 @@ function debug(myInput) {
   htmlTmp.push(tmp);
 }
 
+
+// ======================
+// Acquired items
+function acquiredItems(str) {
+if (str.match(/^Passcode confirmed/)) {
+  str=str.replace(/Passcode confirmed\. /, "").replace(/ ?(((L[1-8]|Rare|Very Rare) )?(\d+ XM|\d+ AP|Ultra Strike|(Lawson )?Power Cube|Xmp Burster|Resonator|Multi-hack|Link Amp|Heat Sink|(Portal|AXA) Shield|Force Amp|Turret|SoftBank UltraLink|(MUFG )?Capsule|ITO EN Transmuter ?\([-+]\)|Portal Key)( ?\(\d+\))?)/g, "$1\n");
+  return str;
+}
+
 // ======================
 function goBinary(binstr) {
   if (binstr.match(/[^01]/)) {

@@ -30,6 +30,7 @@ TEXT=TEXT.replace(/^\s+|\s+$/g, "");
 htmlCode(TEXT);
 htmlTmp.push("===============");
 
+
 // テキストアナライズ
 htmlTmp.push(analyzeText(TEXT));
 keyPosition(TEXT);
@@ -2326,12 +2327,6 @@ if (
 	
   htmlTmp.push("==============");
 }
-
-
-// Acquired items
-var result=TEXT.replace(/Passcode confirmed\. /, "").replace(/ ?(((L[1-8]|Rare|Very Rare) )?(\d+ XM|\d+ AP|Ultra Strike|(Lawson )?Power Cube|Xmp Burster|Resonator|Multi-hack|Link Amp|Heat Sink|(Portal|AXA) Shield|Force Amp|Turret|SoftBank UltraLink|(MUFG )?Capsule|ITO EN Transmuter ?\([-+]\)|Portal Key)( ?\(\d+\))?)/g, "$1\n");
-htmlTmp.push(result);
-htmlTmp.push("==============");
 
 
 // ==============
