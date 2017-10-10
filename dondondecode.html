@@ -59,8 +59,8 @@
 
 	  function decodeStart() {
 
-			if (str.match(/^Passcode confirmed/)) {
-				document.getElementById('clipboardTextarea').value=acquiredItems(str);
+			if (TEXT.match(/^\s*Passcode confirmed/)) {
+				document.getElementById('clipboardTextarea').value=acquiredItems(TEXT);
 			} else {
 
 				//alert(TEXT);
