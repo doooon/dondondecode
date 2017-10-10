@@ -2490,6 +2490,21 @@ if (
 }
 
 
+// kwで分割してそれぞれreverse
+// 9smo5wina7f5o
+var tmp=TEXT;
+var kList=keywordCheck(tmp);
+if (kList[0] && kList[0].match(/./)) {
+  var tmpRE=new RegExp(kList[0], "i");
+  var tmp2=tmp.split(tmpRE);
+  var result=
+    strReverse(tmp2[0])+kList[0]+strReverse(tmp2[1]);
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(kwで分割してそれぞれreverse)</b>");
+  htmlCode(result);
+  htmlTmp.push("==============");
+}
+
 // reverse > kwで分割して前後入れ替え
 var tmp=strReverse(TEXT);
 var kList=keywordCheck(tmp);
