@@ -7,8 +7,8 @@
 
 // function ikkatsuFinish() {
 
-html+=htmlTmp.join("\n"); 
-//.replace(/\n/g, "<br>\n");
+html+=htmlTmp.join("<br>\n"); 
+
 
 for (var x in fixCodeList) {
   debug(fixCodeList[x]);
