@@ -60,7 +60,7 @@
 	  function decodeStart() {
 
 			if (TEXT.match(/^\s*Passcode confirmed/)) {
-				document.getElementById('clipboardTextarea').value=acquiredItems(TEXT)+"\r\n&#13;&#10;<br><br />改行テスト";
+				document.getElementById('clipboardTextarea').value=acquiredItems(TEXT);
 			} else {
 
 				//alert(TEXT);
