@@ -177,12 +177,14 @@ function goRotate(n,str,rev,atb) {
   
 
   for (var i=0; i<=n; i++) {
-    htmlTmp.push("<b>("+msg+"Rot+"+i+")</b>");
+    htmlTmp.push("<div style='rotBox'>("+msg+"Rot+"+i+") ");
     htmlCode(rotN(str, i));
     numNonLotate(rotN(str, i, 0));
-    htmlTmp.push("<b>("+msg+" Rot-"+i+")</b>");
+    htmlTmp.push("</div>");
+    htmlTmp.push("<div style='rotBox'>("+msg+"Rot-"+i+") ");
     htmlCode(rotN(str, 0-i));
     numNonLotate(rotN(str, 0-i, 0));
+    htmlTmp.push("</div>");
   }
 }
 
