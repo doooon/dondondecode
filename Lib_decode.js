@@ -1015,7 +1015,7 @@ function keySyougou(source, len, terget) {
 function strReverse(str) {
   if (!str) return false;
   str=str.split("").reverse().join("");
-  str=str.replace(/>/g,"<").replace(/</g,">").replace(/\//g,"\\").replace(/\\/g,"/").replace(/]/g,"[").replace(/[/g,"]");
+  str=str.replace(/>/g,"<").replace(/</g,">").replace(/\//g,"\\").replace(/\\/g,"/").replace(/\]/g,"[").replace(/\[/g,"]");
   return str;
 }
 
@@ -1122,7 +1122,7 @@ function atbash19(sorce) {
       a[i]=a[i].toLowerCase();
     }
   }
-  return a.join("").replace(/\^/g,"v").replace(/v/ig,"^").replace(/>/g,"<").replace(/</g,">").replace(/\//g,"\\").replace(/\\/g,"/").replace(/]/g,"[").replace(/[/g,"]");
+  return a.join("").replace(/\^/g,"v").replace(/v/ig,"^").replace(/>/g,"<").replace(/</g,">").replace(/\//g,"\\").replace(/\\/g,"/").replace(/\]/g,"[").replace(/\[/g,"]");
 }
 
 // atbash with Number 0<->9
@@ -1187,7 +1187,7 @@ function atbash09(sorce) {
       a[i]=a[i].toLowerCase();
     }
   }
-  return a.join("").replace(/\^/g,"v").replace(/v/ig,"^").replace(/>/g,"<").replace(/</g,">").replace(/\//g,"\\").replace(/\\/g,"/").replace(/]/g,"[").replace(/[/g,"]");
+  return a.join("").replace(/\^/g,"v").replace(/v/ig,"^").replace(/>/g,"<").replace(/</g,">").replace(/\//g,"\\").replace(/\\/g,"/").replace(/\]/g,"[").replace(/\[/g,"]");
 }
 
 // atbash no Number
@@ -1242,7 +1242,7 @@ function atbash(sorce) {
       a[i]=a[i].toLowerCase();
     }
   }
-  return a.join("").replace(/\^/g,"v").replace(/v/ig,"^").replace(/>/g,"<").replace(/</g,">").replace(/\//g,"\\").replace(/\\/g,"/").replace(/]/g,"[").replace(/[/g,"]");
+  return a.join("").replace(/\^/g,"v").replace(/v/ig,"^").replace(/>/g,"<").replace(/</g,">").replace(/\//g,"\\").replace(/\\/g,"/").replace(/\]/g,"[").replace(/\[/g,"]");
 }
 
 //012abc変換(数字列 スペース区切り可)
