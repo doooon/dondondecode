@@ -174,7 +174,7 @@ function goRotate(n,str,rev,atb) {
     str=atbash19(str);
   }
   
-  if (n && !n.match(/^\d+$/)) n==0;
+  if (n && !n.match(/^\d+$/)) n=0;
 
   for (var i=0; i<=n; i++) {
     htmlTmp.push("<b>("+msg+"Rot+"+i+")</b>");
