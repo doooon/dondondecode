@@ -160,6 +160,38 @@ function numNonLotate(tm) {
     htmlTmp.push("(↑num non-rotate)");
   }
 }
+
+function goRotate(n,str,rev,atb) {
+  var msg="";
+  if (rev.match(/reverse/i) && atb.match(/atbash/i)) {
+    msg="reverse & atbash ";
+    str=strReverse(atbash19(str));
+  } else if (rev.match(/reverse/i)) {
+    msg="reverse ";
+    str=strReverse(str);
+  } else if (rev.match(/atbash/i)) {
+    msg="atbash ";
+    str=atbash19(str);
+  }
+  
+  if (n && !n.match(^\d+$)) n==0;
+
+  for (var i=0; i<=n; i++) {
+    htmlTmp.push("<b>("+msg+"Rot+"+i+")</b>");
+    htmlCode(rotN(str, i));
+    numNonLotate(rotN(str, i, 0));
+    htmlTmp.push("<b>("+msg+" Rot-"+i+")</b>");
+    htmlCode(rotN(str, 0-i));
+    numNonLotate(rotN(str, 0-i, 0));
+  }
+}
+
+goRotate(26,TEXT,"","");
+goRotate(26,TEXT,"reverse","");
+goRotate(26,TEXT,"","atbash");
+goRotate(26,TEXT,"reverse","atbash");
+
+/*
 htmlTmp.push("<b>(Rot+1)</b>");
 htmlCode(rotN(TEXT, 1));
 numNonLotate(rotN(TEXT, 1, 0));
@@ -178,12 +210,28 @@ numNonLotate(rotN(TEXT, 3, 0));
 htmlTmp.push("<b>(Rot-3)</b>");
 htmlCode(rotN(TEXT, -3));
 numNonLotate(rotN(TEXT, -3, 0));
+
+htmlTmp.push("<b>(Rot+4)</b>");
+htmlCode(rotN(TEXT, 4));
+numNonLotate(rotN(TEXT, 4, 0));
+htmlTmp.push("<b>(Rot-4)</b>");
+htmlCode(rotN(TEXT, -4));
+numNonLotate(rotN(TEXT, -4, 0));
+
 htmlTmp.push("<b>(Rot+5)</b>");
 htmlCode(rotN(TEXT, 5));
 numNonLotate(rotN(TEXT, 5, 0));
 htmlTmp.push("<b>(Rot-5)</b>");
 htmlCode(rotN(TEXT, -5));
 numNonLotate(rotN(TEXT, -5, 0));
+
+htmlTmp.push("<b>(Rot+5)</b>");
+htmlCode(rotN(TEXT, 5));
+numNonLotate(rotN(TEXT, 5, 0));
+htmlTmp.push("<b>(Rot-5)</b>");
+htmlCode(rotN(TEXT, -5));
+numNonLotate(rotN(TEXT, -5, 0));
+
 htmlTmp.push("<b>(Rot+7)</b>");
 htmlCode(rotN(TEXT, 7));
 numNonLotate(rotN(TEXT, 7, 0));
@@ -295,6 +343,9 @@ numNonLotate(rotN(strReverse(atbash19(TEXT)), 13, 0));
 htmlTmp.push("<b>(Reverse Rot-13)</b>");
 htmlCode(rotN(strReverse(atbash19(TEXT)), -13));
 numNonLotate(rotN(strReverse(atbash19(TEXT)), -13, 0));
+*/
+
+
 htmlTmp.push("===============");
 
 if (
