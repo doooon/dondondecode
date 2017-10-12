@@ -177,14 +177,12 @@ function goRotate(n,str,rev,atb) {
   
 
   for (var i=0; i<=n; i++) {
-   htmlTmp.push("<div class='rotBox'>("+msg+"Rot+"+i+") ");
+    htmlTmp.push("("+msg+"Rot+"+i+") ");
     htmlCode(rotN(str, i));
     numNonLotate(rotN(str, i, 0));
-    htmlTmp.push("</div>");
-   htmlTmp.push("<div class='rotBox'>("+msg+"Rot-"+i+") ");
+    htmlTmp.push("("+msg+"Rot-"+i+") ");
     htmlCode(rotN(str, 0-i));
     numNonLotate(rotN(str, 0-i, 0));
-    htmlTmp.push("</div>");
   }
 }
 
@@ -349,7 +347,8 @@ numNonLotate(rotN(strReverse(atbash19(TEXT)), -13, 0));
 
 
 htmlTmp.push("===============");
-
+goRectangles(TEXT);
+htmlTmp.push("===============");
 if (
   TEXT &&
   TEXT.match(/^(\w\w\s?)+\w\w$/)
