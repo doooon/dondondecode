@@ -7,7 +7,7 @@
 
 // function ikkatsuFinish() {
 
-html+=htmlTmp.join("\n").replace(/\n/g, "<br>\n"); 
+html+=htmlTmp.join("\n").replace(/\n/g, "<br>\n"); // htmlTmpにはすでに\nが入っている物があるので、一旦joinしてから全体を置き換える
 
 
 for (var x in fixCodeList) {
