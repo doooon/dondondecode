@@ -11,6 +11,11 @@ function rectRead(rect) {
   var yLen = rect.length;
   var xLen = rect[0].length;
 
+  // rect表示
+  for (var k in rect) {
+    htmlTmp.push(rect[k].join(""));
+  }
+
   htmlTmp.push("---------");
   htmlTmp.push("横/縦読み");
 
@@ -526,7 +531,7 @@ function rectRead(rect) {
   }
   htmlCode(r);
 
-  htmlTmp.push("===============");
+  htmlTmp.push("-------------");
   
 } // end function 
  
@@ -542,49 +547,48 @@ function goRectangles(str) {
   
   for (var i=2; i<=10000; i=(i+1)|0) {
     if (len%i==0&&len!=i) {
-      htmlTmp.push(
-        "(Rect"+i+") "+i+"x"+(len/i));
-      var re=new RegExp(".{"+i+"}", "g");
-      htmlTmp.push(
-        str.replace(re, "$&\n"));
+
+     var re=new RegExp(".{"+i+"}", "g");
+      //htmlTmp.push(str.replace(re, "$&\n"));
       
-      // Rect読み出し
-      /*
-      rectRead(
-        makeRect(
-          str.match(re).join("\n"))); 
-      htmlTmp.push("=============");
-      */
 
       // ノーマルRect読み出し
       var rectSorce=
         makeRect(str.match(re).join("\n"));
+      htmlTmp.push(
+        "(Rect"+i+") "+i+"x"+(len/i));
       rectRead(rectSorce); 
-      htmlTmp.push("=============");
+      htmlTmp.push("++++++++++++");
       
-      // 奇数行reverse
-      htmlTmp.push("奇数行reverse");
-      var rectSorce2=
-        copyArray(rectSorce);
-      for (var i in rectSorce2) {
-        if (i%2) rectSorce2[i].reverse();
-      }
-      rectRead(rectSorce2);
-      htmlTmp.push("=============");
 
-      htmlTmp.push("奇数列reverse");
+      // 奇数行reverse
+     var rectSorce2=
+        copyArray(rectSorce);
+      for (var j in rectSorce2) {
+        if (j%2) rectSorce2[j].reverse();
+      }
+      htmlTmp.push("奇数行reverse");
+      htmlTmp.push(
+        "(Rect"+i+") "+i+"x"+(len/i));
+      rectRead(rectSorce2);
+      htmlTmp.push("++++++++++++");
+
+
+      // 奇数列reverse
       var rectSorce3=
         rectReflect(
           copyArray(rectSorce));
-      for (var i in rectSorce3) {
-        if (i%2) rectSorce3[i].reverse();
+      for (var j in rectSorce3) {
+        if (j%2) rectSorce3[j].reverse();
       }
+      htmlTmp.push("奇数列reverse");
+      htmlTmp.push(
+        "(Rect"+i+") "+i+"x"+(len/i));
       rectRead(rectReflect(rectSorce3));
       htmlTmp.push("=============");
 
     }
   }
-  
 } // end function
 
 
