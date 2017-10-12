@@ -3,7 +3,8 @@
 // tmp=表示する文字列, label=ラベル
 function htmlCode(tmp, label) {
   if (tmp==null) return "";
-  if (label && label!="") htmlCodeLabel=label;
+  if (label && label!="") { htmlCodeLabel=label; }
+  else { htmlCodeLabel=""; }
 
   // チェック
   printCheck(tmp);  // 内部でprintMain()を呼び出していく
