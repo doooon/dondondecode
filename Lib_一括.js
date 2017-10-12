@@ -177,11 +177,11 @@ function goRotate(n,str,rev,atb) {
   
 
   for (var i=0; i<=n; i++) {
-    htmlTmp.push("("+msg+"Rot+"+i+") ");
-    htmlCode(rotN(str, i));
+    //htmlTmp.push("("+msg+"Rot+"+i+")");
+    htmlCode(rotN(str, i), "("+msg+"Rot+"+i+")");
     numNonLotate(rotN(str, i, 0));
-    htmlTmp.push("("+msg+"Rot-"+i+") ");
-    htmlCode(rotN(str, 0-i));
+    //htmlTmp.push("("+msg+"Rot-"+i+")");
+    htmlCode(rotN(str, 0-i), "("+msg+"Rot-"+i+")");
     numNonLotate(rotN(str, 0-i, 0));
   }
 }

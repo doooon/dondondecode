@@ -546,7 +546,7 @@ function goRectangles(str) {
         "(Rect"+i+") "+i+"x"+(len/i));
       var re=new RegExp(".{"+i+"}", "g");
       htmlTmp.push(
-        str.replace(re, "$&<br>\n"));
+        str.replace(re, "$&\n"));
       
       // Rect読み出し
       rectRead(
