@@ -11,11 +11,7 @@ function htmlCode(tmp, label) {
     
   // タイムスタンプ
   var d=new Date();
-  htmlTmp.push(  
-    "<div class='elapsedtime'>"+(  
-      (d.getTime() -startTime.getTime()) /1000  
-    )+"s</div>"  
-  );
+  var strTS="<div class='elapsedtime'>"+((d.getTime() -startTime.getTime()) /1000)+"s</div>";
     
 }
 
@@ -144,9 +140,9 @@ function printCheck(tmp2) {
   }			
               
               
-              // kw有り数字部abc012
-              var kwL= keywordCheck(tmp2);
-              if (kwL[0]) {
+  // kw有り数字部abc012
+  var kwL= keywordCheck(tmp2);
+  if (kwL[0]) {
     var tmpKw012= replaceKw012(tmp2, kwL[0]);
     if (tmpKw012) {
       if ( printMain( tmpKw012, "more", "(more kw有り数字部abc012)" ) == "fix") {
@@ -221,7 +217,9 @@ function printMain(tmp3, moreF, msg) {
     if (formatExchange(tmp3) == "fix") return "fix";
     
   }		
-  
+
+  htmlTmp[htmlTmp.length-1]=htmlTmp[htmlTmp.length-1]+strTS;  // タイムスタンプ
+
 } // END function printMain()
 
 //base64 decode
