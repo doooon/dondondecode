@@ -38,8 +38,8 @@ td {padding:2px}
 #atom {border-collapse: collapse;}
 .debug { font-weight: bold; border:1px red solid; color: red; }
 .attention {background-color: yellow}
-.elapsedtime {color: blue; font-size: xx-small; display: inline; }
-.elapsedtime2 {color: red;  font-size: xx-small; display: inline; }
+.elapsedtime {color: white; font-size: xx-small; display: inline; }
+.elapsedtime2 {color: white;  font-size: xx-small; display: inline; }
 .result {display: inline; }
 /*.rotBox {display: inline !important;}*/
 
