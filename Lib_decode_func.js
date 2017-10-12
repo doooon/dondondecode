@@ -549,10 +549,39 @@ function goRectangles(str) {
         str.replace(re, "$&\n"));
       
       // Rect読み出し
+      /*
       rectRead(
         makeRect(
           str.match(re).join("\n"))); 
       htmlTmp.push("=============");
+      */
+
+      // ノーマルRect読み出し
+      var rectSorce=
+        makeRect(str.match(re).join("\n"));
+      rectRead(rectSorce); 
+      htmlTmp.push("=============");
+      
+      // 奇数行reverse
+      htmlTmp.push("奇数行reverse");
+      var rectSorce2=
+        copyArray(rectSorce);
+      for (var i in rectSorce2) {
+        if (i%2) rectSorce2[i].reverse();
+      }
+      rectRead(rectSorce2);
+      htmlTmp.push("=============");
+
+      htmlTmp.push("奇数列reverse");
+      var rectSorce3=
+        rectReflect(
+          copyArray(rectSorce));
+      for (var i in rectSorce3) {
+        if (i%2) rectSorce3[i].reverse();
+      }
+      rectRead(rectReflect(rectSorce3));
+      htmlTmp.push("=============");
+
     }
   }
   
