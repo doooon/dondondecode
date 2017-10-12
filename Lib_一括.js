@@ -170,7 +170,7 @@ function goRotate(n,str,rev,atb) {
   } else if (rev.match(/reverse/i)) {
     msg="reverse ";
     str=strReverse(str);
-  } else if (rev.match(/atbash/i)) {
+  } else if (atb.match(/atbash/i)) {
     msg="atbash ";
     str=atbash19(str);
   }
@@ -187,8 +187,8 @@ function goRotate(n,str,rev,atb) {
 }
 
 goRotate(26,TEXT,"","");
-goRotate(26,TEXT,"reverse",0);
-goRotate(26,TEXT,0,"atbash");
+goRotate(26,TEXT,"reverse","");
+goRotate(26,TEXT,"","atbash");
 goRotate(26,TEXT,"reverse","atbash");
 
 /*
