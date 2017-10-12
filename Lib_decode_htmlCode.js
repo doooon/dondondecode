@@ -9,9 +9,6 @@ function htmlCode(tmp, label) {
   // チェック
   printCheck(tmp);  // 内部でprintMain()を呼び出していく
     
-  // タイムスタンプ
-  var d=new Date();
-  var strTS="<div class='elapsedtime'>"+((d.getTime() -startTime.getTime()) /1000)+"s</div>";
     
 }
 
@@ -218,7 +215,11 @@ function printMain(tmp3, moreF, msg) {
     
   }		
 
-  htmlTmp[htmlTmp.length-1]=htmlTmp[htmlTmp.length-1]+strTS;  // タイムスタンプ
+  // タイムスタンプ
+  var d=new Date();
+  var strTS="<div class='elapsedtime'>"+((d.getTime() -startTime.getTime()) /1000)+"s</div>";
+  htmlTmp[htmlTmp.length-1]=htmlTmp[htmlTmp.length-1]+" "+strTS;
+  //debug(htmlTmp[htmlTmp.length-1]);
 
 } // END function printMain()
 
