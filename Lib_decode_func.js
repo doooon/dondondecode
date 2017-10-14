@@ -2436,7 +2436,17 @@ function base64Dec(str, targetbase) {
         tmp2[i], 2).toString(
           Number(targetbase)));
     }
-    return result.join(" ");
+    return result.join("");
+  } else if (targetbase   
+    &&targetbase.match(/^index$/i)
+  ) {
+    var result=[];
+    for (var i in tmp) {
+      result.push(
+        ("0"+parseInt(tmp[i], 2)).slice(-2)
+      );
+    }
+    return result.join("");
   } else {
     return binASCII(tmp.join(""));
   }

@@ -889,35 +889,77 @@ if ((
   htmlTmp.push("===============");
 
   htmlTmp.push("(base64 index)");
-  htmlCode(base64Dec(b64TEXT,"10"));
+  var b64TEXT=base64Dec(b64TEXT,"index");
+  htmlTmp.push(b64TEXT.match(/../g).join(" "));
+  htmlCode(b64TEXT);
+  if (b64TEXT.match(/^(0\d)+$/)) htmlCode(b64TEXT.replace(/0(\d)/g, "$1"));
+
   htmlTmp.push("(swap base64 index)");
-  htmlCode(base64Dec(exchangeUpLow(b64TEXT),"10"));
-
+  var b64TEXT=base64Dec(exchangeUpLow(b64TEXT),"index");
+  htmlTmp.push(b64TEXT.match(/../g).join(" "));
+  htmlCode(b64TEXT);
+  if (b64TEXT.match(/^(0\d)+$/)) htmlCode(b64TEXT.replace(/0(\d)/g, "$1"));
+  
   htmlTmp.push("(reverse base64 index)");
-  htmlCode(base64Dec(strReverse(b64TEXT),"10"));
+  var b64TEXT=base64Dec(strReverse(b64TEXT),"index");
+  htmlTmp.push(b64TEXT.match(/../g).join(" "));
+  htmlCode(b64TEXT);
+  if (b64TEXT.match(/^(0\d)+$/)) htmlCode(b64TEXT.replace(/0(\d)/g, "$1"));
+  
   htmlTmp.push("(swap reverse base64 index)");
-  htmlCode(base64Dec(strReverse(exchangeUpLow(b64TEXT)),"10"));
-
+  var b64TEXT=base64Dec(strReverse(exchangeUpLow(b64TEXT)),"index");
+  htmlTmp.push(b64TEXT.match(/../g).join(" "));
+  htmlCode(b64TEXT);
+  if (b64TEXT.match(/^(0\d)+$/)) htmlCode(b64TEXT.replace(/0(\d)/g, "$1"));
+  
   htmlTmp.push("(atbash09 base64 index)");
-  htmlCode(base64Dec(atbash09(b64TEXT),"10"));
+  var b64TEXT=base64Dec(atbash09(b64TEXT),"index");
+  htmlTmp.push(b64TEXT.match(/../g).join(" "));
+  htmlCode(b64TEXT);
+  if (b64TEXT.match(/^(0\d)+$/)) htmlCode(b64TEXT.replace(/0(\d)/g, "$1"));
+  
   htmlTmp.push("(atbash19 base64 index)");
-  htmlCode(base64Dec(atbash19(b64TEXT),"10"));
-
+  var b64TEXT=base64Dec(atbash19(b64TEXT),"index");
+  htmlTmp.push(b64TEXT.match(/../g).join(" "));
+  htmlCode(b64TEXT);
+  if (b64TEXT.match(/^(0\d)+$/)) htmlCode(b64TEXT.replace(/0(\d)/g, "$1"));
+  
   htmlTmp.push("(swap atbash09 base64 index)");
-  htmlCode(base64Dec(atbash09(exchangeUpLow(b64TEXT)),"10"));
+  var b64TEXT=base64Dec(atbash09(exchangeUpLow(b64TEXT)),"index");
+  htmlTmp.push(b64TEXT.match(/../g).join(" "));
+  htmlCode(b64TEXT);
+  if (b64TEXT.match(/^(0\d)+$/)) htmlCode(b64TEXT.replace(/0(\d)/g, "$1"));
+  
   htmlTmp.push("(swap atbash19 base64 index)");
-  htmlCode(base64Dec(atbash19(exchangeUpLow(b64TEXT)),"10"));
-
+  var b64TEXT=base64Dec(atbash19(exchangeUpLow(b64TEXT)),"index");
+  htmlTmp.push(b64TEXT.match(/../g).join(" "));
+  htmlCode(b64TEXT);
+  if (b64TEXT.match(/^(0\d)+$/)) htmlCode(b64TEXT.replace(/0(\d)/g, "$1"));
+  
   htmlTmp.push("(reverse atbash09 base64 index)");
-  htmlCode(base64Dec(atbash09(strReverse(b64TEXT)),"10"));
+  var b64TEXT=base64Dec(atbash09(strReverse(b64TEXT)),"index");
+  htmlTmp.push(b64TEXT.match(/../g).join(" "));
+  htmlCode(b64TEXT);
+  if (b64TEXT.match(/^(0\d)+$/)) htmlCode(b64TEXT.replace(/0(\d)/g, "$1"));
+  
   htmlTmp.push("(reverse atbash19 base64 index)");
-  htmlCode(base64Dec(atbash19(strReverse(b64TEXT)),"10"));
-
+  var b64TEXT=base64Dec(atbash19(strReverse(b64TEXT)),"index");
+  htmlTmp.push(b64TEXT.match(/../g).join(" "));
+  htmlCode(b64TEXT);
+  if (b64TEXT.match(/^(0\d)+$/)) htmlCode(b64TEXT.replace(/0(\d)/g, "$1"));
+  
   htmlTmp.push("(swap reverse atbash09 base64 index)");
-  htmlCode(base64Dec(atbash09(strReverse(exchangeUpLow(b64TEXT))),"10"));
+  var b64TEXT=base64Dec(atbash09(strReverse(exchangeUpLow(b64TEXT))),"index");
+  htmlTmp.push(b64TEXT.match(/../g).join(" "));
+  htmlCode(b64TEXT);
+  if (b64TEXT.match(/^(0\d)+$/)) htmlCode(b64TEXT.replace(/0(\d)/g, "$1"));
+  
   htmlTmp.push("(swap reverse atbash19 base64 index)");
-  htmlCode(base64Dec(atbash19(strReverse(exchangeUpLow(b64TEXT))),"10"));
-
+  var b64TEXT=base64Dec(atbash19(strReverse(exchangeUpLow(b64TEXT))),"index");
+  htmlTmp.push(b64TEXT.match(/../g).join(" "));
+  htmlCode(b64TEXT);
+  if (b64TEXT.match(/^(0\d)+$/)) htmlCode(b64TEXT.replace(/0(\d)/g, "$1"));
+  
   htmlTmp.push("===============");  
 }
 
