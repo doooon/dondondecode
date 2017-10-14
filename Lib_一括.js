@@ -896,7 +896,7 @@ if ((
   htmlTmp.push("(reverse base64 index)");
   htmlCode(base64Dec(strReverse(b64TEXT),"10"));
   htmlTmp.push("(swap reverse base64 index)");
-  htmlCode(base64Dec(strRevers(exchangeUpLow(b64TEXT)),"10"));
+  htmlCode(base64Dec(strReverse(exchangeUpLow(b64TEXT)),"10"));
 
   htmlTmp.push("(atbash09 base64 index)");
   htmlCode(base64Dec(atbash09(b64TEXT),"10"));
