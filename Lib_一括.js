@@ -894,7 +894,7 @@ if ((
   htmlCode(base64Dec(exchangeUpLow(b64TEXT),"10"));
 
   htmlTmp.push("(reverse base64 index)");
-  htmlCode(base64Dec(strRevers(b64TEXT),"10"));
+  htmlCode(base64Dec(strReverse(b64TEXT),"10"));
   htmlTmp.push("(swap reverse base64 index)");
   htmlCode(base64Dec(strRevers(exchangeUpLow(b64TEXT)),"10"));
 
