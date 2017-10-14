@@ -2429,14 +2429,14 @@ function base64Dec(str, targetbase) {
   if (targetbase   
     &&targetbase.match(/^\d+$/)
   ) {
-    var result="";
+    var result=[];
     var tmp2=tmp.join("").match(/.{8}/g);
     for (var i in tmp2) {
-      result+=parseInt(
+      result.push(parseInt(
         tmp2[i], 2).toString(
-          Number(targetbase));
+          Number(targetbase)));
     }
-    return result;
+    return result.join(" ");
   } else {
     return binASCII(tmp.join(""));
   }
