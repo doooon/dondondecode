@@ -347,8 +347,12 @@ numNonLotate(rotN(strReverse(atbash19(TEXT)), -13, 0));
 
 
 htmlTmp.push("===============");
+
+if (!TEXT.match(/[ \n]/)) {
 goRectangles(TEXT);
 htmlTmp.push("===============");
+}
+
 if (
   TEXT &&
   TEXT.match(/^(\w\w\s?)+\w\w$/)
