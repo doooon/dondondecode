@@ -741,6 +741,7 @@ if ((
   htmlCode(atbash19(tmp));
   checkMoreBase64Dec(tmp);
   htmlTmp.push("-------");
+
   htmlTmp.push("(reverse>>base64)");
   htmlTmp.push(strReverse(b64TEXT));
   var tmp=base64Dec(
@@ -754,6 +755,7 @@ if ((
   htmlCode(atbash19(tmp));
   checkMoreBase64Dec(tmp);
   htmlTmp.push("-------");
+
   htmlTmp.push("(swap>>base64)");
   htmlTmp.push(
     exchangeUpLow(b64TEXT));
@@ -768,6 +770,7 @@ if ((
   htmlCode(atbash19(tmp));
   checkMoreBase64Dec(tmp);
   htmlTmp.push("-------");
+
   htmlTmp.push(
     "(swap>>reverse>>base64)");
   htmlTmp.push(
@@ -785,7 +788,23 @@ if ((
   htmlCode(atbash19(tmp));
   checkMoreBase64Dec(tmp);
   htmlTmp.push("-------");
-  htmlTmp.push("(atbash>>base64)");
+
+  htmlTmp.push("(atbash09>>base64)");
+  htmlTmp.push(
+    atbash09(b64TEXT));
+  var tmp=
+    base64Dec(atbash09(b64TEXT));
+  htmlCode(tmp);
+  checkMoreBase64Dec(tmp);
+  htmlTmp.push("(more reverse)");
+  htmlCode(strReverse(tmp));
+  checkMoreBase64Dec(tmp);
+  htmlTmp.push("(more atbash)");
+  htmlCode(atbash09(tmp));
+  checkMoreBase64Dec(tmp);
+  htmlTmp.push("-------");
+
+  htmlTmp.push("(atbash19>>base64)");
   htmlTmp.push(
     atbash19(b64TEXT));
   var tmp=
@@ -799,8 +818,25 @@ if ((
   htmlCode(atbash19(tmp));
   checkMoreBase64Dec(tmp);
   htmlTmp.push("-------");
+
   htmlTmp.push(
-    "(atbash>>reverse>>base64)");
+    "(atbash09>>reverse>>base64)");
+  htmlTmp.push(
+    strReverse(atbash09(b64TEXT)));
+  var tmp=base64Dec(
+    strReverse(atbash09(b64TEXT)));
+  htmlCode(tmp);
+  checkMoreBase64Dec(tmp);
+  htmlTmp.push("(more reverse)");
+  htmlCode(strReverse(tmp));
+  checkMoreBase64Dec(tmp);
+  htmlTmp.push("(more atbash)");
+  htmlCode(atbash09(tmp));
+  checkMoreBase64Dec(tmp);
+  htmlTmp.push("-------");
+
+  htmlTmp.push(
+    "(atbash19>>reverse>>base64)");
   htmlTmp.push(
     strReverse(atbash19(b64TEXT)));
   var tmp=base64Dec(
@@ -814,8 +850,27 @@ if ((
   htmlCode(atbash19(tmp));
   checkMoreBase64Dec(tmp);
   htmlTmp.push("-------");
+
   htmlTmp.push(
-    "(atbash>>swap>>base64)");
+    "(atbash09>>swap>>base64)");
+  htmlTmp.push(
+    exchangeUpLow(
+      atbash09(b64TEXT)));
+  var tmp=base64Dec(
+    exchangeUpLow(
+      atbash09(b64TEXT)));
+  htmlCode(tmp);
+  checkMoreBase64Dec(tmp);
+  htmlTmp.push("(more reverse)");
+  htmlCode(strReverse(tmp));
+  checkMoreBase64Dec(tmp);
+  htmlTmp.push("(more atbash)");
+  htmlCode(atbash09(tmp));
+  checkMoreBase64Dec(tmp);
+  htmlTmp.push("-------");
+  
+  htmlTmp.push(
+    "(atbash19>>swap>>base64)");
   htmlTmp.push(
     exchangeUpLow(
       atbash19(b64TEXT)));
@@ -830,7 +885,40 @@ if ((
   htmlTmp.push("(more atbash)");
   htmlCode(atbash19(tmp));
   checkMoreBase64Dec(tmp);
+  
   htmlTmp.push("===============");
+
+  htmlTmp.push("(base64 index)");
+  htmlCode(base64Dec(b64TEXT,"10"));
+  htmlTmp.push("(swap base64 index)");
+  htmlCode(base64Dec(exchangeUpLow(b64TEXT),"10"));
+
+  htmlTmp.push("(reverse base64 index)");
+  htmlCode(base64Dec(strRevers(b64TEXT),"10"));
+  htmlTmp.push("(swap reverse base64 index)");
+  htmlCode(base64Dec(strRevers(exchangeUpLow(b64TEXT)),"10"));
+
+  htmlTmp.push("(atbash09 base64 index)");
+  htmlCode(base64Dec(atbash09(b64TEXT),"10"));
+  htmlTmp.push("(atbash19 base64 index)");
+  htmlCode(base64Dec(atbash19(b64TEXT),"10"));
+
+  htmlTmp.push("(swap atbash09 base64 index)");
+  htmlCode(base64Dec(atbash09(exchangeUpLow(b64TEXT)),"10"));
+  htmlTmp.push("(swap atbash19 base64 index)");
+  htmlCode(base64Dec(atbash19(exchangeUpLow(b64TEXT)),"10"));
+
+  htmlTmp.push("(reverse atbash09 base64 index)");
+  htmlCode(base64Dec(atbash09(strReverse(b64TEXT),"10"));
+  htmlTmp.push("(reverse atbash19 base64 index)");
+  htmlCode(base64Dec(atbash19(strReverse(b64TEXT)),"10"));
+
+  htmlTmp.push("(swap reverse atbash09 base64 index)");
+  htmlCode(base64Dec(atbash09(strReverse(exchangeUpLow(b64TEXT)),"10"));
+  htmlTmp.push("(swap reverse atbash19 base64 index)");
+  htmlCode(base64Dec(atbash19(strReverse(exchangeUpLow(b64TEXT))),"10"));
+
+  htmlTmp.push("===============");  
 }
 
 // base32
