@@ -909,12 +909,12 @@ if ((
   htmlCode(base64Dec(atbash19(exchangeUpLow(b64TEXT)),"10"));
 
   htmlTmp.push("(reverse atbash09 base64 index)");
-  htmlCode(base64Dec(atbash09(strReverse(b64TEXT),"10"));
+  htmlCode(base64Dec(atbash09(strReverse(b64TEXT)),"10"));
   htmlTmp.push("(reverse atbash19 base64 index)");
   htmlCode(base64Dec(atbash19(strReverse(b64TEXT)),"10"));
 
   htmlTmp.push("(swap reverse atbash09 base64 index)");
-  htmlCode(base64Dec(atbash09(strReverse(exchangeUpLow(b64TEXT)),"10"));
+  htmlCode(base64Dec(atbash09(strReverse(exchangeUpLow(b64TEXT))),"10"));
   htmlTmp.push("(swap reverse atbash19 base64 index)");
   htmlCode(base64Dec(atbash19(strReverse(exchangeUpLow(b64TEXT))),"10"));
 
