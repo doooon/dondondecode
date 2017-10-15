@@ -4,46 +4,34 @@
 // function kakokaitou6() {
 
 
-/*
+
 // 旧フォーマットrectで3列横スライド
 if (
-  TEXT.match(/^\w+$/) && 
-  TEXT.match(/\d/) && 
-  TEXT.match(/\d/).length=4 && 
+  TEXT.match(/^[2-9][a-z]{3}[2-9][a-z]{5}[a-z][2-9][a-z][2-9][a-z]$/i) && 
   kouseimoji.length>=3
 ) {
   var keySyougouL=keySyougou(TEXT, wL.length);
   if (keySyougouL.length && keySyougouL[0].length==5) {
       
-  }
-  
-
-  var tmp=[];
-  htmlTmp.push(TEXT);
-  htmlTmp.push("<b>(rectで3列横スライド)</b>");
-  tmp=TEXT.split(/\D/g);
-  htmlTmp.push(tmp);
-  for (var i in tmp) {
-    var tmp3="";
-    for (var j=0; j<tmp[i].length; j++) {
-      if (j%2==0) {
-        for (var k=1;k<=Number(tmp[i][j]);k++){
-          tmp3+=".";
-        }
-      } else {
-        for (var k=1;k<=Number(tmp[i][j]);k++){
-          tmp3+="-";
-        }
-      }
+    var tmp=[];
+    htmlTmp.push(TEXT);
+    htmlTmp.push("<b>(rectで3列横スライド)</b>");
+    tmp=TEXT.match(/.{5}/g);
+    htmlTmp.push(tmp.join("\n"));
+    for (var i in tmp) {
+      tmp[i]=tmp[i][2];
+      tmp[i]+=tmp[i][3];
+      tmp[i]+=tmp[i][4];
+      tmp[i]+=tmp[i][0];
+      tmp[i]+=tmp[i][1];
     }
-    tmp[i]=tmp3;
-  }
-  htmlTmp.push(tmp.join(" "));
-  goMorse(tmp.join(" "));
-  htmlTmp.push("==============");
+    htmlTmp.push(tmp.join("\n"));
+    rectRead(tmp.join("\n"));
+    htmlTmp.push("==============");
 
+  }
 }
-*/
+
 
 
 // RLE☓RLE
