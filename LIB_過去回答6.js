@@ -7,26 +7,23 @@
 
 // 旧フォーマットrectで3列横スライド
 if (
-  TEXT.match(/^[2-9][a-z]{3}[2-9][a-z]{5}[a-z][2-9][a-z][2-9][a-z]$/i) && 
+  TEXT.match(/^[2-9][a-z]{3}[2-9][a-z]{8}[a-z][2-9][a-z][2-9][a-z]$/i) && 
   kouseimoji.length>=3
 ) {
   var keySyougouL=keySyougou(TEXT, wL.length);
-  if (keySyougouL.length && keySyougouL[0].length==5) {
+  if (keySyougouL.length && keySyougouL[0].length==8) {
       
     var tmp=[];
     htmlTmp.push(TEXT);
     htmlTmp.push("<b>(rectで3列横スライド)</b>");
-    tmp=TEXT.match(/.{5}/g);
+    tmp=TEXT.match(/.{6}/g);
     htmlTmp.push(tmp.join("\n"));
     for (var i in tmp) {
-      tmp[i]=tmp[i][2];
-      tmp[i]+=tmp[i][3];
-      tmp[i]+=tmp[i][4];
-      tmp[i]+=tmp[i][0];
-      tmp[i]+=tmp[i][1];
+      tmp[i]=tmp[i].replace(/(...)(...)/, "$2$1");
     }
     htmlTmp.push(tmp.join("\n"));
-    rectRead(tmp.join("\n"));
+    //rectRead(tmp.join("\n"));
+    htmlCode(strReverse(tmp.join("")));
     htmlTmp.push("==============");
 
   }
