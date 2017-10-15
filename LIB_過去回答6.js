@@ -19,11 +19,13 @@ if (
     var n=TEXT.length/6;
     var tmpRE2=
       new RegExp("(.{"+n+"})(.{"+n+"})");
-    htmlTmp.push(tmp.join("\n")+"-----\n");
+    htmlTmp.push(tmp.join("\n"));
+    htmlTmp.push("-----");
     for (var i in tmp) {
       tmp[i]=tmp[i].replace(tmpRE2, "$2$1");
     }
-    htmlTmp.push(tmp.join("\n")+"-----\n");
+    htmlTmp.push(tmp.join("\n"));
+    htmlTmp.push("-----");
     //rectRead(tmp.join("\n"));
     htmlCode(strReverse(tmp.join("")));
     htmlTmp.push("==============");
