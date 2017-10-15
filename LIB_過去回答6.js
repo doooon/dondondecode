@@ -5,18 +5,17 @@
 
 
 
-// 旧フォーマットrectで3列横スライド
+// 旧フォーマットrect3 & 中央分割左右入れ替え
 if (
-  TEXT.match(/^[2-9][a-z]{3}[2-9][a-z]{8}[a-z][2-9][a-z][2-9][a-z]$/i) && 
+  TEXT.match(/^[2-9][a-z]{3}[2-9][a-z]+[a-z][2-9][a-z][2-9][a-z]$/i) && 
+  TEXT.length%6==0 &&
   kouseimoji.length>=3
 ) {
-  var keySyougouL=keySyougou(TEXT, wL.length);
-  if (keySyougouL.length && keySyougouL[0].length==8) {
-      
     var tmp=[];
     htmlTmp.push(TEXT);
-    htmlTmp.push("<b>(rectで3列横スライド)</b>");
-    tmp=TEXT.match(/.{6}/g);
+    htmlTmp.push("<b>(rect3 & 中央分割左右入れ替え)</b>");
+    var tmpRE=new RegExp(".{"+ TEXT.length/6+"}", "g");
+    tmp=TEXT.match(tmpRE);
     htmlTmp.push(tmp.join("\n"));
     for (var i in tmp) {
       tmp[i]=tmp[i].replace(/(...)(...)/, "$2$1");
@@ -26,7 +25,6 @@ if (
     htmlCode(strReverse(tmp.join("")));
     htmlTmp.push("==============");
 
-  }
 }
 
 
