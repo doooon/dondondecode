@@ -4,7 +4,7 @@
 // function kakokaitou6() {
 
 
-/*
+
 // 旧フォーマットrectで3列横スライド
 if (
   TEXT.match(/^[2-9][a-z]{3}[2-9][a-z]{8}[a-z][2-9][a-z][2-9][a-z]$/i) && 
@@ -28,7 +28,7 @@ if (
 
   }
 }
-*/
+
 
 
 // RLE☓RLE
