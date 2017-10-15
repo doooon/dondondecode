@@ -4,6 +4,48 @@
 // function kakokaitou6() {
 
 
+/*
+// 旧フォーマットrectで3列横スライド
+if (
+  TEXT.match(/^\w+$/) && 
+  TEXT.match(/\d/) && 
+  TEXT.match(/\d/).length=4 && 
+  kouseimoji.length>=3
+) {
+  var keySyougouL=keySyougou(TEXT, wL.length);
+  if (keySyougouL.length && keySyougouL[0].length==5) {
+      
+  }
+  
+
+  var tmp=[];
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(rectで3列横スライド)</b>");
+  tmp=TEXT.split(/\D/g);
+  htmlTmp.push(tmp);
+  for (var i in tmp) {
+    var tmp3="";
+    for (var j=0; j<tmp[i].length; j++) {
+      if (j%2==0) {
+        for (var k=1;k<=Number(tmp[i][j]);k++){
+          tmp3+=".";
+        }
+      } else {
+        for (var k=1;k<=Number(tmp[i][j]);k++){
+          tmp3+="-";
+        }
+      }
+    }
+    tmp[i]=tmp3;
+  }
+  htmlTmp.push(tmp.join(" "));
+  goMorse(tmp.join(" "));
+  htmlTmp.push("==============");
+
+}
+*/
+
+
 // RLE☓RLE
 if (
   (
