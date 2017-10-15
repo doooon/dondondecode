@@ -14,13 +14,16 @@ if (
     var tmp=[];
     htmlTmp.push(TEXT);
     htmlTmp.push("<b>(rect3 & 中央分割左右入れ替え)</b>");
-    var tmpRE=new RegExp(".{"+ TEXT.length/6+"}", "g");
+    var tmpRE=new RegExp(".{"+ TEXT.length/3+"}", "g");
     tmp=TEXT.match(tmpRE);
-    htmlTmp.push(tmp.join("\n"));
+    var n=TEXT.length/6;
+    var tmpRE2=
+      new RegExp("(.{"+n+"})(.{"+n+"})");
+    htmlTmp.push(tmp.join("\n")+"-----\n");
     for (var i in tmp) {
-      tmp[i]=tmp[i].replace(/(...)(...)/, "$2$1");
+      tmp[i]=tmp[i].replace(tmpRE2, "$2$1");
     }
-    htmlTmp.push(tmp.join("\n"));
+    htmlTmp.push(tmp.join("\n")+"-----\n");
     //rectRead(tmp.join("\n"));
     htmlCode(strReverse(tmp.join("")));
     htmlTmp.push("==============");
