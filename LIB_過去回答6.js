@@ -5,7 +5,40 @@
 
 htmlTmp.push("<div class='red'>--- kako 6 ---</div>");
 
-// rect3 & 中央分割左右入れ替え
+// 3行 横にnスライド
+if (
+  TEXT.match(/^\w+$/) && 
+  TEXT.length%3==0 &&
+  kouseimoji.length>=4 &&
+  TEXT.length<30
+) {
+    var tmp=[];
+    htmlTmp.push(TEXT);
+    htmlTmp.push("<b>(3行 & 横にnスライド)</b>");
+    var tmpRE=new RegExp(".{"+ TEXT.length/3+"}", "g");
+    tmp=TEXT.match(tmpRE);
+
+    htmlTmp.push(tmp.join("\n"));
+    htmlTmp.push("-----");
+
+    for (var i=1; i<tmp[0].length; i++) {
+      for (var j=0; j<=2.length; j++) {
+        htmlTmp.push(i+"スライド");
+        tmp[j]=
+          tmp[j].slice(i,tmp[j].length)
+          +tmp[j].slice(0,i)
+      }
+      htmlTmp.push(tmp.join("\n"));
+      htmlTmp.push("-----");
+      //rectRead(tmp.join("\n"));
+      htmlCode(strReverse(tmp.join("")));
+    }
+    htmlTmp.push("==============");
+}
+
+
+
+// 3行 & 中央分割左右入れ替え
 if (
   TEXT.match(/^\w+$/) && 
   TEXT.length%6==0 &&
@@ -13,7 +46,7 @@ if (
 ) {
     var tmp=[];
     htmlTmp.push(TEXT);
-    htmlTmp.push("<b>(rect3 & 中央分割左右入れ替え)</b>");
+    htmlTmp.push("<b>(3行 & 中央分割左右入れ替え)</b>");
     var tmpRE=new RegExp(".{"+ TEXT.length/3+"}", "g");
     tmp=TEXT.match(tmpRE);
     var n=TEXT.length/6;
