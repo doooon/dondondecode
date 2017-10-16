@@ -24,12 +24,9 @@ if (
 
   for (var i=1; i<tmp[0].length; i++) {
     for (var j=0; j<=2; j++) {
-
       htmlTmp.push(i+"スライド");
-      //tmp[j]=
-       //   tmp[j].slice(i,tmp[j].length)
-         // +tmp[j].slice(0,i);
-
+      var tmpRE2=new RegExp("(.{"+i+"})(.*)");
+      tmp[j]=tmp[j].replace(tmpRE2, "$2$1");
     }
     htmlTmp.push(tmp.join("\n"));
     htmlTmp.push("-----");
