@@ -33,6 +33,101 @@ if (
 }
 
 
+// 3行にわけて奇数偶数をそれぞれ上へ下へ
+if (
+  kouseimoji.length>=4 && 
+  TEXT.length%3==0
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(3行にわけて奇数偶数をそれぞれ上へ下へ)</b>");
+  var tmpRE=new RegExp(".{"+TEXT.length/3+"}", "g");
+  var tmp=TEXT.match(tmpRE);
+  var result=[];
+  var result2=[];
+  for (var i in tmp) {
+    var tmpL1=[];
+    var tmpL2=[];
+
+    for (var j in tmp[i]) {
+      var k=i;
+      var k2=i;
+      if (j%2==0) {
+        k=Number(k)+1;
+        k2=Number(k2)-1;
+      } else {
+        k=Number(k)-1;
+        k2=Number(k2)+1;
+      }
+      if (k<0) {
+        k=2; 
+      } else if (k>2) {
+        k=0; 
+      }
+      if (k2>2) {
+        k2=0; 
+      } else if (k2<0) {
+        k2=2; 
+      }
+      tmpL1.push(tmp[k][j]);
+      tmpL2.push(tmp[k2][j]);
+    }
+    result[i]=tmpL1.join("");
+    result2[i]=tmpL2.join("");
+ }
+  
+  htmlCode(result.join("\n"));
+  htmlCode(result2.join("\n"));
+  htmlTmp.push("-----------------");
+  htmlCode(result.join(""));
+  htmlCode(result2.join(""));
+  htmlTmp.push("==============");
+  
+}
+
+// 半分で前後入れ替えて連結&ペアで前後入れ替え
+if (
+  TEXT.length%2==0 && 
+  kouseimoji.length>=4
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(半分で前後入れ替えて連結&ペアで前後入れ替え)</b>");
+  var tmpRE=new RegExp(".{"+TEXT.length/2+"}", "g");
+  var tmps=TEXT.match(tmpRE);
+  var tmp=tmps[1]+tmps[0];
+  htmlTmp.push(tmps[1]+" "+tmps[0]);
+  var tmps=tmp.match(/../g);
+  for (var i in tmps) {
+    tmps[i]=tmps[i].replace(/(.)(.)/g, "$2$1");
+  }
+  htmlTmp.push(tmps.join(" "));
+  htmlCode(tmps.join(""));
+  htmlTmp.push("==============");
+}
+
+
+// 半分で2段に分けて上下読み出し
+// 7777755555
+if (
+  TEXT.length%2==0 
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(半分で2段に分けて上下読み出し)</b>");
+  var tmpRE=new RegExp(".{"+TEXT.length/2+"}", "g");
+  var tmp=TEXT.match(tmpRE);
+  htmlTmp.push(tmp.join("\n"));
+  var resultUpLow=[];
+  var resultLowUp=[];
+  for (var i in tmp[0]) {
+    resultUpLow.push(tmp[0][i]);
+    resultUpLow.push(tmp[1][i]);
+    resultLowUp.push(tmp[1][i]);
+    resultLowUp.push(tmp[0][i]);
+  }
+  htmlCode(resultUpLow.join(""));
+  htmlCode(resultLowUp.join(""));
+  htmlTmp.push("==============");
+}
+
 
 // RLE☓RLE
 if (
@@ -461,56 +556,7 @@ if (
 }
 
 
-// 3行にわけて奇数偶数をそれぞれ上へ下へ
-if (
-  kouseimoji.length>=4 && 
-  TEXT.length%3==0
-) {
-  htmlTmp.push(TEXT);
-  htmlTmp.push("<b>(3行にわけて奇数偶数をそれぞれ上へ下へ)</b>");
-  var tmpRE=new RegExp(".{"+TEXT.length/3+"}", "g");
-  var tmp=TEXT.match(tmpRE);
-  var result=[];
-  var result2=[];
-  for (var i in tmp) {
-    var tmpL1=[];
-    var tmpL2=[];
 
-    for (var j in tmp[i]) {
-      var k=i;
-      var k2=i;
-      if (j%2==0) {
-        k=Number(k)+1;
-        k2=Number(k2)-1;
-      } else {
-        k=Number(k)-1;
-        k2=Number(k2)+1;
-      }
-      if (k<0) {
-        k=2; 
-      } else if (k>2) {
-        k=0; 
-      }
-      if (k2>2) {
-        k2=0; 
-      } else if (k2<0) {
-        k2=2; 
-      }
-      tmpL1.push(tmp[k][j]);
-      tmpL2.push(tmp[k2][j]);
-    }
-    result[i]=tmpL1.join("");
-    result2[i]=tmpL2.join("");
- }
-  
-  htmlCode(result.join("\n"));
-  htmlCode(result2.join("\n"));
-  htmlTmp.push("-----------------");
-  htmlCode(result.join(""));
-  htmlCode(result2.join(""));
-  htmlTmp.push("==============");
-  
-}
 
 // ポケベル打ち
 if (
@@ -592,50 +638,6 @@ if (
 }
 */
 
-
-// 半分で前後入れ替えて連結&ペアで前後入れ替え
-if (
-  TEXT.length%2==0 && 
-  kouseimoji.length>=4
-) {
-  htmlTmp.push(TEXT);
-  htmlTmp.push("<b>(半分で前後入れ替えて連結&ペアで前後入れ替え)</b>");
-  var tmpRE=new RegExp(".{"+TEXT.length/2+"}", "g");
-  var tmps=TEXT.match(tmpRE);
-  var tmp=tmps[1]+tmps[0];
-  htmlTmp.push(tmps[1]+" "+tmps[0]);
-  var tmps=tmp.match(/../g);
-  for (var i in tmps) {
-    tmps[i]=tmps[i].replace(/(.)(.)/g, "$2$1");
-  }
-  htmlTmp.push(tmps.join(" "));
-  htmlCode(tmps.join(""));
-  htmlTmp.push("==============");
-}
-
-
-// 半分で2段に分けて上下読み出し
-// 7777755555
-if (
-  TEXT.length%2==0 
-) {
-  htmlTmp.push(TEXT);
-  htmlTmp.push("<b>(半分で2段に分けて上下読み出し)</b>");
-  var tmpRE=new RegExp(".{"+TEXT.length/2+"}", "g");
-  var tmp=TEXT.match(tmpRE);
-  htmlTmp.push(tmp.join("\n"));
-  var resultUpLow=[];
-  var resultLowUp=[];
-  for (var i in tmp[0]) {
-    resultUpLow.push(tmp[0][i]);
-    resultUpLow.push(tmp[1][i]);
-    resultLowUp.push(tmp[1][i]);
-    resultLowUp.push(tmp[0][i]);
-  }
-  htmlCode(resultUpLow.join(""));
-  htmlCode(resultLowUp.join(""));
-  htmlTmp.push("==============");
-}
 
 
 // キーボードの段でモールス
