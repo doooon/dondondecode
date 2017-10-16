@@ -24,6 +24,7 @@ if (
 
   for (var i=1; i<tmp[0].length; i++) {
     for (var j=0; j<=2; j++) {
+      debug("j= "+j);
       htmlTmp.push(i+"スライド");
       var tmpRE2=new RegExp("(.{"+i+"})(.*)");
       tmp[j]=tmp[j].replace(tmpRE2, "$2$1");
@@ -32,6 +33,7 @@ if (
     htmlTmp.push("-----");
     //rectRead(tmp.join("\n"));
     htmlCode(tmp.join(""));
+    htmlTmp.push("======");
   }
   htmlTmp.push("==============");
 
