@@ -23,7 +23,7 @@ if (
   htmlTmp.push("-----");
 
   for (var i=1; i<tmp[0].length; i++) {
-    htmlTmp.push(i+"スライド");
+    htmlTmp.push("("+i+"スライド)");
     var tmpRE2=new RegExp("(.)(.*)");
     for (var j=0; j<=2; j++) {
      tmp[j]=tmp[j].replace(tmpRE2, "$2$1");
