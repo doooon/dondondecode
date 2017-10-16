@@ -26,7 +26,7 @@ if (
     for (var j=0; j<=2; j++) {
       debug("j= "+j);
       htmlTmp.push(i+"スライド");
-      var tmpRE2=new RegExp("(.{"+i+"})(.*)");
+      var tmpRE2=new RegExp("(.)(.*)");
       tmp[j]=tmp[j].replace(tmpRE2, "$2$1");
     }
     htmlTmp.push(tmp.join("\n"));
