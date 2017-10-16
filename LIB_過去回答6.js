@@ -12,28 +12,28 @@ if (
   kouseimoji.length>=4 &&
   TEXT.length<30
 ) {
-    var tmp=[];
-    htmlTmp.push(TEXT);
-    htmlTmp.push("<b>(3行 & 横にnスライド)</b>");
-    var tmpRE=new RegExp(".{"+ TEXT.length/3+"}", "g");
-    tmp=TEXT.match(tmpRE);
+  var tmp=[];
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(3行 & 横にnスライド)</b>");
+  var tmpRE=new RegExp(".{"+ TEXT.length/3+"}", "g");
+  tmp=TEXT.match(tmpRE);
 
+  htmlTmp.push(tmp.join("\n"));
+  htmlTmp.push("-----");
+
+  for (var i=1; i<tmp[0].length; i++) {
+    for (var j=0; j<=2; j++) {
+      htmlTmp.push(i+"スライド");
+      tmp[j]=
+          tmp[j].slice(i,tmp[j].length)
+          +tmp[j].slice(0,i);
+    }
     htmlTmp.push(tmp.join("\n"));
     htmlTmp.push("-----");
-
-    for (var i=1; i<tmp[0].length; i++) {
-      for (var j=0; j<=2.length; j++) {
-        htmlTmp.push(i+"スライド");
-        tmp[j]=
-          tmp[j].slice(i,tmp[j].length)
-          +tmp[j].slice(0,i)
-      }
-      htmlTmp.push(tmp.join("\n"));
-      htmlTmp.push("-----");
-      //rectRead(tmp.join("\n"));
-      htmlCode(strReverse(tmp.join("")));
-    }
-    htmlTmp.push("==============");
+    //rectRead(tmp.join("\n"));
+    htmlCode(tmp.join(""));
+  }
+  htmlTmp.push("==============");
 }
 
 
