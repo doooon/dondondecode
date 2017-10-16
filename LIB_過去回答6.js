@@ -34,7 +34,7 @@ if (
 
 
 // 3行にわけて奇数偶数をそれぞれ上へ下へ
-if (
+if (TEXT.match(/^\w+$/) && 
   kouseimoji.length>=4 && 
   TEXT.length%3==0
 ) {
@@ -85,7 +85,7 @@ if (
 }
 
 // 半分で前後入れ替えて連結&ペアで前後入れ替え
-if (
+if (TEXT.match(/^\w+$/) && 
   TEXT.length%2==0 && 
   kouseimoji.length>=4
 ) {
@@ -107,7 +107,7 @@ if (
 
 // 半分で2段に分けて上下読み出し
 // 7777755555
-if (
+if (TEXT.match(/^\w+$/) && 
   TEXT.length%2==0 
 ) {
   htmlTmp.push(TEXT);
