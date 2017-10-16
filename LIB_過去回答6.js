@@ -24,9 +24,9 @@ if (
   for (var i=1; i<tmp[0].length; i++) {
     for (var j=0; j<=2; j++) {
       htmlTmp.push(i+"スライド");
-      tmp[j]=
-          tmp[j].slice(i,tmp[j].length)
-          +tmp[j].slice(0,i);
+      //tmp[j]=
+       //   tmp[j].slice(i,tmp[j].length)
+         // +tmp[j].slice(0,i);
     }
     htmlTmp.push(tmp.join("\n"));
     htmlTmp.push("-----");
