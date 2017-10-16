@@ -6,6 +6,7 @@
 htmlTmp.push("<div class='red'>--- kako 6 ---</div>");
 
 // 3行 横にnスライド
+/*
 if (
   TEXT.match(/^\w+$/) && 
   TEXT.length%3==0 &&
@@ -35,7 +36,7 @@ if (
   }
   htmlTmp.push("==============");
 }
-
+*/
 
 
 // 3行 & 中央分割左右入れ替え
