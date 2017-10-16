@@ -5,6 +5,14 @@
 
 //======================================
 
+
+/*
+// Rectスライド
+function rectRead(rectArrey) {
+
+}
+*/
+
 // Rect読み出し
 function rectRead(rect) {
 
