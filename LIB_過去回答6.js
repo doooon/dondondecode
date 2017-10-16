@@ -15,13 +15,13 @@ if (
   var tmp=[];
   htmlTmp.push(TEXT);
   htmlTmp.push("<b>(3行 & 横にnスライド)</b>");
-/*
+
   var tmpRE=new RegExp(".{"+TEXT.length/3+"}", "g");
   tmp=TEXT.match(tmpRE);
 
   htmlTmp.push(tmp.join("\n"));
   htmlTmp.push("-----");
-
+/*
   for (var i=1; i<tmp[0].length; i++) {
     for (var j=0; j<=2; j++) {
       htmlTmp.push(i+"スライド");
@@ -111,6 +111,7 @@ if (TEXT.match(/^\w+$/) &&
  }
   
   htmlCode(result.join("\n"));
+  htmlTmp.push("----");
   htmlCode(result2.join("\n"));
   htmlTmp.push("-----------------");
   htmlCode(result.join(""));
