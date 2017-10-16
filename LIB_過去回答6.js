@@ -3,11 +3,11 @@
 
 // function kakokaitou6() {
 
+htmlTmp.push("<div class='red'>--- kako 6 ---</div>");
 
-
-// 旧フォーマットrect3 & 中央分割左右入れ替え
+// rect3 & 中央分割左右入れ替え
 if (
-  TEXT.match(/^[2-9][a-z]{3}[2-9][a-z]+[a-z][2-9][a-z][2-9][a-z]$/i) && 
+  TEXT.match(/^\w+$/) && 
   TEXT.length%6==0 &&
   kouseimoji.length>=3
 ) {
