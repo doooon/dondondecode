@@ -18,6 +18,7 @@
 * {font-family: monospace}
 body {padding: 1em}
 .alert {color: red}
+.red {color: red}
 td {padding:2px}
 .alertbox {border:1px red solid}
 .leet {background-color: #99ff99}
