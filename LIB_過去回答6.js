@@ -23,10 +23,10 @@ if (
   htmlTmp.push("-----");
 
   for (var i=1; i<tmp[0].length; i++) {
+    htmlTmp.push(i+"スライド");
+    var tmpRE2=new RegExp("(.)(.*)");
     for (var j=0; j<=2; j++) {
-      htmlTmp.push(i+"スライド");
-      var tmpRE2=new RegExp("(.)(.*)");
-      tmp[j]=tmp[j].replace(tmpRE2, "$2$1");
+     tmp[j]=tmp[j].replace(tmpRE2, "$2$1");
     }
     htmlTmp.push(tmp.join("\n"));
     htmlTmp.push("-----");
