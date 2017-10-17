@@ -6,17 +6,82 @@
 //======================================
 
 
-/*
-// Rectスライド
-function rectRead(rect,x,y) {
-  // rectは\n区切りの文字列"aaaaa\nbbbbb\nccccc\n"
-  // xは列方向スライド量文字列"+1-2+3-4+5"
-  // yは行方向スライド量文字列"+1-2+3"
-  if (!rect || !rect.match(/\n/)) return null;
-  var tmpL=rect.split(/\n/g);
 
+// Rectスライド
+function rectSlide(rect,xy,val) {
+  // rectは\n区切りの文字列"aaaaa\nbbbbb\nccccc\n"
+  // valはスライド量文字列(コンマ区切り)"+1,-2,+3,-4,+5,+1,0,-1"
+  // xyはスライド方向 "x" or "y"
+  if ( !rect || !rect.match(/\n/) || !xy.match(/^[xy]$/i) || !val.match(/^([+\-]?\d+,)*([+\-]?\d+)$/) ) return null;
+
+  var tmpL=rect.split(/\n/g);
+  var maxLength=0;
+
+  //各行から最大値を取得
+  for (var i in tmpL) {
+    if (tmpL[i].length > maxLength) maxLength=tmpL[i].length;
+  }
+
+  //最大値に合わせてスペースを追加
+  for (var i in tmpL) {
+    if (tmpL[i].length < maxLength) {
+      var n=maxLength-tmpL[i].length;
+      for (var j=0; j<n; j++) { tmpL[i]+="∎"; }
+    }
+  }
+  
+  //スライド値を全て用意
+  var valL=val.split(/,/g);
+  if (valL.length<maxLength) {
+    var n=maxLength-valL.length;
+    for (var j=0; j<n; j++) { valL.push("0"); }
+  } else if (valL.length>maxLength) {
+    var n=valL.length-maxLength;
+    valL.splice(maxLength-1, n,);
+  }
+  
+  // y方向なら縦横入れ替え
+  if (xy.match(/y/i)) tmpL=rectReflect(tmpL,"text");
+  
+  // スライド実行
+  for (var i in tmpL) {
+
+    var sign="+";    
+    if (valL[i].match(/-/)) sign="-";
+
+    // lengthを超えないように
+    var valN=valL[i].match(/\d+/)[0]%tmpL[0].length;
+
+    // 縦横を入れ替えた場合(方向がyの場合)は、シフトするプラスマイナスの方向が逆になることに注意
+    if (xy.match(/x/i)) {
+      if (sign=="-") {
+        var tmpRE=new RegExp("(.{"+valN+"})(.*)");
+        tmpL[i]=tmpL[i].replace(tmpRE, "$2$1");
+      } else if (sign=="+") {
+        var tmpRE=new RegExp("(.{"+valN+"})(.*)");
+        tmpL[i]=strReverse(tmpL[i]);
+        tmpL[i]=tmpL[i].replace(tmpRE, "$2$1");
+        tmpL[i]=strReverse(tmpL[i]);
+      }
+    } else if (xy.match(/y/i)) {
+      if (sign=="+") {
+        var tmpRE=new RegExp("(.{"+valN+"})(.*)");
+        tmpL[i]=tmpL[i].replace(tmpRE, "$2$1");
+      } else if (sign=="-") {
+        var tmpRE=new RegExp("(.{"+valN+"})(.*)");
+        tmpL[i]=strReverse(tmpL[i]);
+        tmpL[i]=tmpL[i].replace(tmpRE, "$2$1");
+        tmpL[i]=strReverse(tmpL[i]);
+      }
+    }
+  }
+
+  // y方向なら縦横入れ替え
+  if (xy.match(/y/i)) tmpL=rectReflect(tmpL,"text");
+
+  return tmpL.join("\n");
 }
-*/
+
 
 // Rect読み出し
 function rectRead(rect) {

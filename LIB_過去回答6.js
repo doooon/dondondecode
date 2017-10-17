@@ -5,6 +5,74 @@
 
 htmlTmp.push("<div class='red'>--- kako 6 ---</div>");
 
+
+// 3列 縦に+,-,+スライド
+if (
+  TEXT.match(/^\w+$/) && 
+  TEXT.length%3==0 &&
+  kouseimoji.length>=4 &&
+  TEXT.length<40
+) {
+  var tmp=[];
+  htmlTmp.push(TEXT);
+  htmlTmp.push("--------------");
+  
+  var tmpRE=new RegExp(".{3}", "g");
+  tmp=TEXT.match(tmpRE);
+  htmlTmp.push(tmp.join("\n"));
+  
+  for (var i=1; i<TEXT.length/3; i++) {
+    htmlTmp.push("<b>(3列 縦に+"+i+",-"+i+",+"+i+"スライド)</b>");
+    var tmpNew=rectSlide(tmp.join("\n"),"y","+"+i+",-"+i+",+"+i);
+    htmlTmp.push(tmpNew);
+    htmlCode(tmpNew.split(/\n/g).join(""));
+    htmlTmp.push("--------------");
+
+    htmlTmp.push("<b>(3列 縦に-"+i+",+"+i+",-"+i+"スライド)</b>");
+    var tmpNew=rectSlide(tmp.join("\n"),"y","-"+i+",+"+i+",-"+i);
+    htmlTmp.push(tmpNew);
+    htmlCode(tmpNew.split(/\n/g).join(""));
+    htmlTmp.push("--------------");
+
+  }
+  htmlTmp.push("==============");  
+}
+
+// 3行 横に+,-,+スライド
+if (
+  TEXT.match(/^\w+$/) && 
+  TEXT.length%3==0 &&
+  kouseimoji.length>=4 &&
+  TEXT.length<40
+) {
+  var tmp=[];
+  htmlTmp.push(TEXT);
+  htmlTmp.push("--------------");
+  
+  var tmpRE=new RegExp(".{"+TEXT.length/3+"}", "g");
+  tmp=TEXT.match(tmpRE);
+  htmlTmp.push(tmp.join("\n"));
+  
+  for (var i=1; i<TEXT.length/3; i++) {
+    htmlTmp.push("<b>(3行 横に+"+i+",-"+i+",+"+i+"スライド)</b>");
+    var tmpNew=rectSlide(tmp.join("\n"),"x","+"+i+",-"+i+",+"+i);
+    htmlTmp.push(tmpNew);
+    htmlCode(tmpNew.split(/\n/g).join(""));
+    htmlTmp.push("--------------");
+
+    htmlTmp.push("<b>(3行 横に-"+i+",+"+i+",-"+i+"スライド)</b>");
+    var tmpNew=rectSlide(tmp.join("\n"),"x","-"+i+",+"+i+",-"+i);
+    htmlTmp.push(tmpNew);
+    htmlCode(tmpNew.split(/\n/g).join(""));
+    htmlTmp.push("--------------");
+
+  }
+  
+  htmlTmp.push("==============");  
+}
+
+
+
 // 3行 横にnスライド
 if (
   TEXT.match(/^\w+$/) && 

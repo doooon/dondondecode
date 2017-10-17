@@ -1027,7 +1027,9 @@ function arraySortNumber(a, b) {
 
 
 // 二次元配列の縦横を入れ換える
-function rectReflect(rect) {
+function rectReflect(rect,flag) {
+  // flagに"text"があれば二次元配列ではなくテキスト1次元配列で返す
+
   var y=rect.length;
   var x=rect[0].length;
   var newRect=[];
@@ -1037,6 +1039,11 @@ function rectReflect(rect) {
       tmp.push(rect[i][j]);
     }
     newRect[j]=tmp;
+  }
+  if (flag && flag.match(/text/i)) {
+    for (var i in newRect) {
+      newRect[i]=newRect[i].join("");
+    }
   }
   return newRect;
 }
