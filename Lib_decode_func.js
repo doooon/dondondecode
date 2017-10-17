@@ -8,7 +8,12 @@
 
 /*
 // Rectスライド
-function rectRead(rectArrey) {
+function rectRead(rect,x,y) {
+  // rectは\n区切りの文字列"aaaaa\nbbbbb\nccccc\n"
+  // xは列方向スライド量文字列"+1-2+3-4+5"
+  // yは行方向スライド量文字列"+1-2+3"
+  if (!rect || !rect.match(/\n/)) return null;
+  var tmpL=rect.split(/\n/g);
 
 }
 */
