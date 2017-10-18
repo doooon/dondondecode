@@ -6,6 +6,110 @@
 //======================================
 
 
+/*
+// RailFence
+function railfence(str,mode,line) {
+  if (!str || !mode || !mode.match(/decode|encode/i)) {
+    return false;
+  }
+  if (!line) line=3;
+  if (line.match(/\D+/) || line<3 || str.length<=line){
+    return false;
+  }
+  if (mode.match(/decode/i)) {
+    
+  } else if (mode.match(/encode/i)) {
+    var rect=[];
+    var count=0;
+    for(var i=0; count<str.length; i++) {
+      for(var j=0; j<line; j++) {
+        if (i>=1 && j==0) {
+          rect[i][j]="";
+          continue;
+        }
+        rect[i][j]=str[count];
+        count++;
+        if (count>=str.length) break;
+      }
+    }
+    for(var i in rect) {
+      if (i%2!=0) rect[i]= rect[i].reverse();
+    }
+
+  }
+}
+
+                  l=3 skip:3
+1   5   9         (3-2)×2+1=3
+ 2 4 6 8          
+  3   7
+
+                  
+1     7           l=4 skip:5
+ 2   6 8          (4-2)×2+1=5
+  3 5   9
+   4     0
+
+                  
+1       9         l=5 skip:7
+ 2     8 0        (5-2)×2+1=7
+  3   7   1
+   4 6     2
+    5       3
+
+                  
+1         1       l=6 skip:9
+ 2       0 2      (6-2)×2+1=9
+  3     9   3
+   4   8     4
+    5 7       5
+     6         6
+
+
+15 9
+24680
+3 7 1
+
+17 3 
+26824
+35915
+4 0 6
+
+19 7
+2806
+3715
+4624
+5 3 
+
+11 1
+2020
+3939
+4848
+5757
+6 6 
+
+
+5line
+1
+26048
+37159
+48260
+59371
+
+
+19 7
+28068
+37159
+46240
+5 3 1
+
+
+
+
+
+
+*/
+
 
 // Rectスライド
 function rectSlide(rect,xy,val) {

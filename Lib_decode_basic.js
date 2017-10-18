@@ -1543,6 +1543,16 @@ function addKeyws() {
 }
 */
 
+
+//kw以外の注目ワードリスト(5文字以上を推奨)
+function noticeWords() {
+  return "January|February|March|April|May|June|July|August|September|October|November|December".split("|");
+}
+
+
+
+
+
 // htmlのヘッダを出力
 function htmlHeader() {
   var h="";
