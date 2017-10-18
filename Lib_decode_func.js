@@ -9,40 +9,48 @@
 /*
 // RailFence
 function railfence(str,mode,line) {
-  if (!str || !mode || !mode.match(/decode|encode/i)) {
+  if (!str || !mode || !mode.match(/decode|decript|encode|encript/i)) {
     return false;
   }
   if (!line) line=3;
   if (line.match(/\D+/) || line<3 || str.length<=line){
     return false;
   }
-  if (mode.match(/decode/i)) {
+  if (mode.match(/decode|decript/i)) {
+    return;
     
-  } else if (mode.match(/encode/i)) {
+
+  } else if (mode.match(/encode|encript/i)) {
     var rect=[];
     var count=0;
 
     // 配置
     for(var i=0; count<str.length; i++) {
+      rect[i]=[];
       for(var j=0; j<line; j++) {
         if (i>=1 && j==0) {
           rect[i][j]="";
           continue;
         }
-        rect[i][j]=str[count];
-        count++;
-        if (count>=str.length) break;
+        if (count<str.length) {
+          rect[i][j]=str[count];
+          count++;
+        } else {
+          rect[i][j]="";
+        }
       }
     }
+   
     for(var i in rect) {
       if (i%2!=0) rect[i]=rect[i].reverse();
     }
+   
     
     // 読み出し
     return rect.map(function (v){return v.join("");}).join("");
-
   }
 }
+
 
                   l=3 skip:3
 1   5   9         (3-2)×2+1=3
@@ -107,6 +115,16 @@ function railfence(str,mode,line) {
 37159
 46240
 5 3 1
+
+
+1      
+23456
+78901
+23456
+78901
+
+
+
 
 
 
