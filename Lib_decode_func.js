@@ -21,6 +21,8 @@ function railfence(str,mode,line) {
   } else if (mode.match(/encode/i)) {
     var rect=[];
     var count=0;
+
+    // 配置
     for(var i=0; count<str.length; i++) {
       for(var j=0; j<line; j++) {
         if (i>=1 && j==0) {
@@ -33,8 +35,11 @@ function railfence(str,mode,line) {
       }
     }
     for(var i in rect) {
-      if (i%2!=0) rect[i]= rect[i].reverse();
+      if (i%2!=0) rect[i]=rect[i].reverse();
     }
+    
+    // 読み出し
+    return rect.map(function (v){return v.join("");}).join("");
 
   }
 }
