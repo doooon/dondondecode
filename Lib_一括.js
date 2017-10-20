@@ -2360,6 +2360,16 @@ if (
   htmlTmp.push("==============");
 }
 
+// RailFence
+if (
+  TEXT.length>=10 && 
+  kouseimoji.length>=4
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(RailFence rails:3)</b>");
+  htmlCode(railfence(TEXT,"decript",3));
+  htmlTmp.push("==============");
+}
 
 // ==============
 

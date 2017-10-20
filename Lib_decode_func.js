@@ -6,20 +6,71 @@
 //======================================
 
 
-/*
+
 // RailFence
 function railfence(str,mode,line) {
   if (!str || !mode || !mode.match(/decode|decript|encode|encript/i)) {
     return false;
   }
-  if (!line) line=3;
-  if (line.match(/\D+/) || line<3 || str.length<=line){
+  if (!line) line=3; // デフォルトは3としておく
+  if ((typeof line)!="number" || line<3 || str.length<=line){
     return false;
   }
-  if (mode.match(/decode|decript/i)) {
-    return;
-    
 
+  // 二次元配列の縦横を入れ換える
+  function refr(rect) {
+    var y=rect.length;
+    var x=rect[0].length;
+    var newRect=[];
+    for (var j=0; j<x; j++) {
+      var tmp=[];
+      for(var i=0; i<y; i++) {
+        tmp.push(rect[i][j]);
+      }
+      newRect[j]=tmp;
+    }
+    return newRect;
+  }
+
+  if (mode.match(/decode|decript/i)) {
+    var zan2colend=str.length-line; //2列目以降の数(1列目だけlineの数で、2列目以降はline-1で繰り返すため)
+    var col=Math.ceil(zan2colend/(line-1))+1; //最終的な列数
+    var use=(col-1)*(line-1)+1; //仕様文字数。最後の列を除いた数☓(line-1)+1(1列目の1文字目を追加)
+    var zanlast=str.length-use;  // 最終列に使う文字数
+    var last_row_index=zanlast;  // zanlastは1行目が空行なのでそのまま添字。
+  
+    var rect=new Array(line);
+    var count=0;
+    
+    // 配置
+    for (var i=0; i<line; i++) {
+      rect[i]=[];
+      for (var j=0; j<col; j++) {
+        if (j%2==1 && i==line-1) {
+          rect[i][j]="";
+          continue;
+        } else if (j%2==0 && i==0 && j>0) {
+          rect[i][j]="";
+          continue;
+        } else if (i>last_row_index && j==col-1) {
+          rect[i][j]="";
+          continue;
+        }
+        // console.log("rect["+i+"]["+j+"]=str["+count+"] ("+str[count]+")");
+        rect[i][j]=str[count];
+        count++;
+      }    
+    }
+  
+    rect=refr(rect);
+    for(var i in rect) {
+      if (i%2!=0) rect[i]=rect[i].reverse();
+    }
+    // console.log("rect=\n"+rect.map(function (tmp){return "["+tmp.join(",")+"]";}).join("\n"));
+    
+    // 読み出し
+    return rect.map(function (v){return v.join("");}).join("");
+    
   } else if (mode.match(/encode|encript/i)) {
     var rect=[];
     var count=0;
@@ -40,98 +91,19 @@ function railfence(str,mode,line) {
         }
       }
     }
-   
+
     for(var i in rect) {
       if (i%2!=0) rect[i]=rect[i].reverse();
     }
    
-    
+    rect=refr(rect);
+
     // 読み出し
     return rect.map(function (v){return v.join("");}).join("");
+
   }
-}
+} // end function railfence
 
-
-                  l=3 skip:3
-1   5   9         (3-2)×2+1=3
- 2 4 6 8          
-  3   7
-
-                  
-1     7           l=4 skip:5
- 2   6 8          (4-2)×2+1=5
-  3 5   9
-   4     0
-
-                  
-1       9         l=5 skip:7
- 2     8 0        (5-2)×2+1=7
-  3   7   1
-   4 6     2
-    5       3
-
-                  
-1         1       l=6 skip:9
- 2       0 2      (6-2)×2+1=9
-  3     9   3
-   4   8     4
-    5 7       5
-     6         6
-
-
-15 9
-24680
-3 7 1
-
-17 3 
-26824
-35915
-4 0 6
-
-19 7
-2806
-3715
-4624
-5 3 
-
-11 1
-2020
-3939
-4848
-5757
-6 6 
-
-
-5line
-1
-26048
-37159
-48260
-59371
-
-
-19 7
-28068
-37159
-46240
-5 3 1
-
-
-1      
-23456
-78901
-23456
-78901
-
-
-
-
-
-
-
-
-
-*/
 
 
 // Rectスライド
