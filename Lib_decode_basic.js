@@ -1117,7 +1117,7 @@ function leetKeyws() {
 
 
 
-  ["MOVES ?HONINBO ?SHOWED","ghost","AlphaGo 本因坊"], 
+  ["MOVES ?3 ?HONINBO ?SHOWED","ghost","AlphaGo 本因坊"], 
   ["nothing","all","意味bash"], 
   ["[5s][1i][9g][1i](13|n)[7t]","sigint","leet+012abc"], 
   ["[5s][1i][9g](13|n)[4a][1L]","signal","leet+012abc"], 
