@@ -1116,7 +1116,7 @@ function leetKeyws() {
 
 
 
-
+  ["combine","separate","意味bash"], 
   ["MOVES ?3 ?HONINBO ?SHOWED","ghost","AlphaGo 本因坊"], 
   ["nothing","all","意味bash"], 
   ["[5s][1i][9g][1i](13|n)[7t]","sigint","leet+012abc"], 
