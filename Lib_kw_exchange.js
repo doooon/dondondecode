@@ -4,8 +4,11 @@
 //キーワード変換例
 function goKeywExchange() {
 
+
   var exL=[
   // ["","",""],
+  ["MOVES ?3 ?HONINBO ?SHOWED","ghost","AlphaGo 本因坊"],   
+  ["combine","separate","意味bash"],   
   ["AT","tsukasa","略 登場人物 Akira Tsukasa"], 
   ["AT","akira","略 登場人物 Akira Tsukasa"], 
   ["TG","greanias","略 登場人物 Thomas Greanias"], 
