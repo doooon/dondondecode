@@ -2,7 +2,7 @@
 // LIB_過去回答4
 // #LIB
 
-// function kakokaitou4() {
+function kakokaitou4() {
   
 // QRコード & MicroQR
 // 21=441, 25=625, 29=841, 33=1089, 37=1369,,, 177=31329まで
@@ -1172,10 +1172,4 @@ if (kouseimoji.length==3) {
 }
 
 
-// } // end function
-
-
-var script = document.createElement("script");
-script.src = "LIB_過去回答5.js";
-document.getElementsByTagName("head")[0].appendChild(script);
-
+} // end function

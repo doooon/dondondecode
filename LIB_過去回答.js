@@ -1,8 +1,7 @@
 
 // LIB_過去回答
-// #LIB
 
-// function kakokaitou() {
+function kakokaitou() {
   
   // Color Codeの0-7(oct)に対応
   if (TEXT.match(/^[BRGYIMCW]+$/i)) {
@@ -1069,11 +1068,4 @@ if (TEXT.match(/^[\d\s]+$/)) {
 }
 
   
-// }
-
-
-var script = document.createElement("script");  
-script.src = "LIB_過去回答2.js";    
-document.getElementsByTagName("head")[0].appendChild(script);   
-
-
+}

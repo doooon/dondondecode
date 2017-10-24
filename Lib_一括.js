@@ -24,6 +24,7 @@ var htmlTmp=[];
 // 初期化 //
 funcLeetLessKw();
 
+function decodeMain() {
 // 以下メイン //
 
 TEXT=TEXT.replace(/^\s+|\s+$/g, "");
@@ -2373,19 +2374,14 @@ if (
 
 // ==============
 
-/*
+
 kakokaitou();
 kakokaitou2();
 kakokaitou3();
 kakokaitou4();
 kakokaitou5();
 kakokaitou6();
-ikkatsuFinish();
-html;
-*/
+}
 
-var script = document.createElement("script");
-script.src = "LIB_過去回答.js";
-document.getElementsByTagName("head")[0].appendChild(script);
 
 

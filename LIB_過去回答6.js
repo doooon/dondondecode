@@ -1,7 +1,7 @@
 // LIB_過去回答6
 // #LIB
 
-// function kakokaitou6() {
+function kakokaitou6() {
 
 htmlTmp.push("<div class='red'>--- kako 6 ---</div>");
 
@@ -1582,11 +1582,4 @@ if (
 */
 
 
-// } // end function
-
-
-var script = document.createElement("script");
-script.src = "Lib_一括finish.js";
-document.getElementsByTagName("head")[0].appendChild(script);
-
-
+} // end function

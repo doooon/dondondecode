@@ -2,7 +2,7 @@
 // LIB_過去回答2
 // #LIB
 
-// function kakokaitou2() {
+function kakokaitou2() {
   
 // Xをゼロにして012abc
 if (TEXT.match(/^[X1-9]+$/)
@@ -719,10 +719,5 @@ if (TEXT.match(/^[0-9a-z!@#$%\^&*(\)]+$/i)
 }
 
 
-// } // end function
-
-
-var script = document.createElement("script");  
-script.src = "LIB_過去回答3.js";    
-document.getElementsByTagName("head")[0].appendChild(script);   
+} // end function
 

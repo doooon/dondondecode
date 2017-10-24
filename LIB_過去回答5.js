@@ -2,7 +2,7 @@
 // LIB_過去回答5
 // #LIB
 
-// function kakokaitou5() {
+function kakokaitou5() {
 
 
 // ze=0, on=1, te=10, el=11, hu=100, th=1000, でバイナリ
@@ -3256,11 +3256,4 @@ if (
 */
 
 
-// } // end function
-
-
-var script = document.createElement("script");
-script.src = "LIB_過去回答6.js";
-document.getElementsByTagName("head")[0].appendChild(script);
-
-
+} // end function

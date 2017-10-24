@@ -2,17 +2,14 @@
 // Lib_一括finish
 // #LIB
 
-// #IMPORT Lib_decode_basic
-// #IMPORT Lib_decode
 
-// function ikkatsuFinish() {
+function ikkatsuFinish() {
 
 html+=htmlTmp.join("\n").replace(/\n/g, "<br>\n"); // htmlTmpにはすでに\nが入っている物があるので、一旦joinしてから全体を置き換える
 
-
-for (var x in fixCodeList) {
-  debug(fixCodeList[x]);
-}
+//for (var x in fixCodeList) {
+//  debug(fixCodeList[x]);
+//}
 
 // 重複を削除(大文字小文字を区別せず)
 {
@@ -63,12 +60,15 @@ html=html.replace(
 // 文字参照と同じになるのでエスケープ
 html=html.replace(/&(?=#\d+)/g, "&amp;");
 
-// }
+//document.getElementById('clipboardTextarea').style.visibility="hidden"; 
+
+// 出力
+outputDIV.innerHTML = html; 
 
 
-document.getElementById('clipboardTextarea').style.visibility="hidden"; 
-var myDiv = document.getElementById('output');  
-myDiv.innerHTML = html; 
+}
+
+
 
 
 

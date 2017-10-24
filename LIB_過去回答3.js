@@ -2,7 +2,7 @@
 // LIB_過去回答3
 // #LIB
 
-// function kakokaitou3() {
+function kakokaitou3() {
   
 // 3組の16進数([0-9a-f]{6})で割り切れる
 // colorコード
@@ -1421,11 +1421,5 @@ if (TEXT.match(/^([0-9a-f]{6})+$/i)) {
 }
 
 
-// } // end function
-
-
-var script = document.createElement("script");
-script.src = "LIB_過去回答4.js";
-document.getElementsByTagName("head")[0].appendChild(script);
-
+} // end function
 

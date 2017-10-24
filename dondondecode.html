@@ -1,36 +1,48 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width" >
+<meta name="format-detection" content="telephone=no" >
 <title>don don decode</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="shortcut icon" href="./favicon.ico">
 
-<script type="text/javascript">
-window.addEventListener('error', function(error) {
-  var result = document.getElementById('result') || (function() {
-    var result = document.createElement('pre');
-    result.setAttribute('id', 'result');
-    document.getElementsByTagName('body')[0].appendChild(result);
-    return result;
-  })();
-  var message = [error.filename, '@', error.lineno, ': ', error.message].join('');
+	<script type="text/javascript">
+		// エラー表示
+		window.addEventListener('error', function(error) {
+			var result = document.getElementById('result') || (function() {
+				var result = document.createElement('pre');
+				result.setAttribute('id', 'result');
+				document.getElementsByTagName('body')[0].appendChild(result);
+				return result;
+			})();
+		var message = [error.filename, '@', error.lineno, ': ', error.message].join('');
+		result.textContent += '\n' + message;
+		return false;
+		});
+	</script>
 
-  result.textContent += '\n' + message;
 
-  return false;
-});
-</script>
+	<script type="text/javascript" src="Lib_decode_basic.js"></script>
+	<script type="text/javascript" src="Lib_decode.js"></script>
+	<script type="text/javascript" src="Lib_decode_func.js"></script>
+	<script type="text/javascript" src="Lib_decode_htmlCode.js"></script>
+	<script type="text/javascript" src="Lib_一括func.js"></script>
+	<script type="text/javascript" src="Lib_一括finish.js"></script>
+	<script type="text/javascript" src="Lib_一括.js"></script>
+	<script type="text/javascript" src="LIB_過去回答.js"></script>
+	<script type="text/javascript" src="LIB_過去回答2.js"></script>
+	<script type="text/javascript" src="LIB_過去回答3.js"></script>
+	<script type="text/javascript" src="LIB_過去回答4.js"></script>
+	<script type="text/javascript" src="LIB_過去回答5.js"></script>
+	<script type="text/javascript" src="LIB_過去回答6.js"></script>
+	<script type="text/javascript" src="Lib_kw_exchange.js"></script>
 
-
-    <script type="text/javascript" src="Lib_decode_basic.js"></script>
-    <script type="text/javascript" src="Lib_decode.js"></script>
-    <script type="text/javascript" src="Lib_decode_func.js"></script>
-    <script type="text/javascript" src="Lib_decode_htmlCode.js"></script>
-    <script type="text/javascript" src="Lib_一括func.js"></script>
 	<script type="text/javascript">
 
+		// Cookie
 		var docCookies = {
-			// https://developer.mozilla.org/ja/docs/Web/API/Document/cookie
+		// https://developer.mozilla.org/ja/docs/Web/API/Document/cookie
 
 			getItem: function (sKey) {
 				if (!sKey || !this.hasItem(sKey)) { return null; }
@@ -75,66 +87,45 @@ window.addEventListener('error', function(error) {
 
 
 
-	  function decodeStart() {
-
+		function decodeStart(buttonMode) {
 			if (TEXT.match(/^\s*Passcode confirmed/)) {
 				document.getElementById('output').innerHTML=acquiredItems(TEXT);
+			} else if (buttonMode && buttonMode.match(/kwexchange/)) {
+				// kw置き換え
+				goKeywExchange();
+				ikkatsuFinish();
+
 			} else {
-
-				//alert(TEXT);
-				/*
-				var expire = new Date();
-				expire.setTime( expire.getTime() + 1000 * 3600 * 24 * 365 * 10);
-				var cookieStr='TEXT='+encodeURIComponent(TEXT)+"; path=/dondondecode/; expires=" + expire.toUTCString();
-				alert(cookieStr);
-				document.cookie=cookieStr;
-				*/
-
 				// cookie保存
 				var expire = new Date();
 				expire.setTime( expire.getTime() + 1000 * 3600 * 24 * 365 * 10);
 				/* docCookies.setItem(name, value[, end[, path[, domain[, secure]]]]) */
 				//docCookies.setItem("dondondecode", TEXT, expire);
 				docCookies.setItem("dondondecode", TEXT, 60*60*24*365*10);
-
-				var meta = document.createElement("meta");
-				meta.name = "format-detection";
-				meta.content = "telephone=no";
-				document.getElementsByTagName("head")[0].appendChild(meta);
-
-				var script = document.createElement("script");
-				script.src = "Lib_一括.js";
-				document.getElementsByTagName("head")[0].appendChild(script);	  
-
-				//w = window.open("test.html", "Test", "width=1500,height=1000");
-
-				//var myDiv = document.getElementById('output');
-				//console.log(html);
-				//myDiv.textContent = html;
-
-
-				/*
-				w = window.open("test.html", "Test", "width=1500,height=1000");
-				w.document.open();
-				w.document.write(html);
-				w.document.close();
-				*/
+				
+				// デコード開始
+				decodeMain();
+				ikkatsuFinish();
 			}
-      
+		}
 
-    }
-	TEXT=""; //グローバル
-    
+		document.addEventListener( 'DOMContentLoaded', function(){
+			TEXT=""; //グローバル
+			outputDIV=document.getElementById('output');
+		}, false );
+
+
 	</script>
 </head>
 <body>
 	<div>
 		<form id="clipboardForm">
-			<textarea id="clipboardTextarea" rows=5 wrap="off" onFocus="document.getElementById('clipboardTextarea').select()"></textarea>
-			<input type="button" value="decode" onClick="TEXT=document.getElementById('clipboardTextarea').value; if(TEXT.match(/\S/)){this.disabled=true; document.getElementById('clearButton').disabled=true; document.getElementById('getCookieButton').disabled=true; decodeStart();} else {return null;}">
-			<input type="button" value="relode" onClick="location.reload();">
-			<input type="button" value="getCookie" id="getCookieButton" onClick="document.getElementById('clipboardTextarea').value=docCookies.getItem('dondondecode')">
-			<input type="button" value="clear" id="clearButton" onClick="document.getElementById('clipboardTextarea').value=''">
+			<textarea id="clipboardTextarea" rows=5 wrap="off" onFocus="document.getElementById('clipboardTextarea').select()"></textarea><br>
+			<input type="button" value="decode" onClick="TEXT=document.getElementById('clipboardTextarea').value; if(TEXT.match(/\S/)){outputDIV.innerHTML=''; decodeStart();} else {return null;}">
+			<input type="button" value="clear" id="clearButton" onClick="document.getElementById('clipboardTextarea').value=''"><br>
+			<!--input type="button" value="relode" onClick="location.reload();"-->
+			<input type="button" value="getCookie" id="getCookieButton" onClick="document.getElementById('clipboardTextarea').value=docCookies.getItem('dondondecode')"><br>
+			<input type="button" value="kw exchange" id="kwExchangeButton" onClick="TEXT=document.getElementById('clipboardTextarea').value; if(TEXT.match(/\S/)){outputDIV.innerHTML=''; decodeStart('kwexchange');} else {return null;}">
 		</form>
 	</div>
 	<div id="output">
