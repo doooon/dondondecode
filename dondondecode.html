@@ -37,7 +37,9 @@
 	<script type="text/javascript" src="LIB_過去回答5.js"></script>
 	<script type="text/javascript" src="LIB_過去回答6.js"></script>
 	<script type="text/javascript" src="Lib_kw_exchange.js"></script>
-
+	<script type="text/javascript" src="Lib_kw_regexp.js"></script>
+	<script type="text/javascript" src="Lib_kw_search.js"></script>
+	
 	<script type="text/javascript">
 
 		// Cookie
@@ -88,11 +90,25 @@
 
 
 		function decodeStart(buttonMode) {
+			document.getElementById('output').innerHTML="";
+			html="";
+			htmlTmp=[];
+
 			if (TEXT.match(/^\s*Passcode confirmed/)) {
 				document.getElementById('output').innerHTML=acquiredItems(TEXT);
 			} else if (buttonMode && buttonMode.match(/kwexchange/)) {
 				// kw置き換え
 				goKeywExchange();
+				ikkatsuFinish();
+
+			} else if (buttonMode && buttonMode.match(/kwregexp/)) {
+				// kw正規表現検索
+				kwRegExp(TEXT);
+				ikkatsuFinish();
+
+			} else if (buttonMode && buttonMode.match(/kwsearch/)) {
+				// kw置き換え
+				kwSearch(TEXT);
 				ikkatsuFinish();
 
 			} else {
@@ -110,8 +126,15 @@
 		}
 
 		document.addEventListener( 'DOMContentLoaded', function(){
-			TEXT=""; //グローバル
+			// 初期化
+			//グローバル
+			TEXT=""; 
 			outputDIV=document.getElementById('output');
+			html="";
+			htmlTmp=[];
+
+			funcLeetLessKw();
+
 		}, false );
 
 
@@ -121,11 +144,13 @@
 	<div>
 		<form id="clipboardForm">
 			<textarea id="clipboardTextarea" rows=5 wrap="off" onFocus="document.getElementById('clipboardTextarea').select()"></textarea><br>
-			<input type="button" value="decode" onClick="TEXT=document.getElementById('clipboardTextarea').value; if(TEXT.match(/\S/)){outputDIV.innerHTML=''; decodeStart();} else {return null;}">
+			<input type="button" value="decode" onClick="TEXT=document.getElementById('clipboardTextarea').value; if(TEXT.match(/\S/)){decodeStart();} else {return null;}">
 			<input type="button" value="clear" id="clearButton" onClick="document.getElementById('clipboardTextarea').value=''"><br>
 			<!--input type="button" value="relode" onClick="location.reload();"-->
 			<input type="button" value="getCookie" id="getCookieButton" onClick="document.getElementById('clipboardTextarea').value=docCookies.getItem('dondondecode')"><br>
-			<input type="button" value="kw exchange" id="kwExchangeButton" onClick="TEXT=document.getElementById('clipboardTextarea').value; if(TEXT.match(/\S/)){outputDIV.innerHTML=''; decodeStart('kwexchange');} else {return null;}">
+			<input type="button" value="kw Exchange" id="kwExchangeButton" onClick="TEXT=document.getElementById('clipboardTextarea').value; if(TEXT.match(/\S/)){decodeStart('kwexchange');} else {return null;}">
+			<input type="button" value="kw RegExp" id="kwRegExpButton" onClick="TEXT=document.getElementById('clipboardTextarea').value; decodeStart('kwregexp');">
+			<input type="button" value="kw Search" id="kwSearchButton" onClick="TEXT=document.getElementById('clipboardTextarea').value; if(TEXT.match(/\S/)){decodeStart('kwsearch');} else {return null;}">
 		</form>
 	</div>
 	<div id="output">

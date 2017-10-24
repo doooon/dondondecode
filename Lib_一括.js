@@ -2,27 +2,6 @@
 // ★★ 基本一括 ★★
 // #LIB
 
-/*
-#IMPORT Lib_decode_basic
-#IMPORT Lib_decode
-#IMPORT LIB_一括func
-#IMPORT LIB_過去回答
-#IMPORT LIB_過去回答2
-#IMPORT LIB_過去回答3
-#IMPORT LIB_過去回答4
-#IMPORT LIB_過去回答5
-#IMPORT LIB_過去回答6
-#IMPORT Lib_一括finish
-IS_HTML=true;
-*/
-
-/////////// main ///////////
-
-var html=htmlHeader();
-var htmlTmp=[];
-
-// 初期化 //
-funcLeetLessKw();
 
 function decodeMain() {
 // 以下メイン //
