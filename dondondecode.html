@@ -145,7 +145,7 @@
 		<form id="clipboardForm">
 			<textarea id="clipboardTextarea" rows=5 wrap="off" onFocus="document.getElementById('clipboardTextarea').select()"></textarea><br>
 			<input type="button" value="decode" onClick="TEXT=document.getElementById('clipboardTextarea').value; if(TEXT.match(/\S/)){decodeStart();} else {return null;}">
-			<input type="button" value="clear" id="clearButton" onClick="document.getElementById('clipboardTextarea').value=''"><br>
+			<input type="button" value="clear" id="clearButton" onClick="document.getElementById('clipboardTextarea').value=''">
 			<!--input type="button" value="relode" onClick="location.reload();"-->
 			<input type="button" value="getCookie" id="getCookieButton" onClick="document.getElementById('clipboardTextarea').value=docCookies.getItem('dondondecode')"><br>
 			<input type="button" value="kw Exchange" id="kwExchangeButton" onClick="TEXT=document.getElementById('clipboardTextarea').value; if(TEXT.match(/\S/)){decodeStart('kwexchange');} else {return null;}">
