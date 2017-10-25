@@ -224,6 +224,7 @@ function analyzeText(str) {
   result.push("kw空白 > space");
   result.push("kw 空白(nothing) atbash > all");
   result.push("kw無し > \\ならescape");
+  result.push("kw xxx > answer");
   result.push("繰り返し > repeat, again, recursion, iteration, self, togetherなど");
   result.push("引き算 less、引き算 lose、足し算 gain、足し引き signs");
   result.push("置換え transpose transposition");
