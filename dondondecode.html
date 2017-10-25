@@ -91,7 +91,7 @@
 
 
 		function decodeStart(buttonMode) {
-			//document.getElementById('output').innerHTML="";
+	//document.getElementById('output').innerHTML="";
             outputDIV.innerHTML="";
 			html="";
 			htmlTmp=[];
@@ -132,7 +132,7 @@
 			// 初期化
 			//グローバル
 			TEXT=""; 
-			outputDIV=document.getElementById('output');
+		  outputDIV=document.getElementById('output');
 			html="";
 			htmlTmp=[];
 
@@ -147,7 +147,7 @@
 	<div>
 		<form id="clipboardForm">
 			<textarea id="clipboardTextarea" rows=5 wrap="off" onFocus="document.getElementById('clipboardTextarea').select()"></textarea><br>
-			<input type="button" value="decode" onClick="TEXT=document.getElementById('clipboardTextarea').value; if(TEXT.match(/\S/)){outputDIV.innerHTML="";  decodeStart();} else {return null;}">
+			<input type="button" value="decode" onClick="TEXT=document.getElementById('clipboardTextarea').value; if(TEXT.match(/\S/)){outputDIV.innerHTML=""; decodeStart();} else {return null;}">
 			<input type="button" value="clear" id="clearButton" onClick="document.getElementById('clipboardTextarea').value=''">
 			<!--input type="button" value="relode" onClick="location.reload();"-->
 			<input type="button" value="getCookie" id="getCookieButton" onClick="document.getElementById('clipboardTextarea').value=docCookies.getItem('dondondecode')"><br>
