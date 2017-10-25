@@ -139,6 +139,25 @@
 			funcLeetLessKw();
 
 		}, false );
+        
+
+        var el=document.getElementById("decodeButton");
+        el.addEventListener("click", function(){
+          if(TEXT.match(/\S/)){
+            outputDIV.innerHTML='';
+          } else {
+            return null;
+          }
+        }, false);
+
+        el.addEventListener("click", function(){
+          if(TEXT.match(/\S/)){
+            TEXT=document.getElementById('clipboardTextarea').value;
+            decodeStart();
+          } else {
+            return null;
+          }
+        }, false);
 
 
 	</script>
@@ -147,7 +166,8 @@
 	<div>
 		<form id="clipboardForm">
 			<textarea id="clipboardTextarea" rows=5 wrap="off" onFocus="document.getElementById('clipboardTextarea').select()"></textarea><br>
-			<input type="button" value="decode" onClick="TEXT=document.getElementById('clipboardTextarea').value; if(TEXT.match(/\S/)){outputDIV.innerHTML=''; decodeStart();} else {return null;}">
+			<input type="button" value="decode" id="decodeButton">
+			<input type="button" value="decode2" onClick="TEXT=document.getElementById('clipboardTextarea').value; if(TEXT.match(/\S/)){decodeStart();} else {return null;}">
 			<input type="button" value="clear" id="clearButton" onClick="document.getElementById('clipboardTextarea').value=''">
 			<input type="button" value="getCookie" id="getCookieButton" onClick="document.getElementById('clipboardTextarea').value=docCookies.getItem('dondondecode')"><br>
 			<input type="button" value="kw Exchange" id="kwExchangeButton" onClick="TEXT=document.getElementById('clipboardTextarea').value; if(TEXT.match(/\S/)){decodeStart('kwexchange');} else {return null;}">
