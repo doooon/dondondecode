@@ -2026,7 +2026,7 @@ if (TEXT.length%2==0
   &&  TEXT.match(/^([1-5\s]+|[0-4\s]+|[1-5\s]+|[2-6\s]+)$/)) {
   var myText="";
   if (TEXT.match(/^[0-4\s]+$/)) {
-    htmlTmp.push(TEXT);
+    htmlTmp.push("<a name='polybius'>"+TEXT+"</a>");
     htmlTmp.push("(+1)");
     for (var i in TEXT) {
       myText+=Number(TEXT[i])+1;
