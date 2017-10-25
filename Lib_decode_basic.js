@@ -291,7 +291,7 @@ function analyzeText(str) {
     /^[1-5]+$/i)
     && strNoSpace.length%2==0) {
     alertMsg.push(
-      "<a href='#polybius'>構成文字が1-5のみでペアになる。polybiusかも</a>");
+      "構成文字が1-5のみでペアになる。polybiusかも");
   }
   if (
     strNoSpace[4]&&
