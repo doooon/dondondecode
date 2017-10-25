@@ -93,6 +93,7 @@
 			document.getElementById('output').innerHTML="";
 			html="";
 			htmlTmp=[];
+            window.refresh();
 
 			if (TEXT.match(/^\s*Passcode confirmed/)) {
 				document.getElementById('output').innerHTML=acquiredItems(TEXT);
