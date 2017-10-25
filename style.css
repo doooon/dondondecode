@@ -42,6 +42,7 @@ td {padding:2px}
 .elapsedtime {color: white; font-size: xx-small; display: inline; }
 .elapsedtime2 {color: white;  font-size: xx-small; display: inline; }
 .result {display: inline; }
+input[type='button'] { margin: 5px 0px; }
 /*.rotBox {display: inline !important;}*/
 
 
