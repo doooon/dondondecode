@@ -7,6 +7,8 @@ function goKeywExchange() {
 
   var exL=[
   // ["","",""],
+
+  ["xxx","answer","関連"], 
   ["MOVES ?3 ?HONINBO ?SHOWED","ghost","AlphaGo 本因坊"],   
   ["combine","separate","意味bash"],   
   ["AT","tsukasa","略 登場人物 Akira Tsukasa"], 
