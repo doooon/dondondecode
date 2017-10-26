@@ -238,7 +238,7 @@ function analyzeText(str) {
   result.push("並び替え→ordered");
   result.push("0がない数字のみ。123が多い。→ガラケー");
   result.push("<a href='googlechrome://niantic.schlarp.com/investigation:apps:ingress:events'>[EVENTS]</a>2013 Freemisty, 2013 IngressDays, 2013 TimeZero, 2013 SaveKlue, 2013 Voynich, 2013 Minotaur, 2013 Cassandra, 2013 13magnus, 2014 Recursion, 2014 Interitus, 2014 IngressIO, 2014 Helios, 2014 Darsana, 2015 Shōnin, 2015 Persepolis, 2015 Abaddon, 2016 Obsidian, 2016 Aegis Nova, 2016 Via Lux, 2016 Via Noir, 2017 exogenous");
-  result.push("(よくあるLeet) 1iL, 3E, 4A, 5vS, 6b, 7TL, 9g, 10x, 100c, 500d, 1000m");
+  result.push("(よくあるLeet) 1iL, 2Z, 3E, 4A, 5vS, 6b, 7TL, 9g, 10x, 100c, 500d, 1000m");
   result.push("(数字のみペアになる) 0, 8, 9が多い→ atbashで012が多い→ 012abc");
   result.push("使われている文字が8種類で文字数が偶数→semaphore");
   result.push("5bit→baconian, baudot code");
