@@ -470,8 +470,11 @@ function analyzeText(str) {
       "morseからbraille点字の可能性");
   }
   if (morseExchange(str).replace(/\s/g,"").length%5==0) {
-    alertMsg.push(
-      "morseからバイナリAAの可能性");
+   if(morseExchange(str).replace(/\s/g,"").length>249){
+     alertMsg.push("文字数が多い! morseからバイナリAAの可能性を強く示唆");
+     } else {
+      alertMsg.push("morseからバイナリAAの可能性");
+     }
   }
   if (m==3
     && str.replace(/\s/g,"").match(
