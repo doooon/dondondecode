@@ -804,9 +804,10 @@ if (
   ) && 
   TEXT.length>=14
 ) {
-  htmlTmp.push(TEXT);
+  var str=TEXT.toUpperCase();
+  htmlTmp.push(str);
   htmlTmp.push("<b>(base32 decode)</b>");
-  var tmp=base32Dec(TEXT);
+  var tmp=base32Dec(str);
   htmlCode(tmp);
   htmlTmp.push(
     "(more base32)");
@@ -818,11 +819,11 @@ if (
   
   htmlTmp.push("(reverse>>base32)");
   var tmp=base32Dec(
-    strReverse(TEXT));
+    strReverse(str));
   htmlCode(tmp);
      
   htmlTmp.push("(atbash>>base32)");
-  var tmp=base32Dec(atbash19(TEXT));
+  var tmp=base32Dec(atbash19(str));
   htmlCode(tmp);
   htmlTmp.push("(more atbash)");
   htmlCode(atbash19(tmp));
@@ -830,7 +831,7 @@ if (
   htmlTmp.push(
     "(atbash>>reverse>>base32)");
   var tmp=base32Dec(
-    strReverse(atbash19(TEXT)));
+    strReverse(atbash19(str)));
   htmlCode(tmp);
   htmlTmp.push(
     "(more atbash reverse)");

@@ -1,10 +1,12 @@
 
 
-// tmp=表示する文字列, label=ラベル
-function htmlCode(tmp, label) {
+// tmp=表示する文字列, label=前ラベル, blabel=後ラベル
+function htmlCode(tmp, label, blabel) {
   if (tmp==null) return "";
   if (label && label!="") { htmlCodeLabel=label; }
   else { htmlCodeLabel=""; }
+  if (blabel && blabel!="") { htmlCodeBLabel= blabel; }
+  else { htmlCodeBLabel=""; }
 
   // チェック
   printCheck(tmp);  // 内部でprintMain()を呼び出していく
@@ -183,12 +185,14 @@ function printMain(tmp3, moreF, msg) {
   
   if (htmlCodeLabel) { htmlCodeLabel+=" "; }
   else { htmlCodeLabel=""; }
+  if (htmlCodeBLabel) {htmlCodeBLabel=" "+ htmlCodeBLabel; }
+  else { htmlCodeBLabel =""; }
   
   var tmp3RE=new RegExp("^"+tmp3a.replace(/[\]\[{}.\\?+*()|\-]/ig, "\\$&")+"$", "i");
   if (!tmp3.match(tmp3RE)) {
   //if (tmp3!=tmp3a) {
     if (checkPasscode(tmp3a)=="fix") { 
-      htmlTmp.push( htmlCodeLabel+checkCodeHTML(tmp3a)+" <span class='leet'>置換&gt;&gt;</span> ");
+      htmlTmp.push( htmlCodeLabel+checkCodeHTML(tmp3a)+" <span class='leet'>置換&gt;&gt;</span> "+ htmlCodeBLabel);
       return "fix"; 
     }
   }
@@ -198,7 +202,7 @@ function printMain(tmp3, moreF, msg) {
     // if (fixCodeList.indexOf(tmp3) >= 0 ) return "fix";
     if (checkPasscode(tmp3)=="fix") {
       htmlTmp.push( msg );
-      htmlTmp.push( htmlCodeLabel+checkCodeHTML(tmp3) );
+      htmlTmp.push( htmlCodeLabel+checkCodeHTML(tmp3)+ htmlCodeBLabel );
       return "fix";
     }
 
@@ -207,10 +211,10 @@ function printMain(tmp3, moreF, msg) {
     
   } else {
     // デフォルト （初めてなので表示させる）
-    htmlTmp.push( htmlCodeLabel+checkCodeHTML(tmp3a));
+    htmlTmp.push( htmlCodeLabel+checkCodeHTML(tmp3a)+ htmlCodeBLabel);
 
     if (checkPasscode(tmp3)=="fix") {
-      htmlTmp.push( htmlCodeLabel+checkCodeHTML(tmp3));
+      htmlTmp.push( htmlCodeLabel+checkCodeHTML(tmp3) + htmlCodeBLabel);
       return "fix";
     }
 
@@ -235,9 +239,9 @@ function formatExchangeRoman(ferstr, orignal, msg) {
   // if (fixCodeList.indexOf(tmproman) >= 0 ) return "fix";
   if (checkPasscode( tmproman ) == "fix") {
     htmlTmp.push( msg );
-    htmlTmp.push( htmlCodeLabel+checkCodeHTML( orignal ) );
+    htmlTmp.push( htmlCodeLabel+checkCodeHTML( orignal ) + htmlCodeBLabel );
     htmlTmp.push( "(and more Roman&Arabic num)" );
-    htmlTmp.push( htmlCodeLabel+checkCodeHTML( tmproman ));
+    htmlTmp.push( htmlCodeLabel+checkCodeHTML( tmproman ) + htmlCodeBLabel);
     return "fix";
   } else {
     return null;
@@ -252,9 +256,9 @@ function formatExchangeLetter(felstr, msg, orignal, msg2 ) {
 //debug("checkPasscode: "+checkPasscode(felstr));
   if (checkPasscode( felstr ) == "fix") {
     htmlTmp.push( msg2 );
-    htmlTmp.push( htmlCodeLabel+checkCodeHTML( orignal ) );
+    htmlTmp.push( htmlCodeLabel+checkCodeHTML( orignal ) + htmlCodeBLabel );
     htmlTmp.push( `(and more ${msg} num)` );
-    htmlTmp.push( htmlCodeLabel+checkCodeHTML( felstr ));
+    htmlTmp.push( htmlCodeLabel+checkCodeHTML( felstr ) + htmlCodeBLabel);
     return "fix";
   } else {
     return null;
@@ -269,9 +273,9 @@ function formatExchange(str, msg) {
   if (fixCodeList.indexOf(tmproman) >= 0 ) return "fix";
   if (checkPasscode( tmproman ) == "fix") {
     htmlTmp.push( msg );
-    htmlTmp.push( htmlCodeLabel+checkCodeHTML( str ) );
+    htmlTmp.push( htmlCodeLabel+checkCodeHTML( str ) + htmlCodeBLabel );
     htmlTmp.push( "(and more Roman&Arabic num)" );
-    htmlTmp.push( htmlCodeLabel+checkCodeHTML( tmproman ));
+    htmlTmp.push( htmlCodeLabel+checkCodeHTML( tmproman ) + htmlCodeBLabel);
     return "fix";
   }
   
