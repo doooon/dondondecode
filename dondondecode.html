@@ -43,121 +43,147 @@
 	
 	<script type="text/javascript">
 
-		// Cookie
-		var docCookies = {
-		// https://developer.mozilla.org/ja/docs/Web/API/Document/cookie
+	// Cookie
+	var docCookies = {
+	// https://developer.mozilla.org/ja/docs/Web/API/Document/cookie
 
-			getItem: function (sKey) {
-				if (!sKey || !this.hasItem(sKey)) { return null; }
-				return unescape(document.cookie.replace(new RegExp("(?:^|.*;\\s*)" + escape(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*((?:[^;](?!;))*[^;]?).*"), "$1"));
-			},
+		getItem: function (sKey) {
+			if (!sKey || !this.hasItem(sKey)) { return null; }
+			return unescape(document.cookie.replace(new RegExp("(?:^|.*;\\s*)" + escape(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*((?:[^;](?!;))*[^;]?).*"), "$1"));
+		},
 
-			setItem: function (sKey, sValue, vEnd, sPath, sDomain, bSecure) {
-				if (!sKey || /^(?:expires|max\-age|path|domain|secure)$/i.test(sKey)) { return; }
-				var sExpires = "";
-				if (vEnd) {
-					switch (vEnd.constructor) {
-					case Number:
-						sExpires = vEnd === Infinity ? "; expires=Tue, 19 Jan 2038 03:14:07 GMT" : "; max-age=" + vEnd;
-						break;
-					case String:
-						sExpires = "; expires=" + vEnd;
-						break;
-					case Date:
-						sExpires = "; expires=" + vEnd.toGMTString();
-						break;
-					}
+		setItem: function (sKey, sValue, vEnd, sPath, sDomain, bSecure) {
+			if (!sKey || /^(?:expires|max\-age|path|domain|secure)$/i.test(sKey)) { return; }
+			var sExpires = "";
+			if (vEnd) {
+				switch (vEnd.constructor) {
+				case Number:
+					sExpires = vEnd === Infinity ? "; expires=Tue, 19 Jan 2038 03:14:07 GMT" : "; max-age=" + vEnd;
+					break;
+				case String:
+					sExpires = "; expires=" + vEnd;
+					break;
+				case Date:
+					sExpires = "; expires=" + vEnd.toGMTString();
+					break;
 				}
-				console.log(escape(sKey) + "=" + escape(sValue) + sExpires + (sDomain ? "; domain=" + sDomain : "") + (sPath ? "; path=" + sPath : "") + (bSecure ? "; secure" : ""));
-				document.cookie = escape(sKey) + "=" + escape(sValue) + sExpires + (sDomain ? "; domain=" + sDomain : "") + (sPath ? "; path=" + sPath : "") + (bSecure ? "; secure" : "");
-			},
-		
-			removeItem: function (sKey, sPath) {
-				if (!sKey || !this.hasItem(sKey)) { return; }
-				document.cookie = escape(sKey) + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT" + (sPath ? "; path=" + sPath : "");
-			},
-		
-			hasItem: function (sKey) {
-				return (new RegExp("(?:^|;\\s*)" + escape(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=")).test(document.cookie);
-			},
-		
-			keys: /* optional method: you can safely remove it! */ function () {
-				var aKeys = document.cookie.replace(/((?:^|\s*;)[^\=]+)(?=;|$)|^\s*|\s*(?:\=[^;]*)?(?:\1|$)/g, "").split(/\s*(?:\=[^;]*)?;\s*/);
-				for (var nIdx = 0; nIdx < aKeys.length; nIdx++) { aKeys[nIdx] = unescape(aKeys[nIdx]); }
-				return aKeys;
 			}
-		};
-
-
-
-		function decodeStart(buttonMode) {
-	//document.getElementById('output').innerHTML="";
-            outputDIV.innerHTML="";
-			html="";
-			htmlTmp=[];
-            //window.refresh();
-
-			if (TEXT.match(/^\s*Passcode confirmed/)) {
-				document.getElementById('output').innerHTML=acquiredItems(TEXT);
-			} else if (buttonMode && buttonMode.match(/kwexchange/)) {
-				// kw置き換え
-				goKeywExchange();
-				ikkatsuFinish();
-
-			} else if (buttonMode && buttonMode.match(/kwregexp/)) {
-				// kw正規表現検索
-				kwRegExp(TEXT);
-				ikkatsuFinish();
-
-			} else if (buttonMode && buttonMode.match(/kwsearch/)) {
-				// kw置き換え
-				kwSearch(TEXT);
-				ikkatsuFinish();
-
-			} else {
-				// cookie保存
-				var expire = new Date();
-				expire.setTime( expire.getTime() + 1000 * 3600 * 24 * 365 * 10);
-				/* docCookies.setItem(name, value[, end[, path[, domain[, secure]]]]) */
-				//docCookies.setItem("dondondecode", TEXT, expire);
-				docCookies.setItem("dondondecode", TEXT, 60*60*24*365*10);
-				
-				// デコード開始
-				decodeMain();
-				ikkatsuFinish();
-			}
+			console.log(escape(sKey) + "=" + escape(sValue) + sExpires + (sDomain ? "; domain=" + sDomain : "") + (sPath ? "; path=" + sPath : "") + (bSecure ? "; secure" : ""));
+			document.cookie = escape(sKey) + "=" + escape(sValue) + sExpires + (sDomain ? "; domain=" + sDomain : "") + (sPath ? "; path=" + sPath : "") + (bSecure ? "; secure" : "");
+		},
+	
+		removeItem: function (sKey, sPath) {
+			if (!sKey || !this.hasItem(sKey)) { return; }
+			document.cookie = escape(sKey) + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT" + (sPath ? "; path=" + sPath : "");
+		},
+	
+		hasItem: function (sKey) {
+			return (new RegExp("(?:^|;\\s*)" + escape(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=")).test(document.cookie);
+		},
+	
+		keys: /* optional method: you can safely remove it! */ function () {
+			var aKeys = document.cookie.replace(/((?:^|\s*;)[^\=]+)(?=;|$)|^\s*|\s*(?:\=[^;]*)?(?:\1|$)/g, "").split(/\s*(?:\=[^;]*)?;\s*/);
+			for (var nIdx = 0; nIdx < aKeys.length; nIdx++) { aKeys[nIdx] = unescape(aKeys[nIdx]); }
+			return aKeys;
 		}
+	};
 
-		document.addEventListener( 'DOMContentLoaded', function(){
-			// 初期化
-			//グローバル
-			TEXT=""; 
-		  outputDIV=document.getElementById('output');
-			html="";
-			htmlTmp=[];
 
-			funcLeetLessKw();
 
-		}, false );
-        
+	function decodeStart(buttonMode) {
+		TEXT=document.getElementById('clipboardTextarea').value;
+		if (TEXT.match(/\s/)) return null;
+		outputDIV.innerHTML="";
+		html="";
+		htmlTmp=[];
 
-        var el=document.getElementById("decodeButton");
-        el.addEventListener("click", function(){
-          if(TEXT.match(/\S/)){
-            outputDIV.innerHTML='';
-          } else {
-            return null;
-          }
-        }, false);
+		if (TEXT.match(/^\s*Passcode confirmed/)) {
+			document.getElementById('output').innerHTML=acquiredItems(TEXT);
+		} else if (buttonMode && buttonMode.match(/kwexchange/)) {
+			// kw置き換え
+			goKeywExchange();
+			ikkatsuFinish();
 
-        el.addEventListener("click", function(){
-          if(TEXT.match(/\S/)){
-            TEXT=document.getElementById('clipboardTextarea').value;
-            decodeStart();
-          } else {
-            return null;
-          }
-        }, false);
+		} else if (buttonMode && buttonMode.match(/kwregexp/)) {
+			// kw正規表現検索
+			kwRegExp(TEXT);
+			ikkatsuFinish();
+
+		} else if (buttonMode && buttonMode.match(/kwsearch/)) {
+			// kw置き換え
+			kwSearch(TEXT);
+			ikkatsuFinish();
+
+		} else {
+			// cookie保存
+			var expire = new Date();
+			expire.setTime( expire.getTime() + 1000 * 3600 * 24 * 365 * 10);
+			/* docCookies.setItem(name, value[, end[, path[, domain[, secure]]]]) */
+			//docCookies.setItem("dondondecode", TEXT, expire);
+			docCookies.setItem("dondondecode", TEXT, 60*60*24*365*10);
+			
+			// デコード開始
+			decodeMain();
+			ikkatsuFinish();
+		}
+	}
+
+
+	document.addEventListener( 'DOMContentLoaded', function(){
+		// 初期化
+		//グローバル
+		TEXT=""; 
+		outputDIV=document.getElementById('output');
+		textAreaBox=document.getElementById('clipboardTextarea'); 
+		html="";
+		htmlTmp=[];
+		funcLeetLessKw();
+
+		var decodeButtonObj=document.getElementById("decodeButton");
+		decodeButtonObj.addEventListener("click", function () {
+			outputDIV.innerHTML='start...';
+			decodeButtonObj.disabled=true;
+			decodeStart();
+			decodeButtonObj.disabled=false;
+		}, false);
+
+		var kwExchangeButtonObj=document.getElementById("kwExchangeButton");
+		kwExchangeButtonObj.addEventListener("click", function () {
+			outputDIV.innerHTML='start...';
+			kwExchangeButtonObj.disabled=true;
+			decodeStart('kwexchange');
+			kwExchangeButtonObj.disabled=false;
+		}, false);
+
+		var kwRegExpButtonObj=document.getElementById("kwRegExpButton");
+		kwRegExpButtonObj.addEventListener("click", function () {
+			outputDIV.innerHTML='start...';
+			kwRegExpButtonObj.disabled=true;
+			decodeStart('kwregexp');
+			kwRegExpButtonObj.disabled=false;
+		}, false);
+
+		var kwSearchButtonObj=document.getElementById("kwSearchButton");
+		kwSearchButtonObj.addEventListener("click", function () {
+			outputDIV.innerHTML='start...';
+			kwSearchButtonObj.disabled=true;
+			decodeStart('kwsearch');
+			kwSearchButtonObj.disabled=false;
+		}, false);
+
+		var getCookieButtonObj=document.getElementById("getCookieButton");
+		getCookieButtonObj.addEventListener("click", function () {
+			textAreaBox.value=docCookies.getItem('dondondecode')
+		}, false);
+		
+		var clearButtonObj=document.getElementById("clearButton");
+		clearButtonObj.addEventListener("click", function () {
+			textAreaBox.value=''; 
+			outputDIV.innerHTML='';
+		}, false);
+		
+	}, false );
+
 
 
 	</script>
@@ -167,12 +193,11 @@
 		<form id="clipboardForm">
 			<textarea id="clipboardTextarea" rows=5 wrap="off" onFocus="document.getElementById('clipboardTextarea').select()"></textarea><br>
 			<input type="button" value="decode" id="decodeButton">
-			<input type="button" value="decode2" onClick="TEXT=document.getElementById('clipboardTextarea').value; if(TEXT.match(/\S/)){decodeStart();} else {return null;}">
-			<input type="button" value="clear" id="clearButton" onClick="document.getElementById('clipboardTextarea').value=''; document.getElementById('output').innerHTML='';">
-			<input type="button" value="getCookie" id="getCookieButton" onClick="document.getElementById('clipboardTextarea').value=docCookies.getItem('dondondecode')"><br>
-			<input type="button" value="kw Exchange" id="kwExchangeButton" onClick="TEXT=document.getElementById('clipboardTextarea').value; if(TEXT.match(/\S/)){decodeStart('kwexchange');} else {return null;}">
-			<input type="button" value="kw RegExp" id="kwRegExpButton" onClick="TEXT=document.getElementById('clipboardTextarea').value; decodeStart('kwregexp');">
-			<input type="button" value="kw Search" id="kwSearchButton" onClick="TEXT=document.getElementById('clipboardTextarea').value; if(TEXT.match(/\S/)){decodeStart('kwsearch');} else {return null;}">
+			<input type="button" value="clear" id="clearButton" onClick="">
+			<input type="button" value="getCookie" id="getCookieButton" onClick=""><br>
+			<input type="button" value="kw Exchange" id="kwExchangeButton" onClick="decodeStart('kwexchange')">
+			<input type="button" value="kw RegExp" id="kwRegExpButton" onClick="decodeStart('kwregexp')">
+			<input type="button" value="kw Search" id="kwSearchButton" onClick="decodeStart('kwsearch')">
 		</form>
 	</div>
 	<div id="output">
