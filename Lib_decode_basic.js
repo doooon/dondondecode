@@ -462,22 +462,21 @@ function analyzeText(str) {
     alertMsg.push(
       "LED7セグの可能性");
   }
-  if (morseExchange(str).replace(/\s/g,"").length%7==0) {
-    alertMsg.push(
-      "morseからバイナリでLED7セグの可能性");
-    alertMsg.push(
-      "morseからバイナリAAの可能性");
+  var morseExchangeBinLen=morseExchange(str).replace(/\s/g,"").length;
+  if (morseExchangeBinLen%7==0 && morseExchangeBinLen>=70) {
+    alertMsg.push("morseからバイナリでLED7セグの可能性");
+    if(morseExchangeBinLen>279){
+      alertMsg.push("文字数が多い! morseからバイナリAAの可能性を強く示唆");
+    }
   }
-  if (morseExchange(str).replace(/\s/g,"").length%6==0) {
+  if (morseExchangeBinLen%6==0 && morseExchangeBinLen>=30) {
     alertMsg.push(
       "morseからbraille点字の可能性");
   }
-  if (morseExchange(str).replace(/\s/g,"").length%5==0) {
-   if(morseExchange(str).replace(/\s/g,"").length>249){
-     alertMsg.push("文字数が多い! morseからバイナリAAの可能性を強く示唆");
-     } else {
-      alertMsg.push("morseからバイナリAAの可能性");
-     }
+  if (morseExchangeBinLen%5==0) {
+    if(morseExchangeBinLen>249){
+      alertMsg.push("文字数が多い! morseからバイナリAAの可能性を強く示唆");
+    }
   }
   if (m==3
     && str.replace(/\s/g,"").match(
