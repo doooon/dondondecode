@@ -217,8 +217,11 @@ function analyzeText(str) {
   result.push("ドットでrectの文字数を調整してあることもある");
   result.push("フォーマット通りならキーワード置換やモールスswap、atbash、rotをチェックを試す(atbashとrot±13ならkwの意味bash、rot+1ならkwの1つ先の意味を探す");
   result.push("ほぼほぼフォーマットならモールス+leetを試す");
-  result.push("daily 5文字目MNO、1文字目 A-Z QRSTUVW、a-z YZabcde");
-  result.push("旧daily 1文字目MNO");
+  result.push("Base64 daily 5文字目MNO、1文字目 A-Z QRSTUVW、a-z YZabcde");
+  result.push("Base64 旧daily 1文字目MNO");
+  result.push("Base64 3文字を4文字で表現 [A-Za-z0-9+/]");
+  result.push("Base32 5文字を8文字で表現 [A-Z2-7]");
+  result.push("Base32hex 5文字を8文字で表現 [A-V0-9]");
   result.push("kw無し > destroy, separateなど、altタグならimageの内容やfile名、gryphは見当たらないか？");
   result.push("kw無し > aタグなら Link");
   result.push("kw空白 > space");
@@ -241,7 +244,7 @@ function analyzeText(str) {
   result.push("(よくあるLeet) 1iL, 2Z, 3E, 4A, 5vS, 6b, 7TL, 9g, 10x, 100c, 500d, 1000m");
   result.push("(数字のみペアになる) 0, 8, 9が多い→ atbashで012が多い→ 012abc");
   result.push("使われている文字が8種類で文字数が偶数→semaphore");
-  result.push("5bit→baconian, baudot code");
+  result.push("5bit→baconian, baudot code, 5行AA");
   result.push("6bit→braille");
   result.push("8bit→ASCII");
   result.push("reverseで意味を成すkw evil<>live");
