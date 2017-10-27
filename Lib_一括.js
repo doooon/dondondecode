@@ -857,7 +857,7 @@ if (
   htmlCode(tmp);
 
   htmlTmp.push("<b>(base32 to base64)</b>");
-  var tmp=base32Dec(str, "64");
+  var tmp=base64enc(base32Dec(str, "2"),"2");
   htmlCode(tmp);
   
   htmlTmp.push("===============");
