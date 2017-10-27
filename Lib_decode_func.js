@@ -2935,6 +2935,7 @@ function base32Dec(str, targetbase) {
     }
   }
   
+  debug(tmp.join(""));
   if (targetbase   
     && targetbase.match(/^\d+$/)
   ) {
