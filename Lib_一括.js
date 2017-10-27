@@ -970,59 +970,51 @@ if (TEXT.match(/[A-Z]/) && TEXT.match(/[a-z]/)) {
     htmlTmp.push("(大文字のみ)");
     htmlTmp.push(upc.join(" "));
     htmlCode(upc.join(""));
-    htmlCode(strReverse(upc.join("")),"","reverse");
-    htmlCode(atbash(upc.join("")),"","atbash");
-    htmlCode(atbash19(upc.join("")),"","atbash19");    
-    htmlCode(atbash09(upc.join("")),"","atbash09");
-    htmlCode(strReverse(atbash(upc.join(""))),"","reverse & atbash");
-    htmlCode(strReverse(atbash19(upc.join(""))),"","reverse & atbash19");    
-    htmlCode(strReverse(atbash09(upc.join(""))),"","reverse & atbash09");
+    htmlCode(strReverse(upc.join("")),"","(reverse)");
+    htmlCode(atbash(upc.join("")),"","(atbash)");
+    htmlCode(strReverse(atbash(upc.join(""))),"","(reverse & atbash)");
   }
   if (loc) {
     htmlTmp.push("(小文字のみ)");
     htmlTmp.push(loc.join(" "));
     htmlCode(loc.join(""));
-    htmlCode(strReverse(loc.join("")),"","reverse");
-    htmlCode(atbash(loc.join("")),"","atbash");
-    htmlCode(atbash19(loc.join("")),"","atbash19");    
-    htmlCode(atbash09(loc.join("")),"","atbash09");
-    htmlCode(strReverse(atbash(loc.join(""))),"","reverse & atbash");
-    htmlCode(strReverse(atbash19(loc.join(""))),"","reverse & atbash19");    
-    htmlCode(strReverse(atbash09(loc.join(""))),"","reverse & atbash09");
+    htmlCode(strReverse(loc.join("")),"","(reverse)");
+    htmlCode(atbash(loc.join("")),"","(atbash)");
+    htmlCode(strReverse(atbash(loc.join(""))),"","(reverse & atbash)");
   }
   if (etc) {
     htmlTmp.push("(その他)");
     htmlTmp.push(etc.join(" "));
     htmlCode(etc.join(""));
-    htmlCode(strReverse(etc.join("")),"","reverse");
-    htmlCode(atbash(etc.join("")),"","atbash");
-    htmlCode(atbash19(etc.join("")),"","atbash19");    
-    htmlCode(atbash09(etc.join("")),"","atbash09");
-    htmlCode(strReverse(atbash(etc.join(""))),"","reverse & atbash");
-    htmlCode(strReverse(atbash19(etc.join(""))),"","reverse & atbash19");    
-    htmlCode(strReverse(atbash09(etc.join(""))),"","reverse & atbash09");
+    htmlCode(strReverse(etc.join("")),"","(reverse)");
+    htmlCode(atbash(etc.join("")),"","(atbash)");
+    htmlCode(atbash19(etc.join("")),"","(atbash19)");    
+    htmlCode(atbash09(etc.join("")),"","(atbash09)");
+    htmlCode(strReverse(atbash(etc.join(""))),"","(reverse & atbash)");
+    htmlCode(strReverse(atbash19(etc.join(""))),"","(reverse & atbash19)");    
+    htmlCode(strReverse(atbash09(etc.join(""))),"","(reverse & atbash09)");
 
     htmlTmp.push("(大文字以外)");
     htmlTmp.push(etcloc.join(" "));
     htmlCode(etcloc.join(""));
-    htmlCode(strReverse(etcloc.join("")),"","reverse");
-    htmlCode(atbash(etcloc.join("")),"","atbash");
-    htmlCode(atbash19(etcloc.join("")),"","atbash19");    
-    htmlCode(atbash09(etcloc.join("")),"","atbash09");
-    htmlCode(strReverse(atbash(etcloc.join(""))),"","reverse & atbash");
-    htmlCode(strReverse(atbash19(etcloc.join(""))),"","reverse & atbash19");    
-    htmlCode(strReverse(atbash09(etcloc.join(""))),"","reverse & atbash09");
+    htmlCode(strReverse(etcloc.join("")),"","(reverse)");
+    htmlCode(atbash(etcloc.join("")),"","(atbash)");
+    htmlCode(atbash19(etcloc.join("")),"","(atbash19)");    
+    htmlCode(atbash09(etcloc.join("")),"","(atbash09)");
+    htmlCode(strReverse(atbash(etcloc.join(""))),"","(reverse & atbash)");
+    htmlCode(strReverse(atbash19(etcloc.join(""))),"","(reverse & atbash19)");    
+    htmlCode(strReverse(atbash09(etcloc.join(""))),"","(reverse & atbash09)");
 
     htmlTmp.push("(小文字以外)");
     htmlTmp.push(etcupc.join(" "));
     htmlCode(etcupc.join(""));
-    htmlCode(strReverse(etcupc.join("")),"","reverse");
-    htmlCode(atbash(etcupc.join("")),"","atbash");
-    htmlCode(atbash19(etcupc.join("")),"","atbash19");    
-    htmlCode(atbash09(etcupc.join("")),"","atbash09");
-    htmlCode(strReverse(atbash(etcupc.join(""))),"","reverse & atbash");
-    htmlCode(strReverse(atbash19(etcupc.join(""))),"","reverse & atbash19");    
-    htmlCode(strReverse(atbash09(etcupc.join(""))),"","reverse & atbash09");
+    htmlCode(strReverse(etcupc.join("")),"","(reverse)");
+    htmlCode(atbash(etcupc.join("")),"","(atbash)");
+    htmlCode(atbash19(etcupc.join("")),"","(atbash19)");    
+    htmlCode(atbash09(etcupc.join("")),"","(atbash09)");
+    htmlCode(strReverse(atbash(etcupc.join(""))),"","(reverse & atbash)");
+    htmlCode(strReverse(atbash19(etcupc.join(""))),"","(reverse & atbash19)");    
+    htmlCode(strReverse(atbash09(etcupc.join(""))),"","(reverse & atbash09)");
   }
 
   htmlTmp.push("(大小文字でバイナリ抽出)");
