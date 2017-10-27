@@ -836,6 +836,29 @@ if (
   htmlTmp.push(
     "(more atbash reverse)");
   htmlCode(strReverse(atbash19(tmp)));
+
+
+  htmlTmp.push("-----------");
+
+  htmlTmp.push("<b>(base32 to bin)</b>");
+  var tmp=base32Dec(str, "2");
+  htmlCode(tmp);
+
+  htmlTmp.push("<b>(base32 to oct)</b>");
+  var tmp=base32Dec(str, "8");
+  htmlCode(tmp);
+
+  htmlTmp.push("<b>(base32 to dec)</b>");
+  var tmp=base32Dec(str, "10");
+  htmlCode(tmp);
+
+  htmlTmp.push("<b>(base32 to hex)</b>");
+  var tmp=base32Dec(str, "16");
+  htmlCode(tmp);
+
+  htmlTmp.push("<b>(base32 to base64)</b>");
+  var tmp=base32Dec(str, "64");
+  htmlCode(tmp);
   
   htmlTmp.push("===============");
 }
