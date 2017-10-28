@@ -2603,38 +2603,36 @@ function base64Dec(str, targetbase) {
     if (str[i]=="=") break;
     tmp.push(map[str[i]]);
   }
+
   if (targetbase   
-    &&targetbase.match(/^\d+$/)
+    && targetbase.match(/^\d+$/)
   ) {
     var result=[];
     var tmp2=tmp.join("").match(/.{8}/g);
     for (var i in tmp2) {
-      result.push(parseInt(
-        tmp2[i], 2).toString(
-          Number(targetbase)));
+      if (targetbase=="2") {
+        result.push(tmp2[i]);
+      } else {
+        var tmpN=parseInt(tmp2[i], 2).toString(Number(targetbase));
+        if (targetbase=="8") {
+          tmpN=(100+tmpN);
+          result.push(String(tmpN).split("").slice(-3).join(""));
+        }
+        else if (targetbase=="10") {
+          tmpN=(100+tmpN);
+          result.push(String(tmpN).split("").slice(-3).join(""));
+        }
+        else if (targetbase=="16") {
+          tmpN=(10+tmpN);
+          result.push(String(tmpN).split("").slice(-2).join(""));
+        }
+      }
     }
-    return result.join("");
-  } else if (targetbase   
-    &&targetbase.match(/^index$/i)
-  ) {
-    var result=[];
-    for (var i in tmp) {
-      result.push(
-        ("0"+parseInt(tmp[i], 2)).slice(-2)
-      );
-    }
-    return result.join("");
+    return result.join(" ");
   } else {
     return binASCII(tmp.join(""));
   }
-  
-  /*
-  // Convert binary to hexadecimal
-var hex = parseInt(binaryCharacters, 2).toString(16);
 
-// Convert hexadecimal to binary
-var binary = parseInt(hex, 16).toString(2)
-  */
 }
 
 //======================================
@@ -2935,18 +2933,31 @@ function base32Dec(str, targetbase) {
     }
   }
   
-  //debug(tmp.join(""));
   if (targetbase   
     && targetbase.match(/^\d+$/)
   ) {
-    var result="";
+    var result=[];
     var tmp2=tmp.join("").match(/.{8}/g);
     for (var i in tmp2) {
-      result+=parseInt(
-        tmp2[i], 2).toString(
-          Number(targetbase));
+      if (targetbase=="2") {
+        result.push(tmp2[i]);
+      } else {
+        var tmpN=parseInt(tmp2[i], 2).toString(Number(targetbase));
+        if (targetbase=="8") {
+          tmpN=(100+tmpN);
+          result.push(String(tmpN).split("").slice(-3).join(""));
+        }
+        else if (targetbase=="10") {
+          tmpN=(100+tmpN);
+          result.push(String(tmpN).split("").slice(-3).join(""));
+        }
+        else if (targetbase=="16") {
+          tmpN=(10+tmpN);
+          result.push(String(tmpN).split("").slice(-2).join(""));
+        }
+      }
     }
-    return result;
+    return result.join(" ");
   } else {
     return binASCII(tmp.join(""));
   }
@@ -2957,6 +2968,8 @@ function base32Dec(str, targetbase) {
 
 //base32エンコード(入力時base指定可)
 function base32Enc(str, inBase) {
+  str=str.replace(/\s+/g, "");
+  
   var map = {};
   map['000000'] = 'A';
   map['000001'] = 'B';

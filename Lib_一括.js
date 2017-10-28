@@ -712,6 +712,29 @@ if ((
   htmlCode(atbash19(tmp));
   checkMoreBase64Dec(tmp);
   
+  htmlTmp.push("-----------");
+  
+  htmlTmp.push("<b>(base64 to bin)</b>");
+  var tmp=base64Dec(b64TEXT, "2");
+  htmlCode(tmp);
+
+  htmlTmp.push("<b>(base64 to oct)</b>");
+  var tmp=base64Dec(b64TEXT, "8");
+  htmlCode(tmp);
+
+  htmlTmp.push("<b>(base64 to dec)</b>");
+  var tmp=base64Dec(b64TEXT, "10");
+  htmlCode(tmp);
+
+  htmlTmp.push("<b>(base64 to hex)</b>");
+  var tmp=base64Dec(b64TEXT, "16");
+  htmlCode(tmp);
+
+  htmlTmp.push("<b>(base64 to base32)</b>");
+  htmlTmp.push(base64Dec(b64TEXT, "2"));
+  var tmp=base32Enc(base64Dec(b64TEXT, "2"),"2");
+  htmlCode(tmp);
+
   htmlTmp.push("===============");
 
   htmlTmp.push("(base64 index)");
@@ -785,7 +808,7 @@ if ((
   htmlTmp.push(b64TEXT.match(/../g).join(" "));
   htmlCode(b64TEXT);
   if (b64TEXT.match(/^(0\d)+$/)) htmlCode(b64TEXT.replace(/0(\d)/g, "$1"));
-  
+    
   htmlTmp.push("===============");  
 }
 
