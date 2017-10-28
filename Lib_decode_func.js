@@ -2639,6 +2639,8 @@ function base64Dec(str, targetbase) {
 
 //base64エンコード(入力時base指定可)
 function base64Enc(str, inBase) {
+  if (str.match(/^\s*$/)) return str;
+  
   var map = {};
   map['000000'] = 'A';
   map['000001'] = 'B';
@@ -2728,23 +2730,18 @@ function base64Enc(str, inBase) {
     }
   }
 
-  if (str.match(/^[^\w\/+]+$/)) return str;
   var tmp=[];
   str=str.replace(/\s+/g, "");
       
   if (inBase && inBase.match(/^2$/)) { 
     tmp.push(str);
-  } else if (
-    inBase && inBase.match(/^16$/)
-  ) {
+  } else if (inBase && inBase.match(/^16$/)) {
     for (var i=0; i<str.length; i++) {
       tmp.push(nBase2bin(
         str[i]+str[i+1], inBase));
       i++;
     }
-  } else if (
-    inBase && inBase.match(/^(8|10)$/)
-  ) {
+  } else if (inBase && inBase.match(/^(8|10)$/)) {
     for (var i=0; i<str.length; i++) {
       tmp.push(nBase2bin(
         str[i]+str[i+1]+str[i+2], inBase));
@@ -2757,22 +2754,27 @@ function base64Enc(str, inBase) {
           nBase2bin(str[i], inBase));
       }
   }
-  //htmlTmp.push(tmp.join(""));
     
-  var tmp=tmp.join("").match(/.{1,6}/g);
-  for (var i in tmp) {
-    for (var j=tmp[i].length; j<6; j++) {
-      tmp[i]+="0";
-    }
-    tmp[i]=map[tmp[i]];
-  }
-    
-  if ((tmp.length%4)>0) {
-    for (var i=(tmp.length%4); i<4; i++) {
-      tmp.push("=");
+  var tmpL=tmp.join("").match(/.{1,6}/g);
+
+  var tmpLastStr=tmpL[tmpL.length-1].split("").length;
+  if (tmpLastStr<6) {
+    for (var i=tmpLastStr; i<6; i++) {
+      tmpL[tmpL.length-1]="0"+tmpL[tmpL.length-1];
     }
   }
-  return tmp.join("");
+
+  for (var i in tmpL) {
+    tmpL[i]=map[tmpL[i]];
+  }
+
+    
+  if ((tmpL.length%4)>0) {
+    for (var i=(tmpL.length%4); i<4; i++) {
+      tmpL.push("=");
+    }
+  }
+  return tmpL.join("");
 }
 
 //======================================
@@ -2968,44 +2970,44 @@ function base32Dec(str, targetbase) {
 
 //base32エンコード(入力時base指定可)
 function base32Enc(str, inBase) {
-  str=str.replace(/\s+/g, "");
+  if (str.match(/^\s*$/)) return str;
   
   var map = {};
-  map['000000'] = 'A';
-  map['000001'] = 'B';
-  map['000010'] = 'C';
-  map['000011'] = 'D';
-  map['000100'] = 'E';
-  map['000101'] = 'F';
-  map['000110'] = 'G';
-  map['000111'] = 'H';
+  map['00000'] = 'A';
+  map['00001'] = 'B';
+  map['00010'] = 'C';
+  map['00011'] = 'D';
+  map['00100'] = 'E';
+  map['00101'] = 'F';
+  map['00110'] = 'G';
+  map['00111'] = 'H';
 
-  map['001000'] = 'I';
-  map['001001'] = 'J';
-  map['001010'] = 'K';
-  map['001011'] = 'L';
-  map['001100'] = 'M';
-  map['001101'] = 'N';
-  map['001110'] = 'O';
-  map['001111'] = 'P';
+  map['01000'] = 'I';
+  map['01001'] = 'J';
+  map['01010'] = 'K';
+  map['01011'] = 'L';
+  map['01100'] = 'M';
+  map['01101'] = 'N';
+  map['01110'] = 'O';
+  map['01111'] = 'P';
 
-  map['010000'] = 'Q';
-  map['010001'] = 'R';
-  map['010010'] = 'S';
-  map['010011'] = 'T';
-  map['010100'] = 'U';
-  map['010101'] = 'V';
-  map['010110'] = 'W';
-  map['010111'] = 'X';
+  map['10000'] = 'Q';
+  map['10001'] = 'R';
+  map['10010'] = 'S';
+  map['10011'] = 'T';
+  map['10100'] = 'U';
+  map['10101'] = 'V';
+  map['10110'] = 'W';
+  map['10111'] = 'X';
 
-  map['011000'] = 'Y';
-  map['011001'] = 'Z';
-  map['011010'] = '2';
-  map['011011'] = '3';
-  map['011100'] = '4';
-  map['011101'] = '5';
-  map['011110'] = '6';
-  map['011111'] = '7';
+  map['11000'] = 'Y';
+  map['11001'] = 'Z';
+  map['11010'] = '2';
+  map['11011'] = '3';
+  map['11100'] = '4';
+  map['11101'] = '5';
+  map['11110'] = '6';
+  map['11111'] = '7';
 
   function nBase2bin(myStr, base) {
     if (
@@ -3023,23 +3025,18 @@ function base32Enc(str, inBase) {
     }
   }
 
-  if (str.match(/^[^\w\/+]+$/)) return str;
   var tmp=[];
   str=str.replace(/\s+/g, "");
-      
+
   if (inBase && inBase.match(/^2$/)) { 
     tmp.push(str);
-  } else if (
-    inBase && inBase.match(/^16$/)
-  ) {
+  } else if (inBase && inBase.match(/^16$/)) {
     for (var i=0; i<str.length; i++) {
       tmp.push(nBase2bin(
         str[i]+str[i+1], inBase));
       i++;
     }
-  } else if (
-    inBase && inBase.match(/^(8|10)$/)
-  ) {
+  } else if (inBase && inBase.match(/^(8|10)$/)) {
     for (var i=0; i<str.length; i++) {
       tmp.push(nBase2bin(
         str[i]+str[i+1]+str[i+2], inBase));
@@ -3052,23 +3049,29 @@ function base32Enc(str, inBase) {
           nBase2bin(str[i], inBase));
       }
   }
-  //htmlTmp.push(tmp.join(""));
-    
-  var tmp=tmp.join("").match(/.{1,5}/g);
-  for (var i in tmp) {
-    for (var j=tmp[i].length; j<5; j++) {
-      tmp[i]+="0";
-    }
-    tmp[i]=map[tmp[i]];
-  }
-    
-  if ((tmp.length%8)>0) {
-    for (var i=(tmp.length%8); i<4; i++) {
-      tmp.push("=");
+ 
+  var tmpL=tmp.join("").match(/.{1,5}/g);
+
+  var tmpLastStr=tmpL[tmpL.length-1].split("").length;
+  if (tmpLastStr<5) {
+    for (var i=tmpLastStr; i<5; i++) {
+      tmpL[tmpL.length-1]="0"+tmpL[tmpL.length-1];
     }
   }
-  return tmp.join("");
+
+  for (var i in tmpL) {
+    tmpL[i]=map[tmpL[i]];
+  }
+
+  if ((tmpL.length%8)>0) {
+    for (var i=(tmpL.length%8); i<8; i++) {
+      tmpL.push("=");
+    }
+  }
+
+  return tmpL.join("");
 }
+
 
 //======================================
 

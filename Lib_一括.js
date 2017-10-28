@@ -9,7 +9,29 @@ function decodeMain() {
 TEXT=TEXT.replace(/^\s+|\s+$/g, "");
 htmlCode(TEXT);
 htmlTmp.push("===============");
-
+htmlTmp.push("<a href='#atbash'><b>atbash</b></a>");
+htmlTmp.push("<a href='#dec'><b>dec</b></a>");
+htmlTmp.push("<a href='#hex'><b>hex</b></a>");
+htmlTmp.push("<a href='#base64'><b>base64</b></a>");
+htmlTmp.push("<a href='#UpLowCase'><b>UpLowCase</b></a>");
+htmlTmp.push("<a href='#oddEven'><b>oddEven</b></a>");
+htmlTmp.push("<a href='#vigenere'><b>vigenere</b></a>");
+htmlTmp.push("<a href='#symbol2num'><b>symbol2num</b></a>");
+htmlTmp.push("<a href='#keyboard flip'><b>keyboard flip</b></a>");
+htmlTmp.push("<a href='#phoneKeyboard'><b>ガラケー</b></a>");
+htmlTmp.push("<a href='#polybius'><b>polybius</b></a>");
+htmlTmp.push("<a href='#morse'><b>morse</b></a>");
+htmlTmp.push("<a href='#bifid'><b>bifid</b></a>");
+htmlTmp.push("<a href='#playfair'><b>playfair</b></a>");
+htmlTmp.push("<a href='#skip'><b>skip</b></a>");
+htmlTmp.push("<a href='#railfence'><b>railfence</b></a>");
+htmlTmp.push("<a href='#rect'><b>rect</b></a>");
+/*
+htmlTmp.push("<a href='#'><b></b></a>");
+htmlTmp.push("<a href='#'><b></b></a>");
+htmlTmp.push("<a href='#'><b></b></a>");
+htmlTmp.push("<a href='#'><b></b></a>");
+*/
 
 // テキストアナライズ
 htmlTmp.push(analyzeText(TEXT));
@@ -173,11 +195,6 @@ goRotate(26,TEXT,"reverse","atbash");
 
 
 htmlTmp.push("===============");
-
-if (!TEXT.match(/[\s\n]/)) {
-goRectangles(TEXT);
-htmlTmp.push("===============");
-}
 
 if (
   TEXT &&
@@ -459,10 +476,11 @@ if (TEXT.match(/^[\d\s.,:;\-\/|]+$/)) {
   htmlTmp.push("===============");
 }
 
-//数字が1～5のみ
+//数字が1～5のみ RLD
 if (TEXT.match(/^[1-5\s]+$/)) {
   htmlTmp.push("数字が1～5のみ"); 
   htmlTmp.push("(数字の数だけ0/1を繰り返す)");
+  htmlTmp.push("<a name='RLD'><b>(数字の数だけ0/1を繰り返す)</b></a>");
   var tmp=time2bin(TEXT);
   
   htmlTmp.push(
@@ -556,7 +574,7 @@ if ((
     }
   }
   
-  htmlTmp.push("<b>(base64 decode)</b>");
+  htmlTmp.push("<a name='base64'><b>(base64 decode)</b></a>");
   var tmp=base64Dec(b64TEXT);
   htmlCode(tmp);
   checkMoreBase64Dec(tmp);
@@ -829,7 +847,7 @@ if (
 ) {
   var str=TEXT.toUpperCase();
   htmlTmp.push(str);
-  htmlTmp.push("<b>(base32 decode)</b>");
+  htmlTmp.push("<a name='base32'><b>(base32 decode)</b></a>");
   var tmp=base32Dec(str);
   htmlCode(tmp);
   htmlTmp.push(
@@ -890,7 +908,7 @@ if (
 if (TEXT.match(/^\d+$/) 
   && TEXT.length%2==0) {
   htmlTmp.push("数字のみだからDecASCII"); 
-  htmlTmp.push("(DecASCII)");
+  htmlTmp.push("<a name='dec'><b>(DecASCII)</b></a>");
   var tmp=decASCII(TEXT);
   htmlCode(tmp);
   
@@ -1004,7 +1022,7 @@ if (txonly) {
 //大文字小文字で抽出
 if (TEXT.match(/[A-Z]/) && TEXT.match(/[a-z]/)) {
  
-  htmlTmp.push("(大文字小文字で抽出)");
+  htmlTmp.push("<a name='UpLowCase'><b>(大文字小文字で抽出)</b></a>");
   
   var upc=TEXT.match(/[A-Z]+/g);
   var loc=TEXT.match(/[a-z]+/g);
@@ -1086,7 +1104,7 @@ if (TEXT.match(/[A-Z]/) && TEXT.match(/[a-z]/)) {
 }
 
 // 奇数偶数で抽出
-  htmlTmp.push("(奇数偶数で抽出)");
+  htmlTmp.push("<a name='oddEven'><b>(奇数偶数で抽出)</b></a>");
   var odd=TEXT.replace(/(.).?/g, "$1");
   var even=TEXT.replace(/.(.)?/g, "$1");
   htmlCode(odd);
@@ -1203,7 +1221,7 @@ if (TEXT.match(
 //vigenereデコード
 var tmp=TEXT.replace(/\n/g, "");
 if (tmp.match(/^(\d*[a-z]*\d*)+$/i)) {
-  htmlTmp.push("(vigenere)");
+  htmlTmp.push("<a name='vigenere'><b>(vigenere)</b></a>");
   
   function vige(key) {
     htmlTmp.push("(vig key: "+key+")");
@@ -1438,7 +1456,7 @@ if (tmp.match(/^(\d*[a-z]*\d*)+$/i)) {
 
 // Symbolを数字へ
 if (TEXT.match(/[!@#\$%\^&\*\(\)]/)) {
-  htmlTmp.push("<b>(Symbolを数字へ)</b>");
+  htmlTmp.push("<a name='symbol2num'><b>(Symbolを数字へ)</b></a>");
   htmlTmp.push(TEXT);
   var tmp=symbol2Num(TEXT);
   var tmp2=symbol2Num(
@@ -1586,7 +1604,7 @@ htmlTmp.push("===============");
 if (TEXT.match(
   /^(([2-9]){1,4}[\s01\D]?)+$/)) {
   htmlTmp.push(TEXT);
-  htmlTmp.push("<b>(ガラケー)</b>");
+  htmlTmp.push("<a name='phoneKeyboard'><b>(ガラケー)</b></a>");
   var garakeRes=garake(TEXT);
   htmlCode(garakeRes);
 /*
@@ -1835,7 +1853,7 @@ if (TEXT.match(/^([5-9][5-9])+$/)) {
 if (TEXT.match(/^[a-z]+$/i)) {
   // Bifid変換
   htmlTmp.push("アルファベットのみ");
-  htmlTmp.push("<b>Bifid decode (i→j可能性あり)</b>");
+  htmlTmp.push("<a name='bifid'><b>Bifid decode (i→j可能性あり)</b></a>");
   htmlCode(bifid(TEXT));
   htmlTmp.push("<b>Bifid encode  (i→j可能性あり)</b>");
   htmlCode(bifid(TEXT,"encode"));
@@ -1858,7 +1876,7 @@ if (
 ) {
   var r=playfair(TEXT);
   htmlTmp.push("アルファベットのみでペアになる");
-  htmlTmp.push("Playfair変換");
+  htmlTmp.push("<a name='playfair'><b>(Playfair)</b></a>");
   htmlCode(r);
   if (r.match(/i/i)) {
     htmlTmp.push("( i → j )");
@@ -1891,7 +1909,7 @@ if (TEXT.match(/[1235679][12]?-[1235679][12]?(?=[\s/\\|]*)/g)) {
 
 //hexと認識
 if (TEXT.match(/^[0-9a-f\s]+$/ig)) {
-  htmlTmp.push("<b>構成文字が[0-9a-f]。16進数かも</b>");
+  htmlTmp.push("<a name='hex'><b>(構成文字が[0-9a-f]。16進数かも)</b></a>");
   
   // 念のためdecASCII
   htmlTmp.push("(decASCII)");
@@ -2059,7 +2077,7 @@ if (
   kouseimoji.length>=4
 ) {
   htmlTmp.push(TEXT);
-  htmlTmp.push("<b>(SKIP)</b>");
+  htmlTmp.push("<a name='skip'><b>(SKIP)</b></a>");
   
 	var tmpL=skipAll(TEXT);
 	for (var i in tmpL) {
@@ -2080,6 +2098,14 @@ if (
   htmlCode(railfence(TEXT,"decript",3));
   htmlTmp.push("==============");
 }
+
+// Rectangles
+if (!TEXT.match(/[\s\n]/)) {
+  htmlTmp.push("<a name='rect'><b>(rect)</b></a>");
+  goRectangles(TEXT);
+  htmlTmp.push("===============");
+}
+
 
 // ==============
 

@@ -361,17 +361,22 @@ function analyzeText(str) {
     (
     (
       strNoSpace.match(/^[A-Z2-7=]+$/)
-      && str.match(/[A-Z]/)
-      && str.match(/[0-9]/)
+      && strNoSpace.match(/[A-Z]/)
+      && strNoSpace.match(/[0-9]/)
     ) || (
       strNoSpace.match(/^[a-z2-7=]+$/)
-      && str.match(/[a-z]/)
-      && str.match(/[0-9]/)
+      && strNoSpace.match(/[a-z]/)
+      && strNoSpace.match(/[0-9]/)
     )
-    ) && str.length>=14
+    ) && strNoSpace.length>=14
   ) {
-    alertMsg.push(
-      "(ホントは文字数が8の倍数)、数字が2-7で大文字だけ若しくは小文字だけなのでbase32の可能性あり");
+    if (strNoSpace.length%8!=0) {
+      alertMsg.push(
+        "(ホントは文字数が8の倍数)、数字が2-7で大文字だけ若しくは小文字だけなのでbase32の可能性あり");
+    } else {
+      alertMsg.push(
+        "<a href='#base32'>文字数が8の倍数、数字が2-7で大文字だけ若しくは小文字だけなのでbase32の可能性あり</a>");
+    }
   }
   // var tmpRE0=new RegExp(charlist[0]+charlist[0]);
   // var tmpRE1=new RegExp(charlist[1]+charlist[1]);
