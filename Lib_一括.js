@@ -8,6 +8,13 @@ function decodeMain() {
 
 TEXT=TEXT.replace(/^\s+|\s+$/g, "");
 htmlCode(TEXT);
+htmlTmp.push("----------------------");
+
+htmlTmp.push("<a href='#atbash'><b>atbash</b></a> <a href='#dec'><b>dec</b></a> <a href='#hex'><b>hex</b></a> <a href='#base64'><b>base64</b></a> <a href='#UpLowCase'><b>UpLowCase</b></a>");
+htmlTmp.push("<a href='#oddEven'><b>oddEven</b></a> <a href='#vigenere'><b>vigenere</b></a> <a href='#symbol2num'><b>symbol2num</b></a> <a href='#keyboard flip'><b>keyboard flip</b></a>");
+htmlTmp.push("<a href='#phoneKeyboard'><b>ガラケー</b></a> <a href='#polybius'><b>polybius</b></a> <a href='#morse'><b>morse</b></a> <a href='#bifid'><b>bifid</b></a> <a href='#playfair'><b>playfair</b></a>");
+htmlTmp.push("<a href='#skip'><b>skip</b></a> <a href='#railfence'><b>railfence</b></a> <a href='#rect'><b>rect</b></a> <a href='#oddeven'><b>奇数偶数</b></a> <a href='#abc012'><b>abc012</b></a> <a href='#rot'><b>rot</b></a>");
+
 htmlTmp.push("===============");
 /*
 htmlTmp.push("<a href='#'><b></b></a>");
@@ -16,27 +23,6 @@ htmlTmp.push("<a href='#'><b></b></a>");
 // テキストアナライズ
 htmlTmp.push(analyzeText(TEXT));
 keyPosition(TEXT);
-htmlTmp.push("----------------------");
-htmlTmp.push("<a href='#atbash'><b>atbash</b></a>");
-htmlTmp.push("<a href='#dec'><b>dec</b></a>");
-htmlTmp.push("<a href='#hex'><b>hex</b></a>");
-htmlTmp.push("<a href='#base64'><b>base64</b></a>");
-htmlTmp.push("<a href='#UpLowCase'><b>UpLowCase</b></a>");
-htmlTmp.push("<a href='#oddEven'><b>oddEven</b></a>");
-htmlTmp.push("<a href='#vigenere'><b>vigenere</b></a>");
-htmlTmp.push("<a href='#symbol2num'><b>symbol2num</b></a>");
-htmlTmp.push("<a href='#keyboard flip'><b>keyboard flip</b></a>");
-htmlTmp.push("<a href='#phoneKeyboard'><b>ガラケー</b></a>");
-htmlTmp.push("<a href='#polybius'><b>polybius</b></a>");
-htmlTmp.push("<a href='#morse'><b>morse</b></a>");
-htmlTmp.push("<a href='#bifid'><b>bifid</b></a>");
-htmlTmp.push("<a href='#playfair'><b>playfair</b></a>");
-htmlTmp.push("<a href='#skip'><b>skip</b></a>");
-htmlTmp.push("<a href='#railfence'><b>railfence</b></a>");
-htmlTmp.push("<a href='#rect'><b>rect</b></a>");
-htmlTmp.push("<a href='#oddeven'><b>奇数偶数</b></a>");
-htmlTmp.push("<a href='#abc012'><b>abc012</b></a>");
-htmlTmp.push("<a href='#rot'><b>rot</b></a>");
 htmlTmp.push("===============");
 
 // 可能なkw Daily

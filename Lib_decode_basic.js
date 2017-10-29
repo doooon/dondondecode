@@ -1002,6 +1002,7 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
   ) {
     alertMsg.push("ローマ数字 × abc012でRLE×RLEバイナリの可能性");
   }
+
   if (
     str.match(/^[1-9]{4,}$/i) && 
     kouseimoji.length>=3
@@ -1025,7 +1026,16 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
     }
   }
 
-	
+  var tmpL=["",""];
+  str.replace(/(?:(.)(.?))/g, function(match, p1, p2){tmpL[0]+=p1;tmpL[1]+=p2;});
+  if (
+    (tmpL[0].match(/^[a-z]{6,}$/i) && tmpL[1].match(/^[^a-z]{6,}$/i)) ||
+    (tmpL[0].match(/^[^a-z]{6,}$/i) && tmpL[1].match(/^[a-z]{6,}$/i)) && 
+    kouseimoji.length>=3
+  ) {
+    alertMsg.push("<a href='#oddeven'>奇数偶数に特徴あり</a>");
+  }
+
 
 
 
