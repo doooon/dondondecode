@@ -9,6 +9,14 @@ function decodeMain() {
 TEXT=TEXT.replace(/^\s+|\s+$/g, "");
 htmlCode(TEXT);
 htmlTmp.push("===============");
+/*
+htmlTmp.push("<a href='#'><b></b></a>");
+*/
+
+// テキストアナライズ
+htmlTmp.push(analyzeText(TEXT));
+keyPosition(TEXT);
+htmlTmp.push("----------------------");
 htmlTmp.push("<a href='#atbash'><b>atbash</b></a>");
 htmlTmp.push("<a href='#dec'><b>dec</b></a>");
 htmlTmp.push("<a href='#hex'><b>hex</b></a>");
@@ -26,17 +34,10 @@ htmlTmp.push("<a href='#playfair'><b>playfair</b></a>");
 htmlTmp.push("<a href='#skip'><b>skip</b></a>");
 htmlTmp.push("<a href='#railfence'><b>railfence</b></a>");
 htmlTmp.push("<a href='#rect'><b>rect</b></a>");
-/*
-htmlTmp.push("<a href='#'><b>奇数偶数</b></a>");
-htmlTmp.push("<a href='#'><b>abc012</b></a>");
-htmlTmp.push("<a href='#'><b></b></a>");
-htmlTmp.push("<a href='#'><b></b></a>");
-*/
-
-// テキストアナライズ
-htmlTmp.push(analyzeText(TEXT));
-keyPosition(TEXT);
-htmlTmp.push("----------------------");
+htmlTmp.push("<a href='#oddeven'><b>奇数偶数</b></a>");
+htmlTmp.push("<a href='#abc012'><b>abc012</b></a>");
+htmlTmp.push("<a href='#rot'><b>rot</b></a>");
+htmlTmp.push("===============");
 
 // 可能なkw Daily
 var kwList=keySyougou(TEXT, "", "daily");
@@ -130,72 +131,50 @@ htmlTmp.push("(Base32 encode)");
 htmlCode(base32Enc(TEXT));
 htmlTmp.push("===============");
 
-htmlTmp.push("(abc012)");
-htmlTmp.push(letter2Num(TEXT, " "));
-var tmp012=letter2Num(TEXT);
-htmlCode(tmp012);
-htmlTmp.push("(atbash)");
-htmlCode(atbash19(tmp012));
+// 奇数偶数で抽出
+htmlTmp.push("<a name='oddeven'><b>(奇数偶数で抽出)</b></a>");
+var odd=TEXT.replace(/(.).?/g, "$1");
+var even=TEXT.replace(/.(.)?/g, "$1");
+htmlCode(odd);
+htmlCode(even);
 htmlTmp.push("(reverse)");
-htmlCode(strReverse(tmp012));
-htmlTmp.push("(atbash & reverse)");
-htmlCode(
-  strReverse(atbash19(tmp012)));
-htmlTmp.push("===============");
-
-htmlTmp.push("(abc123)");
-htmlTmp.push(toAbc123(TEXT, " "));
-var tmp123=toAbc123(TEXT);
-htmlCode(tmp123);
+htmlCode(strReverse(odd));
+htmlCode(strReverse(even));
 htmlTmp.push("(atbash)");
-htmlCode(atbash19(tmp123));
-htmlTmp.push("(reverse)");
-htmlCode(strReverse(tmp123));
-htmlTmp.push("(atbash & reverse)");
-htmlCode(
-  strReverse(atbash19(tmp123)));
-htmlTmp.push("===============");
+htmlCode(atbash19(odd));
+htmlCode(atbash19(even));
+htmlTmp.push("(reverse & atbash)");
+htmlCode(atbash19(strReverse(odd)));
+htmlCode(atbash19(strReverse(even)));
+htmlTmp.push("(join)");
+htmlCode(odd+even);
+htmlCode(even+odd);
+htmlCode(strReverse(odd)+even);
+htmlCode(even+strReverse(odd));
+htmlCode(odd+strReverse(even));
+htmlCode(strReverse(even)+odd);
 
-function numNonLotate(tm) {
-  if (checkPasscode(tm).match(/^fix$/i)){
-    htmlCode(tm);
-    htmlTmp.push("(↑num non-rotate)");
-  }
+if (
+  even.length==odd.length && 
+  even.match(/^\d+$/)
+) {
+  htmlTmp.push(
+    "(vigenere key: "+even+")");
+  htmlCode(
+    vigenereDec(odd, even));
+} else if (
+  even.length==odd.length && 
+  odd.match(/^\d+$/)
+) {
+  htmlTmp.push(
+    "(vigenere key: "+odd+")");
+  htmlCode(
+    vigenereDec(even, odd));
 }
 
-function goRotate(n,str,rev,atb) {
-  if ((!n ||typeof(n)!="number" ||n<0) || !str) return;
-  var msg="";
-  if (rev.match(/reverse/i) && atb.match(/atbash/i)) {
-    msg="reverse & atbash ";
-    str=strReverse(atbash19(str));
-  } else if (rev.match(/reverse/i)) {
-    msg="reverse ";
-    str=strReverse(str);
-  } else if (atb.match(/atbash/i)) {
-    msg="atbash ";
-    str=atbash19(str);
-  }
-  
+htmlTmp.push("==============");
 
-  for (var i=0; i<=n; i++) {
-    //htmlTmp.push("("+msg+"Rot+"+i+")");
-    htmlCode(rotN(str, i), "("+msg+"Rot+"+i+")");
-    numNonLotate(rotN(str, i, 0));
-    //htmlTmp.push("("+msg+"Rot-"+i+")");
-    htmlCode(rotN(str, 0-i), "("+msg+"Rot-"+i+")");
-    numNonLotate(rotN(str, 0-i, 0));
-  }
-}
-
-goRotate(26,TEXT,"","");
-goRotate(26,TEXT,"reverse","");
-goRotate(26,TEXT,"","atbash");
-goRotate(26,TEXT,"reverse","atbash");
-
-
-htmlTmp.push("===============");
-
+// 分割
 if (
   TEXT &&
   TEXT.match(/^(\w\w\s?)+\w\w$/)
@@ -243,6 +222,81 @@ if (TEXT && TEXT.length%3==0) {
   }
   htmlTmp.push("===============");
 }
+
+// abc012
+htmlTmp.push("<a name='abc012'><b>(abc012)</b></a>");
+htmlTmp.push(letter2Num(TEXT, " "));
+var tmp012=letter2Num(TEXT);
+htmlCode(tmp012);
+htmlTmp.push("(atbash)");
+htmlCode(atbash19(tmp012));
+htmlTmp.push("(reverse)");
+htmlCode(strReverse(tmp012));
+htmlTmp.push("(atbash & reverse)");
+htmlCode(
+  strReverse(atbash19(tmp012)));
+
+htmlTmp.push("===============");
+
+// abc123
+htmlTmp.push("(abc123)");
+htmlTmp.push(toAbc123(TEXT, " "));
+var tmp123=toAbc123(TEXT);
+htmlCode(tmp123);
+htmlTmp.push("(atbash)");
+htmlCode(atbash19(tmp123));
+htmlTmp.push("(reverse)");
+htmlCode(strReverse(tmp123));
+htmlTmp.push("(atbash & reverse)");
+htmlCode(
+  strReverse(atbash19(tmp123)));
+
+htmlTmp.push("===============");
+
+// Rot
+htmlTmp.push("<a name='rot'><b>(Rot)</b></a>");
+
+function numNonLotate(tm) {
+  if (checkPasscode(tm).match(/^fix$/i)){
+    htmlCode(tm);
+    htmlTmp.push("(↑num non-rotate)");
+  }
+}
+
+
+function goRotate(n,str,rev,atb) {
+  if ((!n ||typeof(n)!="number" ||n<0) || !str) return;
+  var msg="";
+  if (rev.match(/reverse/i) && atb.match(/atbash/i)) {
+    msg="reverse & atbash ";
+    str=strReverse(atbash19(str));
+  } else if (rev.match(/reverse/i)) {
+    msg="reverse ";
+    str=strReverse(str);
+  } else if (atb.match(/atbash/i)) {
+    msg="atbash ";
+    str=atbash19(str);
+  }
+  
+
+  for (var i=0; i<=n; i++) {
+    //htmlTmp.push("("+msg+"Rot+"+i+")");
+    htmlCode(rotN(str, i), "("+msg+"Rot+"+i+")");
+    numNonLotate(rotN(str, i, 0));
+    //htmlTmp.push("("+msg+"Rot-"+i+")");
+    htmlCode(rotN(str, 0-i), "("+msg+"Rot-"+i+")");
+    numNonLotate(rotN(str, 0-i, 0));
+  }
+}
+
+goRotate(26,TEXT,"","");
+goRotate(26,TEXT,"reverse","");
+goRotate(26,TEXT,"","atbash");
+goRotate(26,TEXT,"reverse","atbash");
+
+
+htmlTmp.push("===============");
+
 
 // 01のみだった
 if (TEXT.match(/^[01\s]+$/i)) {
@@ -1103,48 +1157,6 @@ if (TEXT.match(/[A-Z]/) && TEXT.match(/[a-z]/)) {
   htmlTmp.push("===============");
 }
 
-// 奇数偶数で抽出
-  htmlTmp.push("<a name='oddEven'><b>(奇数偶数で抽出)</b></a>");
-  var odd=TEXT.replace(/(.).?/g, "$1");
-  var even=TEXT.replace(/.(.)?/g, "$1");
-  htmlCode(odd);
-  htmlCode(even);
-  htmlTmp.push("(reverse)");
-  htmlCode(strReverse(odd));
-  htmlCode(strReverse(even));
-  htmlTmp.push("(atbash)");
-  htmlCode(atbash19(odd));
-  htmlCode(atbash19(even));
-  htmlTmp.push("(reverse & atbash)");
-  htmlCode(atbash19(strReverse(odd)));
-  htmlCode(atbash19(strReverse(even)));
-  htmlTmp.push("(join)");
-  htmlCode(odd+even);
-  htmlCode(even+odd);
-  htmlCode(strReverse(odd)+even);
-  htmlCode(even+strReverse(odd));
-  htmlCode(odd+strReverse(even));
-  htmlCode(strReverse(even)+odd);
-  
-  if (
-    even.length==odd.length && 
-    even.match(/^\d+$/)
-  ) {
-    htmlTmp.push(
-      "(vigenere key: "+even+")");
-    htmlCode(
-      vigenereDec(odd, even));
-  } else if (
-    even.length==odd.length && 
-    odd.match(/^\d+$/)
-  ) {
-    htmlTmp.push(
-      "(vigenere key: "+odd+")");
-    htmlCode(
-      vigenereDec(even, odd));
-  }
-
-htmlTmp.push("==============");
 
 // 区切り記号で分割
 var tmp=`/\\\\\\-\\.,\\|:\\s`;
