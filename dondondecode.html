@@ -91,11 +91,17 @@
 
 
 	function decodeStart(buttonMode) {
-		TEXT=document.getElementById('clipboardTextarea').value;
-		if (TEXT.match(/\s/)) return null;
-		outputDIV.innerHTML="";
-		html="";
-		htmlTmp=[];
+		TEXT=document.getElementById('clipboardTextarea').value.replace(/^\s+|\s+$/, "");
+		if (TEXT=="") return null;
+		outputDIV.innerHTML='start...';
+		var decodeButtonObj=document.getElementById("decodeButton");
+		decodeButtonObj.disabled=true;
+
+		if (!buttonMode.match(/decode/i)||lastTEXT!=TEXT) {
+			outputDIV.innerHTML="";
+			html="";
+			htmlTmp=[];
+		}
 
 		if (TEXT.match(/^\s*Passcode confirmed/)) {
 			document.getElementById('output').innerHTML=acquiredItems(TEXT);
@@ -122,10 +128,14 @@
 			//docCookies.setItem("dondondecode", TEXT, expire);
 			docCookies.setItem("dondondecode", TEXT, 60*60*24*365*10);
 			
-			// デコード開始
-			decodeMain();
-			ikkatsuFinish();
+			if (lastTEXT!=TEXT) {
+				// デコード開始
+				decodeMain();
+				ikkatsuFinish();
+			}
 		}
+		decodeButtonObj.disabled=false;
+		lastTEXT=TEXT;
 	}
 
 
@@ -133,6 +143,7 @@
 		// 初期化
 		//グローバル
 		TEXT=""; 
+		lastTEXT=""; 
 		outputDIV=document.getElementById('output');
 		textAreaBox=document.getElementById('clipboardTextarea'); 
 		html="";
@@ -141,34 +152,22 @@
 
 		var decodeButtonObj=document.getElementById("decodeButton");
 		decodeButtonObj.addEventListener("click", function () {
-			outputDIV.innerHTML='start...';
-			decodeButtonObj.disabled=true;
-			decodeStart();
-			decodeButtonObj.disabled=false;
+			decodeStart('decode');
 		}, false);
 
 		var kwExchangeButtonObj=document.getElementById("kwExchangeButton");
 		kwExchangeButtonObj.addEventListener("click", function () {
-			outputDIV.innerHTML='start...';
-			kwExchangeButtonObj.disabled=true;
 			decodeStart('kwexchange');
-			kwExchangeButtonObj.disabled=false;
 		}, false);
 
 		var kwRegExpButtonObj=document.getElementById("kwRegExpButton");
 		kwRegExpButtonObj.addEventListener("click", function () {
-			outputDIV.innerHTML='start...';
-			kwRegExpButtonObj.disabled=true;
 			decodeStart('kwregexp');
-			kwRegExpButtonObj.disabled=false;
 		}, false);
 
 		var kwSearchButtonObj=document.getElementById("kwSearchButton");
 		kwSearchButtonObj.addEventListener("click", function () {
-			outputDIV.innerHTML='start...';
-			kwSearchButtonObj.disabled=true;
 			decodeStart('kwsearch');
-			kwSearchButtonObj.disabled=false;
 		}, false);
 
 		var getCookieButtonObj=document.getElementById("getCookieButton");
@@ -191,13 +190,13 @@
 <body>
 	<div>
 		<form id="clipboardForm">
-			<textarea id="clipboardTextarea" rows=5 wrap="off" onFocus="document.getElementById('clipboardTextarea').select()"></textarea><br>
+			<textarea id="clipboardTextarea" rows=5 wrap="off"></textarea><br>
 			<input type="button" value="decode" id="decodeButton">
-			<input type="button" value="clear" id="clearButton" onClick="">
-			<input type="button" value="getCookie" id="getCookieButton" onClick=""><br>
-			<input type="button" value="kw Exchange" id="kwExchangeButton" onClick="decodeStart('kwexchange')">
-			<input type="button" value="kw RegExp" id="kwRegExpButton" onClick="decodeStart('kwregexp')">
-			<input type="button" value="kw Search" id="kwSearchButton" onClick="decodeStart('kwsearch')">
+			<input type="button" value="clear" id="clearButton">
+			<input type="button" value="getCookie" id="getCookieButton"><br>
+			<input type="button" value="kw Exchange" id="kwExchangeButton">
+			<input type="button" value="kw RegExp" id="kwRegExpButton">
+			<input type="button" value="kw Search" id="kwSearchButton">
 		</form>
 	</div>
 	<div id="output">
