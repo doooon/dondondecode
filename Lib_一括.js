@@ -27,8 +27,8 @@ htmlTmp.push("<a href='#skip'><b>skip</b></a>");
 htmlTmp.push("<a href='#railfence'><b>railfence</b></a>");
 htmlTmp.push("<a href='#rect'><b>rect</b></a>");
 /*
-htmlTmp.push("<a href='#'><b></b></a>");
-htmlTmp.push("<a href='#'><b></b></a>");
+htmlTmp.push("<a href='#'><b>奇数偶数</b></a>");
+htmlTmp.push("<a href='#'><b>abc012</b></a>");
 htmlTmp.push("<a href='#'><b></b></a>");
 htmlTmp.push("<a href='#'><b></b></a>");
 */
