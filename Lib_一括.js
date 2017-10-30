@@ -1300,6 +1300,21 @@ if (tmp.match(/^(\d*[a-z]*\d*)+$/i)) {
     vige(tmp2.join(""));
     vige(tmp3.join(""));
   }
+
+  // pri,suffix,kw部に分けてvig
+  if (tmp.length>=14 && 
+    tmp.length<=50 && 
+    kouseimoji.length>=4
+  ) {
+    var tmpkey=[];
+    tmpkey[0]="abcdefg";
+    tmpkey[1]="";
+    tmpkey[2]="zyxwvut";
+    for (var i=0; i<tmp.length-14; i++) {
+      tmpkey[0]+="a";
+    }
+    vige(tmpkey.join(""));
+  }
   
   htmlTmp.push("===============");
 }
