@@ -267,10 +267,10 @@ function goRotate(n,str,rev,atb) {
 
   for (var i=0; i<=n; i++) {
     //htmlTmp.push("("+msg+"Rot+"+i+")");
-    htmlCode(rotN(str, i), "("+msg+"Rot+"+i+")");
+    htmlCode(rotN(str, i), "", "("+msg+"Rot+"+i+")");
     numNonLotate(rotN(str, i, 0));
     //htmlTmp.push("("+msg+"Rot-"+i+")");
-    htmlCode(rotN(str, 0-i), "("+msg+"Rot-"+i+")");
+    htmlCode(rotN(str, 0-i), "", "("+msg+"Rot-"+i+")");
     numNonLotate(rotN(str, 0-i, 0));
   }
 }
@@ -1222,9 +1222,8 @@ if (tmp.match(/^(\d*[a-z]*\d*)+$/i)) {
   htmlTmp.push("<a name='vigenere'><b>(vigenere)</b></a>");
   
   function vige(key) {
-    htmlTmp.push("(vig key: "+key+")");
     var tmpv=vigenereDec(tmp, key);
-    htmlCode(tmpv);
+    htmlCode(tmpv, "", "(vig key: "+key+")");
   }
   
   vige("abcdefghijklmnopqrstuvwxyz");
@@ -1311,14 +1310,14 @@ if (tmp.match(/^(\d*[a-z]*\d*)+$/i)) {
   htmlTmp.push("(vigenere autokey)");
   
   function vigeA(key) {
-    htmlTmp.push("(auto key: "+key+")");
     var tmpa=vigenereAutoDec(
       tmp, key);
-    htmlCode(tmpa);
+    htmlCode(tmpa, "", "(auto key: "+key+")");
     htmlTmp.push("reverse");
     var tmpa=vigenereAutoDec(
       strReverse(tmp), key);
-    htmlCode(strReverse(tmpa));
+    htmlCode(tmpa, "", "(reverse & auto key: "+key+")");
+    htmlCode(strReverse(tmpa), "", "(reverse & auto key: "+key+") more reverse");
   }
   
   vigeA("a");
