@@ -1301,7 +1301,7 @@ if (tmp.match(/^(\d*[a-z]*\d*)+$/i)) {
     vige(tmp3.join(""));
   }
 
-  // pri,suffix,kw部に分けてvig
+  // pri,suffix,kw部に分けてvig(数字2文字)
   if (tmp.length>=14 && 
     tmp.length<=50 && 
     kouseimoji.length>=4
@@ -1313,6 +1313,87 @@ if (tmp.match(/^(\d*[a-z]*\d*)+$/i)) {
     for (var i=0; i<tmp.length-14; i++) {
       tmpkey[0]+="a";
     }
+    htmlTmp.push("pri,suffix,kw部に分けてvig(数字2文字)');
+    vige(tmpkey.join(""));
+  }
+  
+  // pri,suffix,kw部に分けてvig(数字3文字)
+  if (tmp.length>=18 && 
+    tmp.length<=50 && 
+    kouseimoji.length>=4
+  ) {
+    var tmpkey=[];
+    tmpkey[0]="abcdefghi";
+    tmpkey[1]="";
+    tmpkey[2]="zyxwvutsr";
+    for (var i=0; i<tmp.length-18; i++) {
+      tmpkey[0]+="a";
+    }
+    htmlTmp.push("pri,suffix,kw部に分けてvig(数字3文字)');
+    vige(tmpkey.join(""));
+  }
+  
+  // pri,suffix,kw部に分けてvig(数字2文字)
+  if (tmp.length>=14 && 
+    tmp.length<=50 && 
+    kouseimoji.length>=4
+  ) {
+    var tmpkey=[];
+    tmpkey[0]="abcdefg";
+    tmpkey[1]="";
+    tmpkey[2]="abcdefg";
+    for (var i=0; i<tmp.length-14; i++) {
+      tmpkey[0]+="a";
+    }
+    htmlTmp.push("pri,suffix,kw部に分けてvig(数字2文字)');
+    vige(tmpkey.join(""));
+  }
+  
+  // pri,suffix,kw部に分けてvig(数字3文字)
+  if (tmp.length>=18 && 
+    tmp.length<=50 && 
+    kouseimoji.length>=4
+  ) {
+    var tmpkey=[];
+    tmpkey[0]="abcdefghi";
+    tmpkey[1]="";
+    tmpkey[2]="abcdefghi";
+    for (var i=0; i<tmp.length-18; i++) {
+      tmpkey[0]+="a";
+    }
+    htmlTmp.push("pri,suffix,kw部に分けてvig(数字3文字)');
+    vige(tmpkey.join(""));
+  }
+  
+  // pri,suffix,kw部に分けてvig(数字2文字)
+  if (tmp.length>=14 && 
+    tmp.length<=50 && 
+    kouseimoji.length>=4
+  ) {
+    var tmpkey=[];
+    tmpkey[0]="abcdefg";
+    tmpkey[1]="";
+    tmpkey[2]="tuvwxyz";
+    for (var i=0; i<tmp.length-14; i++) {
+      tmpkey[0]+="a";
+    }
+    htmlTmp.push("pri,suffix,kw部に分けてvig(数字2文字)');
+    vige(tmpkey.join(""));
+  }
+  
+  // pri,suffix,kw部に分けてvig(数字3文字)
+  if (tmp.length>=18 && 
+    tmp.length<=50 && 
+    kouseimoji.length>=4
+  ) {
+    var tmpkey=[];
+    tmpkey[0]="abcdefghi";
+    tmpkey[1]="";
+    tmpkey[2]="rstuvwxyz";
+    for (var i=0; i<tmp.length-18; i++) {
+      tmpkey[0]+="a";
+    }
+    htmlTmp.push("pri,suffix,kw部に分けてvig(数字3文字)');
     vige(tmpkey.join(""));
   }
   
