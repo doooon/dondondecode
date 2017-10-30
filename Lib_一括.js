@@ -1313,7 +1313,7 @@ if (tmp.match(/^(\d*[a-z]*\d*)+$/i)) {
     for (var i=0; i<tmp.length-14; i++) {
       tmpkey[0]+="a";
     }
-    htmlTmp.push("pri,suffix,kw部に分けてvig(数字2文字)');
+    htmlTmp.push("pri,suffix,kw部に分けてvig(数字2文字)");
     vige(tmpkey.join(""));
   }
   
@@ -1329,7 +1329,7 @@ if (tmp.match(/^(\d*[a-z]*\d*)+$/i)) {
     for (var i=0; i<tmp.length-18; i++) {
       tmpkey[0]+="a";
     }
-    htmlTmp.push("pri,suffix,kw部に分けてvig(数字3文字)');
+    htmlTmp.push("pri,suffix,kw部に分けてvig(数字3文字)");
     vige(tmpkey.join(""));
   }
   
@@ -1345,7 +1345,7 @@ if (tmp.match(/^(\d*[a-z]*\d*)+$/i)) {
     for (var i=0; i<tmp.length-14; i++) {
       tmpkey[0]+="a";
     }
-    htmlTmp.push("pri,suffix,kw部に分けてvig(数字2文字)');
+    htmlTmp.push("pri,suffix,kw部に分けてvig(数字2文字)");
     vige(tmpkey.join(""));
   }
   
@@ -1361,7 +1361,7 @@ if (tmp.match(/^(\d*[a-z]*\d*)+$/i)) {
     for (var i=0; i<tmp.length-18; i++) {
       tmpkey[0]+="a";
     }
-    htmlTmp.push("pri,suffix,kw部に分けてvig(数字3文字)');
+    htmlTmp.push("pri,suffix,kw部に分けてvig(数字3文字)");
     vige(tmpkey.join(""));
   }
   
@@ -1377,7 +1377,7 @@ if (tmp.match(/^(\d*[a-z]*\d*)+$/i)) {
     for (var i=0; i<tmp.length-14; i++) {
       tmpkey[0]+="a";
     }
-    htmlTmp.push("pri,suffix,kw部に分けてvig(数字2文字)');
+    htmlTmp.push("pri,suffix,kw部に分けてvig(数字2文字)");
     vige(tmpkey.join(""));
   }
   
@@ -1393,7 +1393,7 @@ if (tmp.match(/^(\d*[a-z]*\d*)+$/i)) {
     for (var i=0; i<tmp.length-18; i++) {
       tmpkey[0]+="a";
     }
-    htmlTmp.push("pri,suffix,kw部に分けてvig(数字3文字)');
+    htmlTmp.push("pri,suffix,kw部に分けてvig(数字3文字)");
     vige(tmpkey.join(""));
   }
   
