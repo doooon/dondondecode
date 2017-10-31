@@ -957,10 +957,14 @@ function qwertyXXX(str) {
     var target=str.match(/([0-9])\1*/g);
     var result=[];
     for (var i in target) {
-      var xy=[target[i][0],target[i].length];
-      if (xy[0].match(/0/)) xy[0]=10;
+      var xy=[Number(target[i][0]),target[i].length];
+      if (xy[0]==0) xy[0]=10;
       // mapはyx、入力はxy
-      result.push(map[xy[1]][xy[0]]);
+      if (xy[1]<4) {
+        result.push(map[xy[1]][xy[0]]);
+      } else {
+        result.push(" ");
+      }
     }
     return result.join("");
 }

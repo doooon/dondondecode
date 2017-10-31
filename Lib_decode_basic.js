@@ -249,7 +249,8 @@ function analyzeText(str) {
   result.push("8bit→ASCII");
   result.push("reverseで意味を成すkw evil<>live");
   result.push("構成文字が同じkw elint<>intel");
-
+  result.push("kw ^ more war die grow atack");
+  
   var alertMsg=[];
   if (str.match(
     /^((\w){1,5}([^\1]){,5}\s?)+$/i)) {
@@ -1018,6 +1019,9 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
     } else if (mysum%7==0) {
       var n=mysum/7;
       alertMsg.push("RLEバイナリの可能性 sum:"+mysum+" (7×"+n+") 7seg");
+    } else if (mysum%6==0) {
+      var n=mysum/6;
+      alertMsg.push("RLEバイナリの可能性 sum:"+mysum+" (6×"+n+") braille");
     } else if (mysum%5==0) {
       var n=mysum/5;
       alertMsg.push("RLEバイナリの可能性 sum:"+mysum+" (5×"+n+") baicon");
@@ -1036,6 +1040,24 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
     alertMsg.push("<a href='#oddeven'>奇数偶数に特徴あり</a>");
   }
 
+  if (
+    str.length>60 && 
+    kouseimoji.length==2
+  ) {
+    if (str.length%8==0) {
+      var n=str.length/8;
+      alertMsg.push("<a href='#binASCII'>バイナリからASCIIの可能性 "+str.length+"文字 (8×"+n+")</a>");
+    } else if (str.length%7==0) {
+      var n=str.length/7;
+      alertMsg.push("<a href='#7seg'>バイナリから7segの可能性 "+str.length+"文字 (7×"+n+"))</a>");
+    } else if (str.length%6==0) {
+      var n=str.length/6;
+      alertMsg.push("<a href='#braille'>バイナリからbrailleの可能性 "+str.length+"文字 (6×"+n+"))</a>");
+    } else if (str.length%5==0) {
+      var n=str.length/5;
+      alertMsg.push("<a href='#baconian'>バイナリからbaiconianの可能性 "+str.length+"文字 (5×"+n+"))</a>");
+    }
+  }
 
 
 

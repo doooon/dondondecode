@@ -5,6 +5,41 @@ function kakokaitou6() {
 
 htmlTmp.push("<div class='red'>--- kako 6 ---</div>");
 
+/*
+// combine
+// 53lfjjdk14wb81ca17wa
+if (
+  TEXT.match(/^\w+$/) && 
+  TEXT.match(/[a-z]/i) && 
+  TEXT.match(/\d/) && 
+  kouseimoji.length>=4 &&
+  TEXT.length>10
+) {
+  var tmp=[];
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<a name='combine'><b>(combine)</b></a>");
+  
+  var tmpRE=new RegExp("^\d{2}([a-z]{3}){2}\d{2}[a-z]{2}\d{2}[a-z]{2}\d{2}[a-z]{2}$", "");
+  tmp=TEXT.match(tmpRE);
+  htmlTmp.push(tmp.join("\n"));
+  
+  for (var i=1; i<TEXT.length/3; i++) {
+    htmlTmp.push("<b>(3列 縦に+"+i+",-"+i+",+"+i+"スライド)</b>");
+    var tmpNew=rectSlide(tmp.join("\n"),"y","+"+i+",-"+i+",+"+i);
+    htmlTmp.push(tmpNew);
+    htmlCode(tmpNew.split(/\n/g).join(""));
+    htmlTmp.push("--------------");
+
+    htmlTmp.push("<b>(3列 縦に-"+i+",+"+i+",-"+i+"スライド)</b>");
+    var tmpNew=rectSlide(tmp.join("\n"),"y","-"+i+",+"+i+",-"+i);
+    htmlTmp.push(tmpNew);
+    htmlCode(tmpNew.split(/\n/g).join(""));
+    htmlTmp.push("--------------");
+
+  }
+  htmlTmp.push("==============");  
+}
+*/
 
 // 3列 縦に+,-,+スライド
 if (

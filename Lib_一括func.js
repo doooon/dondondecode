@@ -406,7 +406,7 @@ function goBinary(binstr) {
 
   if (binstr.length%8==0) {
     //8ビットで割り切れる
-    htmlTmp.push("<b>(binASCII)</b>"); 
+    htmlTmp.push("<a name='binASCII'><b>(binASCII)</b></a>"); 
     var tmp=binASCII(binstr);
     htmlCode(tmp);
 
@@ -599,7 +599,7 @@ function goBinary(binstr) {
   if (binstr.length%7==0) {
     htmlTmp.push("-----------------");
     htmlTmp.push(
-      "<b>(LED 7seg)</b>"); 
+      "<a name='binASCII'><b>(LED 7seg)</b></a>"); 
     htmlCode(func7segDec(binstr));
     htmlTmp.push("----");
     htmlTmp.push("(swap)"); 
@@ -617,8 +617,8 @@ function goBinary(binstr) {
   if (binstr.length%5==0) {
     htmlTmp.push("-----------------");
     htmlTmp.push(
-      "<b>(baconian)</b>"); 
-    htmlTmp.push(
+      "<a name='baconian'><b>(baconian)</b></a>"); 
+      htmlTmp.push(
       binstr.match(/.{5}/g).join(" "));
     htmlCode(baconian(binstr));
     htmlTmp.push("----");
@@ -635,11 +635,11 @@ function goBinary(binstr) {
   
   // braille
   if (binstr.length%6==0) {
-    htmlTmp.push("------");
+    htmlTmp.push("<a name='braille'><b>(braille)</b></a>");
     
     // 縦移動型
     htmlTmp.push(
-      "<b>(Braille点字3文字ずつ[縦])</b>");
+      "<b>(Braille点字3文字ずつ[縦])</b>"); 
     htmlTmp.push(binstr);
     makeRectBrailleTate(binstr);
     var braille=bin2brailleAscii(
