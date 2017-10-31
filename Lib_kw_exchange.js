@@ -67,7 +67,7 @@ function goKeywExchange() {
   ["100ern","cern","ローマ数字"], 
   ["load","save","意味bash"], 
   ["apart","together","意味bash"], 
-  ["fire[&7h]","forget","fire&forget (軍事用語)"], 
+  ["fire[&7h]?","forget","fire&forget (軍事用語)"], 
   ["alliance","rebel","意味bash"], 
   ["Ben","Jackland","登場人物"], 
   ["failure","success","意味bash"], 
