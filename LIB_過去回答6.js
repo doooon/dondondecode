@@ -8,7 +8,9 @@ htmlTmp.push("<div class='red'>--- kako 6 ---</div>");
 /*
 // combine
 // 53lfjjdk14wb81ca17wa
+var tmpRE=new RegExp("^\d{2}([a-z]{3}){2}\d{2}\w{2,}[a-z]{2}\d{2}[a-z]{2}\d{2}[a-z]{2}$", "i");
 if (
+  TEXT.match(tmpRE) && 
   TEXT.match(/^\w+$/) && 
   TEXT.match(/[a-z]/i) && 
   TEXT.match(/\d/) && 
@@ -19,9 +21,8 @@ if (
   htmlTmp.push(TEXT);
   htmlTmp.push("<a name='combine'><b>(combine)</b></a>");
   
-  var tmpRE=new RegExp("^\d{2}([a-z]{3}){2}\d{2}[a-z]{2}\d{2}[a-z]{2}\d{2}[a-z]{2}$", "");
-  tmp=TEXT.match(tmpRE);
-  htmlTmp.push(tmp.join("\n"));
+  tmp=TEXT.match(/../g);
+  htmlTmp.push(tmp.join(" "));
   
   for (var i=1; i<TEXT.length/3; i++) {
     htmlTmp.push("<b>(3列 縦に+"+i+",-"+i+",+"+i+"スライド)</b>");

@@ -1398,6 +1398,8 @@ function checkPasscode(str) {
 
 // パスコードを色付け
 function checkCodeHTML(str, noA) {
+  // noA (ture/false) fixしたコードにアンカーネームを付けないかどうか
+
   if (!str) return false;
   var result="";
   
@@ -1409,34 +1411,29 @@ function checkCodeHTML(str, noA) {
     result+="href='";
     var tmpUrl=str;
     if (tmpUrl.match(/(goo)\.?(gl)\/?/i)) {
-      tmpUrl=tmpUrl.replace(
-        /(goo)\.?(gl)\/?/i, "http://$1.$2/")
+      tmpUrl=tmpUrl.replace(/(goo)\.?(gl)\/?/i, "http://$1.$2/")
     } 
     else if (tmpUrl.match(/(bit)\.?(ly)\/?/i)){
-      tmpUrl=tmpUrl.replace(
-        /(bit)\.?(ly)\/?/i, "http://$1.$2/")
+      tmpUrl=tmpUrl.replace(/(bit)\.?(ly)\/?/i, "http://$1.$2/")
     } 
     else if (tmpUrl.match(/(j)\.?(mp)\/?/i)){
-      tmpUrl=tmpUrl.replace(
-        /(j)\.?(mp)\/?/i, "http://$1.$2/")
+      tmpUrl=tmpUrl.replace(/(j)\.?(mp)\/?/i, "http://$1.$2/")
     } 
     else if (tmpUrl.match(/(tinyurl)\.?(com)\/?/i)){
-      tmpUrl=tmpUrl.replace(
-        /(tinyurl)\.?(com)\/?/i, "http://$1.$2/")
+      tmpUrl=tmpUrl.replace(/(tinyurl)\.?(com)\/?/i, "http://$1.$2/")
     }
-    result+=tmpUrl.replace(
-      /^https?:/i,"googlechrome:");
+    result+=tmpUrl.replace(/^https?:/i,"googlechrome:");
     result+="'>"+str;
     result+="</a></span>";
     return result;
   }
-  result=
-    str.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+  result=str.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
   var kList=keywordCheck(str);
   
   if (kList.length) {
-    if (formatCheck(
-         str, kList[0]).match(/fix/i)) {
+    if (formatCheck(str, kList[0]).match(/fix/i)) {
       // keyw一致、フォーマット一致
       
       // 署名加工
@@ -1449,8 +1446,7 @@ function checkCodeHTML(str, noA) {
       }
       if (!icchiFlag) fixCodeList.push(str);
       
-      var re=
-        new RegExp("("+kList[0]+")", "i");
+      var re=new RegExp("("+kList[0]+")", "i");
       var re2=new RegExp("^"+kList[0]+"$", "i");
       var sstr=str.split(re);
       for (var i=0; i<sstr.length; i=i+1) {
@@ -1470,13 +1466,12 @@ function checkCodeHTML(str, noA) {
       result+="<span class='fix'>";
       result+=sstr[0];
       if(leetLessKw.indexOf(kList[0])>=0) {
-        result+=
-          "<span class='fix-leetkw'>";
+        result+="<span class='fix-leetkw'>";
       } else {
         result+="<span class='fix-keyw'>";
       }
       result+=sstr[1];
-    //result+=kList[0].replace(/\?|\\/g, "");
+      //result+=kList[0].replace(/\?|\\/g, "");
       result+="</span>";
       result+=sstr[2];
       result+="</span>";
@@ -1485,11 +1480,9 @@ function checkCodeHTML(str, noA) {
       var str2=str;
       var leetL=leetKeyws();
       for (var i in leetL) {
-        var leetRE=new RegExp(
-          leetL[i][0], "ig");
+        var leetRE=new RegExp(leetL[i][0], "ig");
         if (str.match(leetRE)) {
-          str=str.replace(
-            leetRE, leetL[i][1]);
+          str=str.replace(leetRE, leetL[i][1]);
           kList[0]=leetL[i][1];
           break;
         }
