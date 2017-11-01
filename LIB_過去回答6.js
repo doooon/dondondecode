@@ -5,42 +5,50 @@ function kakokaitou6() {
 
 htmlTmp.push("<div class='red'>--- kako 6 ---</div>");
 
-/*
+
 // combine
 // 53lfjjdk14wb81ca17wa
-var tmpRE=new RegExp("^\d{2}([a-z]{3}){2}\d{2}\w{2,}[a-z]{2}\d{2}[a-z]{2}\d{2}[a-z]{2}$", "i");
+var tmpRE=new RegExp(String.raw`^\d{2}(?:[a-z]{2}){3}\d{2}\w*[a-z]{2}\d{2}[a-z]{2}\d{2}[a-z]{2}$`, "i");
 if (
   TEXT.match(tmpRE) && 
   TEXT.match(/^\w+$/) && 
   TEXT.match(/[a-z]/i) && 
   TEXT.match(/\d/) && 
   kouseimoji.length>=4 &&
-  TEXT.length>10
+  TEXT.length>10 
 ) {
   var tmp=[];
+  var tmpNew=[];
   htmlTmp.push(TEXT);
   htmlTmp.push("<a name='combine'><b>(combine)</b></a>");
   
   tmp=TEXT.match(/../g);
   htmlTmp.push(tmp.join(" "));
   
-  for (var i=1; i<TEXT.length/3; i++) {
-    htmlTmp.push("<b>(3列 縦に+"+i+",-"+i+",+"+i+"スライド)</b>");
-    var tmpNew=rectSlide(tmp.join("\n"),"y","+"+i+",-"+i+",+"+i);
-    htmlTmp.push(tmpNew);
-    htmlCode(tmpNew.split(/\n/g).join(""));
-    htmlTmp.push("--------------");
+  tmp.forEach(function(element) {
+    if (element.match(/[a-z]{2}/i)) {
+      tmpNew.push(
+        to012abc(Number(abc012(element[0]))+Number(abc012(element[1])))
+      );
+    } else {
+      tmpNew.push(Number(element[0])+Number(element[1]));
+    }
+  }, this);
 
-    htmlTmp.push("<b>(3列 縦に-"+i+",+"+i+",-"+i+"スライド)</b>");
-    var tmpNew=rectSlide(tmp.join("\n"),"y","-"+i+",+"+i+",-"+i);
-    htmlTmp.push(tmpNew);
-    htmlCode(tmpNew.split(/\n/g).join(""));
-    htmlTmp.push("--------------");
-
+  htmlCode(tmpNew.join(""));
+  
+  var tmpRE=new RegExp("^([2-9][a-hjkm-z]{3}[2-9])([a-hjkm-z][2-9][a-hjkm-z][2-9][a-hjkm-z])$", "i");
+  var tmpRE2=new RegExp("^([a-hjkm-z]{3}[2-9]{2})([2-9]{3}[a-hjkm-z]{2})$", "i");
+  if (tmpNew.join("").match(tmpRE)) {
+    htmlTmp.push("分割されていたので key: separate");    
+    htmlCode(RegExp.$1+"separate"+RegExp.$2);
+  } else if (tmpNew.join("").match(tmpRE2)) {
+    htmlTmp.push("分割されていたので key: separate");    
+    htmlCode(RegExp.$1+"separate"+RegExp.$2);    
   }
   htmlTmp.push("==============");  
 }
-*/
+
 
 // 3列 縦に+,-,+スライド
 if (
@@ -1090,6 +1098,19 @@ if (
       result[i]=result[i][1];
     }
     htmlCode(result.join(""));
+
+    var tmpRE=new RegExp("^([2-9][a-hjkm-z]{3}[2-9])([a-hjkm-z][2-9][a-hjkm-z][2-9][a-hjkm-z])$", "i");
+    var tmpRE2=new RegExp("^([a-hjkm-z]{3}[2-9]{2})([2-9]{3}[a-hjkm-z]{2})$", "i");
+    if (result.join("").match(tmpRE)) {
+      htmlTmp.push("並べ替えたので key: ordered");    
+      htmlCode(RegExp.$1+"ordered"+RegExp.$2);
+    } else if (result.join("").match(tmpRE2)) {
+      htmlTmp.push("並べ替えたので key: ordered");    
+      htmlCode(RegExp.$1+"ordered"+RegExp.$2);    
+    } else if (!checkPasscode(result.join("")).match(/^fix$/i)) {
+      htmlTmp.push("並べ替えたので key: ordered かも");    
+    }
+  
     htmlTmp.push("==============");
   }
 }
@@ -1147,6 +1168,19 @@ if (
       result[i]=result[i][1];
     }
     htmlCode(result.join(""));
+
+    var tmpRE=new RegExp("^([2-9][a-hjkm-z]{3}[2-9])([a-hjkm-z][2-9][a-hjkm-z][2-9][a-hjkm-z])$", "i");
+    var tmpRE2=new RegExp("^([a-hjkm-z]{3}[2-9]{2})([2-9]{3}[a-hjkm-z]{2})$", "i");
+    if (result.join("").match(tmpRE)) {
+      htmlTmp.push("並べ替えたので key: ordered");    
+      htmlCode(RegExp.$1+"ordered"+RegExp.$2);
+    } else if (result.join("").match(tmpRE2)) {
+      htmlTmp.push("並べ替えたので key: ordered");    
+      htmlCode(RegExp.$1+"ordered"+RegExp.$2);    
+    } else if (!checkPasscode(result.join("")).match(/^fix$/i)) {
+      htmlTmp.push("並べ替えたので key: ordered かも");    
+    }
+  
     htmlTmp.push("==============");
   }
 }
@@ -1204,6 +1238,19 @@ if (
       result[i]=result[i][1];
     }
     htmlCode(result.join(""));
+
+    var tmpRE=new RegExp("^([2-9][a-hjkm-z]{3}[2-9])([a-hjkm-z][2-9][a-hjkm-z][2-9][a-hjkm-z])$", "i");
+    var tmpRE2=new RegExp("^([a-hjkm-z]{3}[2-9]{2})([2-9]{3}[a-hjkm-z]{2})$", "i");
+    if (result.join("").match(tmpRE)) {
+      htmlTmp.push("並べ替えたので key: ordered");    
+      htmlCode(RegExp.$1+"ordered"+RegExp.$2);
+    } else if (result.join("").match(tmpRE2)) {
+      htmlTmp.push("並べ替えたので key: ordered");    
+      htmlCode(RegExp.$1+"ordered"+RegExp.$2);    
+    } else if (!checkPasscode(result.join("")).match(/^fix$/i)) {
+      htmlTmp.push("並べ替えたので key: ordered かも");    
+    }
+  
     htmlTmp.push("==============");
   }
 }

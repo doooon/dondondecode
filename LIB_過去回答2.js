@@ -471,7 +471,19 @@ if (TEXT.length%2==0) {
     result.push(tmp[i][1]);
   }
   htmlCode(result.join(""));
-  
+    
+  var tmpRE=new RegExp("^([2-9][a-hjkm-z]{3}[2-9])([a-hjkm-z][2-9][a-hjkm-z][2-9][a-hjkm-z])$", "i");
+  var tmpRE2=new RegExp("^([a-hjkm-z]{3}[2-9]{2})([2-9]{3}[a-hjkm-z]{2})$", "i");
+  if (result.join("").match(tmpRE)) {
+    htmlTmp.push("並べ替えたので key: ordered");    
+    htmlCode(RegExp.$1+"ordered"+RegExp.$2);
+  } else if (result.join("").match(tmpRE2)) {
+    htmlTmp.push("並べ替えたので key: ordered");    
+    htmlCode(RegExp.$1+"ordered"+RegExp.$2);    
+  } else if (!checkPasscode(result.join("")).match(/^fix$/i)) {
+    htmlTmp.push("並べ替えたので key: ordered かも");    
+  }
+
   htmlTmp.push("==============");
 }
 

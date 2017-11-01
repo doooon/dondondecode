@@ -101,6 +101,10 @@
 			outputDIV.innerHTML="";
 			html="";
 			htmlTmp=[];
+			fixCodeList=[];
+			kouseimoji=[]; //構成文字リスト
+			startTime=new Date(); //スクリプト開始時刻
+			htmlCodeLabel="";
 		}
 
 		if (TEXT.match(/^\s*Passcode confirmed/)) {

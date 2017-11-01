@@ -16,9 +16,9 @@ function debug(myInput) {
 }
 
 //===========
+var leetLessKw=[]; //kwを除くleetリスト
 var fixCodeList=[];
 var kouseimoji=[]; //構成文字リスト
-var leetLessKw=[]; //kwを除くleetリスト
 var startTime=new Date(); //スクリプト開始時刻
 var htmlCodeLabel="";
 
