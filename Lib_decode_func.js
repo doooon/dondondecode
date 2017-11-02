@@ -770,6 +770,43 @@ function goRectangles(str) {
 
 
 // skip
+function skip(str,i) {
+  if(!i||!str) return null;
+  if(Number(i)<2|| Number(i)>str.length) {
+    return null;
+  }
+  var len=str.length;
+  
+    if (len%i==0) continue;
+    var result=[];
+    var pos=1;
+    var nextF=false;
+    
+    //1文字目
+    result.push(str[pos-1]); //indexは0
+    
+    //2文字目以降
+    for (var j=2; j<=len; j++) { //文字数分
+      pos=pos+i;
+//    debug("pos="+pos+"(len:"+len+")");
+      if (pos>len) pos=pos-len; 
+//    debug("new pos="+pos);
+      if (pos==1) {
+        nextF=true;
+        break;
+      }
+      result.push(str[pos-1]);
+    }
+    if (nextF) {
+      nextF=false;
+      continue;
+    }
+    
+  return result.join("");
+} // end function
+
+
+// skipAll
 function skipAll(str) {
   var len=str.length;
   var resultList=[];

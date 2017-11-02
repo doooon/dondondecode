@@ -6,6 +6,36 @@ function kakokaitou6() {
 htmlTmp.push("<div class='red'>--- kako 6 ---</div>");
 
 
+// skip2(format+phrase)
+vra tmpSkip2=skip(TEXT,2);
+var tmpRE=new RegExp(String.raw`^([a-z]+)([^a-z]+)$`, "i");
+var tmpRE2=new RegExp(String.raw`^([^a-z]+)([a-z]+)$`,"i"); if (
+  (
+    tmpSkip2.match(tmpRE) || 
+    tmpSkip2.match(tmpRE2)
+  ) &&
+  kouseimoji.length>=4 &&
+  TEXT.length>10 
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<a name='skip2(format+phrase)'><b>(skip2(format+phrase))</b></a>");
+  
+  var tmpNew=[];
+  if (tmpSkip2.match(tmpRE)) {
+    tmpNew[0]=RegExp.$1;
+    tmpNew[1]=RegExp.$2;
+  } else if (tmpSkip2.match(tmpRE2) {
+    tmpNew[0]=RegExp.$1;
+    tmpNew[1]=RegExp.$2;
+  }
+
+  htmlCode(tmpNew[0]);
+  htmlCode(tmpNew[1]);
+  
+  htmlTmp.push("==============");  
+}
+
+
 // combine
 // 53lfjjdk14wb81ca17wa
 var tmpRE=new RegExp(String.raw`^\d{2}(?:[a-z]{2}){3}\d{2}\w*[a-z]{2}\d{2}[a-z]{2}\d{2}[a-z]{2}$`, "i");
