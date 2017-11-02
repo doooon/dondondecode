@@ -768,7 +768,7 @@ function goRectangles(str) {
   }
 } // end function
 
-
+/*
 // skip
 function skip(str,i) {
   if(!i||!str) return null;
@@ -804,7 +804,7 @@ function skip(str,i) {
     
   return result.join("");
 } // end function
-
+*/
 
 // skipAll
 function skipAll(str) {
