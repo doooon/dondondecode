@@ -8,6 +8,7 @@ htmlTmp.push("<div class='red'>--- kako 6 ---</div>");
 
 // skip2(format+phrase)
 vra tmpSkip2=skip(TEXT,2);
+debug(tmpSkip2);
 var tmpRE=new RegExp(String.raw`^([a-z]+)([^a-z]+)$`, "i");
 var tmpRE2=new RegExp(String.raw`^([^a-z]+)([a-z]+)$`,"i"); if (
   (
