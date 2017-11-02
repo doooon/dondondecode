@@ -5,16 +5,16 @@ function kakokaitou6() {
 
 htmlTmp.push("<div class='red'>--- kako 6 ---</div>");
 
-/*
+
 // skip2(format+phrase)
-vra tmpSkip2=skip(TEXT,2);
+var tmpSkip2=skip(TEXT,5);
+debug(tmpSkip2);
+var tmpSkip2=skip(TEXT,2);
 debug(tmpSkip2);
 var tmpRE=new RegExp(String.raw`^([a-z]+)([^a-z]+)$`, "i");
-var tmpRE2=new RegExp(String.raw`^([^a-z]+)([a-z]+)$`,"i"); if (
-  (
-    tmpSkip2.match(tmpRE) || 
-    tmpSkip2.match(tmpRE2)
-  ) &&
+var tmpRE2=new RegExp(String.raw`^([^a-z]+)([a-z]+)$`,"i"); 
+if (
+  (tmpSkip2.match(tmpRE) || tmpSkip2.match(tmpRE2)) &&
   kouseimoji.length>=4 &&
   TEXT.length>10 
 ) {
@@ -25,7 +25,7 @@ var tmpRE2=new RegExp(String.raw`^([^a-z]+)([a-z]+)$`,"i"); if (
   if (tmpSkip2.match(tmpRE)) {
     tmpNew[0]=RegExp.$1;
     tmpNew[1]=RegExp.$2;
-  } else if (tmpSkip2.match(tmpRE2) {
+  } else if (tmpSkip2.match(tmpRE2)) {
     tmpNew[0]=RegExp.$1;
     tmpNew[1]=RegExp.$2;
   }
@@ -35,7 +35,7 @@ var tmpRE2=new RegExp(String.raw`^([^a-z]+)([a-z]+)$`,"i"); if (
   
   htmlTmp.push("==============");  
 }
-*/
+
 
 // combine
 // 53lfjjdk14wb81ca17wa
