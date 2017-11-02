@@ -5,7 +5,7 @@ function kakokaitou6() {
 
 htmlTmp.push("<div class='red'>--- kako 6 ---</div>");
 
-
+/*
 // skip2(format+phrase)
 var tmpSkip2=skip(TEXT,5);
 debug(tmpSkip2);
@@ -35,7 +35,7 @@ if (
   
   htmlTmp.push("==============");  
 }
-
+*/
 
 // combine
 // 53lfjjdk14wb81ca17wa
