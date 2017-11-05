@@ -237,7 +237,8 @@ function analyzeText(str) {
   result.push("kw検索 (ことわざ quotes|phrase)(慣用句 idiom) (歌詞 lyrics) (反対語 Antonyms|opposite) (類義語 synonyms|thesaurus) (数字は適当なところで別けた方がいい「2001 006b」のように)");
   result.push("kw部分の6はvi, verum, inveniri");
   result.push("0=o=q, 1=i, 5=s");
-  result.push("フォーマットにiとLは使われない(daily, JoJo, VI, 長持ち, で確認済み");
+  result.push("フォーマットにiとLは使われない(daily, JoJo, vi, 長持ち, で確認済み");
+  result.push("0,1はdailyでは使われない。jojo, viは使う");
   result.push("並び替え→ordered");
   result.push("0がない数字のみ。123が多い。→ガラケー");
   result.push("<a href='googlechrome://niantic.schlarp.com/investigation:apps:ingress:events'>[EVENTS]</a>2013 Freemisty, 2013 IngressDays, 2013 TimeZero, 2013 SaveKlue, 2013 Voynich, 2013 Minotaur, 2013 Cassandra, 2013 13magnus, 2014 Recursion, 2014 Interitus, 2014 IngressIO, 2014 Helios, 2014 Darsana, 2015 Shōnin, 2015 Persepolis, 2015 Abaddon, 2016 Obsidian, 2016 Aegis Nova, 2016 Via Lux, 2016 Via Noir, 2017 exogenous");
