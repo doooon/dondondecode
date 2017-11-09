@@ -1060,6 +1060,31 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
     }
   }
 
+  if (
+    (str.match(/^[ADFGVX]{6,}$/i) || atbash(str).match(/^[ADFGVX]{6,}$/i)) && 
+    kouseimoji.length>=4 && 
+    str.length%2==0
+  ) {
+    if (str.match(/^[ADFGVX]{6,}$/i)) {
+      alertMsg.push("<a href='#adfgvx'>ADFGVX暗号の可能性あり</a>");
+    } else {
+      alertMsg.push("<a href='#adfgvx'>atbashでADFGVX暗号の可能性あり</a> <code>"+atbash(str)+"</code>");
+    }
+  }
+
+  if (
+    (str.match(/^[ADFGX]{5,}$/i) || atbash(str).match(/^[ADFGX]{5,}$/i)) && 
+    kouseimoji.length>=4 && 
+    str.length%2==0
+  ) {
+    if (str.match(/^[ADFGX]{5,}$/i)) {
+      alertMsg.push("<a href='#adfgx'>ADFGX暗号の可能性あり</a>");
+    } else {
+      alertMsg.push("<a href='#adfgx'>atbashでADFGX暗号の可能性あり</a> <code>"+atbash(str)+"</code>");
+    }
+  }
+
+
 
 
 

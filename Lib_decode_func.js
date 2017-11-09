@@ -6,6 +6,285 @@
 //======================================
 
 
+// adfgvx暗号
+function adfgvx(str,key,mode) {
+  if(!str||!mode) return null;
+  if(!str.match(/^[a-z0-9]+$/i)) return null;
+  if(key&&!key.match(/^[a-z0-9]+$/i)) return null;
+  
+  // keyをアルファベット重複なしに整形
+  var newkey=[];  
+  key.toUpperCase().split("").forEach(
+    function(val,index,ar){
+      if(newkey.indexOf(val)==-1) newkey.push(val);
+    }
+  );
+
+  // 換字表を作成
+  var sqstr=newkey.join("");
+  "abcdefghijklmnopqrstuvwxyz0123456789".split("").forEach(function(val,i,ar){
+    if (sqstr.indexOf(val)==-1) sqstr+=val;
+  });
+  console.log(sqstr);
+  var sq=sqstr.match(/.{6}/g);
+  sq.forEach(function(val,i,ar){ar[i]=val.split("");});
+  
+  var result=[];
+  var resulttmp=[];
+  if (newkey.length==0) newkey="ADFGVX".split("");
+  
+  // エンコード
+  function adfgvxEnc() {
+
+    // ループで換字表から拾う
+    for(var k in str){ 
+      var nxt=0;
+      for(var i in sq) {
+        for(var j in sq[i]){
+          var tmpRE=new RegExp(sq[i][j], "i");
+          if(str[k].match(tmpRE)) {
+            resulttmp.push(i);
+            resulttmp.push(j);
+            nxt=1;
+            console.log(resulttmp);
+            break;
+          }
+        }
+        if(nxt) break;
+      }
+    }
+    
+    newkey.forEach(function(v,i,a){
+      result[i]=v;
+    });    
+    resulttmp.forEach(function(v,i,a){
+      result[i%newkey.length]+=v;
+    });
+    
+    result.sort(function(a,b){
+      if( a < b ) return -1;
+      if( a > b ) return 1;
+      return 0;
+    });
+    
+    result.forEach(function(v,i,a){
+      result[i]=v.slice(1,v.length);
+    });
+    
+    // 数字をADFGVXに変換
+    result.forEach(function(val,i,ar){
+      ar[i]=val.replace(/0/g,"A").replace(/1/g,"D").replace(/2/g,"F").replace(/3/g,"G").replace(/4/g,"V").replace(/5/g,"X");
+    });
+
+    return result.join("");
+  }
+  
+  function adfgvxDec() {
+    var tmp1=str.length/newkey.length;
+    var tmp2=parseInt(str.length/newkey.length);
+    var tmp3=str.length%newkey.length;
+
+    newkey.forEach(function(val,i,ar){if(i<tmp3){newkey[i]=[val,i,tmp2+1];}else{newkey[i]=[val,i,tmp2]}});
+    
+    var sortednewkey=newkey.concat();
+    sortednewkey.sort(function(a,b){
+      if( a[0] < b[0] ) return -1;
+      if( a[0] > b[0] ) return 1;
+      return 0;
+    });
+
+    var cnt=0;
+    sortednewkey.forEach(function(val,i,ar){
+      for(var j=1; j<=val[2]; j++){
+        ar[i].push(str[cnt]);
+        cnt++;
+      }
+    });
+
+    // もとのnewkeyの並びに戻す
+    var orderdnewkey=sortednewkey.concat();
+    orderdnewkey.sort(function(a,b){
+      if( a[1] < b[1] ) return -1;
+      if( a[1] > b[1] ) return 1;
+      return 0;
+    });
+
+    // 余分なヘッダ部分を削除
+    orderdnewkey.forEach(function(val,i,ar){
+      ar[i]=val.slice(3,val.length);
+    });
+  
+    for(var j=0; j<orderdnewkey[0].length; j++){
+      orderdnewkey.forEach(function(val,i,ar){
+        if (val[j]) resulttmp.push(val[j]);
+      });
+    }
+
+    // ADFGVXを数字に変換
+    resulttmp.forEach(function(val,i,ar){
+      ar[i]=val.replace(/A/g,"0").replace(/D/g,"1").replace(/F/g,"2").replace(/G/g,"3").replace(/V/g,"4").replace(/X/g,"5");
+    });
+
+    var tmppair=resulttmp.join("").match(/../g);
+
+    // 換字表から拾う
+    tmppair.forEach(function(val,i,ar){
+      result.push(sq[val[0]][val[1]].toLowerCase());
+    });
+
+    return result.join(""); 
+  }
+
+  if (mode.match(/^\s*decode\s*$/i)) {
+    return adfgvxDec();
+  } else if (mode.match(/^\s*encode\s*$/i)) {
+    return adfgvxEnc();
+  } else {
+    return null;
+  }
+
+} // end function adfgvx
+
+
+// adfgx暗号
+function adfgx(str,key,mode) {
+  if(!str||!mode) return null;
+  if(!str.match(/^[a-z0-9]+$/i)) return null;
+  if(key&&!key.match(/^[a-z0-9]+$/i)) return null;
+  
+  // keyをアルファベット重複なしに整形
+  var newkey=[];  
+  key.toUpperCase().split("").forEach(
+    function(val,index,ar){
+      if(newkey.indexOf(val)==-1) newkey.push(val);
+    }
+  );
+
+  // 換字表を作成
+  var sqstr=newkey.join("");
+  "abcdefghiklmnopqrstuvwxyz".split("").forEach(function(val,i,ar){
+    if (sqstr.indexOf(val)==-1) sqstr+=val;
+  });
+  console.log(sqstr);
+  var sq=sqstr.match(/.{5}/g);
+  sq.forEach(function(val,i,ar){ar[i]=val.split("");});
+  
+  var result=[];
+  var resulttmp=[];
+  if (newkey.length==0) newkey="ADFGX".split("");
+  
+  // エンコード
+  function adfgxEnc() {
+
+    // ループで換字表から拾う
+    for(var k in str){ 
+      var nxt=0;
+      for(var i in sq) {
+        for(var j in sq[i]){
+          var tmpRE=new RegExp(sq[i][j], "i");
+          if(str[k].match(tmpRE)) {
+            resulttmp.push(i);
+            resulttmp.push(j);
+            nxt=1;
+            console.log(resulttmp);
+            break;
+          }
+        }
+        if(nxt) break;
+      }
+    }
+    
+    newkey.forEach(function(v,i,a){
+      result[i]=v;
+    });    
+    resulttmp.forEach(function(v,i,a){
+      result[i%newkey.length]+=v;
+    });
+    
+    result.sort(function(a,b){
+      if( a < b ) return -1;
+      if( a > b ) return 1;
+      return 0;
+    });
+    
+    result.forEach(function(v,i,a){
+      result[i]=v.slice(1,v.length);
+    });
+    
+    // 数字をADFGXに変換
+    result.forEach(function(val,i,ar){
+      ar[i]=val.replace(/0/g,"A").replace(/1/g,"D").replace(/2/g,"F").replace(/3/g,"G").replace(/4/g,"X");
+    });
+
+    return result.join("");
+  }
+  
+  function adfgxDec() {
+    var tmp1=str.length/newkey.length;
+    var tmp2=parseInt(str.length/newkey.length);
+    var tmp3=str.length%newkey.length;
+
+    newkey.forEach(function(val,i,ar){if(i<tmp3){newkey[i]=[val,i,tmp2+1];}else{newkey[i]=[val,i,tmp2]}});
+    
+    var sortednewkey=newkey.concat();
+    sortednewkey.sort(function(a,b){
+      if( a[0] < b[0] ) return -1;
+      if( a[0] > b[0] ) return 1;
+      return 0;
+    });
+
+    var cnt=0;
+    sortednewkey.forEach(function(val,i,ar){
+      for(var j=1; j<=val[2]; j++){
+        ar[i].push(str[cnt]);
+        cnt++;
+      }
+    });
+
+    // もとのnewkeyの並びに戻す
+    var orderdnewkey=sortednewkey.concat();
+    orderdnewkey.sort(function(a,b){
+      if( a[1] < b[1] ) return -1;
+      if( a[1] > b[1] ) return 1;
+      return 0;
+    });
+
+    // 余分なヘッダ部分を削除
+    orderdnewkey.forEach(function(val,i,ar){
+      ar[i]=val.slice(3,val.length);
+    });
+  
+    for(var j=0; j<orderdnewkey[0].length; j++){
+      orderdnewkey.forEach(function(val,i,ar){
+        if (val[j]) resulttmp.push(val[j]);
+      });
+    }
+
+    // ADFGXを数字に変換
+    resulttmp.forEach(function(val,i,ar){
+      ar[i]=val.replace(/A/g,"0").replace(/D/g,"1").replace(/F/g,"2").replace(/G/g,"3").replace(/X/g,"4"));
+    });
+
+    var tmppair=resulttmp.join("").match(/../g);
+
+    // 換字表から拾う
+    tmppair.forEach(function(val,i,ar){
+      result.push(sq[val[0]][val[1]].toLowerCase());
+    });
+
+    return result.join(""); 
+  }
+
+  if (mode.match(/^\s*decode\s*$/i)) {
+    return adfgxDec();
+  } else if (mode.match(/^\s*encode\s*$/i)) {
+    return adfgxEnc();
+  } else {
+    return null;
+  }
+
+} // end function adfgx
+
 
 
 // RailFence

@@ -2187,10 +2187,41 @@ if (
   kouseimoji.length>=4
 ) {
   htmlTmp.push(TEXT);
-  htmlTmp.push("<b>(RailFence rails:3)</b>");
+  htmlTmp.push("<a name='railfence'><b>(RailFence rails:3)</b></a>");
   htmlCode(railfence(TEXT,"decript",3));
   htmlTmp.push("==============");
 }
+
+// ADFGVX
+if (
+  (TEXT.match(/^[ADFGVX]{6,}$/i) || atbash(TEXT).match(/^[ADFGVX]{6,}$/i)) && 
+  kouseimoji.length>=4 && 
+  TEXT.length%2==0
+) {
+  htmlTmp.push("<a name='adfgvx'><b>(ADFGVX)</b></a>");
+  if (TEXT.match(/^[ADFGVX]{6,}$/i)) {
+    htmlCode(adfgvx(TEXT,"","decode"));
+  } else {
+    htmlCode(adfgvx(atbash(TEXT),"","decode"));
+  }
+  htmlTmp.push("==============");
+}
+
+// ADFGX
+if (
+  (TEXT.match(/^[ADFGX]{5,}$/i) || atbash(TEXT).match(/^[ADFGX]{5,}$/i)) && 
+  kouseimoji.length>=4 && 
+  TEXT.length%2==0
+) {
+  htmlTmp.push("<a name='adfgx'><b>(ADFGX)</b></a>");
+  if (TEXT.match(/^[ADFGX]{5,}$/i)) {
+    htmlCode(adfgx(TEXT,"","decode"));
+  } else {
+    htmlCode(adfgx(atbash(TEXT),"","decode"));
+  }
+  htmlTmp.push("==============");
+}
+
 
 // Rectangles
 if (!TEXT.match(/[\s\n]/)) {
