@@ -9,8 +9,13 @@
 /*
 // adfgvx暗号
 function adfgvx(str,key,mode) {
-  if(!str||!key||!mode) return null;
+  if(!str||!mode) return null;
+  if(!str.match(/^[a-z0-9]+$/i)) return null;
+  if(key&&!key.match(/^[a-z0-9]+$/i)) return null;
+  else if (!key) key="ADFGVX";
+
   let sq=[];
+  //換字表 use fixed type
   sq[0]="abcdef".split("");
   sq[1]="ghijkl".split("");
   sq[2]="mnopqr".split("");
@@ -19,15 +24,80 @@ function adfgvx(str,key,mode) {
   sq[5]="456789".split("");
   
   var result=[];
+  var resulttmp=[];
+  var newkey=[];
+  
+  key.toUpperCase().split("").forEach(
+    function(val,index,ar){
+      if(newkey.indexOf(val)==-1){
+        newkey.push(val);
+      }
+    }
+  );
+  console.log(newkey);
+  
+  function adfgvxEnc() {
+    for(var k in str){ 
+      for(var i in sq) {
+        for(var j in sq[i]){
+          var tmpRE=new RegExp(sq[i][j], "i");
+          if(str[k].match(tmpRE)) {
+            resulttmp.push(i);
+            resulttmp.push(j);
+            break;
+          }
+        }
+      }
+    }
+    console.log(resulttmp);
+    /*
+    var tmpRE=new RegExp(".{1,"+newkey.length+"}", "g");
+ result=resulttmp.join("").match(tmpRE);
+    console.log(result.join(","));
+    */
+    
+    newkey.forEach(function(v,i,a){
+      result[i]=v;
+    });    
+    resulttmp.forEach(function(v,i,a){
+      result[i%newkey.length]+=v;
+    });
+    
+    
+    console.log(result.join(","));
+    
+    result.sort(function(a,b){
+      if( a < b ) return -1;
+      if( a > b ) return 1;
+      return 0;
+    });
+    
+    console.log(result.join(","));
+    
+    result.forEach(function(v,i,a){
+      result[i]=v.slice(1,v.length);
+    });
+    //result.push("encoded");
+    console.log(result.join(","));
+    
+    return result.join("").replace(/0/g,"A").replace(/1/g,"D").replace(/2/g,"F").replace(/3/g,"G").replace(/4/g,"V").replace(/5/g,"X");
+  }
+  
+  function adfgvxDec() {
+    result.push("decoded");
+  }
 
-
-  if (mode.test(/^\s*decode\s*$/i)) adfgvxDec();
-  else if (mode.test(/^\s*encode\s*$/i)) adfgvxEnc();
-  else return null;
-
-  return result.join("");
+  if (mode.match(/^\s*decode\s*$/i)) {
+    return adfgvxDec();
+  } else if (mode.match(/^\s*encode\s*$/i)) {
+    return adfgvxEnc();
+  } else {
+    return null;
+  }
 
 }
+
+console.log(adfgvx("zyxwvut","mykey","encode"));
 */
 
 
