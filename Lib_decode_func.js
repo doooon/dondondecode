@@ -262,7 +262,7 @@ function adfgx(str,key,mode) {
 
     // ADFGXを数字に変換
     resulttmp.forEach(function(val,i,ar){
-      ar[i]=val.replace(/A/g,"0").replace(/D/g,"1").replace(/F/g,"2").replace(/G/g,"3").replace(/X/g,"4"));
+      ar[i]=val.replace(/A/g,"0").replace(/D/g,"1").replace(/F/g,"2").replace(/G/g,"3").replace(/X/g,"4");
     });
 
     var tmppair=resulttmp.join("").match(/../g);
