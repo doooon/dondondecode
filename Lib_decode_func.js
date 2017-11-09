@@ -50,12 +50,7 @@ function adfgvx(str,key,mode) {
       }
     }
     console.log(resulttmp);
-    /*
-    var tmpRE=new RegExp(".{1,"+newkey.length+"}", "g");
- result=resulttmp.join("").match(tmpRE);
-    console.log(result.join(","));
-    */
-    
+   
     newkey.forEach(function(v,i,a){
       result[i]=v;
     });    
