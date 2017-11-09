@@ -6,6 +6,30 @@
 //======================================
 
 
+/*
+// adfgvx暗号
+function adfgvx(str,key,mode) {
+  if(!str||!key||!mode) return null;
+  let sq=[];
+  sq[0]="abcdef".split("");
+  sq[1]="ghijkl".split("");
+  sq[2]="mnopqr".split("");
+  sq[3]="stuvwx".split("");
+  sq[4]="yz0123".split("");
+  sq[5]="456789".split("");
+  
+  var result=[];
+
+
+  if (mode.test(/^\s*decode\s*$/i)) adfgvxDec();
+  else if (mode.test(/^\s*encode\s*$/i)) adfgvxEnc();
+  else return null;
+
+  return result.join("");
+
+}
+*/
+
 
 // RailFence
 function railfence(str,mode,line) {
