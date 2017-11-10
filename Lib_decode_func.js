@@ -79,13 +79,18 @@ function adfgvx(str,key,mode) {
     return result.join("");
   }
   
+  // デコード
   function adfgvxDec() {
+
+    // 何文字ずつ別けるかを計算
     var tmp1=str.length/newkey.length;
     var tmp2=parseInt(str.length/newkey.length);
     var tmp3=str.length%newkey.length;
 
+    // 何文字かと元の位置をヘッダとしてkeyに埋め込む
     newkey.forEach(function(val,i,ar){if(i<tmp3){newkey[i]=[val,i,tmp2+1];}else{newkey[i]=[val,i,tmp2]}});
     
+    // keyをソート
     var sortednewkey=newkey.concat();
     sortednewkey.sort(function(a,b){
       if( a[0] < b[0] ) return -1;
@@ -93,6 +98,7 @@ function adfgvx(str,key,mode) {
       return 0;
     });
 
+    // エンコード文字列をkey別に拾うってkey配列に追加
     var cnt=0;
     sortednewkey.forEach(function(val,i,ar){
       for(var j=1; j<=val[2]; j++){
@@ -114,6 +120,7 @@ function adfgvx(str,key,mode) {
       ar[i]=val.slice(3,val.length);
     });
   
+    // 配列の縦横を入れ替えて読み出す
     for(var j=0; j<orderdnewkey[0].length; j++){
       orderdnewkey.forEach(function(val,i,ar){
         if (val[j]) resulttmp.push(val[j]);
@@ -135,6 +142,7 @@ function adfgvx(str,key,mode) {
     return result.join(""); 
   }
 
+  // main
   if (mode.match(/^\s*decode\s*$/i)) {
     return adfgvxDec();
   } else if (mode.match(/^\s*encode\s*$/i)) {
