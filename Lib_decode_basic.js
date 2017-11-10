@@ -251,6 +251,7 @@ function analyzeText(str) {
   result.push("reverseで意味を成すkw evil<>live");
   result.push("構成文字が同じkw elint<>intel");
   result.push("kw ^ more war die grow atack");
+  result.push("<a href='https://www.geocachingtoolbox.com/index.php?lang=en&page=baseConversion' target='_blank'>基底(base)変換</a>");
   
   var alertMsg=[];
   if (str.match(
