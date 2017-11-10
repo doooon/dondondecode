@@ -25,7 +25,6 @@ function adfgvx(str,key,mode) {
   "abcdefghijklmnopqrstuvwxyz0123456789".split("").forEach(function(val,i,ar){
     if (sqstr.indexOf(val)==-1) sqstr+=val;
   });
-  console.log(sqstr);
   var sq=sqstr.match(/.{6}/g);
   sq.forEach(function(val,i,ar){ar[i]=val.split("");});
   
@@ -46,7 +45,6 @@ function adfgvx(str,key,mode) {
             resulttmp.push(i);
             resulttmp.push(j);
             nxt=1;
-            console.log(resulttmp);
             break;
           }
         }
