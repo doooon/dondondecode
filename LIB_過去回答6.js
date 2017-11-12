@@ -47,9 +47,9 @@ if (
   htmlTmp.push("<a name='month'><b>(すべて3文字の月名)</b></a>");
   
   if(atbash(TEXT).match(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec){10,}$/i)) {
-    var tmp=atbash(TEXT).matchi(/Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec/ig);
+    var tmp=atbash(TEXT).match(/Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec/ig);
   } else {
-    var tmp=TEXT.matchi(/Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec/ig);
+    var tmp=TEXT.match(/Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec/ig);
   }
   console.log(tmp);  
   tmp.forEach((val,i)=>{
@@ -80,9 +80,9 @@ if (
   htmlTmp.push("<a name='month'><b>(すべて2文字の月名)</b></a>");
 
   if(atbash(TEXT).match(/^(an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec){10,}$/i)) {
-    var tmp=atbash(TEXT).matchi(/an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec/ig);
+    var tmp=atbash(TEXT).match(/an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec/ig);
   } else {
-    var tmp=TEXT.matchi(/an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec/ig);
+    var tmp=TEXT.match(/an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec/ig);
   }
   console.log(tmp);
   tmp.forEach((val,i)=>{
