@@ -250,8 +250,8 @@ function analyzeText(str) {
   result.push("8bit→ASCII");
   result.push("reverseで意味を成すkw evil<>live");
   result.push("構成文字が同じkw elint<>intel");
-  result.push("kw ^ more war die grow atack");
   result.push("<a href='https://www.geocachingtoolbox.com/index.php?lang=en&page=baseConversion' target='_blank'>基底(base)変換</a>");
+  result.push("kw ^ more war die grow atack");
   
   var alertMsg=[];
   if (str.match(
@@ -1085,6 +1085,29 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
     }
   }
 
+  if (
+    (str.match(/^(jan|feb|mar|may|apr|jun|jlu|aug|sep|oct|nov|dec){10,}$/i) || atbash(str).match(/^(jan|feb|mar|may|apr|jun|jlu|aug|sep|oct|nov|dec){10,}$/i)) && 
+    kouseimoji.length>=4
+  ) {
+    if(str.match(/^(jan|feb|mar|may|apr|jun|jlu|aug|sep|oct|nov|dec){10,}$/i)) {
+      alertMsg.push("<a href='#month'>すべて3文字の月名</a>");
+    } else {
+      alertMsg.push("<a href='#month'>atbashするとすべて3文字の月名</a>");      
+      alertMsg.push(atbash(str));      
+    }
+  }
+
+  if (
+    (str.match(/^(an|eb|ar|ay|pr|un|lu|ug|ep|ct|ov|ec){10,}$/i) || atbash(str).match(/^(an|eb|ar|ay|pr|un|lu|ug|ep|ct|ov|ec){10,}$/i)) && 
+    kouseimoji.length>=4
+  ) {
+    if(str.match(/^(an|eb|ar|ay|pr|un|lu|ug|ep|ct|ov|ec){10,}$/i)) {
+      alertMsg.push("<a href='#month'>すべて3文字の月名</a>");
+    } else {
+      alertMsg.push("<a href='#month'>atbashするとすべて2文字の月名</a>");      
+      alertMsg.push(atbash(str));      
+    }
+  }
 
 
 
