@@ -44,7 +44,7 @@ if (
   kouseimoji.length>=4
 ) {
   htmlTmp.push(TEXT);
-  htmlTmp.push("<a name='combine'><b>(すべて3文字の月名)</b></a>");
+  htmlTmp.push("<a name='month'><b>(すべて3文字の月名)</b></a>");
   
   if(atbash(str).match(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec){10,}$/i)) {
     var tmp=atbash(str).matchi(/Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec/ig);
