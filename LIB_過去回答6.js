@@ -67,6 +67,7 @@ if (
     tmp[i]=val.replace(/Dec/ig,"12");
   });
 
+  htmlTmp.push(tmp.join(' '));    
   htmlCode(tmp.join(''));
   htmlTmp.push("==============");    
 }
@@ -100,6 +101,7 @@ if (
     tmp[i]=val.replace(/ec/ig,"12");
   });
 
+  htmlTmp.push(tmp.join(' '));    
   htmlCode(tmp.join(''));
   htmlTmp.push("==============");    
 }
