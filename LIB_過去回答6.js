@@ -76,7 +76,7 @@ if (
   kouseimoji.length>=4
 ) {
   htmlTmp.push(TEXT);
-  htmlTmp.push("<a name='combine'><b>(すべて2文字の月名)</b></a>");
+  htmlTmp.push("<a name='month'><b>(すべて2文字の月名)</b></a>");
 
   if(atbash(str).match(/^(an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec){10,}$/i)) {
     var tmp=atbash(str).matchi(/an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec/ig);
