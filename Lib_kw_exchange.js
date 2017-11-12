@@ -8,6 +8,10 @@ function goKeywExchange() {
   var exL=[
   // ["","",""],
 
+  ["enlighten","resist","意味bash"], 
+  ["enlightened","resistance","意味bash"], 
+  ["resist","enlighten","意味bash"], 
+  ["resistance","enlightened","意味bash"], 
 
   ["[1L][0o][3E][6b]","richard","leet+ 登場人物 Richard Loeb"], 
   ["xxx","answer","関連"], 

@@ -1185,6 +1185,10 @@ function leetKeyws() {
   
 
 
+  ["[3E]nl[1i][6G]h[7T][3E]n","enlighten","leet"], 
+  ["[3E]nl[1i][6G]h[7T][3E]n[3E]d","enlightened","leet"], 
+  ["r[3E][5S][1i][5S][7T]","resist","leet"], 
+  ["r[3E][5S][1i][5S][7T][4A]nc[3E]","resistance","leet"], 
 
   ["combine","separate","意味bash"], 
   ["MOVES ?3 ?HONINBO ?SHOWED","ghost","AlphaGo 本因坊"], 
