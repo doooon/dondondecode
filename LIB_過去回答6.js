@@ -37,6 +37,71 @@ if (
 }
 */
 
+
+// 月の名前
+if (
+  (str.match(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec){10,}$/i) || atbash(str).match(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec){10,}$/i)) && 
+  kouseimoji.length>=4
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<a name='combine'><b>(すべて3文字の月名)</b></a>");
+  
+  if(atbash(str).match(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec){10,}$/i)) {
+    var tmp=atbash(str).matchi(/Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec/ig);
+  } else {
+    var tmp=str.matchi(/Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec/ig);
+  }
+  tmp.forEach((val,i)=>{
+    tmp[i]=val.replace(/Jan/ig,"01");
+    tmp[i]=val.replace(/Feb/ig,"02");
+    tmp[i]=val.replace(/Mar/ig,"03");
+    tmp[i]=val.replace(/Apr/ig,"04");
+    tmp[i]=val.replace(/May/ig,"05");
+    tmp[i]=val.replace(/Jun/ig,"06");
+    tmp[i]=val.replace(/Jul/ig,"07");
+    tmp[i]=val.replace(/Aug/ig,"08");
+    tmp[i]=val.replace(/Sep/ig,"09");
+    tmp[i]=val.replace(/Oct/ig,"10");
+    tmp[i]=val.replace(/Nov/ig,"11");
+    tmp[i]=val.replace(/Dec/ig,"12");
+  });
+
+  htmlCode(tmp.join(''));
+  htmlTmp.push("==============");    
+}
+
+
+if (
+  (str.match(/^(an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec){10,}$/i) || atbash(str).match(/^(an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec){10,}$/i)) && 
+  kouseimoji.length>=4
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<a name='combine'><b>(すべて2文字の月名)</b></a>");
+
+  if(atbash(str).match(/^(an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec){10,}$/i)) {
+    var tmp=atbash(str).matchi(/an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec/ig);
+  } else {
+    var tmp=str.matchi(/an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec/ig);
+  }
+  tmp.forEach((val,i)=>{
+    tmp[i]=val.replace(/an/ig,"01");
+    tmp[i]=val.replace(/eb/ig,"02");
+    tmp[i]=val.replace(/ar/ig,"03");
+    tmp[i]=val.replace(/pr/ig,"04");
+    tmp[i]=val.replace(/ay/ig,"05");
+    tmp[i]=val.replace(/un/ig,"06");
+    tmp[i]=val.replace(/ul/ig,"07");
+    tmp[i]=val.replace(/ug/ig,"08");
+    tmp[i]=val.replace(/ep/ig,"09");
+    tmp[i]=val.replace(/ct/ig,"10");
+    tmp[i]=val.replace(/ov/ig,"11");
+    tmp[i]=val.replace(/ec/ig,"12");
+  });
+
+  htmlCode(tmp.join(''));
+  htmlTmp.push("==============");    
+}
+
 // combine
 // 53lfjjdk14wb81ca17wa
 var tmpRE=new RegExp(String.raw`^\d{2}(?:[a-z]{2}){3}\d{2}\w*[a-z]{2}\d{2}[a-z]{2}\d{2}[a-z]{2}$`, "i");
