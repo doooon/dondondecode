@@ -1086,10 +1086,10 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
   }
 
   if (
-    (str.match(/^(jan|feb|mar|may|apr|jun|jlu|aug|sep|oct|nov|dec){10,}$/i) || atbash(str).match(/^(jan|feb|mar|may|apr|jun|jlu|aug|sep|oct|nov|dec){10,}$/i)) && 
+    (str.match(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec){10,}$/i) || atbash(str).match(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec){10,}$/i)) && 
     kouseimoji.length>=4
   ) {
-    if(str.match(/^(jan|feb|mar|may|apr|jun|jlu|aug|sep|oct|nov|dec){10,}$/i)) {
+    if(str.match(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec){10,}$/i)) {
       alertMsg.push("<a href='#month'>すべて3文字の月名</a>");
     } else {
       alertMsg.push("<a href='#month'>atbashするとすべて3文字の月名</a>");      
@@ -1098,10 +1098,10 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
   }
 
   if (
-    (str.match(/^(an|eb|ar|ay|pr|un|lu|ug|ep|ct|ov|ec){10,}$/i) || atbash(str).match(/^(an|eb|ar|ay|pr|un|lu|ug|ep|ct|ov|ec){10,}$/i)) && 
+    (str.match(/^(an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec){10,}$/i) || atbash(str).match(/^(an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec){10,}$/i)) && 
     kouseimoji.length>=4
   ) {
-    if(str.match(/^(an|eb|ar|ay|pr|un|lu|ug|ep|ct|ov|ec){10,}$/i)) {
+    if(str.match(/^(an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec){10,}$/i)) {
       alertMsg.push("<a href='#month'>すべて3文字の月名</a>");
     } else {
       alertMsg.push("<a href='#month'>atbashするとすべて2文字の月名</a>");      
