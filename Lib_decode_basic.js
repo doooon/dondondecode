@@ -1102,11 +1102,12 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
     kouseimoji.length>=4
   ) {
     if(str.match(/^(an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec){10,}$/i)) {
-      alertMsg.push("<a href='#month'>すべて3文字の月名</a>");
+      alertMsg.push("<a href='#month'>すべて2文字の月名</a>");
     } else {
       alertMsg.push("<a href='#month'>atbashするとすべて2文字の月名</a>");      
       alertMsg.push(atbash(str));      
     }
+    alertMsg.push("an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec");    
   }
 
 
