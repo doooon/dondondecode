@@ -40,17 +40,18 @@ if (
 
 // 月の名前
 if (
-  (str.match(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec){10,}$/i) || atbash(str).match(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec){10,}$/i)) && 
+  (TEXT.match(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec){10,}$/i) || atbash(TEXT).match(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec){10,}$/i)) && 
   kouseimoji.length>=4
 ) {
   htmlTmp.push(TEXT);
   htmlTmp.push("<a name='month'><b>(すべて3文字の月名)</b></a>");
   
-  if(atbash(str).match(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec){10,}$/i)) {
-    var tmp=atbash(str).matchi(/Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec/ig);
+  if(atbash(TEXT).match(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec){10,}$/i)) {
+    var tmp=atbash(TEXT).matchi(/Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec/ig);
   } else {
-    var tmp=str.matchi(/Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec/ig);
+    var tmp=TEXT.matchi(/Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec/ig);
   }
+  console.log(tmp);  
   tmp.forEach((val,i)=>{
     tmp[i]=val.replace(/Jan/ig,"01");
     tmp[i]=val.replace(/Feb/ig,"02");
@@ -72,17 +73,18 @@ if (
 
 
 if (
-  (str.match(/^(an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec){10,}$/i) || atbash(str).match(/^(an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec){10,}$/i)) && 
+  (TEXT.match(/^(an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec){10,}$/i) || atbash(TEXT).match(/^(an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec){10,}$/i)) && 
   kouseimoji.length>=4
 ) {
   htmlTmp.push(TEXT);
   htmlTmp.push("<a name='month'><b>(すべて2文字の月名)</b></a>");
 
-  if(atbash(str).match(/^(an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec){10,}$/i)) {
-    var tmp=atbash(str).matchi(/an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec/ig);
+  if(atbash(TEXT).match(/^(an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec){10,}$/i)) {
+    var tmp=atbash(TEXT).matchi(/an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec/ig);
   } else {
-    var tmp=str.matchi(/an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec/ig);
+    var tmp=TEXT.matchi(/an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec/ig);
   }
+  console.log(tmp);
   tmp.forEach((val,i)=>{
     tmp[i]=val.replace(/an/ig,"01");
     tmp[i]=val.replace(/eb/ig,"02");
