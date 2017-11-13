@@ -7,7 +7,14 @@ function goKeywExchange() {
 
   var exL=[
   // ["","",""],
-
+  ["jormung[7&]","jormungand ","and変換"], 
+  ["alex[7&]er","alexander ","and変換"], 
+  ["cass[7&]ra","cassandra ","and変換"], 
+  ["jackl[7&]","jackland ","and変換"], 
+  ["ab[7&]on","abandon ","and変換"], 
+  ["holl[7&]","holland ","and変換"], 
+  ["p[7&]ora","pandora ","and変換"], 
+  ["rol[7&]","roland ","and変換"], 
   ["enlighten","resist","意味bash"], 
   ["enlightened","resistance","意味bash"], 
   ["resist","enlighten","意味bash"], 
