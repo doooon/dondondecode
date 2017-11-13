@@ -38,7 +38,7 @@ if (
 */
 
 
-// 月の名前
+// 月の名前3文字
 if (
   (TEXT.match(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec){10,}$/i) || atbash(TEXT).match(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec){10,}$/i)) && 
   kouseimoji.length>=4
@@ -51,28 +51,26 @@ if (
   } else {
     var tmp=TEXT.match(/Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec/ig);
   }
-  console.log(tmp);  
-  tmp.forEach((val,i)=>{
-    tmp[i]=val.replace(/Jan/ig,"01");
-    tmp[i]=val.replace(/Feb/ig,"02");
-    tmp[i]=val.replace(/Mar/ig,"03");
-    tmp[i]=val.replace(/Apr/ig,"04");
-    tmp[i]=val.replace(/May/ig,"05");
-    tmp[i]=val.replace(/Jun/ig,"06");
-    tmp[i]=val.replace(/Jul/ig,"07");
-    tmp[i]=val.replace(/Aug/ig,"08");
-    tmp[i]=val.replace(/Sep/ig,"09");
-    tmp[i]=val.replace(/Oct/ig,"10");
-    tmp[i]=val.replace(/Nov/ig,"11");
-    tmp[i]=val.replace(/Dec/ig,"12");
-  });
+ 
+  var tmp123=tmp.map(val=>
+    val.replace(/Jan/ig,"01").replace(/Feb/ig,"02").replace(/Mar/ig,"03").replace(/Apr/ig,"04").replace(/May/ig,"05").replace(/Jun/ig,"06").replace(/Jul/ig,"07").replace(/Aug/ig,"08").replace(/Sep/ig,"09").replace(/Oct/ig,"10").replace(/Nov/ig,"11").replace(/Dec/ig,"12"));
 
-  htmlTmp.push(tmp.join(' '));    
-  htmlCode(tmp.join(''));
+  htmlTmp.push("(jan>1,feb>2,,,)");    
+  htmlTmp.push(tmp123.join(' '));    
+  htmlCode(tmp123.join(''));
+
+  var tmp012=tmp.map(val=>
+    val.replace(/Jan/ig,"00").replace(/Feb/ig,"01").replace(/Mar/ig,"02").replace(/Apr/ig,"03").replace(/May/ig,"04").replace(/Jun/ig,"05").replace(/Jul/ig,"06").replace(/Aug/ig,"07").replace(/Sep/ig,"08").replace(/Oct/ig,"09").replace(/Nov/ig,"10").replace(/Dec/ig,"11"));
+
+  htmlTmp.push("(jan>0,feb>1,,,)");    
+  htmlTmp.push(tmp012.join(' '));    
+  htmlCode(tmp012.join(''));
+ 
   htmlTmp.push("==============");    
 }
 
 
+// 月の名前2文字
 if (
   (TEXT.match(/^(an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec){10,}$/i) || atbash(TEXT).match(/^(an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec){10,}$/i)) && 
   kouseimoji.length>=4
@@ -85,24 +83,21 @@ if (
   } else {
     var tmp=TEXT.match(/an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec/ig);
   }
-  console.log(tmp);
-  tmp.forEach((val,i)=>{
-    tmp[i]=val.replace(/an/ig,"01");
-    tmp[i]=val.replace(/eb/ig,"02");
-    tmp[i]=val.replace(/ar/ig,"03");
-    tmp[i]=val.replace(/pr/ig,"04");
-    tmp[i]=val.replace(/ay/ig,"05");
-    tmp[i]=val.replace(/un/ig,"06");
-    tmp[i]=val.replace(/ul/ig,"07");
-    tmp[i]=val.replace(/ug/ig,"08");
-    tmp[i]=val.replace(/ep/ig,"09");
-    tmp[i]=val.replace(/ct/ig,"10");
-    tmp[i]=val.replace(/ov/ig,"11");
-    tmp[i]=val.replace(/ec/ig,"12");
-  });
+ 
+  var tmp123=tmp.map(val=>
+    val.replace(/an/ig,"01").replace(/eb/ig,"02").replace(/ar/ig,"03").replace(/pr/ig,"04").replace(/ay/ig,"05").replace(/un/ig,"06").replace(/ul/ig,"07").replace(/ug/ig,"08").replace(/ep/ig,"09").replace(/ct/ig,"10").replace(/ov/ig,"11").replace(/ec/ig,"12"));
 
-  htmlTmp.push(tmp.join(' '));    
-  htmlCode(tmp.join(''));
+  htmlTmp.push("(jan>1,feb>2,,,)");    
+  htmlTmp.push(tmp123.join(' '));    
+  htmlCode(tmp123.join(''));
+
+  var tmp012=tmp.map(val=>
+    val.replace(/an/ig,"00").replace(/eb/ig,"01").replace(/ar/ig,"02").replace(/pr/ig,"03").replace(/ay/ig,"04").replace(/un/ig,"05").replace(/ul/ig,"06").replace(/ug/ig,"07").replace(/ep/ig,"08").replace(/ct/ig,"09").replace(/ov/ig,"10").replace(/ec/ig,"11"));
+
+  htmlTmp.push("(jan>0,feb>1,,,)");    
+  htmlTmp.push(tmp012.join(' '));    
+  htmlCode(tmp012.join(''));
+ 
   htmlTmp.push("==============");    
 }
 
