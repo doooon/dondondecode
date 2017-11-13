@@ -7,6 +7,7 @@ function goKeywExchange() {
 
   var exL=[
   // ["","",""],
+  ["c[1l][0o][5s][3e]","open","意味bash"], 
   ["jormung[7&]","jormungand ","and変換"], 
   ["alex[7&]er","alexander ","and変換"], 
   ["cass[7&]ra","cassandra ","and変換"], 
