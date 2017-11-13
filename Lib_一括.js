@@ -242,7 +242,7 @@ htmlTmp.push("===============");
 
 // 012abc
 htmlTmp.push("<a name='012abc'><b>(012abc)</b></a>");
-var tmp= to012abc(TEXT);
+var tmp= to012abcString(TEXT);
 htmlTmp.push(tmp);
 htmlCode(tmp);
 htmlTmp.push("(atbash)");
@@ -257,7 +257,7 @@ htmlTmp.push("===============");
 
 // 123abc
 htmlTmp.push("<a name='123abc'><b>(123abc)</b></a>");
-var tmp= to123abc(TEXT);
+var tmp= to123abcString(TEXT);
 htmlTmp.push(tmp);
 htmlCode(tmp);
 htmlTmp.push("(atbash)");
