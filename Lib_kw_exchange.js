@@ -14,7 +14,7 @@ function goKeywExchange() {
   ["ab[7&]on","abandon ","and変換"], 
   ["holl[7&]","holland ","and変換"], 
   ["p[7&]ora","pandora ","and変換"], 
-  ["rol[7&]","roland ","and変換"], 
+  ["rol[7&]|1714117","roland ","and変換"], 
   ["enlighten","resist","意味bash"], 
   ["enlightened","resistance","意味bash"], 
   ["resist","enlighten","意味bash"], 
