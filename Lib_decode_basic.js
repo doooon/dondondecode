@@ -252,7 +252,7 @@ function analyzeText(str) {
   result.push("構成文字が同じkw elint<>intel");
   result.push("<a href='https://www.geocachingtoolbox.com/index.php?lang=en&page=baseConversion' target='_blank'>基底(base)変換</a>");
   result.push("kw ^ more war die grow atack");
-  result.push("potal Rot+1 > portals");
+  result.push("Rot+1 複数形> portals, shapers, symbols, glyphs");
   
   var alertMsg=[];
   if (str.match(
