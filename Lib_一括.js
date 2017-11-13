@@ -239,6 +239,38 @@ htmlCode(
 
 htmlTmp.push("===============");
 
+
+// 012abc
+htmlTmp.push("<a name='012abc'><b>(012abc)</b></a>");
+var tmp= to012abc(TEXT);
+htmlTmp.push(tmp);
+htmlCode(tmp);
+htmlTmp.push("(atbash)");
+htmlCode(atbash19(tmp));
+htmlTmp.push("(reverse)");
+htmlCode(strReverse(tmp));
+htmlTmp.push("(atbash & reverse)");
+htmlCode(
+  strReverse(atbash19(tmp)));
+
+htmlTmp.push("===============");
+
+// 123abc
+htmlTmp.push("<a name='123abc'><b>(123abc)</b></a>");
+var tmp= to123abc(TEXT);
+htmlTmp.push(tmp);
+htmlCode(tmp);
+htmlTmp.push("(atbash)");
+htmlCode(atbash19(tmp));
+htmlTmp.push("(reverse)");
+htmlCode(strReverse(tmp));
+htmlTmp.push("(atbash & reverse)");
+htmlCode(
+  strReverse(atbash19(tmp)));
+
+htmlTmp.push("===============");
+
+
 // Rot
 htmlTmp.push("<a name='rot'><b>(Rot)</b></a>");
 
