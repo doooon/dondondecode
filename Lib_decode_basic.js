@@ -1086,6 +1086,7 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
     }
   }
 
+  // 月名
   if (
     (str.match(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec){10,}$/i) || atbash(str).match(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec){10,}$/i)) && 
     kouseimoji.length>=4
@@ -1111,7 +1112,7 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
     alertMsg.push("an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec");    
   }
 
-
+// 曜日
   if (
 (str.match(/^(sun|mon|tue|wed|thu|fri|sat){5,}$/i)|| atbash(str).match(/^(sun|mon|tue|wed|thu|fri|sat){5,}$/i)|| str.match(/^(un|on|ue|ed|hu|ri|at){10,}$/i)|| str.match(/^(su|mo|tu|we|th|fr|sa){10,}$/i))&&
     kouseimoji.length>=4
