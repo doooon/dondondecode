@@ -1112,6 +1112,32 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
   }
 
 
+  if (
+(str.match(/^(sun|mon|tue|wed|thu|fri|sat){5,}$/i)|| atbash(str).match(/^(sun|mon|tue|wed|thu|fri|sat){5,}$/i)|| str.match(/^(un|on|ue|ed|hu|ri|at){10,}$/i)|| str.match(/^(su|mo|tu|we|th|fr|sa){10,}$/i))&&
+    kouseimoji.length>=4
+  ) {
+    if(str.match(/^(sun|mon|tue|wed|thu|fri|sat){5,}$/i)) {
+      alertMsg.push("<a href='#dayoftheweek'>すべて曜日名</a>");
+    } else if(atbash(str).match(/^(sun|mon|tue|wed|thu|fri|sat){5,}$/i)) {
+      alertMsg.push("<a href='#dayoftheweek'>atbashするとすべて曜日名</a>");      
+      alertMsg.push(atbash(str));      
+    } else if(str.match(/^(un|on|ue|ed|hu|ri|at){10,}$/i)) {
+      alertMsg.push("<a href='#dayoftheweek'>すべて2文字の曜日名</a>");
+  var tmp=str.match(/un|on|ue|ed|hu|ri|at/ig);
+  alertMsg.push(tmp.join(" "));
+  tmp=tmp.map(var=>val.replace(/un/,"Sun").replace(/on/,"Mon").replace(/ue/,"Tue").replace(/ed/,"Wed").replace(/hu/,"Thur").replace(/ri/,"Fri").replace(/at/,"Sat");
+  alertMsg.push(tmp.join(" "));
+
+    } else if(str.match(/^(su|mo|tu|we|th|fr|sa){10,}$/i)) {
+      alertMsg.push("<a href='#dayoftheweek'>すべて2文字の曜日名</a>");
+  var tmp=str.match(/su|mo|tu|we|th|fr|sa/ig);
+  alertMsg.push(tmp.join(" "));
+  tmp=tmp.map(var=>val.replace(/su/,"Sun").replace(/mo/,"Mon").replace(/th/,"Tue").replace(/we/,"Wed").replace(/hu/,"Thur").replace(/fr/,"Fri").replace(/sa/,"Sat");
+  alertMsg.push(tmp.join(" "));
+    }
+   
+  }
+
 
 
 
