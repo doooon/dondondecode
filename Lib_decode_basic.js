@@ -1139,6 +1139,36 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
    
   }
 
+  // abc012 6以下
+  var tmp=abc012(str);
+  if (tmp.match(/^[123456]{25,}$/i) && 
+    kouseimoji.length>=4
+  ) {
+    var valsum=0;
+    tmp.forEach(val=>valsum+=Number(val));
+    if(tmp.match(/^[12345]{25,}$/i) && 
+      tmp.length%2==0) {
+      alertMsg.push("<a href='#'>abc012で1〜5のみでペアになる > polybiusか？</a>");
+    } else if(tmp.match(/^[123456]{25,}$/i)) && valsum%8==0) {
+      alertMsg.push("<a href='#'>abc012で1〜6のみ。合計が8で割れるから、RLDからbinASCIIかも。</a>");
+    }
+  }
+
+
+var tmpDec='(4[89]|5[0-7]|6[5-9]|[78][0-9]|90)';
+var tmpHex='(3[0-9]|4[1-9a-f]|5[0-9a]|6[1-9a-f]|7[0-9a])';
+
+var tmpRE1=new RegExp(`^(${tmpDec}${tmpHex}){5,}${tmpDec}?$`,"i")
+if (str.match(tmpRE1)) {
+  alertMsg.push("<a href='#'>DecとHexで交互の範囲に納まる</a>");
+  alertMsg.push(str.match(/../g).join(""));
+}
+var tmpRE2=new RegExp(`^(${tmpHex}${tmpDec}){5,}${tmpHex}?$`,"i")
+if (str.match(tmpRE2)) {
+   alertMsg.push("<a href='#'>HexとDecで交互の範囲に納まる</a>");
+  alertMsg.push(str.match(/../g).join(""));
+}
+
 
 
 
