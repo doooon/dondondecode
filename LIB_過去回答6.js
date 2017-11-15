@@ -38,6 +38,35 @@ if (
 */
 
 
+// DecとHexで交互の範囲に納まる
+var tmpDec='(4[89]|5[0-7]|6[5-9]|[78][0-9]|90)';
+var tmpHex='(3[0-9]|4[1-9a-f]|5[0-9a]|6[1-9a-f]|7[0-9a])';
+
+var tmpRE1=new RegExp(`^(${tmpDec}${tmpHex}){5,}${tmpDec}?$`,"i")
+if (TEXT.match(tmpRE1)) {
+  htmlTmp.push("<a name='altdechex'><b>(DecとHexで交互の範囲に納まる)</b></a>");
+  var tmp=TEXT.match(/../g);
+  htmlTmp.push(tmp.join(" "));
+  tmp=tmp.map((val,i,ar)=>{
+    if(i%2==0) return decASCII(val);
+    else return hexASCII(val);
+  });
+  htmlCode(tmp.join(""));
+
+}
+var tmpRE2=new RegExp(`^(${tmpHex}${tmpDec}){5,}${tmpHex}?$`,"i")
+if (TEXT.match(tmpRE2)) {
+  htmlTmp.push("<a name='althexdec'><b>(HexとDecで交互の範囲に納まる)</b></a>");
+  var tmp=TEXT.match(/../g);
+  htmlTmp.push(tmp.join(" "));
+  tmp=tmp.map((val,i,ar)=>{
+    if(i%2==0) return hexASCII(val);
+    else return decASCII(val);
+  });
+  htmlCode(tmp.join(""));
+}
+
+
 // 月の名前3文字
 if (
   (TEXT.match(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec){10,}$/i) || atbash(TEXT).match(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec){10,}$/i)) && 
