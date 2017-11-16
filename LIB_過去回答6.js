@@ -66,6 +66,58 @@ if (TEXT.match(tmpRE2)) {
   htmlCode(tmp.join(""));
 }
 
+// 使用されている文字が月の名前、10種以内でindexからDecASCII
+if (
+  (TEXT.match(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec){10,}$/i) || atbash(TEXT).match(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec){10,}$/i) || TEXT.match(/^(an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec){10,}$/i) || atbash(TEXT).match(/^(an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec){10,}$/i)) && 
+  kouseimoji.length>=4
+) {
+  var tmpL=[];
+  if (TEXT.match(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec){10,}$/i)) tmpL=TEXT.match(/Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec/ig);
+  else if (atbash(TEXT).match(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec){10,}$/i)) tmpL=atbash(TEXT).match(/Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec/ig);
+  else if (TEXT.match(/^(an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec){10,}$/i)) tmpL=TEXT.match(/an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec/ig);
+  else if (atbash(TEXT).match(/^(an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec){10,}$/i)) tmpL=atbash(TEXT).match(/an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec/ig);
+
+
+  // 重複を除く
+  var tmpL2 = tmpL.filter((x, i, self) => self.indexOf(x) === i);
+  tmpL2=tmpL2.map(val=>[val,val.replace(/J?an/i,"01").replace(/F?eb/i,"02").replace(/M?ar/i,"03").replace(/A?pr/i,"04").replace(/M?ay/i,"05").replace(/J?un/i,"06").replace(/J?ul/i,"07").replace(/A?ug/i,"08").replace(/S?ep/i,"09").replace(/O?ct/i,"10").replace(/N?ov/i,"11").replace(/D?ec/i,"12"),]);  
+  // ソート
+  tmpL2.sort(function(a,b){
+    if( Number(a[1]) < Number(b[1]) ) return -1;
+    if( Number(a[1]) > Number(b[1]) ) return 1;
+    return 0;
+  });
+  // index追加
+  tmpL2=tmpL2.map((val,i)=>[val[0],val[1],i]);  
+  
+if (tmpL2.length<=10) {
+    htmlTmp.push(TEXT);
+    htmlTmp.push("<a name='month'><b>(使用されている文字が月の名前、10種以内でindexからDecASCII)</b></a>");
+    htmlTmp.push(tmpL.join(" "));
+    tmpL=tmpL.map(val=>[val,val.replace(/J?an/i,"01").replace(/F?eb/i,"02").replace(/M?ar/i,"03").replace(/A?pr/i,"04").replace(/M?ay/i,"05").replace(/J?un/i,"06").replace(/J?ul/i,"07").replace(/A?ug/i,"08").replace(/S?ep/i,"09").replace(/O?ct/i,"10").replace(/N?ov/i,"11").replace(/D?ec/i,"12"),]);
+    // indexを取得
+    for(var i in tmpL){
+      for(var j in tmpL2){
+        if(tmpL2[j][1]===tmpL[i][1]) {
+          tmpL[i][2]=tmpL2[j][2];
+          break;
+        } 
+        else tmpL[i][2]="∎";
+      }
+    }
+    var tmp=tmpL.map(val=>val[2]).join("");
+
+    htmlCode(tmp);
+    if(tmp.match(/^((?:..){5})(.*)((?:..){5})$/i)){
+      htmlTmp.push("prefix,sufixをdecASCII。kw部はそのまま（kwに細工されてるかも？ s/65-90/A-Z/)");          
+      tmp=tmp.replace(/^((?:..){5})(.*)((?:..){5})$/i, (all, g1, g2, g3)=>decASCII(g1)+g2+decASCII(g3));
+      htmlCode(tmp);
+    }
+    
+    htmlTmp.push("==============");    
+  }
+}
+
 
 // 月の名前3文字
 if (
