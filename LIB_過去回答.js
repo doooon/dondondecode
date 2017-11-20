@@ -771,6 +771,7 @@ function atomOut(L) {
     }
   htmlCode(L[0]);
   var tmp3=decASCII(L[0]);
+  debug(tmp3);
   if (tmp3.match(/^[a-z0-9]+$/i)) {
     htmlTmp.push("decASCII reverse");
     htmlCode(strReverse(tmp3));
