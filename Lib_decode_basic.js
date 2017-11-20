@@ -1264,6 +1264,22 @@ function leetKeyws() {
   
 
 
+
+
+
+
+
+  ["[3E]xp[1L][0o]r[3E]","explore","leet"], 
+  ["c[1l][0o][5s][3e]","open","意味bash"], 
+  ["jormung[7&]","jormungand ","and変換"], 
+  ["alex[7&]er","alexander ","and変換"], 
+  ["cass[7&]ra","cassandra ","and変換"], 
+  ["jackl[7&]","jackland ","and変換"], 
+  ["ab[7&]on","abandon ","and変換"], 
+  ["holl[7&]","holland ","and変換"], 
+  ["p[7&]ora","pandora ","and変換"], 
+  ["rol[7&]|1714117","roland ","and変換"], 
+
   ["[3E]nl[1i][6G]h[7T][3E]n","enlighten","leet"], 
   ["[3E]nl[1i][6G]h[7T][3E]n[3E]d","enlightened","leet"], 
   ["r[3E][5S][1i][5S][7T]","resist","leet"], 

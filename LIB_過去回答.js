@@ -770,6 +770,17 @@ function atomOut(L) {
       htmlTmp.push("<span class='alert'>全てが置き換わった！</span>");
     }
   htmlCode(L[0]);
+  var tmp3=decASCII(L[0]);
+  if (tmp3.match(/^[a-z0-9]+$/i)) {
+    htmlTmp.push("decASCII reverse");
+    htmlCode(strReverse(tmp3));
+    htmlTmp.push("decASCII atbash");
+    htmlCode(atbash(tmp3));
+    if (tmp3.match(/\d/)) {
+      htmlCode(atbash19(tmp3));
+      htmlCode(atbash09(tmp3));
+    }
+  }
 }
 
 var tmp=atomicNum(TEXT,2);
