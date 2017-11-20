@@ -768,10 +768,11 @@ function atomOut(L) {
   htmlTmp.push(tmp2);
   if (L[0].match(/^\d+$/g) && L[0].length>15) {
       htmlTmp.push("<span class='alert'>全てが置き換わった！</span>");
-    }
+  }
   htmlCode(L[0]);
   var tmp3=decASCII(L[0]);
-  debug(tmp3);
+  debug(L[0]);
+  debug(decASCII(L[0]));
   if (tmp3.match(/^[a-z0-9]+$/i)) {
     htmlTmp.push("decASCII reverse");
     htmlCode(strReverse(tmp3));
