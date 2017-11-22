@@ -80,7 +80,7 @@ var powerMtrx=[
 ];
 
 var tmpL=TEXT.match(/\d+/g);
-if(tmpL.length>=8) {
+if(tmpL && tmpL.length>=8) {
   var result=[];
   var maxlen=0;
   for(var i in tmpL){
