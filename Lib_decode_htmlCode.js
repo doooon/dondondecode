@@ -115,32 +115,6 @@ function printCheck(tmp2) {
   
   // ローマ数字変換
   if ( printMain( romanExcTrigger( tmp2 ), "more", "(more Roman&Arabic num)" ) == "fix") return;
-  
-  // 6→vi
-  var tmpVI = replaceVI(tmp2);
-  if (tmpVI) {
-    if ( printMain( tmpVI, "more", "(more 6 > vi )" ) == "fix") {
-      htmlTmp.push(checkCodeHTML(tmpVI.replace(/vi/ig, "verum")));
-      htmlTmp.push(checkCodeHTML(tmpVI.replace(/vi/ig, "inveniri")));
-      return;
-    }
-  }
-
-  // 82→lead
-  var tmp82 = replace82(tmp2);
-  if (tmp82) {
-    if ( printMain( tmp82, "more", "(more 82 > lead )" ) == "fix") {
-      return;
-    }
-  }			
-  
-  // go→stay 意味bash
-  var tmpGo= replaceGo(tmp2);
-  if (tmpGo) {
-    if ( printMain( tmpGo, "more", "(more go <> stay )" ) == "fix") {
-      return;
-    }
-  }			
               
               
   // kw有り数字部abc012
@@ -156,6 +130,43 @@ function printCheck(tmp2) {
               
               
 } // END function printCheck()
+
+
+function specialKW(specialstr){
+  if(!specialstr) return;
+  //debug(specialstr);
+
+  // 6→vi
+  var tmpVI = replaceVI(specialstr);
+  if (tmpVI) {
+    if ( printMain( tmpVI, "more", "(more 6 > vi )" ) == "fix") {
+      htmlTmp.push(checkCodeHTML(tmpVI.replace(/vi/ig, "verum")));
+      htmlTmp.push(checkCodeHTML(tmpVI.replace(/vi/ig, "inveniri")));
+    }
+  }
+
+  // 82→lead
+  var tmp82 = replace82(specialstr);
+  if (tmp82) {
+    if ( printMain( tmp82, "more", "(more 82 > lead )" ) == "fix") {
+    }
+  }			
+  
+  // go→stay 意味bash
+  var tmpGo= replaceGo(specialstr);
+  if (tmpGo) {
+    if ( printMain( tmpGo, "more", "(more go <> stay )" ) == "fix") {
+    }
+  }			
+  
+  // U→you 
+  var tmpYou= replaceYou(specialstr);
+  if (tmpYou) {
+    if ( printMain( tmpYou, "more", "(more U <> you )" ) == "fix") {
+    }
+  }			
+} // end function specialKW()
+
 
 function printMain(tmp3, moreF, msg) {
   if (!tmp3) return "";
@@ -204,8 +215,8 @@ function printMain(tmp3, moreF, msg) {
       htmlTmp.push( msg );
       htmlTmp.push( htmlCodeLabel+checkCodeHTML(tmp3)+ htmlCodeBLabel );
       return "fix";
-    }
-
+    }    
+    
     // reverse
     if (checkPasscode(strReverse(tmp3))=="fix") {
       htmlTmp.push( msg+" > reverse" );
@@ -224,14 +235,14 @@ function printMain(tmp3, moreF, msg) {
       htmlTmp.push( htmlCodeLabel+checkCodeHTML(tmp3) + htmlCodeBLabel);
       return "fix";
     }
-
+    
     // reverse
     if (checkPasscode(strReverse(tmp3))=="fix") {
       htmlTmp.push( "(more reverse)" );
       htmlTmp.push( htmlCodeLabel+checkCodeHTML(strReverse(tmp3))+ htmlCodeBLabel );
       return "fix";
     }
-
+    
     // ローマ数字や文字数字変換
     if (formatExchange(tmp3) == "fix") return "fix";
     
@@ -257,6 +268,12 @@ function formatExchangeRoman(ferstr, orignal, msg) {
     htmlTmp.push( "(and more Roman&Arabic num)" );
     htmlTmp.push( htmlCodeLabel+checkCodeHTML( tmproman ) + htmlCodeBLabel);
     return "fix";
+  } else if (checkPasscode( tmproman ) == "format") {
+    htmlTmp.push( msg );
+    htmlTmp.push( htmlCodeLabel+checkCodeHTML( orignal ) + htmlCodeBLabel );
+    htmlTmp.push( "(and more Roman&Arabic num)" );
+    htmlTmp.push( htmlCodeLabel+checkCodeHTML( tmproman ) + htmlCodeBLabel);
+    return null;
   } else {
     return null;
   }
@@ -274,6 +291,12 @@ function formatExchangeLetter(felstr, msg, orignal, msg2 ) {
     htmlTmp.push( `(and more ${msg} num)` );
     htmlTmp.push( htmlCodeLabel+checkCodeHTML( felstr ) + htmlCodeBLabel);
     return "fix";
+  } else if (checkPasscode( felstr ) == "format") {
+    htmlTmp.push( msg2 );
+    htmlTmp.push( htmlCodeLabel+checkCodeHTML( orignal ) + htmlCodeBLabel );
+    htmlTmp.push( `(and more ${msg} num)` );
+    htmlTmp.push( htmlCodeLabel+checkCodeHTML( felstr ) + htmlCodeBLabel);
+    return null;
   } else {
     return null;
   }
@@ -387,7 +410,7 @@ function formatExchange(str, msg) {
   // 3文字目と4文字目数字
   if (str.match(numRE_mid3to4)) { 
     var tmpnum_mid3to4 = one1mid3to4(str, 1);
-    if (formatExchangeLetter( tmpnum_mid3to4, "mid3to4", str, msg ) == "fix") return "fix";
+    if (formatExchangeLetter( tmpnum_mid3to4, "mid3to4 (ve=5 ve=7 に注意)", str, msg ) == "fix") return "fix";
     if (formatExchangeRoman( tmpnum_mid3to4, str, msg ) == "fix") return "fix";
   }
   
@@ -408,7 +431,6 @@ function formatExchange(str, msg) {
   // 同音異義語数字
   if (str.match(numRE_homophone)) { 
     var tmpnum_homophone = one1homophone(str, 1);
-  debug(tmpnum_homophone);
     if (formatExchangeLetter( tmpnum_homophone, "homophone", str, msg ) == "fix") return "fix";
     if (formatExchangeRoman( tmpnum_homophone, str, msg ) == "fix") return "fix";
   }
@@ -667,6 +689,38 @@ function replaceKw012(str, kw) {
 		return null;
 	}
 }
+
+// U→you
+function replaceYou(str) {
+	
+	var tmp1 = "([2-9][a-hjkm-z]{3}[2-9])(U)([a-hjkm-z][2-9][a-hjkm-z][2-9][a-hjkm-z])";
+	var tmp2 = "([a-hjkm-z]{3}[2-9]{2})(U)([2-9]{3}[a-hjkm-z]{2})";
+	var tmp3 = "([a-hjkm-z][0-9][a-hjkm-z][0-9])(U)([a-hjkm-z][0-9][a-hjkm-z][a-hjkm-z])";
+	var tmp4 = "(U)([2-9][a-hjkm-z][a-hjkm-z][2-9][2-9][a-hjkm-z][a-hjkm-z][2-9])";
+	var tmp5 = "([a-hjkm-z]{8}[2-9][2-9])(U)([2-9][2-9])";
+	var tmpRE = new RegExp( `^(${tmp1}|${tmp2}|${tmp3}|${tmp4}|${tmp5})$`, "i");
+	
+	if ( str.match(tmpRE) ) {
+	
+		var tmpRE1 = new RegExp("^"+tmp1+"$", "i");
+		var tmpRE2 = new RegExp("^"+tmp2+"$", "i");
+		var tmpRE3 = new RegExp("^"+tmp3+"$", "i");
+		var tmpRE4 = new RegExp("^"+tmp4+"$", "i");
+		var tmpRE5 = new RegExp("^"+tmp5+"$", "i");
+		
+		var str2 = "";
+		     if (str.match(tmpRE1)) { str2 = str.replace(tmpRE1, "$1you$3"); } 
+		else if (str.match(tmpRE2)) { str2 = str.replace(tmpRE2, "$1you$3"); } 
+		else if (str.match(tmpRE3)) { str2 = str.replace(tmpRE3, "$1you$3"); } 
+		else if (str.match(tmpRE4)) { str2 = str.replace(tmpRE4, "you$2"  ); } 
+		else if (str.match(tmpRE5)) { str2 = str.replace(tmpRE5, "$1you$3"); }
+	
+		return(str2);
+	} else {
+		return null;
+	}
+}
+
 
 // go→stay
 function replaceGo(str) {
