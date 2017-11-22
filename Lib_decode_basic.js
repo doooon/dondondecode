@@ -414,21 +414,13 @@ function analyzeText(str) {
     alertMsg.push(
       "短符のみモールスからPolybiusの可能性");
   }
-  if (str.match(/^[0mcxi\s]+$/i)) {
-    alertMsg.push(
-      "構成文字がMCXI+0でローマ数字バイナリ");
-  }
-  if (str.match(/^[0nxcr\s]+$/i)) {
-    alertMsg.push(
-      "atbashで構成文字がMCXI+0。ローマ数字バイナリ");
-  }
   if (str.match(
-      /^(([2-9]){1,4}[\s01\D]?)+$/
-    ) && str.match(
-      /([2-9])\1+/)
-    ) {
-    alertMsg.push(
-      "ガラケー変換の可能性あり");
+    /^(([2-9]){1,4}[\s01\D]?)+$/
+  ) && str.match(
+    /([2-9])\1+/)
+  ) {
+  alertMsg.push(
+    "ガラケー変換の可能性あり");
   }
   if (str.match(
       /^(([2-68][1-3]|[79][1-4])[\s01\D]?)+$/
@@ -439,18 +431,26 @@ function analyzeText(str) {
     alertMsg.push(
       "ガラケー変換の可能性あり");
   }
+  if (str.match(/^[0mcxi\s]+$/i)) {
+    alertMsg.push(
+      "<a href='romannum'>構成文字がMCXI+0でローマ数字バイナリ</a>");
+  }
+  if (str.match(/^[0nxcr\s]+$/i)) {
+    alertMsg.push(
+      "<a href='romannum'>atbashで構成文字がMCXI+0。ローマ数字バイナリ</a>");
+  }
   if (str.match(/^([MDCLXVI]+[\s\.,\/\|\\\-]?)+$/i)) {
-    alertMsg.push("ローマ数字");
+    alertMsg.push("<a href='romannum'>ローマ数字</a>");
   } else if (
     str.match(/^(([2-9]|[1-9][0-9])?[MDCLXVI][\s\.,\/\|\\\-]?)+$/i) && 
     !str.match(/([MDCLXVI])\1/i)
   ) {
-    alertMsg.push("N×ローマ数字(3x=xxx");
+    alertMsg.push("<a href='romannum'>N×ローマ数字(3x=xxx)</a>");
   } else if (
     atbash19(str).match(
       /^([MDCLXVI]+[\s\.,\/\|\\\-]?)+$/i)) {
     alertMsg.push(
-      "atbash (reverse?) > ローマ数字");
+      "<a href='romannum'>atbash (reverse?) > ローマ数字</a>");
   } else if (m<=8) {
     var charlist=Object.keys(tmp).join("");
     for (var i=1; i<=26; i++) {
@@ -458,7 +458,7 @@ function analyzeText(str) {
         /^([MDCLXVI]+[\s\.,\/\|\\\-]?)+$/i)
       ) {
         alertMsg.push(
-          "ローマ数字(Rot+"+i+")");
+          "<a href='romannum'>ローマ数字(Rot+"+i+")</a>");
         alertMsg.push(
           rotN(str, i));
         break;

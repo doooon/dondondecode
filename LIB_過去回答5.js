@@ -1861,17 +1861,22 @@ if (TEXT.match(/^[mdclxvi\s]+$/i)) {
 }
 */
 
-// 全てがローマ数字
-if ((TEXT.match(/^([mdclxvi]+[\s\.,\/\\\|\-]?)+$/i) || TEXT.match(/^([nwxocer]+[\s\.,\/\\\|\-]?)+$/i)) && kouseimoji.length>=3 && TEXT.length>=5) {
+// 全てがローマ数字　
+if ((TEXT.match(/^([mdclxvi]+[\s\.,\/\\\|\-]?)+$/i) || TEXT.match(/^([nwxocer]+[\s\.,\/\\\|\-]?)+$/i) || TEXT.match(/^([zqpykiv]+[\s\.,\/\\\|\-]?)+$/i)) && kouseimoji.length>=3 && TEXT.length>=5) {
+  htmlTmp.push(
+    "<a name='romannum'><b>(全てがローマ数字)</b></a>");
   htmlTmp.push(TEXT);
   var str=TEXT;
   if (TEXT.match(/^[nwxocer\s]+$/i)) {
     str=atbash(TEXT);
     htmlTmp.push("(atbash)");
     htmlTmp.push(str);
+  } else if (TEXT.match(/^[zqpykiv\s]+$/i)) {
+    str=rotN(TEXT,"+13");
+    htmlTmp.push("(Rot 13)");
+    htmlTmp.push(str);
   }
-  htmlTmp.push(
-    "<b>(全てがローマ数字)</b>");
+
   var tmp=romanNums(str);
   var result=[];
   for (var i in tmp) {
@@ -1880,7 +1885,34 @@ if ((TEXT.match(/^([mdclxvi]+[\s\.,\/\\\|\-]?)+$/i) || TEXT.match(/^([nwxocer]+[
     result.push(tmp[i][1]);
   }
   htmlTmp.push("連結");
-  htmlCode(result.join(""));
+  var result=result.join("");
+  htmlCode(result);
+  var result=decASCII(result);
+  if(result.match(/^[a-z0-9]+$/i)){
+    htmlTmp.push("more atbash");  
+    htmlCode(atbash(result));  
+    htmlTmp.push("more reverse");  
+    htmlCode(strReverse(result));    
+  }
+  htmlTmp.push("--------------");
+  htmlTmp.push("<b>(reverseして全てがローマ数字)</b>");
+  var tmp=romanNums(strReverse(str));
+  var result=[];
+  for (var i in tmp) {
+    htmlTmp.push(
+      tmp[i][0]+": "+tmp[i][1]);
+    result.push(tmp[i][1]);
+  }
+  htmlTmp.push("連結");
+  var result=result.join("");
+  htmlCode(result);
+  var result=decASCII(result);
+  if(result.match(/^[a-z0-9]+$/i)){
+    htmlTmp.push("more atbash");  
+    htmlCode(atbash(result));  
+    htmlTmp.push("more reverse");  
+    htmlCode(strReverse(result));    
+  }
   htmlTmp.push("==============");
 }
 
