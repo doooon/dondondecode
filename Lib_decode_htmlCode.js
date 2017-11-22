@@ -83,13 +83,13 @@ function printCheck(tmp2) {
           
     //abc012
     if ( printMain( decASCII( letter2Num( tmp2 )), "more", "(more abc012 > decASCII)" ) == "fix") return;
-
+    
     //atbash > abc012
     if ( printMain( decASCII( letter2Num(atbash19( tmp2 ))), "more", "(more atbash > abc012 > decASCII)" ) == "fix") return;
-
+    
     //reverse > abc012
     if ( printMain( decASCII( letter2Num(strReverse( tmp2 ))), "more", "(more reverse > abc012 > decASCII)" ) == "fix") return;
-
+    
     //reverse atbash > abc012
     if ( printMain( decASCII( letter2Num(atbash19(strReverse( tmp2 )))), "more", "(more reverse atbash > abc012 > decASCII)" ) == "fix") return;
     
@@ -206,6 +206,13 @@ function printMain(tmp3, moreF, msg) {
       return "fix";
     }
 
+    // reverse
+    if (checkPasscode(strReverse(tmp3))=="fix") {
+      htmlTmp.push( msg+" > reverse" );
+      htmlTmp.push( htmlCodeLabel+checkCodeHTML(strReverse(tmp3))+ htmlCodeBLabel );
+      return "fix";
+    }
+
     // ローマ数字や文字数字変換
     if (formatExchange(tmp3, msg) == "fix") return "fix";
     
@@ -215,6 +222,13 @@ function printMain(tmp3, moreF, msg) {
 
     if (checkPasscode(tmp3)=="fix") {
       htmlTmp.push( htmlCodeLabel+checkCodeHTML(tmp3) + htmlCodeBLabel);
+      return "fix";
+    }
+
+    // reverse
+    if (checkPasscode(strReverse(tmp3))=="fix") {
+      htmlTmp.push( "(more reverse)" );
+      htmlTmp.push( htmlCodeLabel+checkCodeHTML(strReverse(tmp3))+ htmlCodeBLabel );
       return "fix";
     }
 
@@ -342,6 +356,13 @@ function formatExchange(str, msg) {
     if (formatExchangeRoman( tmpnum_last3, str, msg ) == "fix") return "fix";
   }
   
+  // 3文字目からラストまで数字
+  if (str.match(numRE_3toLast)) {
+    var tmpnum_3toLast = one13toLast(str, 1);
+    if (formatExchangeLetter( tmpnum_3toLast, "3toLast", str, msg ) == "fix") return "fix";
+    if (formatExchangeRoman( tmpnum_3toLast, str, msg ) == "fix") return "fix";
+  }
+  
   // 先頭と末尾で2文字数字
   if (str.match(numRE_firstEnd)) { 
       var tmpnum_firstEnd = one1twoFirstEnd(str, 1);
@@ -361,6 +382,13 @@ function formatExchange(str, msg) {
     var tmpnum_mid2 = one1mid2(str, 1);
     if (formatExchangeLetter( tmpnum_mid2, "mid2", str, msg ) == "fix") return "fix";
     if (formatExchangeRoman( tmpnum_mid2, str, msg ) == "fix") return "fix";
+  }
+  
+  // 3文字目と4文字目数字
+  if (str.match(numRE_mid3to4)) { 
+    var tmpnum_mid3to4 = one1mid3to4(str, 1);
+    if (formatExchangeLetter( tmpnum_mid3to4, "mid3to4", str, msg ) == "fix") return "fix";
+    if (formatExchangeRoman( tmpnum_mid3to4, str, msg ) == "fix") return "fix";
   }
   
   // ラテン完全文字数字
@@ -419,6 +447,9 @@ function addNumLast() {
 function addNumLast3() {
   return "one|two|ree|our|ive|six|ven|ght|ine|ero".split("|");
 }
+function addNum3toLast() {
+  return "ree|ur|x|ven|ve|ght|ne|ro|e|o".split("|");
+}
 function addNumFirstEnd() {
   return "oe|to|te|fr|fe|sx|sn|et|ne|zo".split("|");
 }
@@ -427,6 +458,9 @@ function addNumMid3() {
 }
 function addNumMid2() {
   return "ne|wo|hr|ou|iv|ix|ev|ig|in|er".split("|");
+}
+function addNumMid3to4() {
+  return "re|ur|ve|x|gh|ne|o|e".split("|");
 }
 function addNumLatin() {
   return "singul|bin|tern|trin|quatern|quin|sen|septen|octon|noven".split("|");
@@ -468,14 +502,20 @@ var numRE_last_fix       = new RegExp( "^" + addNumLast().join("|") + "$",      
 var numRE_last3           = new RegExp( addNumLast3().join("|"),                  "ig");
 var numRE_last3_fix       = new RegExp( "^" + addNumLast3().join("|") + "$",      "ig");
 
-var numRE_firstEnd           = new RegExp( addNumFirstEnd().join("|"),                  "ig");
-var numRE_firstEnd_fix       = new RegExp( "^" + addNumFirstEnd().join("|") + "$",      "ig");
+var numRE_3toLast         = new RegExp( addNum3toLast().join("|"),                  "ig");
+var numRE_3toLast_fix     = new RegExp( "^" + addNum3toLast().join("|") + "$",      "ig");
+
+var numRE_firstEnd        = new RegExp( addNumFirstEnd().join("|"),                  "ig");
+var numRE_firstEnd_fix    = new RegExp( "^" + addNumFirstEnd().join("|") + "$",      "ig");
 
 var numRE_mid3           = new RegExp( addNumMid3().join("|"),                  "ig");
 var numRE_mid3_fix       = new RegExp( "^" + addNumMid3().join("|") + "$",      "ig");
 
 var numRE_mid2           = new RegExp( addNumMid2().join("|"),                  "ig");
 var numRE_mid2_fix       = new RegExp( "^" + addNumMid2().join("|") + "$",      "ig");
+
+var numRE_mid3to4        = new RegExp( addNumMid3to4().join("|"),                  "ig");
+var numRE_mid3to4_fix    = new RegExp( "^" + addNumMid3to4().join("|") + "$",      "ig");
 
 var numRE_latin          = new RegExp( addNumLatin().join("|"),                 "ig");
 var numRE_latin_fix      = new RegExp( "^" + addNumLatin().join("|") + "$",     "ig");
@@ -1141,6 +1181,43 @@ function one1last3(a, flg) {
 }
 
 
+//3文字目から最後まで英数字変換
+function one13toLast(a, flg) {
+  if (!a) return false;
+  var list=keywordCheck(a);
+  if (list.length) {
+    for (var i in list) {
+      if (list[i].match(/^i$/i) || list[i].match(/^ni$/i)) continue;
+      a=a.replace(
+        list[i]
+        , "-"+list[i].split("").join("-")+"-");
+      if (list[i].match(numRE_3toLast_fix)) {
+        break;
+      }
+    }
+  }
+    a=a.replace(/ree/ig, "3");
+    a=a.replace(/ur/ig, "4");
+    a=a.replace(/x/ig, "6");
+    a=a.replace(/ven/ig, "7");
+    a=a.replace(/ve/ig, "5");
+    a=a.replace(/ght/ig, "8");
+    a=a.replace(/ne/ig, "9");
+    a=a.replace(/o/ig, "2");
+    if (flg) {
+      a=a.replace(/e/ig, "1");
+      a=a.replace(/ro/ig, "0");
+    }
+    
+    var kwl=a.match(/-(\w-)+/g);
+    for (var i in kwl) {
+      a=a.replace(
+        kwl[i], kwl[i].replace(/-/g, ""));
+    }
+    return a;
+}
+
+
 //先頭と最末尾の2文字英数字変換
 function one1twoFirstEnd(a, flg) {
   if (!a) return false;
@@ -1239,6 +1316,42 @@ function one1mid2(a, flg) {
     if (flg) {
       a=a.replace(/ne/ig, "1");
       a=a.replace(/er/ig, "0");
+    }
+    var kwl=a.match(/-(\w-)+/g);
+    for (var i in kwl) {
+      a=a.replace(
+        kwl[i], kwl[i].replace(/-/g, ""));
+    }
+    return a;
+}
+
+//3文字目と4文字目英数字変換
+function one1mid3to4(a, flg) {
+  if (!a) return false;
+  var list=keywordCheck(a);
+  if (list.length) {
+    for (var i in list) {
+      if (list[i].match(/^i$/i) || list[i].match(/^ni$/i)) continue;
+      a=a.replace(
+        list[i]
+        , "-"+list[i].split("").join("-")+"-");
+      if (list[i].match(numRE_mid3to4_fix)) {
+        break;
+      }
+    }
+  }
+    if (flg) {
+      a=a.replace(/ro/ig, "0");
+    }
+    a=a.replace(/re/ig, "3");
+    a=a.replace(/ur/ig, "4");
+    a=a.replace(/ve/ig, "5");
+    a=a.replace(/x/ig, "6");
+    a=a.replace(/gh/ig, "8");
+    a=a.replace(/ne/ig, "9");
+    a=a.replace(/o/ig, "2");
+    if (flg) {
+      a=a.replace(/e/ig, "1");
     }
     var kwl=a.match(/-(\w-)+/g);
     for (var i in kwl) {

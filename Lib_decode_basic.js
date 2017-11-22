@@ -420,7 +420,7 @@ function analyzeText(str) {
     /([2-9])\1+/)
   ) {
   alertMsg.push(
-    "ガラケー変換の可能性あり");
+    "<a href='#phoneKeyboard'>ガラケー変換の可能性あり</a>");
   }
   if (str.match(
       /^(([2-68][1-3]|[79][1-4])[\s01\D]?)+$/
@@ -429,15 +429,15 @@ function analyzeText(str) {
     )
   ) {
     alertMsg.push(
-      "ガラケー変換の可能性あり");
-  }
+      "<a href='#phoneKeyboard'>ガラケー変換の可能性あり</a>");
+    }
   if (str.match(/^[0mcxi\s]+$/i)) {
     alertMsg.push(
       "<a href='romannum'>構成文字がMCXI+0でローマ数字バイナリ</a>");
   }
   if (str.match(/^[0nxcr\s]+$/i)) {
     alertMsg.push(
-      "<a href='romannum'>atbashで構成文字がMCXI+0。ローマ数字バイナリ</a>");
+      "<a href='#romannum'>atbashで構成文字がMCXI+0。ローマ数字バイナリ</a>");
   }
   if (str.match(/^([MDCLXVI]+[\s\.,\/\|\\\-]?)+$/i)) {
     alertMsg.push("<a href='romannum'>ローマ数字</a>");
@@ -445,12 +445,12 @@ function analyzeText(str) {
     str.match(/^(([2-9]|[1-9][0-9])?[MDCLXVI][\s\.,\/\|\\\-]?)+$/i) && 
     !str.match(/([MDCLXVI])\1/i)
   ) {
-    alertMsg.push("<a href='romannum'>N×ローマ数字(3x=xxx)</a>");
+    alertMsg.push("<a href='#romannum'>N×ローマ数字(3x=xxx)</a>");
   } else if (
     atbash19(str).match(
       /^([MDCLXVI]+[\s\.,\/\|\\\-]?)+$/i)) {
     alertMsg.push(
-      "<a href='romannum'>atbash (reverse?) > ローマ数字</a>");
+      "<a href='#romannum'>atbash (reverse?) > ローマ数字</a>");
   } else if (m<=8) {
     var charlist=Object.keys(tmp).join("");
     for (var i=1; i<=26; i++) {
@@ -458,7 +458,7 @@ function analyzeText(str) {
         /^([MDCLXVI]+[\s\.,\/\|\\\-]?)+$/i)
       ) {
         alertMsg.push(
-          "<a href='romannum'>ローマ数字(Rot+"+i+")</a>");
+          "<a href='#romannum'>ローマ数字(Rot+"+i+")</a>");
         alertMsg.push(
           rotN(str, i));
         break;
@@ -885,7 +885,50 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
     alertMsg.push(
       "除数がある > "+res.join("\n"));
   }
-  
+
+  // 累乗
+  var powerMtrx=[
+    ["48","65536"],
+    ["49","262144"],
+    ["52","25"],
+    ["53","125"],
+    ["54","625"],
+    ["55","3125"],
+    ["56","15625"],
+    ["57","78125"],
+    ["65","7776"],
+    ["66","46656"],
+    ["67","279936"],
+    ["68","1679616"],
+    ["69","10077696"],
+    ["72","49"],
+    ["73","343"],
+    ["74","2401"],
+    ["75","16807"],
+    ["76","117649"],
+    ["77","823543"],
+    ["78","5764801"],
+    ["79","40353607"],
+    ["82","64"],
+    ["83","512"],
+    ["84","4096"],
+    ["85","32768"],
+    ["86","262144"],
+    ["87","2097152"],
+    ["88","16777216"],
+    ["89","134217728"],
+    ];
+  var tmpRE=new RegExp(powerMtrx.map(val=>val[1]).join("|"),"g");
+  var tmp=str.match(tmpRE);
+  if (tmp && tmp.length>4) {
+    alertMsg.push("<a href='#power'>累乗 x^y decASCII(xy) が見つかった</a>");
+    tmp.forEach(val=>{
+      powerMtrx.forEach(val2=>{
+        if(val2[1]==val) alertMsg.push(val2[0][0]+"^"+val2[0][1]+" = "+val2[1]);
+      });
+    });
+  }
+
   var tmp=str.match(
     /(1[0-8]\d\.\d|[1-9]\d\.\d|[1-9]\.\d)[NEWS]/ig);
   if (tmp) {

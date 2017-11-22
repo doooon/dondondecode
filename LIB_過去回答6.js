@@ -37,6 +37,90 @@ if (
 }
 */
 
+// 累乗 x^y decASCII(xy)
+// 78125-512-10077696-46656-3125-279936-40353607-5764801-4096-64-40353607-117649-16777216-625-40353607-125-64-
+// ["nx","n^x"]
+var powerMtrx=[
+["48","65536"],
+["49","262144"],
+["50","0"],
+["51","5"],
+["52","25"],
+["53","125"],
+["54","625"],
+["55","3125"],
+["56","15625"],
+["57","78125"],
+["65","7776"],
+["66","46656"],
+["67","279936"],
+["68","1679616"],
+["69","10077696"],
+["70","0"],
+["71","7"],
+["72","49"],
+["73","343"],
+["74","2401"],
+["75","16807"],
+["76","117649"],
+["77","823543"],
+["78","5764801"],
+["79","40353607"],
+["80","0"],
+["81","8"],
+["82","64"],
+["83","512"],
+["84","4096"],
+["85","32768"],
+["86","262144"],
+["87","2097152"],
+["88","16777216"],
+["89","134217728"],
+["90","0"]
+];
+
+var tmpL=TEXT.match(/\d+/g);
+if(tmpL.length>=8) {
+  var result=[];
+  var maxlen=0;
+  for(var i in tmpL){
+    var resulttmp=[];
+    for(var j in powerMtrx){
+      if(tmpL[i]===powerMtrx[j][1]){
+       resulttmp.push(powerMtrx[j][0]);
+      }
+    }
+    if(resulttmp.length) {
+      result.push(resulttmp);
+    }
+    if(resulttmp.length >maxlen) {
+      maxlen= resulttmp.length;
+    }
+  }
+  if(result.length>=8){
+    htmlTmp.push(TEXT);    
+    htmlTmp.push("<a name='power'><b>(累乗 x^y decASCII(xy))</b></a>");    
+    if(maxlen==1){
+      result.forEach(val=>{
+        powerMtrx.forEach(val2=>{
+          if(val2[0]==val[0]) htmlTmp.push(val2[0][0]+"^"+val2[0][1]+" = "+val2[1]);
+        });
+      });
+      htmlTmp.push(result.join(" "));
+      htmlCode(result.join(""));
+    }else{
+      var resultTmp=[];
+      result =result.map(
+        val=>val.length==1?val[0]:'['+val.join(',')+']');
+      htmlTmp.push(result.join(" "));
+      htmlCode(result.join(""));
+    }
+ }
+}
+
+
+
+
 
 // DecとHexで交互の範囲に納まる
 var tmpDec='(4[89]|5[0-7]|6[5-9]|[78][0-9]|90)';
