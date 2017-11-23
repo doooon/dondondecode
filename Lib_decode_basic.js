@@ -1216,7 +1216,7 @@ if (str.match(/WGS84/i)) {
 if (str.match(/MGRS/i)) {
   alertMsg.push("Military Grid Reference System？");
 }
-if (str.match(/([C-HJ-NP-W]([1-9]|[1-5][0-9]|60)|X([1-9]|[1-2][0-9]|3[0135789]|[4-5][0-9]|60))(\d{1,5}){2}/ig)) {
+if (str.match(/(([1-9]|[1-5][0-9]|60)[C-HJ-NP-W]|([1-9]|[1-2][0-9]|3[0135789]|[4-5][0-9]|60)X)[A-HJ-RS-Z]{2}(\d{1,5}){2}/ig)) {
   alertMsg.push("MGRS座標(Military Grid Reference System)");
   RegExp.forEach(val=>alertMsg.push(val););
 }
