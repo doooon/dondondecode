@@ -1218,8 +1218,9 @@ if (str.match(/MGRS/i)) {
 }
 
 if (str.match(/\b(([1-9]|[1-5][0-9]|60)[C-HJ-NP-W]|([1-9]|[1-2][0-9]|3[0135789]|[4-5][0-9]|60)X)[\s./]?[A-HJ-RS-Z]{2}[\s./]?(\d{1,5}[\s./]?){2}\b/ig)) {
+  var tmp=str.match(/\b(([1-9]|[1-5][0-9]|60)[C-HJ-NP-W]|([1-9]|[1-2][0-9]|3[0135789]|[4-5][0-9]|60)X)[\s./]?[A-HJ-RS-Z]{2}[\s./]?(\d{1,5}[\s./]?){2}\b/ig)
   alertMsg.push("MGRS座標(Military Grid Reference System)");
-  RegExp.forEach(val=>alertMsg.push(val));
+  tmp.forEach(val=>alertMsg.push("<a href='https://maps.google.co.jp/?q="+val+"' target='_blank'>"+val+"</a>"));
   alertMsg.push("<a href='https://www.wingfield.gr.jp/blog/2017/11/13/p6833/' target='_blank'>https://www.wingfield.gr.jp/blog/2017/11/13/p6833/</a>");
 }
 
