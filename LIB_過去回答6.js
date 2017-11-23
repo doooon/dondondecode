@@ -148,7 +148,9 @@ if (TEXT.match(tmpRE2)) {
     else return decASCII(val);
   });
   htmlCode(tmp.join(""));
+  htmlTmp.push("==============");    
 }
+
 
 // 使用されている文字が月の名前、10種以内でindexからDecASCII
 if (
