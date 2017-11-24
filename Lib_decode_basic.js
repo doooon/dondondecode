@@ -1217,6 +1217,7 @@ if (str.match(/MGRS/i)) {
   alertMsg.push("Military Grid Reference System？");
 }
 
+// MGRS座標
 if (str.match(/\b(([1-9]|[1-5][0-9]|60)[C-HJ-NP-W]|([1-9]|[1-2][0-9]|3[0135789]|[4-5][0-9]|60)X)[\s./]?[A-HJ-RS-Z]{2}[\s./]?(\d{1,5}[\s./]?){2}\b/ig)) {
   var tmp=str.match(/\b(([1-9]|[1-5][0-9]|60)[C-HJ-NP-W]|([1-9]|[1-2][0-9]|3[0135789]|[4-5][0-9]|60)X)[\s./]?[A-HJ-RS-Z]{2}[\s./]?(\d{1,5}[\s./]?){2}\b/ig)
   alertMsg.push("MGRS座標(Military Grid Reference System)");
@@ -1224,6 +1225,16 @@ if (str.match(/\b(([1-9]|[1-5][0-9]|60)[C-HJ-NP-W]|([1-9]|[1-2][0-9]|3[0135789]|
   alertMsg.push("<a href='https://www.wingfield.gr.jp/blog/2017/11/13/p6833/' target='_blank'>詳しくは https://www.wingfield.gr.jp/blog/2017/11/13/p6833/</a>");
 }
 
+// 緯度経度
+var tmpRE=new RegExp("\b([\-+mp]?)([0-9]|1-9][0-9]|1(?:[0-7][0-9]|80))[.d](\d{6,})[,c\d]([\-+mp]?)([0-9]|1-8][0-9]|90)[.d](\d{6,})\b","ig");
+if(str.match(tmpRE)){
+  alertMsg.push("緯度経度");
+  var tmp= str.match(tmpRE);
+  tmp=tmp.map(val=>val.replace(tmpRE,"$1$2.$3,$4$5.$6");
+  tmp.forEach(val=>val.replace(/m/ig,"-").replace(/p/ig,""));
+  tmp.forEach(val=>alertMsg.push("<a href='https://maps.google.com/?q="+val+"&z=15' target='_blank'>"+val+"</a>"));
+
+}
 
 
 
