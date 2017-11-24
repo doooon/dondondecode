@@ -1225,6 +1225,7 @@ if (str.match(/\b(([1-9]|[1-5][0-9]|60)[C-HJ-NP-W]|([1-9]|[1-2][0-9]|3[0135789]|
   alertMsg.push("<a href='https://www.wingfield.gr.jp/blog/2017/11/13/p6833/' target='_blank'>詳しくは https://www.wingfield.gr.jp/blog/2017/11/13/p6833/</a>");
 }
 
+/*
 // 緯度経度
 var tmpRE=new RegExp("\b([\-+mp]?)([0-9]|1-9][0-9]|1(?:[0-7][0-9]|80))[.d](\d{6,})[,c\d]([\-+mp]?)([0-9]|1-8][0-9]|90)[.d](\d{6,})\b","ig");
 if(str.match(tmpRE)){
@@ -1235,7 +1236,7 @@ if(str.match(tmpRE)){
   tmp.forEach(val=>alertMsg.push("<a href='https://maps.google.com/?q="+val+"&z=15' target='_blank'>"+val+"</a>"));
 
 }
-
+*/
 
 
 
