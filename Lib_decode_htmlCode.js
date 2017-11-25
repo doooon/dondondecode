@@ -116,7 +116,9 @@ function printCheck(tmp2) {
   // ローマ数字変換
   if ( printMain( romanExcTrigger( tmp2 ), "more", "(more Roman&Arabic num)" ) == "fix") return;
               
-              
+  // スペシャルキーワード変換
+  if ( specialKW( tmp2 ) == "fix") return;
+  
   // kw有り数字部abc012
   var kwL= keywordCheck(tmp2);
   if (kwL[0]) {
@@ -134,7 +136,7 @@ function printCheck(tmp2) {
 
 function specialKW(specialstr){
   if(!specialstr) return;
-  //debug(specialstr);
+  debug(specialstr);
 
   // 6→vi
   var tmpVI = replaceVI(specialstr);
@@ -142,6 +144,7 @@ function specialKW(specialstr){
     if ( printMain( tmpVI, "more", "(more 6 > vi )" ) == "fix") {
       htmlTmp.push(checkCodeHTML(tmpVI.replace(/vi/ig, "verum")));
       htmlTmp.push(checkCodeHTML(tmpVI.replace(/vi/ig, "inveniri")));
+      return "fix";
     }
   }
 
@@ -149,6 +152,7 @@ function specialKW(specialstr){
   var tmp82 = replace82(specialstr);
   if (tmp82) {
     if ( printMain( tmp82, "more", "(more 82 > lead )" ) == "fix") {
+      return "fix";
     }
   }			
   
@@ -156,6 +160,7 @@ function specialKW(specialstr){
   var tmpGo= replaceGo(specialstr);
   if (tmpGo) {
     if ( printMain( tmpGo, "more", "(more go <> stay )" ) == "fix") {
+      return "fix";
     }
   }			
   
@@ -163,6 +168,7 @@ function specialKW(specialstr){
   var tmpYou= replaceYou(specialstr);
   if (tmpYou) {
     if ( printMain( tmpYou, "more", "(more U <> you )" ) == "fix") {
+      return "fix";
     }
   }			
 } // end function specialKW()
