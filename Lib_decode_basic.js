@@ -1225,18 +1225,17 @@ if (str.match(/\b(([1-9]|[1-5][0-9]|60)[C-HJ-NP-W]|([1-9]|[1-2][0-9]|3[0135789]|
   alertMsg.push("<a href='https://www.wingfield.gr.jp/blog/2017/11/13/p6833/' target='_blank'>詳しくは https://www.wingfield.gr.jp/blog/2017/11/13/p6833/</a>");
 }
 
-/*
+
 // 緯度経度
-var tmpRE=new RegExp("\b([\-+mp]?)([0-9]|1-9][0-9]|1(?:[0-7][0-9]|80))[.d](\d{6,})[,c\d]([\-+mp]?)([0-9]|1-8][0-9]|90)[.d](\d{6,})\b","ig");
+var tmpRE=new RegExp(String.raw`([\-+mp]?)([0-9]|[1-8][0-9]|90)[.d](\d{6,})[,c\d]([\-+mp]?)([0-9]|[1-9][0-9]|1(?:[0-7][0-9]|80))[.d](\d{6,})`,"ig");
 if(str.match(tmpRE)){
   alertMsg.push("緯度経度");
   var tmp= str.match(tmpRE);
-  tmp=tmp.map(val=>val.replace(tmpRE,"$1$2.$3,$4$5.$6");
-  tmp.forEach(val=>val.replace(/m/ig,"-").replace(/p/ig,""));
-  tmp.forEach(val=>alertMsg.push("<a href='https://maps.google.com/?q="+val+"&z=15' target='_blank'>"+val+"</a>"));
-
+  var tmp2=tmp.map(val=>val.replace(tmpRE,"$1$2.$3,$4$5.$6"));
+  tmp2=tmp2.map(val=>val.replace(/m/ig,"-").replace(/p/ig,""));
+  tmp2.forEach((val,i)=>alertMsg.push(tmp[i]+" > <a href='https://maps.google.com/?q="+val+"&z=15' target='_blank'>"+val+"</a>"));
 }
-*/
+
 
 
 

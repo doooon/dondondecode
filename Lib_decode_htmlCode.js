@@ -136,7 +136,7 @@ function printCheck(tmp2) {
 
 function specialKW(specialstr){
   if(!specialstr) return;
-  debug(specialstr);
+  //debug(specialstr);
 
   // 6→vi
   var tmpVI = replaceVI(specialstr);
@@ -327,6 +327,7 @@ function formatExchange(str, msg) {
     var tmpnum_full = one1full(str, 1);
     if (formatExchangeLetter( tmpnum_full, "full", str, msg ) == "fix") return "fix";
     if (formatExchangeRoman( tmpnum_full, str, msg ) == "fix") return "fix";
+    if ( specialKW( tmpnum_full ) == "fix") return "fix";  // スペシャルキーワード変換
   }
   
   // 完全文字数字rvs
@@ -334,6 +335,7 @@ function formatExchange(str, msg) {
     var tmpnum_full_rvs = one1full_rvs(str, 1);
     if (formatExchangeLetter( tmpnum_full_rvs, "full_rvs", str, msg ) == "fix") return "fix";
     if (formatExchangeRoman( tmpnum_full_rvs, str, msg ) == "fix") return "fix";
+    if ( specialKW( tmpnum_full_rvs ) == "fix") return "fix";  // スペシャルキーワード変換
   }
   
   // フランス文字数字
@@ -341,6 +343,7 @@ function formatExchange(str, msg) {
     var tmpnum_french = one1french(str, 1);
     if (formatExchangeLetter( tmpnum_french, "french", str, msg ) == "fix") return "fix";
     if (formatExchangeRoman( tmpnum_french, str, msg ) == "fix") return "fix";
+    if ( specialKW( tmpnum_french ) == "fix") return "fix";  // スペシャルキーワード変換
   }
   
   // ドイツ文字数字
@@ -348,6 +351,7 @@ function formatExchange(str, msg) {
     var tmpnum_german = one1german(str, 1);
     if (formatExchangeLetter( tmpnum_german, "german", str, msg ) == "fix") return "fix";
     if (formatExchangeRoman( tmpnum_german, str, msg ) == "fix") return "fix";
+    if ( specialKW( tmpnum_german ) == "fix") return "fix";  // スペシャルキーワード変換
   }
   
   // 4文字数字
@@ -355,6 +359,7 @@ function formatExchange(str, msg) {
     var tmpnum_four = one1four(str, 1);
     if (formatExchangeLetter( tmpnum_four, "four", str, msg ) == "fix") return "fix";
     if (formatExchangeRoman( tmpnum_four, str, msg ) == "fix") return "fix";
+    if ( specialKW( tmpnum_four ) == "fix") return "fix";  // スペシャルキーワード変換
   }
   
   // 3文字数字
@@ -362,6 +367,7 @@ function formatExchange(str, msg) {
     var tmpnum_three = one1three(str, 1);
     if (formatExchangeLetter( tmpnum_three, "three", str, msg ) == "fix") return "fix";
     if (formatExchangeRoman( tmpnum_three, str, msg ) == "fix") return "fix";
+    if ( specialKW( tmpnum_three ) == "fix") return "fix";  // スペシャルキーワード変換
   }
   
   // 2文字数字
@@ -369,6 +375,7 @@ function formatExchange(str, msg) {
     var tmpnum_two = one1two(str, 1);
     if (formatExchangeLetter( tmpnum_two, "two", str, msg ) == "fix") return "fix";
     if (formatExchangeRoman( tmpnum_two, str, msg ) == "fix") return "fix";
+    if ( specialKW( tmpnum_two ) == "fix") return "fix";  // スペシャルキーワード変換
   }
   
   // ラスト2文字数字
@@ -376,6 +383,7 @@ function formatExchange(str, msg) {
     var tmpnum_last = one1last(str, 1);
     if (formatExchangeLetter( tmpnum_last, "last", str, msg ) == "fix") return "fix";
     if (formatExchangeRoman( tmpnum_last, str, msg ) == "fix") return "fix";
+    if ( specialKW( tmpnum_last ) == "fix") return "fix";  // スペシャルキーワード変換
   }
   
   // ラスト3文字数字
@@ -383,6 +391,7 @@ function formatExchange(str, msg) {
     var tmpnum_last3 = one1last3(str, 1);
     if (formatExchangeLetter( tmpnum_last3, "last3", str, msg ) == "fix") return "fix";
     if (formatExchangeRoman( tmpnum_last3, str, msg ) == "fix") return "fix";
+    if ( specialKW( tmpnum_last3 ) == "fix") return "fix";  // スペシャルキーワード変換
   }
   
   // 3文字目からラストまで数字
@@ -390,6 +399,7 @@ function formatExchange(str, msg) {
     var tmpnum_3toLast = one13toLast(str, 1);
     if (formatExchangeLetter( tmpnum_3toLast, "3toLast", str, msg ) == "fix") return "fix";
     if (formatExchangeRoman( tmpnum_3toLast, str, msg ) == "fix") return "fix";
+    if ( specialKW( tmpnum_3toLast ) == "fix") return "fix";  // スペシャルキーワード変換
   }
   
   // 先頭と末尾で2文字数字
@@ -397,13 +407,15 @@ function formatExchange(str, msg) {
       var tmpnum_firstEnd = one1twoFirstEnd(str, 1);
     if (formatExchangeLetter( tmpnum_firstEnd, "firstEnd", str, msg ) == "fix") return "fix";
     if (formatExchangeRoman( tmpnum_firstEnd, str, msg ) == "fix") return "fix";
-    }
+    if ( specialKW( tmpnum_firstEnd ) == "fix") return "fix";  // スペシャルキーワード変換
+  }
   
   // 途中3文字数字
   if (str.match(numRE_mid3)) { 
     var tmpnum_mid3 = one1mid3(str, 1);
     if (formatExchangeLetter( tmpnum_mid3, "mid3", str, msg ) == "fix") return "fix";
     if (formatExchangeRoman( tmpnum_mid3, str, msg ) == "fix") return "fix";
+    if ( specialKW( tmpnum_mid3 ) == "fix") return "fix";  // スペシャルキーワード変換
   }
   
   // 途中2文字数字
@@ -411,6 +423,7 @@ function formatExchange(str, msg) {
     var tmpnum_mid2 = one1mid2(str, 1);
     if (formatExchangeLetter( tmpnum_mid2, "mid2", str, msg ) == "fix") return "fix";
     if (formatExchangeRoman( tmpnum_mid2, str, msg ) == "fix") return "fix";
+    if ( specialKW( tmpnum_mid2 ) == "fix") return "fix";  // スペシャルキーワード変換
   }
   
   // 3文字目と4文字目数字
@@ -418,6 +431,7 @@ function formatExchange(str, msg) {
     var tmpnum_mid3to4 = one1mid3to4(str, 1);
     if (formatExchangeLetter( tmpnum_mid3to4, "mid3to4 (ve=5 ve=7 に注意)", str, msg ) == "fix") return "fix";
     if (formatExchangeRoman( tmpnum_mid3to4, str, msg ) == "fix") return "fix";
+    if ( specialKW( tmpnum_mid3to4 ) == "fix") return "fix";  // スペシャルキーワード変換
   }
   
   // ラテン完全文字数字
@@ -425,6 +439,7 @@ function formatExchange(str, msg) {
     var tmpnum_latin = one1latin(str, 1);
     if (formatExchangeLetter( tmpnum_latin, "latin", str ) == "fix") return "fix";
     if (formatExchangeRoman( tmpnum_latin, str ) == "fix") return "fix";
+    if ( specialKW( tmpnum_latin ) == "fix") return "fix";  // スペシャルキーワード変換
   }
   
   // ラテン4文字数字
@@ -432,6 +447,7 @@ function formatExchange(str, msg) {
     var tmpnum_latin4less = one1latin4less(str, 1);
     if (formatExchangeLetter( tmpnum_latin4less, "latin4less", str, msg ) == "fix") return "fix";
     if (formatExchangeRoman( tmpnum_latin4less, str, msg ) == "fix") return "fix";
+    if ( specialKW( tmpnum_latin4less ) == "fix") return "fix";  // スペシャルキーワード変換
   }
   
   // 同音異義語数字
@@ -439,6 +455,7 @@ function formatExchange(str, msg) {
     var tmpnum_homophone = one1homophone(str, 1);
     if (formatExchangeLetter( tmpnum_homophone, "homophone", str, msg ) == "fix") return "fix";
     if (formatExchangeRoman( tmpnum_homophone, str, msg ) == "fix") return "fix";
+    if ( specialKW( tmpnum_homophone ) == "fix") return "fix";  // スペシャルキーワード変換
   }
   
 }	
@@ -687,7 +704,6 @@ function replaceKw012(str, kw) {
           return p1+abc012(p2)+p3+abc012(p4);
         }
       ); 
-      debug(str2); 
     }	
  	
 		return(str2);
@@ -1600,6 +1616,19 @@ function checkCodeHTML(str, noA) {
     result+="</a></span>";
     return result;
   }
+
+  // 緯度経度だった
+  var tmpRE=new RegExp(String.raw`([\-+mp]?)([0-9]|[1-8][0-9]|90)[.d](\d{6,})[,c\d]([\-+mp]?)([0-9]|[1-9][0-9]|1(?:[0-7][0-9]|80))[.d](\d{6,})`,"ig");
+  if(str.match(tmpRE)){
+    result+=str+"\n";
+    result+="(緯度経度)\n";
+    var tmp= str.match(tmpRE);
+    var tmp2=tmp.map(val=>val.replace(tmpRE,"$1$2.$3,$4$5.$6"));
+    tmp2=tmp2.map(val=>val.replace(/m/ig,"-").replace(/p/ig,""));
+    tmp2.forEach((val,i)=>result+=tmp[i]+" > <a href='https://maps.google.com/?q="+val+"&z=15' target='_blank'>"+val+"</a>\n");
+    return result;
+  }
+
 
   result=str.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
