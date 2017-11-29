@@ -1339,7 +1339,7 @@ function leetKeyws() {
 
 
 
-
+["[0o][86b][5s]cur[3e]d","obscured","leet"], 
  ["[1i]mp[3E]rf[3e]c[7T]","imperfect","leet"], 
   ["[3E]xp[1L][0o]r[3E]","explore","leet"], 
   ["c[1l][0o][5s][3e]","open","意味bash"], 
