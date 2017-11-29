@@ -1340,10 +1340,7 @@ function leetKeyws() {
 
 
 
-["borrowed","old","-2 Something old,new,borrowed,blue"], 
-["borrowed","new","-1 Something old,new,borrowed,blue"], 
-["borrowed","blue","+1 Something old,new,borrowed,blue"], 
-  ["[1i]mp[3E]rf[3e]c[7T]","imperfect","leet"], 
+ ["[1i]mp[3E]rf[3e]c[7T]","imperfect","leet"], 
   ["[3E]xp[1L][0o]r[3E]","explore","leet"], 
   ["c[1l][0o][5s][3e]","open","意味bash"], 
   ["jormung[7&]","jormungand ","and変換"], 
@@ -1790,9 +1787,8 @@ function addKeyws() {
 
 //kw以外の注目ワードリスト(5文字以上を推奨)
 function noticeWords() {
-  return "January|February|March|April|May|June|July|August|September|October|November|December|COMBINE|siren".split("|");
+  return "January|February|March|April|May|June|July|August|September|October|November|December|COMBINE|siren|borrowed".split("|");
 }
-
 
 
 

@@ -7,6 +7,9 @@ function goKeywExchange() {
 
   var exL=[
   // ["","",""],
+["borrowed","old","-2 Something old,new,borrowed,blue"], 
+["borrowed","new","-1 Something old,new,borrowed,blue"], 
+["borrowed","blue","+1 Something old,new,borrowed,blue"], 
   ["[1i]mp[3E]rf[3e]c[7T]","imperfect","leet"], 
   ["p[3E]rf[3e]c[7T]","imperfect","意味bash"], 
   ["[3E]xp[1L][0o]r[3E]","explore","leet"], 
