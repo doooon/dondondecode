@@ -5,6 +5,28 @@ function kakokaitou6() {
 
 htmlTmp.push("<div class='red'>--- kako 6 ---</div>");
 
+
+/*
+// テンプレ
+if (
+  TEXT.match(/^\w+$/i) && 
+  TEXT.length%3==0 && 
+  kouseimoji.length>=3
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(テンプレ)</b>");
+  var tmp=TEXT.match(/.../g);
+  var result=[,,];
+  for (var i in tmp) {
+    result.push(tmp[i]);
+  }
+  htmlTmp.push("テンプレ");
+  htmlCode(result.join(""));
+  htmlTmp.push("==============");
+}
+*/
+
+
 /*
 // skip2(format+phrase)
 var tmpSkip2=skip(TEXT,5);
