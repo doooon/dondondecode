@@ -139,6 +139,7 @@ htmlCode(strReverse(odd)+even);
 htmlCode(even+strReverse(odd));
 htmlCode(odd+strReverse(even));
 htmlCode(strReverse(even)+odd);
+/*
 if (odd.match(/^([2-9][a-hjkm-z]{3}[2-9])([a-hjkm-z][2-9][a-hjkm-z][2-9][a-hjkm-z])$/i)) {
   htmlCode(RegExp.$1+even+RegExp.$2);
 } else if (odd.match(/^([a-hjkm-z]{3}[2-9]{2})([2-9]{3}[a-hjkm-z]{2})$/i)) {
@@ -150,6 +151,7 @@ if (odd.match(/^([2-9][a-hjkm-z]{3}[2-9])([a-hjkm-z][2-9][a-hjkm-z][2-9][a-hjkm-
 } else if (odd.match(/^\d[a-z]{2}\d{2}[a-z]{2}\d$/i)) {
   htmlCode(even+RegExp.$&);
 }
+*/
 
 if (
   even.length==odd.length && 
