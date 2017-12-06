@@ -156,7 +156,7 @@
 
 		var decodeButtonObj=document.getElementById("decodeButton");
 		decodeButtonObj.addEventListener("click",
-			setTimeout(decodeStart('decode'),1)
+			function(){setTimeout(decodeStart('decode'),1)}
 		, false);
 
 		var kwExchangeButtonObj=document.getElementById("kwExchangeButton");
