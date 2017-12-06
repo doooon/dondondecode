@@ -7,6 +7,7 @@ function goKeywExchange() {
 
   var exL=[
   // ["","",""],
+["00","legacy","前例あり"], 
 ["radium\s?1898","discovery","Pierre and Marie Curie (1898)"], 
 ["borrowed","old","-2 Something old,new,borrowed,blue"], 
 ["borrowed","new","-1 Something old,new,borrowed,blue"], 
