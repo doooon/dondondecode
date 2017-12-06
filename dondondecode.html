@@ -155,9 +155,9 @@
 		funcLeetLessKw();
 
 		var decodeButtonObj=document.getElementById("decodeButton");
-		decodeButtonObj.addEventListener("click", function () {
-			decodeStart('decode');
-		}, false);
+		decodeButtonObj.addEventListener("click",
+			setTimeout(decodeStart('decode'),1)
+		, false);
 
 		var kwExchangeButtonObj=document.getElementById("kwExchangeButton");
 		kwExchangeButtonObj.addEventListener("click", function () {
