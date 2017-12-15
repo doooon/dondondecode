@@ -324,11 +324,16 @@ function goRotate(n,str,rev,atb) {
     str=atbash19(str);
   }
   
-
+  
+  // +rot
   for (var i=0; i<=n; i++) {
     //htmlTmp.push("("+msg+"Rot+"+i+")");
     htmlCode(rotN(str, i), "", "("+msg+"Rot+"+i+")");
     numNonLotate(rotN(str, i, 0));
+  }
+
+  // -rot
+  for (var i=n; i>=0; i--) {
     //htmlTmp.push("("+msg+"Rot-"+i+")");
     htmlCode(rotN(str, 0-i), "", "("+msg+"Rot-"+i+")");
     numNonLotate(rotN(str, 0-i, 0));
