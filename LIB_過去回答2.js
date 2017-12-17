@@ -583,7 +583,8 @@ for (var i=0; i<TEXT.length; i++) {
   }
 }
 if (TEXT==tempL.join("")
-  && tempL.length%4==0
+  //&& tempL.length%4==0
+  && tempL.length>=12
 ) {
   htmlTmp.push(TEXT);
   htmlTmp.push("<b>(012abcとbase64の組み合わせ)</b>");
