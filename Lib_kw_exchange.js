@@ -7,6 +7,7 @@ function goKeywExchange() {
 
   var exL=[
   // ["","",""],
+["needs?","want","want & need (Rot-1) 欲求と要求"], 
 ["[3E][1i]n[5s][7t][3E][1i]n","einstein","leet"], 
 ["00","legacy","前例あり"], 
 ["radium\s?1898","discovery","Pierre and Marie Curie (1898)"], 
