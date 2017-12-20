@@ -1446,6 +1446,7 @@ if (
         new RegExp(".{"+str.length/3+"}", "g");
       var tmps=
         tmp3line.match(tmp3lineRE);
+      htmlCode(tmps.join(""));
       htmlCode(tmps[0]);
       htmlCode(tmps[1]);
       htmlCode(tmps[2]);
@@ -1476,16 +1477,7 @@ if (
   htmlTmp.push("([3] [2] [1]の順に連結)");
   threeLineAutokey(tmpjoin, tmp[0]);
   
-  /*
-  var tmp=TEXT.replace(/[]/ig, "0");
-  var result=[];
-  for (var i in tmp) {
-    result.push(tmp[i]);
-  }
-  htmlTmp.push("");
-  htmlCode(result.join(""));
-  */
-  htmlTmp.push("==============");
+ htmlTmp.push("==============");
 }
 
 
@@ -1504,12 +1496,15 @@ if (
       var strAryRE=new RegExp(
         ".{"+str.length/3+"}", "g");
       var strAry=str.match(strAryRE);
-      var tmp3line=strAry[0];
-      tmp3line+=
+      var tmp3line=[];
+      tmp3line[0]=strAry[0];
+      tmp3line[1]=
         vigenereDec(strAry[1], strAry[0]);
-      tmp3line+=
+      tmp3line[2]=
         vigenereDec(strAry[2], strAry[1]);
-      htmlCode(tmp3line);
+      htmlCode(tmp3line.join(""));
+      tmp3line.forEach(v=>htmlCode(v));
+
     }
   }
   
@@ -1537,15 +1532,61 @@ if (
   htmlTmp.push("([3] [2] [1]の順に連結)");
   threeLineVig(tmpjoin);
   
-  /*
-  var tmp=TEXT.replace(/[]/ig, "0");
-  var result=[];
-  for (var i in tmp) {
-    result.push(tmp[i]);
+  htmlTmp.push("==============");
+}
+
+
+// 同じ文字列長の3行から1つを他で2回vig
+var tmp=TEXT.split(/\n/g);
+if (
+  tmp.length==3 &&
+  tmp[0].length==tmp[1].length &&
+  tmp[1].length==tmp[2].length
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(同じ文字列長の3行から1つを他で2回vig)</b>");
+  
+  function threeLineVig2(str) {
+    if (str.length%3==0) {
+      var strAryRE=new RegExp(
+        ".{"+str.length/3+"}", "g");
+      var strAry=str.match(strAryRE);
+      var tmp3line=[];
+      tmp3line[0]=vigenereDec(strAry[0], strAry[1]);
+      tmp3line[0]=vigenereDec(tmp3line[0], strAry[2]);
+      tmp3line[1]=vigenereDec(strAry[1], strAry[2]);
+      tmp3line[1]=vigenereDec(tmp3line[1], strAry[0]);
+      tmp3line[2]=vigenereDec(strAry[2], strAry[0]);
+      tmp3line[2]=vigenereDec(tmp3line[2], strAry[1]);
+      htmlCode(tmp3line.join(""));
+      tmp3line.forEach(v=>htmlCode(v));
+    }
   }
-  htmlTmp.push("");
-  htmlCode(result.join(""));
-  */
+  
+  var tmpjoin=tmp[0]+tmp[1]+tmp[2];
+  htmlTmp.push("([1] [2] [3]の順に連結)");
+  threeLineVig2(tmpjoin);
+  
+  var tmpjoin=tmp[0]+tmp[2]+tmp[1];
+  htmlTmp.push("([1] [3] [2]の順に連結)");
+  threeLineVig2(tmpjoin);
+  
+  var tmpjoin=tmp[1]+tmp[0]+tmp[2];
+  htmlTmp.push("([2] [1] [3]の順に連結)");
+  threeLineVig2(tmpjoin);
+  
+  var tmpjoin=tmp[1]+tmp[2]+tmp[0];
+  htmlTmp.push("([2] [3] [1]の順に連結)");
+  threeLineVig2(tmpjoin);
+  
+  var tmpjoin=tmp[2]+tmp[0]+tmp[1];
+  htmlTmp.push("([3] [1] [2]の順に連結)");
+  threeLineVig2(tmpjoin);
+  
+  var tmpjoin=tmp[2]+tmp[1]+tmp[0];
+  htmlTmp.push("([3] [2] [1]の順に連結)");
+  threeLineVig2(tmpjoin);
+  
   htmlTmp.push("==============");
 }
 
