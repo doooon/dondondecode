@@ -256,6 +256,11 @@ function analyzeText(str) {
   
   var alertMsg=[];
   if (str.match(
+    /&amp;/i)) {
+    alertMsg.push(
+      "&amp; が含まれている → & に直そう");
+  }
+  if (str.match(
     /^((\w){1,5}([^\1]){,5}\s?)+$/i)) {
     alertMsg.push(
       "構成文字が2種類連続5のみ。モールス！");
