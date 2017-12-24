@@ -60,7 +60,7 @@ if (
         continue;
       }
       let ans= Math.around(tmpL2[i]/tmpL2[i-1],0);
-      result[i].push(ans);
+      result[i]=ans;
       htmlTmp.push(
         `${ans} = ${tmpL2[i]} / ${tmpL2[i-1]}`
       );
