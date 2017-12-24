@@ -258,7 +258,7 @@ function analyzeText(str) {
   if (str.match(
     /&amp;/i)) {
     alertMsg.push(
-      "&amp;amp; が含まれている → & に直そう");
+      "&ａｍｐ; が含まれている → & に直そう");
   }
   if (str.match(
     /^((\w){1,5}([^\1]){,5}\s?)+$/i)) {
