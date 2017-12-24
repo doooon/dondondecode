@@ -27,6 +27,53 @@ if (
 */
 
 
+
+
+
+// 数字で分けてSymbolを数字に変換。各行を前行で割り値を得る
+if (
+  TEXT.match(/^(\d[!@#\$%\^&\*\(\)]*){10,}$/i) && 
+  TEXT.match(/\d[!@#\$%\^&\*\(\)]+/i) && 
+  kouseimoji.length>=10
+) {
+  var tmpL=TEXT.match(/\d[!@#\$%\^&\*\(\)]*/g);
+  let flag=true;
+  for (var i=1; i<tmpL.length; i++) {
+    if (tmpL[i-1].length > tmpL[i].length) flag=false;
+  }
+  if (flag) {
+    htmlTmp.push(TEXT);
+    htmlTmp.push("<b>(数字で分けてSymbolを数字に変換。各行を前行で割り値を得る)</b>");
+
+    var tmpL2=tmpL.map(v=>{
+      htmlTmp.push(v);
+      return Number(symbol2Num(v));
+    });
+  
+    tmpL2.forEach(v=>htmlTmp.push(v));
+    
+    var result=[];
+    for (var i=0; i<tmpL2.length; i++) {
+      if (i==0) {
+        result[i].push(tmpL2[i]);
+        htmlTmp.push(tmpL2[i]);
+        continue;
+      }
+      let ans= Math.around(tmpL2[i]/tmpL2[i-1],0);
+      result[i].push(ans);
+      htmlTmp.push(
+        `${ans} = ${tmpL2[i]} / ${tmpL2[i-1]}`
+      );
+    }
+
+    htmlTmp.push(result.join(" "));
+    htmlCode(result.join(""));
+    htmlTmp.push("==============");
+  }
+}
+
+
+
 /*
 // skip2(format+phrase)
 var tmpSkip2=skip(TEXT,5);
