@@ -1337,6 +1337,9 @@ function leetKeyws() {
 
 
 
+
+
+["[4A][3M][0o]n[6G]u[5s]","amongus","leet"],
 ["[3E][1i]n[5s][7t][3E][1i]n","einstein","leet"], 
 ["radium\s?1898","discovery","Pierre and Marie Curie (1898)"], 
 ["[0o][86b][5s]cur[3e]d","obscured","leet"], 
