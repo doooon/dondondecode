@@ -55,7 +55,7 @@ if (
     var result=[];
     for (var i=0; i<tmpL2.length; i++) {
       if (i==0) {
-        result[i].push(tmpL2[i]);
+        result[i]=tmpL2[i];
         htmlTmp.push(tmpL2[i]);
         continue;
       }
