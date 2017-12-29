@@ -1691,7 +1691,6 @@ function bin2code128(bin) {
 
 //======================================
 
-
 //元素記号から原子番号 (元素記号2文字優先)
 function atomicNum(source, flag) {
   if (!source) return;
