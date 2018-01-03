@@ -7,6 +7,8 @@ function goKeywExchange() {
 
   var exL=[
   // ["","",""],
+["noir","lux","意味bash"], 
+["lux","noir","意味bash"], 
 ["darkxm","xm","意味bash"], 
 ["xm","darkxm","意味bash"], 
 ["[4A][3M][0o]n[6G]u[5s]","amongus","leet"],
