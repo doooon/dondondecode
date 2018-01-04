@@ -1342,7 +1342,8 @@ function leetKeyws() {
 
 
 
-
+["[7T][5S]uk[4A][5S][4A]","tsukasa","leet"], 
+["[4A]k[1i]R[4A]","akira","leet"], 
 ["darkxm","xm","意味bash"], 
 ["xm","darkxm","意味bash"], 
 ["[4A][3M][0o]n[6G]u[5s]","amongus","leet"],
