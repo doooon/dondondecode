@@ -7,6 +7,7 @@ function goKeywExchange() {
 
   var exL=[
   // ["","",""],
+
 ["truth","verum","英語 > ラテン語"], 
 ["verum","truth","ラテン語 > 英語"], 
 ["truth","veritas","英語 > ラテン語"], 
@@ -516,7 +517,8 @@ function goKeywExchange() {
   ["night","epiphany","epiphany night (啓示の夜)"], 
   ["day","epiphany","反対語 day <> night (epiphany night)"], 
   ["000000DEV","blackdev","#000000 > black"], 
-  ["x","Verity","XといえばVerity Seke"], 
+  ["(x|10)","Verity","XといえばVerity Seke"], 
+  ["aka","Verity","akaといえばVerity Seke (AKA X)"], 
   ["alkhwarizmi","algorithm","イスラムの科学者アル＝フワーリズミー。アルゴリズムの由来の人物像 "], 
   ["B0117ZVZBY","Hajra","The Niantic Project: Ingress 図書コード ASIN: B0117ZVZBY 著者 Felicia Hajra-Lee"], 
   ["13magnus","antimagnus","意味bash"], 
