@@ -7,8 +7,10 @@ function goKeywExchange() {
 
   var exL=[
   // ["","",""],
-["veritas","truth","truth >ラテン語 > veritas"], 
-["truth","veritas","truth >ラテン語 > veritas"], 
+["truth","verum","ラテン語で「本当の真実 verum truth」"], 
+["verum","truth","ラテン語で「本当の真実 verum truth」"], 
+["truth","veritas","英語 > ラテン語"], 
+["veritas","truth","ラテン語 > 英語"], 
 ["tt0074285","carrie","IMDb 映画キャリーより"],
 ["tt0074285","campbell","IMDb 映画キャリーより"],
 ["[7T][5S]uk[4A][5S][4A]","tsukasa","leet"], 
