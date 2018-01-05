@@ -7,7 +7,8 @@ function goKeywExchange() {
 
   var exL=[
   // ["","",""],
-
+["veritas","truth","truth >ラテン語 > veritas"], 
+["truth","veritas","truth >ラテン語 > veritas"], 
 ["tt0074285","carrie","IMDb 映画キャリーより"],
 ["tt0074285","campbell","IMDb 映画キャリーより"],
 ["[7T][5S]uk[4A][5S][4A]","tsukasa","leet"], 
