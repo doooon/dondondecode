@@ -183,7 +183,7 @@ function specialKW(specialstr){
   // 10|X → verity seke
   var tmpX= replaceVertiy(specialstr);
   if (tmpX) {
-    if ( printMain( tmpX, "more", "(more X <> verity )" ) == "fix") {
+    if ( printMain( tmpX, "more", "(more X|10 <> verity )" ) == "fix") {
       return "fix";
     }
   }
