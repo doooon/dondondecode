@@ -750,11 +750,11 @@ function replaceVertiy(str) {
 		var tmpRE5 = new RegExp("^"+tmp5+"$", "i");
 		
 		var str2 = "";
-		     if (str.match(tmpRE1)) { str2 = str.replace(tmpRE1, "$1worth$3"); } 
-		else if (str.match(tmpRE2)) { str2 = str.replace(tmpRE2, "$1worth$3"); } 
-		else if (str.match(tmpRE3)) { str2 = str.replace(tmpRE3, "$1worth$3"); } 
-		else if (str.match(tmpRE4)) { str2 = str.replace(tmpRE4, "worth$2"  ); } 
-		else if (str.match(tmpRE5)) { str2 = str.replace(tmpRE5, "$1worth$3"); }
+		     if (str.match(tmpRE1)) { str2 = str.replace(tmpRE1, "$1verity$3"); } 
+		else if (str.match(tmpRE2)) { str2 = str.replace(tmpRE2, "$1verity$3"); } 
+		else if (str.match(tmpRE3)) { str2 = str.replace(tmpRE3, "$1verity$3"); } 
+		else if (str.match(tmpRE4)) { str2 = str.replace(tmpRE4, "verity$2"  ); } 
+		else if (str.match(tmpRE5)) { str2 = str.replace(tmpRE5, "$1verity$3"); }
 	
 		return(str2);
 	} else {
