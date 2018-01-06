@@ -6,6 +6,7 @@ function kakokaitou6() {
 htmlTmp.push("<div class='red'>--- kako 6 ---</div>");
 
 
+
 /*
 // テンプレ
 if (
