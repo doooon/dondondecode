@@ -28,6 +28,21 @@ if (
 
 
 
+// 一つおきにatbash19
+if (
+  TEXT.match(/^\w+$/i) && 
+  TEXT.length>=8 && 
+  kouseimoji.length>=4
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(一つおきにatbash19)</b>");
+  var result=TEXT.replace(/(.)(.)?/g, (match, p1, p2)=>p1+atbash19(p2));
+  htmlCode(result);
+  htmlTmp.push("------");
+  var result2=TEXT.replace(/(.)(.)?/g, (match, p1, p2)=>atbash19(p1)+p2);
+  htmlCode(result2);
+  htmlTmp.push("==============");
+}
 
 
 // 数字で分けてSymbolを数字に変換。各行を前行で割り値を得る
