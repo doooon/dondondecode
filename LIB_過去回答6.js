@@ -36,10 +36,10 @@ if (
 ) {
   htmlTmp.push(TEXT);
   htmlTmp.push("<b>(一つおきにatbash19)</b>");
-  var result=TEXT.replace(/(.)(.)?/g, (match, p1, p2)=>p1+atbash19(p2));
+  var result=TEXT.replace(/(.)(.)?/g, (match, p1, p2)=>p1+p2?atbash19(p2):"");
   htmlCode(result);
   htmlTmp.push("------");
-  var result2=TEXT.replace(/(.)(.)?/g, (match, p1, p2)=>atbash19(p1)+p2);
+  var result2=TEXT.replace(/(.)(.)?/g, (match, p1, p2)=>atbash19(p1)+p2?p2:"");
   htmlCode(result2);
   htmlTmp.push("==============");
 }
