@@ -36,11 +36,27 @@ if (
   kouseimoji.length>=4
 ) {
   htmlTmp.push(TEXT);
-  htmlTmp.push("<b>(一つおきにatbash19)</b>");
+  htmlTmp.push("<b>(偶数文字目をatbash19)</b>");
   var result=TEXT.replace(/(.)(.)?/g, (match, p1, p2)=>p1+(p2?atbash19(p2):""));
   htmlCode(result);
-  htmlTmp.push("------");
+  htmlTmp.push("<b>(奇数文字目をatbash19)</b>");
   var result2=TEXT.replace(/(.)(.)?/g, (match, p1, p2)=>atbash19(p1)+(p2?p2:""));
+  htmlCode(result2);
+  htmlTmp.push("==============");
+}
+
+// 一つおきにatbash09
+if (
+  TEXT.match(/^\w+$/i) && 
+  TEXT.length>=8 && 
+  kouseimoji.length>=4
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(偶数文字目をatbash09)</b>");
+  var result=TEXT.replace(/(.)(.)?/g, (match, p1, p2)=>p1+(p2?atbash09(p2):""));
+  htmlCode(result);
+  htmlTmp.push("<b>(奇数文字目をatbash09)</b>");
+  var result2=TEXT.replace(/(.)(.)?/g, (match, p1, p2)=>atbash09(p1)+(p2?p2:""));
   htmlCode(result2);
   htmlTmp.push("==============");
 }
