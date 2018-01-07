@@ -1062,6 +1062,66 @@ function goRectangles(str) {
 
     }
   }
+
+  //ピラミッド型rect
+  if ((TEXT.length+"").match(/^(6|10|15|21|28|36|45|55)$/)) {
+    let tmp=TEXT;
+    let result=[];
+  
+    if ((tmp.length+"").match(/^55$/)) {
+      tmp=tmp.replace(/^(.{10})(.*)$/, 
+            (m,p1,p2)=>{result.push(p1);return p2});
+    }
+    if ((tmp.length+"").match(/^45$/)) {
+      tmp=tmp.replace(/^(.{9})(.*)$/, 
+          (m,p1,p2)=>{result.push(p1);return p2});
+    }
+    if ((tmp.length+"").match(/^36$/)) {
+      tmp=tmp.replace(/^(.{8})(.*)$/, 
+            (m,p1,p2)=>{result.push(p1);return p2});
+    }
+    if ((tmp.length+"").match(/^28$/)) {
+      tmp=tmp.replace(/^(.{7})(.*)$/, 
+            (m,p1,p2)=>{result.push(p1);return p2});
+    }
+    if ((tmp.length+"").match(/^21$/)) {
+      tmp=tmp.replace(/^(.{6})(.*)$/, 
+            (m,p1,p2)=>{result.push(p1);return p2});
+    }
+    if ((tmp.length+"").match(/^15$/)) {
+      tmp=tmp.replace(/^(.{5})(.*)$/, 
+            (m,p1,p2)=>{result.push(p1);return p2});
+    }
+    if ((tmp.length+"").match(/^10$/)) {
+      tmp=tmp.replace(/^(.{4})(.*)$/, 
+            (m,p1,p2)=>{result.push(p1);return p2});
+    }
+    if ((tmp.length+"").match(/^6$/)) {
+      tmp=tmp.replace(/^(.{3})(.*)$/, 
+            (m,p1,p2)=>{result.push(p1);return p2});
+    }
+    if ((tmp.length+"").match(/^3$/)) {
+      tmp=tmp.replace(/^(.{2})(.*)$/, 
+            (m,p1,p2)=>{result.push(p1);return p2});
+    }
+    if ((tmp.length+"").match(/^1$/)) {
+      tmp=tmp.replace(/^(.{1})(.*)$/, 
+            (m,p1,p2)=>{result.push(p1);return p2});
+    }
+
+    let n=result[0].length;
+    result.forEach((v,i,o)=>{
+      let m=n-v.length;
+      let r="";
+      for (let j=1; j<=m; j++) {
+        r=" "+r;
+      }
+      o[i]=v+r;
+    });
+    rectRead(result); 
+  }
+
+
 } // end function
 
 
