@@ -477,7 +477,7 @@ function rectSlide(rect,xy,val) {
   return tmpL.join("\n");
 }
 
-
+/*
 // Rect読み出し
 function rectRead(rect, spacerstr) {
 
@@ -1010,7 +1010,539 @@ function rectRead(rect, spacerstr) {
   htmlTmp.push("-------------");
   
 } // end function 
- 
+*/
+
+
+// Rect読み出し
+function rectRead(rect) {
+
+  var yLen = rect.length;
+  var xLen = rect[0].length;
+
+  // rect表示
+  for (var k in rect) {
+    htmlTmp.push(rect[k].join(""));
+  }
+
+  htmlTmp.push("---------");
+  htmlTmp.push("横/縦読み");
+
+  //左上から横読み
+  var result = "";
+  for (var y=0; y<yLen; y=(y+1)|0) {
+      for (var x=0; x<xLen; x=(x+1)|0) {
+          result=result+rect[y][x];
+      }
+  }
+  htmlCode(result);
+
+  //左下から横読み
+  var result = "";
+  for (var y=(yLen-1)|0; 0<=y; y=(y-1)|0) {
+      for (var x=0; x<xLen; x=(x+1)|0) {
+          result=result+rect[y][x];
+      }
+  }
+  htmlCode(result);
+
+  //右下から左横読み
+  var result = "";
+  for (var y=(yLen-1)|0; 0<=y; y=(y-1)|0) {
+      for (var x=(xLen-1)|0; 0<=x; x=(x-1)|0) {
+          result=result+rect[y][x];
+      }
+  }
+  htmlCode(result);
+
+  //右上から左横読み
+  var result = "";
+  for (var y=0; y<yLen; y=(y+1)|0) {
+      for (var x=xLen-1; 0<=x; x=(x-1)|0) {
+          result=result+rect[y][x];
+      }
+  }
+  htmlCode(result);
+  
+  //左下から縦読み
+  var result = "";
+  for (var x=0; x<xLen; x=(x+1)|0) {
+      for (var y=yLen-1; 0<=y; y=(y-1)|0) {
+          result=result+rect[y][x];
+      }
+  }
+  htmlCode(result);
+
+  //左上から縦読み
+  var result = "";
+  for (var x=0; x<xLen; x=(x+1)|0) {
+      for (var y=0; y<yLen; y=(y+1)|0) {
+          result=result+rect[y][x];
+      }
+  }
+  htmlCode(result);
+
+  //右上から縦読み
+  var result = "";
+  for (var x=xLen-1; 0<=x; x=(x-1)|0) {
+      for (var y=0; y<yLen; y=(y+1)|0) {
+          result=result+rect[y][x];
+      }
+  }
+  htmlCode(result);
+
+  //右下から縦読み
+  var result = "";
+  for (var x=xLen-1; 0<=x; x=(x-1)|0) {
+      for (var y=yLen-1; 0<=y; y=(y-1)|0) {
+          result=result+rect[y][x];
+      }
+  }
+  htmlCode(result);
+
+  htmlTmp.push("-------");
+  htmlTmp.push("渦巻き読み");
+
+  //左上から右渦巻き読み
+  var result = "";
+  var xNmax=xLen-1; //進行中最大値
+  var yNmax=yLen-1; //進行中最大値
+  var xNmin=0; //進行中最小値
+  var yNmin=0; //進行中最小値
+  var xN=0; //現在値
+  var yN=0; //現在値
+  for (var y=yNmin; y<=yNmax; y=(y+1)|0) {
+    for (var x=xNmin; x<=xNmax; x=(x+1)|0) {
+      result=result+rect[yN][x];
+      xN=x;
+    }
+    yNmin=yNmin+1;
+    if (yNmax<yNmin) break;
+    for (var y=yNmin; y<=yNmax; y=(y+1)|0) {
+      result=result+rect[y][xN];
+      yN=y;
+    }
+    xNmax=xNmax-1;
+    if (xNmax<xNmin) break;
+    for (var x=xNmax; xNmin<=x; x=(x-1)|0) {
+      result=result+rect[yN][x];
+      xN=x;
+    }
+    yNmax=yNmax-1;
+    if (yNmax<yNmin) break;
+    for (var y=yNmax; yNmin<=y; y=(y-1)|0) {
+      result=result+rect[y][xN];
+      yN=y;
+    }
+    xNmin=xNmin+1;
+    if (xNmax<xNmin) break;
+  }
+  htmlCode(result);
+  htmlCode(strReverse(result), "逆");
+
+  //右上から右渦巻き読み
+  var result = "";
+  var xNmax=xLen-1; //進行中最大値
+  var yNmax=yLen-1; //進行中最大値
+  var xNmin=0; //進行中最小値
+  var yNmin=0; //進行中最小値
+  var xN=xNmax; //現在値
+  var yN=0; //現在値
+  for (var x=xNmax; xNmin<=x; x=(x-1)|0) {
+    for (var y=yNmin; y<=yNmax; y=(y+1)|0) {
+      result=result+rect[y][xN];
+      yN=y;
+    }
+    xNmax=xNmax-1;
+    if (xNmax<xNmin) break;
+    for (var x=xNmax; xNmin<=x; x=(x-1)|0) {
+      result=result+rect[yN][x];
+      xN=x;
+    }
+    yNmax=yNmax-1;
+    if (yNmax<yNmin) break;
+    for (var y=yNmax; yNmin<=y; y=(y-1)|0) {
+      result=result+rect[y][xN];
+      yN=y;
+    }
+    xNmin=xNmin+1;
+    if (xNmax<xNmin) break;
+    for (var x=xNmin; x<=xNmax; x=(x+1)|0) {
+      result=result+rect[yN][x];
+      xN=x;
+    }
+    yNmin=yNmin+1;
+    if (yNmax<yNmin) break;
+  }
+  htmlCode(result);
+  htmlCode(strReverse(result), "逆");
+
+  //右下から右渦巻き読み
+  var result = "";
+  var xNmax=xLen-1; //進行中最大値
+  var yNmax=yLen-1; //進行中最大値
+  var xNmin=0; //進行中最小値
+  var yNmin=0; //進行中最小値
+  var xN=xNmax; //現在値
+  var yN=yNmax; //現在値
+  for (var y=yNmax; yNmin<=y; y=(y-1)|0) {
+    for (var x=xNmax; xNmin<=x; x=(x-1)|0) {
+      result=result+rect[yN][x];
+      xN=x;
+    }
+    yNmax=yNmax-1;
+    if (yNmax<yNmin) break;
+    for (var y=yNmax; yNmin<=y; y=(y-1)|0) {
+      result=result+rect[y][xN];
+      yN=y;
+    }
+    xNmin=xNmin+1;
+    if (xNmax<xNmin) break;
+    for (var x=xNmin; x<=xNmax; x=(x+1)|0) {
+      result=result+rect[yN][x];
+      xN=x;
+    }
+    yNmin=yNmin+1;
+    if (yNmax<yNmin) break;
+    for (var y=yNmin; y<=yNmax; y=(y+1)|0) {
+      result=result+rect[y][xN];
+      yN=y;
+    }
+    xNmax=xNmax-1;
+    if (xNmax<xNmin) break;
+  }
+  htmlCode(result);
+  htmlCode(strReverse(result), "逆");
+
+  //左下から右渦巻き読み
+  var result = "";
+  var xNmax=xLen-1; //進行中最大値
+  var yNmax=yLen-1; //進行中最大値
+  var xNmin=0; //進行中最小値
+  var yNmin=0; //進行中最小値
+  var xN=xNmin; //現在値
+  var yN=yNmax; //現在値
+  for (var x=xNmin; x<=xNmax; x=(x+1)|0) {
+    for (var y=yNmax; yNmin<=y; y=(y-1)|0) {
+      result=result+rect[y][xN];
+      yN=y;
+    }
+    xNmin=xNmin+1;
+    if (xNmax<xNmin) break;
+    for (var x=xNmin; x<=xNmax; x=(x+1)|0) {
+      result=result+rect[yN][x];
+      xN=x;
+    }
+    yNmin=yNmin+1;
+    if (yNmax<yNmin) break;
+    for (var y=yNmin; y<=yNmax; y=(y+1)|0) {
+      result=result+rect[y][xN];
+      yN=y;
+    }
+    xNmax=xNmax-1;
+    if (xNmax<xNmin) break;
+    for (var x=xNmax; xNmin<=x; x=(x-1)|0) {
+      result=result+rect[yN][x];
+      xN=x;
+    }
+    yNmax=yNmax-1;
+    if (yNmax<yNmin) break;
+  }
+  htmlCode(result);
+  htmlCode(strReverse(result), "逆");
+
+//++++++++++
+
+  //左上から左渦巻き読み
+  var result = "";
+  var xNmax=xLen-1; //進行中最大値
+  var yNmax=yLen-1; //進行中最大値
+  var xNmin=0; //進行中最小値
+  var yNmin=0; //進行中最小値
+  var xN=xNmin; //現在値
+  var yN=yNmin; //現在値
+  for (var x=xNmin; x<=xNmax; x=(x+1)|0) {
+    for (var y=yNmin; y<=yNmax; y=(y+1)|0) {
+      result=result+rect[y][xN];
+      yN=y;
+    }
+    xNmin=xNmin+1;
+    if (xNmax<xNmin) break;
+    for (var x=xNmin; x<=xNmax; x=(x+1)|0) {
+      result=result+rect[yN][x];
+      xN=x;
+    }
+    yNmax=yNmax-1;
+    if (yNmax<yNmin) break;
+    for (var y=yNmax; yNmin<=y; y=(y-1)|0) {
+      result=result+rect[y][xN];
+      yN=y;
+    }
+    xNmax=xNmax-1;
+    if (xNmax<xNmin) break;
+    for (var x=xNmax; xNmin<=x; x=(x-1)|0) {
+      result=result+rect[yN][x];
+      xN=x;
+    }
+    yNmin=yNmin+1;
+    if (yNmax<yNmin) break;
+  }
+  htmlCode(result);
+  htmlCode(strReverse(result), "逆");
+
+ //左下から左渦巻き読み
+  var result = "";
+  var xNmax=xLen-1; //進行中最大値
+  var yNmax=yLen-1; //進行中最大値
+  var xNmin=0; //進行中最小値
+  var yNmin=0; //進行中最小値
+  var xN=xNmin; //現在値
+  var yN=yNmax; //現在値
+  for (var y=yNmax; yNmin<=y; y=(y-1)|0) {
+    for (var x=xNmin; x<=xNmax; x=(x+1)|0) {
+      result=result+rect[yN][x];
+      xN=x;
+    }
+    yNmax=yNmax-1;
+    if (yNmax<yNmin) break;
+    for (var y=yNmax; yNmin<=y; y=(y-1)|0) {
+      result=result+rect[y][xN];
+      yN=y;
+    }
+    xNmax=xNmax-1;
+    if (xNmax<xNmin) break;
+    for (var x=xNmax; xNmin<=x; x=(x-1)|0) {
+      result=result+rect[yN][x];
+      xN=x;
+    }
+    yNmin=yNmin+1;
+    if (yNmax<yNmin) break;
+    for (var y=yNmin; y<=yNmax; y=(y+1)|0) {
+      result=result+rect[y][xN];
+      yN=y;
+    }
+    xNmin=xNmin+1;
+    if (xNmax<xNmin) break;
+  }
+  htmlCode(result);
+  htmlCode(strReverse(result), "逆");
+
+  //右下から左渦巻き読み
+  var result = "";
+  var xNmax=xLen-1; //進行中最大値
+  var yNmax=yLen-1; //進行中最大値
+  var xNmin=0; //進行中最小値
+  var yNmin=0; //進行中最小値
+  var xN=xNmax; //現在値
+  var yN=yNmax; //現在値
+  for (var x=xNmax; xNmin<=x; x=(x-1)|0) {
+    for (var y=yNmax; yNmin<=y; y=(y-1)|0) {
+      result=result+rect[y][xN];
+      yN=y;
+    }
+    xNmax=xNmax-1;
+    if (xNmax<xNmin) break;
+    for (var x=xNmax; xNmin<=x; x=(x-1)|0) {
+      result=result+rect[yN][x];
+      xN=x;
+    }
+    yNmin=yNmin+1;
+    if (yNmax<yNmin) break;
+    for (var y=yNmin; y<=yNmax; y=(y+1)|0) {
+      result=result+rect[y][xN];
+      yN=y;
+    }
+    xNmin=xNmin+1;
+    if (xNmax<xNmin) break;
+    for (var x=xNmin; x<=xNmax; x=(x+1)|0) {
+      result=result+rect[yN][x];
+      xN=x;
+    }
+    yNmax=yNmax-1;
+    if (yNmax<yNmin) break;
+  }
+  htmlCode(result);
+  htmlCode(strReverse(result), "逆");
+
+  //右上から左渦巻き読み
+  var result = "";
+  var xNmax=xLen-1; //進行中最大値
+  var yNmax=yLen-1; //進行中最大値
+  var xNmin=0; //進行中最小値
+  var yNmin=0; //進行中最小値
+  var xN=xNmax; //現在値
+  var yN=yNmin; //現在値
+  for (var y=yNmin; y<=yNmax; y=(y+1)|0) {
+    for (var x=xNmax; xNmin<=x; x=(x-1)|0) {
+      result=result+rect[yN][x];
+      xN=x;
+    }
+    yNmin=yNmin+1;
+    if (yNmax<yNmin) break;
+    for (var y=yNmin; y<=yNmax; y=(y+1)|0) {
+      result=result+rect[y][xN];
+      yN=y;
+    }
+    xNmin=xNmin+1;
+    if (xNmax<xNmin) break;
+    for (var x=xNmin; x<=xNmax; x=(x+1)|0) {
+      result=result+rect[yN][x];
+      xN=x;
+    }
+    yNmax=yNmax-1;
+    if (yNmax<yNmin) break;
+    for (var y=yNmax; yNmin<=y; y=(y-1)|0) {
+      result=result+rect[y][xN];
+      yN=y;
+    }
+    xNmax=xNmax-1;
+    if (xNmax<xNmin) break;
+  }
+  htmlCode(result);
+  htmlCode(strReverse(result), "逆");
+    
+  htmlTmp.push("-------");
+  htmlTmp.push("折り返し読み");
+
+  //左上から右へ折り返し読み
+  var r = ""; //result
+  var xNmax=xLen-1; //最大値
+  var yNmax=yLen-1; //最大値
+  for (var y=0; y<=yNmax; y=(y+1)|0) {
+    for (var x=0; x<=xNmax; x=(x+1)|0) {
+      r=r + rect[y][x];
+    }
+    y=y+1;
+    if (yNmax<y) break;
+    for (var x=xNmax; 0<=x; x=(x-1)|0) {
+      r=r+ rect[y][x];
+    }
+    if (yNmax<y) break;
+  }
+  htmlCode(r);
+
+  //右上から左へ折り返し読み
+  var r = ""; //result
+  var xNmax=xLen-1; //最大値
+  var yNmax=yLen-1; //最大値
+  for (var y=0; y<=yNmax; y=(y+1)|0) {
+    for (var x=xNmax; 0<=x; x=(x-1)|0) {
+      r=r+ rect[y][x];
+    }
+    y=y+1;
+    if (yNmax<y) break;
+    for (var x=0; x<=xNmax; x=(x+1)|0) {
+      r=r + rect[y][x];
+    }
+    if (yNmax<y) break;
+  }
+  htmlCode(r);
+
+  //右下から左へ折り返し読み
+  var r = ""; //result
+  var xNmax=xLen-1; //最大値
+  var yNmax=yLen-1; //最大値
+  for (var y=yNmax; 0<=y; y=(y-1)|0) {
+    for (var x=xNmax; 0<=x; x=(x-1)|0) {
+      r=r+ rect[y][x];
+    }
+    y=y-1;
+    if (0>y) break;
+    for (var x=0; x<=xNmax; x=(x+1)|0) {
+      r=r + rect[y][x];
+    }
+    if (0>y) break;
+  }
+  htmlCode(r);
+  
+ //左下から右へ折り返し読み
+  var r = ""; //result
+  var xNmax=xLen-1; //最大値
+  var yNmax=yLen-1; //最大値
+  for (var y=yNmax; 0<=y; y=(y-1)|0) {
+    for (var x=0; x<=xNmax; x=(x+1)|0) {
+      r=r + rect[y][x];
+    }
+    y=y-1;
+    if (0>y) break;
+    for (var x=xNmax; 0<=x; x=(x-1)|0) {
+      r=r+ rect[y][x];
+    }
+    if (0>y) break;
+  }
+  htmlCode(r);
+
+  //左上から下へ折り返し読み
+  var r = ""; //result
+  var xNmax=xLen-1; //最大値
+  var yNmax=yLen-1; //最大値
+  for (var x=0; x<=xNmax; x=(x+1)|0) {
+    for (var y=0; y<=yNmax; y=(y+1)|0) {
+      r=r + rect[y][x];
+    }
+    x=x+1;
+    if (xNmax<x) break;
+    for (var y=yNmax; 0<=y; y=(y-1)|0) {
+      r=r+ rect[y][x];
+    }
+    if (xNmax<x) break;
+  }
+  htmlCode(r);
+
+  //右上から下へ折り返し読み
+  var r = ""; //result
+  var xNmax=xLen-1; //最大値
+  var yNmax=yLen-1; //最大値
+  for (var x=xNmax; 0<=x; x=(x-1)|0) {
+    for (var y=0; y<=yNmax; y=(y+1)|0) {
+      r=r + rect[y][x];
+    }
+    x=x-1;
+    if (0>x) break;
+    for (var y=yNmax; 0<=y; y=(y-1)|0) {
+      r=r+ rect[y][x];
+    }
+    if (0>x) break;
+  }
+  htmlCode(r);
+
+  //右下から上へ折り返し読み
+  var r = ""; //result
+  var xNmax=xLen-1; //最大値
+  var yNmax=yLen-1; //最大値
+  for (var x=xNmax; 0<=x; x=(x-1)|0) {
+    for (var y=yNmax; 0<=y; y=(y-1)|0) {
+      r=r+ rect[y][x];
+    }
+    x=x-1;
+    if (0>x) break;
+    for (var y=0; y<=yNmax; y=(y+1)|0) {
+      r=r + rect[y][x];
+    }
+    if (0>x) break;
+  }
+  htmlCode(r);
+
+  //左下から上へ折り返し読み
+  var r = ""; //result
+  var xNmax=xLen-1; //最大値
+  var yNmax=yLen-1; //最大値
+  for (var x=0; x<=xNmax; x=(x+1)|0) {
+    for (var y=yNmax; 0<=y; y=(y-1)|0) {
+      r=r+ rect[y][x];
+    }
+    x=x+1;
+    if (xNmax<x) break;
+    for (var y=0; y<=yNmax; y=(y+1)|0) {
+      r=r + rect[y][x];
+    }
+    if (xNmax<x) break;
+  }
+  htmlCode(r);
+
+  htmlTmp.push("-------------");
+  
+} // end function 
+
 
 // Rect作成
 function goRectangles(str) {
