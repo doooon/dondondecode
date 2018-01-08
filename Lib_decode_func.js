@@ -1655,8 +1655,8 @@ function goRectangles(str) {
       return result;
     }
 
-    
-
+    debug("777");
+    /*
     let result=[];
     result=pyramidRect(TEXT);
 
@@ -1715,7 +1715,7 @@ function goRectangles(str) {
       o[i]=(v+r).split("");
     });
     rectRead(result, "_"); 
-    debug("7");
+   */
   }
   
 
