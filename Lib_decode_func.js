@@ -6,7 +6,6 @@
 //======================================
 
 
-
 // adfgvx暗号
 function adfgvx(str,key,mode) {
   if(!str||!mode) return null;
