@@ -477,7 +477,7 @@ function rectSlide(rect,xy,val) {
   return tmpL.join("\n");
 }
 
-/*
+
 // Rect読み出し
 function rectRead(rect, spacerstr) {
 
@@ -1010,9 +1010,9 @@ function rectRead(rect, spacerstr) {
   htmlTmp.push("-------------");
   
 } // end function 
-*/
 
 
+/*
 // Rect読み出し
 function rectRead(rect) {
 
@@ -1542,7 +1542,7 @@ function rectRead(rect) {
   htmlTmp.push("-------------");
   
 } // end function 
-
+*/
 
 // Rect作成
 function goRectangles(str) {
@@ -1602,7 +1602,7 @@ function goRectangles(str) {
   if ((TEXT.length+"").match(/^(6|10|15|21|28|36|45|55)$/)) {
     htmlTmp.push("ピラミッド型");
     
-    debug("10.1");
+    debug("10.2");
     
     let result=[];
     result=pyramidRect(TEXT);
