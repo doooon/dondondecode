@@ -1658,6 +1658,7 @@ function goRectangles(str) {
       return result;
     }
 
+    debug("5");
 
     let result=[];
     result=pyramidRect(TEXT);
