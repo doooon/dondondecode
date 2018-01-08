@@ -1603,7 +1603,7 @@ function goRectangles(str) {
   if ((TEXT.length+"").match(/^(6|10|15|21|28|36|45|55)$/)) {
     htmlTmp.push("ピラミッド型");
     
-    debug("10.4");
+    debug("10.4.1");
     
     let result=[];
     result=pyramidRect(TEXT);
@@ -1620,10 +1620,10 @@ function goRectangles(str) {
     rectRead(result, "_"); 
     htmlTmp.push("------------");
     
-    let result=[];
+    result=[];
     result=pyramidRect(TEXT);
     
-    let n=result[0].length;
+    n=result[0].length;
     result=result.map(v=>{
       let m=n-v.length;
       let r="";
@@ -1638,7 +1638,7 @@ function goRectangles(str) {
     result=[];
     result=pyramidRect(strReverse(TEXT),'reverse');
 
-    let n=result[0].length;
+    n=result[0].length;
     result=result.map(v=>{
       let m=n-v.length;
       let r="";
@@ -1653,7 +1653,7 @@ function goRectangles(str) {
     result=[];
     result=pyramidRect(strReverse(TEXT),'reverse');
 
-    let n=result[0].length;
+    n=result[0].length;
     result=result.map(v=>{
       let m=n-v.length;
       let r="";
