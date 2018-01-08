@@ -1066,7 +1066,7 @@ function goRectangles(str) {
   //ピラミッド型rect
   if ((TEXT.length+"").match(/^(6|10|15|21|28|36|45|55)$/)) {
     htmlTmp.push("ピラミッド型");
-    */
+    
     function pyramidRect(tmp,isReverse){
       let result=[];
 
@@ -1129,7 +1129,7 @@ function goRectangles(str) {
       let m=n-v.length;
       let r="";
       for (let j=1; j<=m; j++) {
-        r="•"+r;
+        r="_"+r;
       }
       o[i]=(r+v).split("");
     });
@@ -1144,7 +1144,7 @@ function goRectangles(str) {
       let m=n-v.length;
       let r="";
       for (let j=1; j<=m; j++) {
-        r="•"+r;
+        r="_"+r;
       }
       o[i]=(v+r).split("");
     });
@@ -1159,7 +1159,7 @@ function goRectangles(str) {
       let m=n-v.length;
       let r="";
       for (let j=1; j<=m; j++) {
-        r="•"+r;
+        r="_"+r;
       }
       o[i]=(r+v).split("");
     });
@@ -1174,12 +1174,12 @@ function goRectangles(str) {
       let m=n-v.length;
       let r="";
       for (let j=1; j<=m; j++) {
-        r="•"+r;
+        r="_"+r;
       }
       o[i]=(v+r).split("");
     });
     rectRead(result); 
-    */
+    
   }
 
 
