@@ -1602,10 +1602,11 @@ function goRectangles(str) {
   }
 
   //ピラミッド型rect
+  debug("6");
+  /*
   if ((TEXT.length+"").match(/^(6|10|15|21|28|36|45|55)$/)) {
     htmlTmp.push("ピラミッド型");
-    debug("6");
-    /*
+
     function pyramidRect(tmp,isReverse){
       let result=[];
 
@@ -1719,9 +1720,9 @@ function goRectangles(str) {
       o[i]=(v+r).split("");
     });
     rectRead(result, "_"); 
-    */
+    
   }
-  
+  */
 
 } // end function
 
