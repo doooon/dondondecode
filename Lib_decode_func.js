@@ -1603,7 +1603,7 @@ function goRectangles(str) {
   if ((TEXT.length+"").match(/^(6|10|15|21|28|36|45|55)$/)) {
     htmlTmp.push("ピラミッド型");
     
-    debug("10.3");
+    debug("10.4");
     
     let result=[];
     result=pyramidRect(TEXT);
@@ -1619,18 +1619,18 @@ function goRectangles(str) {
     });
     rectRead(result, "_"); 
     htmlTmp.push("------------");
-    /*
-    result=[];
+    
+    let result=[];
     result=pyramidRect(TEXT);
-
+    
     let n=result[0].length;
-    result.forEach((v,i,o)=>{
+    result=result.map(v=>{
       let m=n-v.length;
       let r="";
       for (let j=1; j<=m; j++) {
         r="_"+r;
       }
-      o[i]=(v+r).split("");
+      return (v+r).split("");
     });
     rectRead(result, "_"); 
     htmlTmp.push("------------");
@@ -1639,13 +1639,13 @@ function goRectangles(str) {
     result=pyramidRect(strReverse(TEXT),'reverse');
 
     let n=result[0].length;
-    result.forEach((v,i,o)=>{
+    result=result.map(v=>{
       let m=n-v.length;
       let r="";
       for (let j=1; j<=m; j++) {
         r="_"+r;
       }
-      o[i]=(r+v).split("");
+      return (r+v).split("");
     });
     rectRead(result, "_"); 
     htmlTmp.push("------------");
@@ -1654,16 +1654,17 @@ function goRectangles(str) {
     result=pyramidRect(strReverse(TEXT),'reverse');
 
     let n=result[0].length;
-    result.forEach((v,i,o)=>{
+    result=result.map(v=>{
       let m=n-v.length;
       let r="";
       for (let j=1; j<=m; j++) {
         r="_"+r;
       }
-      o[i]=(v+r).split("");
+      return (v+r).split("");
     });
     rectRead(result, "_"); 
-   */
+   
+   
   }
   
 
