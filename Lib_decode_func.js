@@ -479,7 +479,10 @@ function rectSlide(rect,xy,val) {
 
 
 // Rect読み出し
-function rectRead(rect) {
+function rectRead(rect, spacerstr) {
+
+  if (!spacerstr) spacerstr="";
+  let spacer=new RegExp(spacerstr, "g");
 
   var yLen = rect.length;
   var xLen = rect[0].length;
@@ -499,7 +502,7 @@ function rectRead(rect) {
           result=result+rect[y][x];
       }
   }
-  htmlCode(result);
+  htmlCode(result.replace(spacer,""));
 
   //左下から横読み
   var result = "";
@@ -508,7 +511,7 @@ function rectRead(rect) {
           result=result+rect[y][x];
       }
   }
-  htmlCode(result);
+  htmlCode(result.replace(spacer,""));
 
   //右下から左横読み
   var result = "";
@@ -517,7 +520,7 @@ function rectRead(rect) {
           result=result+rect[y][x];
       }
   }
-  htmlCode(result);
+  htmlCode(result.replace(spacer,""));
 
   //右上から左横読み
   var result = "";
@@ -526,7 +529,7 @@ function rectRead(rect) {
           result=result+rect[y][x];
       }
   }
-  htmlCode(result);
+  htmlCode(result.replace(spacer,""));
   
   //左下から縦読み
   var result = "";
@@ -535,7 +538,7 @@ function rectRead(rect) {
           result=result+rect[y][x];
       }
   }
-  htmlCode(result);
+  htmlCode(result.replace(spacer,""));
 
   //左上から縦読み
   var result = "";
@@ -544,7 +547,7 @@ function rectRead(rect) {
           result=result+rect[y][x];
       }
   }
-  htmlCode(result);
+  htmlCode(result.replace(spacer,""));
 
   //右上から縦読み
   var result = "";
@@ -553,7 +556,7 @@ function rectRead(rect) {
           result=result+rect[y][x];
       }
   }
-  htmlCode(result);
+  htmlCode(result.replace(spacer,""));
 
   //右下から縦読み
   var result = "";
@@ -562,7 +565,7 @@ function rectRead(rect) {
           result=result+rect[y][x];
       }
   }
-  htmlCode(result);
+  htmlCode(result.replace(spacer,""));
 
   htmlTmp.push("-------");
   htmlTmp.push("渦巻き読み");
@@ -601,8 +604,8 @@ function rectRead(rect) {
     xNmin=xNmin+1;
     if (xNmax<xNmin) break;
   }
-  htmlCode(result);
-  htmlCode(strReverse(result), "逆");
+  htmlCode(result.replace(spacer,""));
+  htmlCode(strReverse(result.replace(spacer,"")), "逆");
 
   //右上から右渦巻き読み
   var result = "";
@@ -638,8 +641,8 @@ function rectRead(rect) {
     yNmin=yNmin+1;
     if (yNmax<yNmin) break;
   }
-  htmlCode(result);
-  htmlCode(strReverse(result), "逆");
+  htmlCode(result.replace(spacer,""));
+  htmlCode(strReverse(result.replace(spacer,"")), "逆");
 
   //右下から右渦巻き読み
   var result = "";
@@ -675,8 +678,8 @@ function rectRead(rect) {
     xNmax=xNmax-1;
     if (xNmax<xNmin) break;
   }
-  htmlCode(result);
-  htmlCode(strReverse(result), "逆");
+  htmlCode(result.replace(spacer,""));
+  htmlCode(strReverse(result.replace(spacer,"")), "逆");
 
   //左下から右渦巻き読み
   var result = "";
@@ -712,8 +715,8 @@ function rectRead(rect) {
     yNmax=yNmax-1;
     if (yNmax<yNmin) break;
   }
-  htmlCode(result);
-  htmlCode(strReverse(result), "逆");
+  htmlCode(result.replace(spacer,""));
+  htmlCode(strReverse(result.replace(spacer,"")), "逆");
 
 //++++++++++
 
@@ -751,8 +754,8 @@ function rectRead(rect) {
     yNmin=yNmin+1;
     if (yNmax<yNmin) break;
   }
-  htmlCode(result);
-  htmlCode(strReverse(result), "逆");
+  htmlCode(result.replace(spacer,""));
+  htmlCode(strReverse(result.replace(spacer,"")), "逆");
 
  //左下から左渦巻き読み
   var result = "";
@@ -788,8 +791,8 @@ function rectRead(rect) {
     xNmin=xNmin+1;
     if (xNmax<xNmin) break;
   }
-  htmlCode(result);
-  htmlCode(strReverse(result), "逆");
+  htmlCode(result.replace(spacer,""));
+  htmlCode(strReverse(result.replace(spacer,"")), "逆");
 
   //右下から左渦巻き読み
   var result = "";
@@ -825,8 +828,8 @@ function rectRead(rect) {
     yNmax=yNmax-1;
     if (yNmax<yNmin) break;
   }
-  htmlCode(result);
-  htmlCode(strReverse(result), "逆");
+  htmlCode(result.replace(spacer,""));
+  htmlCode(strReverse(result.replace(spacer,"")), "逆");
 
   //右上から左渦巻き読み
   var result = "";
@@ -862,8 +865,8 @@ function rectRead(rect) {
     xNmax=xNmax-1;
     if (xNmax<xNmin) break;
   }
-  htmlCode(result);
-  htmlCode(strReverse(result), "逆");
+  htmlCode(result.replace(spacer,""));
+  htmlCode(strReverse(result.replace(spacer,"")), "逆");
     
   htmlTmp.push("-------");
   htmlTmp.push("折り返し読み");
@@ -883,7 +886,7 @@ function rectRead(rect) {
     }
     if (yNmax<y) break;
   }
-  htmlCode(r);
+  htmlCode(r.replace(spacer,""));
 
   //右上から左へ折り返し読み
   var r = ""; //result
@@ -900,7 +903,7 @@ function rectRead(rect) {
     }
     if (yNmax<y) break;
   }
-  htmlCode(r);
+  htmlCode(r.replace(spacer,""));
 
   //右下から左へ折り返し読み
   var r = ""; //result
@@ -917,7 +920,7 @@ function rectRead(rect) {
     }
     if (0>y) break;
   }
-  htmlCode(r);
+  htmlCode(r.replace(spacer,""));
   
  //左下から右へ折り返し読み
   var r = ""; //result
@@ -934,7 +937,7 @@ function rectRead(rect) {
     }
     if (0>y) break;
   }
-  htmlCode(r);
+  htmlCode(r.replace(spacer,""));
 
   //左上から下へ折り返し読み
   var r = ""; //result
@@ -951,7 +954,7 @@ function rectRead(rect) {
     }
     if (xNmax<x) break;
   }
-  htmlCode(r);
+  htmlCode(r.replace(spacer,""));
 
   //右上から下へ折り返し読み
   var r = ""; //result
@@ -968,7 +971,7 @@ function rectRead(rect) {
     }
     if (0>x) break;
   }
-  htmlCode(r);
+  htmlCode(r.replace(spacer,""));
 
   //右下から上へ折り返し読み
   var r = ""; //result
@@ -985,7 +988,7 @@ function rectRead(rect) {
     }
     if (0>x) break;
   }
-  htmlCode(r);
+  htmlCode(r.replace(spacer,""));
 
   //左下から上へ折り返し読み
   var r = ""; //result
@@ -1002,7 +1005,7 @@ function rectRead(rect) {
     }
     if (xNmax<x) break;
   }
-  htmlCode(r);
+  htmlCode(r.replace(spacer,""));
 
   htmlTmp.push("-------------");
   
@@ -1066,7 +1069,7 @@ function goRectangles(str) {
   //ピラミッド型rect
   if ((TEXT.length+"").match(/^(6|10|15|21|28|36|45|55)$/)) {
     htmlTmp.push("ピラミッド型");
-    /*
+    
     function pyramidRect(tmp,isReverse){
       let result=[];
 
@@ -1133,7 +1136,7 @@ function goRectangles(str) {
       }
       o[i]=(r+v).split("");
     });
-    rectRead(result); 
+    rectRead(result, "_"); 
     htmlTmp.push("------------");
     
     result=[];
@@ -1148,7 +1151,7 @@ function goRectangles(str) {
       }
       o[i]=(v+r).split("");
     });
-    rectRead(result); 
+    rectRead(result, "_"); 
     htmlTmp.push("------------");
 
     result=[];
@@ -1163,7 +1166,7 @@ function goRectangles(str) {
       }
       o[i]=(r+v).split("");
     });
-    rectRead(result); 
+    rectRead(result, "_"); 
     htmlTmp.push("------------");
 
     result=[];
@@ -1178,8 +1181,8 @@ function goRectangles(str) {
       }
       o[i]=(v+r).split("");
     });
-    rectRead(result); 
-    */
+    rectRead(result, "_"); 
+    
   }
 
 
