@@ -1603,7 +1603,7 @@ function goRectangles(str) {
   if ((TEXT.length+"").match(/^(6|10|15|21|28|36|45|55)$/)) {
     htmlTmp.push("ピラミッド型");
     
-    debug("999");
+    debug("99999");
     
     let result=[];
     result=pyramidRect(TEXT);
@@ -1716,9 +1716,7 @@ function pyramidRect(tmp,isReverse){
 
       if (isReverse.match(/^reverse$/i)) {
         result.reverse();
-        result.forEach((v,i,o)=>{
-          o[i]=v.split("").reverse().join("");
-        });
+        result=result.map(v=>strReverse(v));
       }
       return result;
 } // end func
