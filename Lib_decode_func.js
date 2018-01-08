@@ -1135,7 +1135,7 @@ function goRectangles(str) {
     });
     rectRead(result); 
     htmlTmp.push("------------");
-    
+    /*
     result=[];
     result=pyramidRect(TEXT);
 
@@ -1179,7 +1179,7 @@ function goRectangles(str) {
       o[i]=(v+r).split("");
     });
     rectRead(result); 
-
+    */
   }
 
 
