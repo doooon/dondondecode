@@ -1603,8 +1603,6 @@ function goRectangles(str) {
   if ((TEXT.length+"").match(/^(6|10|15|21|28|36|45|55)$/)) {
     htmlTmp.push("ピラミッド型");
     
-    debug("10.4.2");
-    
     let result=[];
     result=pyramidRect(TEXT);
     
