@@ -1602,23 +1602,23 @@ function goRectangles(str) {
   if ((TEXT.length+"").match(/^(6|10|15|21|28|36|45|55)$/)) {
     htmlTmp.push("ピラミッド型");
     
-    debug("10");
+    debug("10.1");
     
     let result=[];
     result=pyramidRect(TEXT);
-    /*
+    
     let n=result[0].length;
-    result.forEach((v,i,o)=>{
+    result=result.map(v=>{
       let m=n-v.length;
       let r="";
       for (let j=1; j<=m; j++) {
         r="_"+r;
       }
-      o[i]=(r+v).split("");
+      return (r+v).split("");
     });
-    rectRead(result, "_"); 
+    rectRead(result); 
     htmlTmp.push("------------");
-    
+    /*
     result=[];
     result=pyramidRect(TEXT);
 
