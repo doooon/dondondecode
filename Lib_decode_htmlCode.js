@@ -8,7 +8,7 @@ function htmlCode(tmp, label, blabel) {
   if (blabel && blabel!="") { htmlCodeBLabel= blabel; }
   else { htmlCodeBLabel=""; }
   
-  tmp=tmp.replace(/•+/g, "");
+  tmp=tmp.replace(/_+/g, "");
 
   // チェック
   printCheck(tmp);  // 内部でprintMain()を呼び出していく
