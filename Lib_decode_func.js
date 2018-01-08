@@ -1037,7 +1037,7 @@ function rectRead(rect, spacerstr) {
           result=result+rect[y][x];
       }
   }
-  htmlCode(result);
+  htmlCode(result.replace(spacer,""));
 
   //左下から横読み
   var result = "";
