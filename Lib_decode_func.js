@@ -1014,7 +1014,10 @@ function rectRead(rect, spacerstr) {
 
 
 // Rect読み出し
-function rectRead(rect) {
+function rectRead(rect, spacerstr) {
+
+  if (!spacerstr) spacerstr="";
+  let spacer=new RegExp(spacerstr, "g");
 
   var yLen = rect.length;
   var xLen = rect[0].length;
