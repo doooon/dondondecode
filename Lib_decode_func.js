@@ -1607,7 +1607,7 @@ function goRectangles(str) {
     
     let result=[];
     result=pyramidRect(TEXT);
-
+    /*
     let n=result[0].length;
     result.forEach((v,i,o)=>{
       let m=n-v.length;
@@ -1663,7 +1663,7 @@ function goRectangles(str) {
       o[i]=(v+r).split("");
     });
     rectRead(result, "_"); 
-   
+   */
   }
   
 
