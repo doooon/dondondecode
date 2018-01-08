@@ -1114,7 +1114,7 @@ function goRectangles(str) {
       let m=n-v.length;
       let r="";
       for (let j=1; j<=m; j++) {
-        r=" "+r;
+        r="_"+r;
       }
       o[i]=(v+r).split("");
     });
