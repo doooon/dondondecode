@@ -152,8 +152,7 @@
 
                 let RE=new RegExp(s, "ig");
                 let newTEXT=TEXT.replace(RE, r);
-                htmlTmp.push("<code>"+newTEXT+"</code>");
-                htmlTmp.push("<input type='button' value='set' id='set' onSubmit='document.getElementById(\'clipboardTextarea\').value="+ newTEXT +"'>");
+                htmlTmp.push("<code style='border: 1px solid #000; margin: 10px 0px;'>"+newTEXT+"</code>");
                 ikkatsuFinish();
               }
             }
