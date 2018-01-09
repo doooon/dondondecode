@@ -128,9 +128,28 @@
 			let vkey=prompt("key?");
             if (vkey) {
               htmlTmp.push(`key: ${vkey}`);
-              htmlCode(vigenereDec(TEXT,vkey));
-              htmlCode(vigenereAutoDec(TEXT,vkey));
+              htmlCode(vigenereDec(TEXT,vkey),"vig");
+              htmlCode(vigenereAutoDec(TEXT,vkey),"auto");
 			  ikkatsuFinish();
+            }
+
+		} else if (buttonMode && buttonMode.match(/RE_replace/)) {
+			let s=prompt("search RegExp?");
+            if (s) {
+              let r=prompt("replace word?");
+              htmlTmp.push(`search: ${s}`);
+              htmlTmp.push(`replace: ${r}`);
+              //htmlCode(vigenereDec(TEXT,vkey));
+              //htmlCode(vigenereAutoDec(TEXT,vkey));
+			  ikkatsuFinish();
+			
+              // cookie保存
+			  var expire = new Date();
+			  expire.setTime( expire.getTime() + 1000 * 3600 * 24 * 365 * 10);
+			  /* docCookies.setItem(name, value[, end[, path[, domain[, secure]]]]) */
+			  //docCookies.setItem("dondondecode", TEXT, expire);
+			  docCookies.setItem("dondondecode", TEXT, 60*60*24*365*10);
+
             }
 
 		} else {
@@ -189,8 +208,13 @@
 		}, false);
 		
 		var vigenereButtonObj=document.getElementById("vigenereButton");
-		vigenereButtonObj. addEventListener("click", function () {
+		vigenereButtonObj.addEventListener("click", function () {
 			decodeStart('vigenere');
+		}, false);
+		
+		var RE_replaceButtonObj=document.getElementById("RE_replaceButton");
+		RE_replaceButtonObj.addEventListener("click", function () {
+			decodeStart('RE_replace');
 		}, false);
 		
 		var clearButtonObj=document.getElementById("clearButton");
@@ -216,6 +240,7 @@
 			<input type="button" value="kw RegExp" id="kwRegExpButton">
 			<input type="button" value="kw Search" id="kwSearchButton">
 			<input type="button" value="vigenere" id="vigenereButton">
+			<input type="button" value="replace RE" id="RE_replaceButton">
 
 		</form>
 	</div>
