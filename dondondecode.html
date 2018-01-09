@@ -138,10 +138,9 @@
             if (s) {
               let r=prompt("replace word?", docCookies.getItem("replace"));
               if (r) {
+                
                 htmlTmp.push(`search: ${s}`);
                 htmlTmp.push(`replace: ${r}`);
-                //htmlCode(vigenereDec(TEXT,vkey));
-                //htmlCode(vigenereAutoDec(TEXT,vkey));
 
                 // cookie保存
 			    var expire = new Date();
@@ -150,6 +149,11 @@
 			    //docCookies.setItem("dondondecode", TEXT, expire);
 			    docCookies.setItem("search", s, 60*60*24*365*10);
 			    docCookies.setItem("replace", r, 60*60*24*365*10);
+
+                let RE=new RegExp(s, "ig");
+                let newTEXT=TEXT.replace(RE, r);
+                htmlTmp.push("<code>"+newTEXT+"</code>");
+                htmlTmp.push("<input type='button' value='set' id='set' onSubmit='document.getElementById(\'clipboardTextarea\').value="+ newTEXT +"'>");
                 ikkatsuFinish();
               }
             }
@@ -254,5 +258,4 @@
 		document.getElementById('clipboardTextarea').value=docCookies.getItem("clipboardTextarea");
 	</script>
 </html>
-
 
