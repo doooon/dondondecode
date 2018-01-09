@@ -134,22 +134,24 @@
             }
 
 		} else if (buttonMode && buttonMode.match(/RE_replace/)) {
-			let s=prompt("search RegExp?");
+			let s=prompt("search RegExp?", docCookies.getItem("search"));
             if (s) {
-              let r=prompt("replace word?");
-              htmlTmp.push(`search: ${s}`);
-              htmlTmp.push(`replace: ${r}`);
-              //htmlCode(vigenereDec(TEXT,vkey));
-              //htmlCode(vigenereAutoDec(TEXT,vkey));
-			  ikkatsuFinish();
-			
-              // cookie保存
-			  var expire = new Date();
-			  expire.setTime( expire.getTime() + 1000 * 3600 * 24 * 365 * 10);
-			  /* docCookies.setItem(name, value[, end[, path[, domain[, secure]]]]) */
-			  //docCookies.setItem("dondondecode", TEXT, expire);
-			  docCookies.setItem("dondondecode", TEXT, 60*60*24*365*10);
+              let r=prompt("replace word?", docCookies.getItem("replace"));
+              if (r) {
+                htmlTmp.push(`search: ${s}`);
+                htmlTmp.push(`replace: ${r}`);
+                //htmlCode(vigenereDec(TEXT,vkey));
+                //htmlCode(vigenereAutoDec(TEXT,vkey));
 
+                // cookie保存
+			    var expire = new Date();
+			    expire.setTime( expire.getTime() + 1000 * 3600 * 24 * 365 * 10);
+			    /* docCookies.setItem(name, value[, end[, path[, domain[, secure]]]]) */
+			    //docCookies.setItem("dondondecode", TEXT, expire);
+			    docCookies.setItem("search", s, 60*60*24*365*10);
+			    docCookies.setItem("replace", r, 60*60*24*365*10);
+                ikkatsuFinish();
+              }
             }
 
 		} else {
@@ -157,8 +159,8 @@
 			var expire = new Date();
 			expire.setTime( expire.getTime() + 1000 * 3600 * 24 * 365 * 10);
 			/* docCookies.setItem(name, value[, end[, path[, domain[, secure]]]]) */
-			//docCookies.setItem("dondondecode", TEXT, expire);
-			docCookies.setItem("dondondecode", TEXT, 60*60*24*365*10);
+			//docCookies.setItem("clipboardTextarea", TEXT, expire);
+			docCookies.setItem("clipboardTextarea", TEXT, 60*60*24*365*10);
 			
 			if (lastTEXT!=TEXT) {
 				// デコード開始
@@ -249,8 +251,7 @@
 	</div>
 </body>
 	<script type="text/javascript">
-		var tmp=docCookies.getItem("dondondecode");
-		document.getElementById('clipboardTextarea').value=tmp;
+		document.getElementById('clipboardTextarea').value=docCookies.getItem("clipboardTextarea");
 	</script>
 </html>
 
