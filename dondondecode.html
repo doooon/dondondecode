@@ -149,7 +149,7 @@
 			    //docCookies.setItem("dondondecode", TEXT, expire);
 			    docCookies.setItem("search", s, 60*60*24*365*10);
 			    docCookies.setItem("replace", r, 60*60*24*365*10);
-
+                htmlTmp.push("------");
                 let RE=new RegExp(s, "ig");
                 let newTEXT=TEXT.replace(RE, r);
                 htmlTmp.push("<code style='border: 1px solid #000; margin: 10px 0px;'>"+newTEXT+"</code>");
