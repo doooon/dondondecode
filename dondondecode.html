@@ -126,10 +126,12 @@
 
 		} else if (buttonMode && buttonMode.match(/vigenere/)) {
 			let vkey=prompt("key?");
-            htmlTmp(`key: ${vkey}`);
-            htmlCode(vigenereDec(TEXT,vkey));
-            htmlCode(vigenereAutoDec(TEXT,vkey));
-			ikkatsuFinish();
+            if (vkey) {
+              htmlTmp(`key: ${vkey}`);
+              htmlCode(vigenereDec(TEXT,vkey));
+              htmlCode(vigenereAutoDec(TEXT,vkey));
+			  ikkatsuFinish();
+            }
 
 		} else {
 			// cookie保存
