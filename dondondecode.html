@@ -127,7 +127,7 @@
 		} else if (buttonMode && buttonMode.match(/vigenere/)) {
 			let vkey=prompt("key?");
             if (vkey) {
-              htmlTmp(`key: ${vkey}`);
+              htmlTmp.push(`key: ${vkey}`);
               htmlCode(vigenereDec(TEXT,vkey));
               htmlCode(vigenereAutoDec(TEXT,vkey));
 			  ikkatsuFinish();
