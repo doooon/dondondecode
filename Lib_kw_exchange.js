@@ -7,7 +7,7 @@ function goKeywExchange() {
 
   var exL=[
   // ["","",""],
-
+["sky","blue","連想"], 
 ["truth","verum","英語 > ラテン語"], 
 ["verum","truth","ラテン語 > 英語"], 
 ["truth","veritas","英語 > ラテン語"], 
