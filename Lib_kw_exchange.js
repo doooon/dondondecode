@@ -7,6 +7,9 @@ function goKeywExchange() {
 
   var exL=[
   // ["","",""],
+["m[4A][6G][1i]c","magic","leet"], 
+["[7t][3E]chn[0o](50|1|l)[0o]gy","technology","leet"], 
+["technology","magic","反対語"], 
 ["533k","seek","leet"], 
 ["sky","blue","連想"], 
 ["truth","verum","英語 > ラテン語"], 
