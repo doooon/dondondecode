@@ -261,11 +261,11 @@ function goMorse(sorce) {
     if (tmp!=tmp0pad) {
       htmlTmp.push("---------");
       htmlTmp.push(tmp0pad);
-      if (tmp0pad.match(/^([01][0-9]|2[0-5])+$/)) {
+      if (tmp0pad.match(/^([01][0-9]|2[0-5]){8,}$/)) {
         htmlTmp.push("<span class='alert'>012abcではないか？</span>");
         htmlTmp.push(tmp0pad.match(/../g).join(" "));
       }
-      if (tmp0pad.match(/^(0[1-9]|1[0-9]|2[0-6])+$/)) {
+      if (tmp0pad.match(/^(0[1-9]|1[0-9]|2[0-6]){8,}$/)) {
         htmlTmp.push("<span class='alert'>123abcではないか？</span>");
         htmlTmp.push(tmp0pad.match(/../g).join(" "));
       }
