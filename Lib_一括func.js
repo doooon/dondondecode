@@ -219,7 +219,7 @@ function goMorse(sorce) {
   
   htmlTmp.push("-----------");
   
-  // モールスから短符長符数でdecASCII
+  // モールスから短符長符数でdecASCII RLE
   if (morse.match(/\./) 
     && morse.match(/-/)
   ) {
@@ -232,6 +232,7 @@ function goMorse(sorce) {
       tmpL=morsejoin.match(/-+\.+/g);
     }
     var tmp="";
+    var tmp0pad="";
     var counter = function(str,seq){
       return str.split(seq).length - 1;
     }
@@ -239,20 +240,27 @@ function goMorse(sorce) {
       for (var i in tmpL) {
         tmp+=counter(tmpL[i],"-");
         tmp+=counter(tmpL[i],"\.");
-      }
+        tmp0pad+=("0"+counter(tmpL[i],"-")).slice(-2);
+        tmp0pad+=("0"+counter(tmpL[i],"\.")).slice(-2);
+     }
     } else if (
       tmpL[0] && tmpL[0].match(/^\./)
     ) {
       for (var i in tmpL) {
         tmp+=counter(tmpL[i],"\.");
         tmp+=counter(tmpL[i],"-");
-      }
+        tmp0pad+=("0"+counter(tmpL[i],"\.")).slice(-2);
+        tmp0pad+=("0"+counter(tmpL[i],"-")).slice(-2);
+     }
     }
     htmlTmp.push(TEXT);
-    htmlTmp.push("<b>(モールスから短符長符数でdecASCII)</b>");
+    htmlTmp.push("<b>(モールスから短符長符数でdecASCII RLE)</b>");
     htmlTmp.push(morse);
     htmlTmp.push(tmp);
     htmlCode(tmp);
+    htmlTmp.push("---------");
+    htmlTmp.push(tmp0pad);
+    htmlCode(tmp0pad);
     htmlTmp.push("----------------------");
   }
     
