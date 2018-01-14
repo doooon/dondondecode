@@ -7,6 +7,10 @@ function goKeywExchange() {
 
   var exL=[
   // ["","",""],
+["r[3E]p[0o]r[7t]","report","leet"], 
+["h[1i]d[3E]","hide","leet"], 
+["report","hide","意味bash"], 
+["hide","report","意味bash"], 
 ["m[4A][6G][1i]c","magic","leet"], 
 ["[7t][3E]chn[0o](50|1|l)[0o]gy","technology","leet"], 
 ["technology","magic","反対語"], 
