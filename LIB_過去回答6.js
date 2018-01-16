@@ -29,19 +29,19 @@ if (
 
 
 
-// Base26
+// 二文字でBase26
 if (
   TEXT.match(/^([a-z][a-z])+$/i)
   //TEXT.length>=8 && 
   //kouseimoji.length>=3
 ) {
   htmlTmp.push(TEXT);
-  htmlTmp.push("<b>(base26)</b>");
+  htmlTmp.push("<b>(二文字でBase26)</b>");
   var tmp=TEXT.match(/../g);
   tmp=tmp.map(v=>[v.toUpperCase().charCodeAt(0)-65,v.toUpperCase().charCodeAt(1)-65]);
   htmlTmp.push(tmp.join(" "));
   tmp=tmp.map(v=>v[0]*26+v[1]);
-  htmlCode(tmp.join(" "));
+  htmlCode(tmp.join(""));
 
   htmlTmp.push("==============");
 }
