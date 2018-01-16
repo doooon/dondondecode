@@ -31,7 +31,7 @@ if (
 
 // Base26
 if (
-  TEXT.match(/^(([a-z])\2)+$/i)
+  TEXT.match(/^([a-z][a-z])+$/i)
   //TEXT.length>=8 && 
   //kouseimoji.length>=3
 ) {
