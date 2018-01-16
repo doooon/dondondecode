@@ -29,6 +29,23 @@ if (
 
 
 
+// Base26
+if (
+  TEXT.match(/^[a-z]+$/i)
+  //TEXT.length>=8 && 
+  //kouseimoji.length>=3
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(base26)</b>");
+  var tmp=TEXT.split("");
+  tmp=tmp.map(v=>v.toUpperCase().charCodeAt(0)-65);
+
+  htmlCode(tmp.join(" "));
+  htmlTmp.push("==============");
+}
+
+
+
 // 一つおきにatbash19
 if (
   TEXT.match(/^\w+$/i) && 
