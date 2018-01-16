@@ -39,8 +39,10 @@ if (
   htmlTmp.push("<b>(base26)</b>");
   var tmp=TEXT.match(/../g);
   tmp=tmp.map(v=>[v.toUpperCase().charCodeAt(0)-65,v.toUpperCase().charCodeAt(1)-65]);
-
+  htmlTmp.push(tmp.join(" "));
+  tmp=tmp.map(v=>v[0]*26+v[1]);
   htmlCode(tmp.join(" "));
+
   htmlTmp.push("==============");
 }
 
