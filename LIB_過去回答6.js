@@ -78,7 +78,7 @@ if (
     }
   }
   htmlTmp.push(result.join(" "));
-  let garakeRes=garake(result.join(""));
+  let garakeRes=garake(result.join(" "));
   htmlCode(garakeRes);
   htmlTmp.push("==============");
 }
