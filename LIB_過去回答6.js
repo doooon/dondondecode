@@ -41,6 +41,7 @@ if (
   var tmp=TEXT.match(/[abcd][!@#$%^&*(]?\d*/ig);
   htmlTmp.push(tmp.join("\n"));
   if (TEXT.match(/[!@#$%^&*(]/)) {
+    htmlTmp.push("-----");
     tmp=tmp.map(v=>symbol2Num(v));
     htmlTmp.push(tmp.join("\n"));
   }
@@ -80,7 +81,9 @@ if (
       if (tmp[i].match(tmpRE)) result.push(mtrx[j]);
     }
   }
+  htmlTmp.push("-----");
   htmlTmp.push(result.map(v=>`${v[1]} > ${v[2]}`).join("\n"));
+  htmlTmp.push("-----");
   htmlTmp.push(result.map(v=>v[0]).join(" "));
   let garakeRes=garake(result.map(v=>v[0]).join(" "));
   htmlCode(garakeRes);
