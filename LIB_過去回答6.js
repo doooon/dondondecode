@@ -29,6 +29,60 @@ if (
 
 
 
+// a〜d回 数字を二乗してガラケー打ち
+// a$d%764801a%d%764801b(c*1c@56b#6c@56a@b#6a*c@56c!6c*1c@56b#6c@56b(c@56d%764801a&
+if (
+  TEXT.match(/^([abcd][!@#$%^&*(]\d*)+$/i) && 
+  TEXT.length>=10 && 
+  kouseimoji.length>=4
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(a〜d回 数字を二乗してガラケー打ち)</b>");
+  var tmp=TEXT.match(/[abcd][!@#$%^&*(]\d*/ig);
+  tmp=tmp.map(v=>symbol2num(v));
+  let mtrx=[
+    ["2","a2"],
+    ["22","b4"],
+    ["222","c16"],
+    ["3","a3"],
+    ["33","b9"],
+    ["333","c81"],
+    ["4","a4"],
+    ["44","b16"],
+    ["444","c256"],
+    ["5","a5"],
+    ["55","b25"],
+    ["555","c625"],
+    ["6","a6"],
+    ["66","b36"],
+    ["666","c1296"],
+    ["7","a7"],
+    ["77","b49"],
+    ["777","c2401"],
+    ["7777","d5764801"],
+    ["8","a8"],
+    ["88","b64"],
+    ["888","c4096"],
+    ["9","a9"],
+    ["99","b81"],
+    ["999","c6561"],
+    ["9999","d43046721"]
+  ];
+
+  var result=[];
+  for (let i in tmp) {
+    for (let j in mtrx) {
+      let tmpRE=new RegExp(`^${mtrx[j][1]}$`, "i");
+      if (tmp[i].match(tmpRE)) result.push(mtrx[j][0]);
+    }
+  }
+  htmlTmp.push(result.join(" "));
+  htmlCode(result.join(""));
+  htmlTmp.push("==============");
+}
+
+
+
 // 二文字でBase26
 if (
   TEXT.match(/^([a-z][a-z])+$/i)
