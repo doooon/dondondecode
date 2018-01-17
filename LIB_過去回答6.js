@@ -32,14 +32,15 @@ if (
 // a〜d回 数字を二乗してガラケー打ち
 // a$d%764801a%d%764801b(c*1c@56b#6c@56a@b#6a*c@56c!6c*1c@56b#6c@56b(c@56d%764801a&
 if (
-  TEXT.match(/^([abcd][!@#$%^&*(]\d*)+$/i) && 
+  TEXT.match(/^([abcd][!@#$%^&*(]?\d*)+$/i) && 
   TEXT.length>=10 && 
   kouseimoji.length>=4
 ) {
   htmlTmp.push(TEXT);
   htmlTmp.push("<b>(a〜d回 数字を二乗してガラケー打ち)</b>");
-  var tmp=TEXT.match(/[abcd][!@#$%^&*(]\d*/ig);
+  var tmp=TEXT.match(/[abcd][!@#$%^&*(]?\d*/ig);
   tmp=tmp.map(v=>symbol2Num(v));
+  htmlTmp.push(tmp.join("\n"));
   let mtrx=[
     ["2","a2"],
     ["22","b4"],
@@ -77,7 +78,8 @@ if (
     }
   }
   htmlTmp.push(result.join(" "));
-  htmlCode(result.join(""));
+  let garakeRes=garake(result.join(""));
+  htmlCode(garakeRes);
   htmlTmp.push("==============");
 }
 
