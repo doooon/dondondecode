@@ -921,8 +921,14 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
     ["86","262144"],
     ["87","2097152"],
     ["88","16777216"],
-    ["89","134217728"],
+    ["89","134217728"]
     ];
+  powerMtrx.sort(function(a,b){
+        if( a[1] > b[1] ) return -1;
+        if( a[1] < b[1] ) return 1;
+        return 0;
+  });
+
   var tmpRE=new RegExp(powerMtrx.map(val=>val[1]).join("|"),"g");
   var tmp=str.match(tmpRE);
   if (tmp && tmp.length>4) {
@@ -933,6 +939,47 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
       });
     });
   }
+
+
+  // n回二乗する
+  let mtrx=[
+    ["2","4"],
+    ["2^2","16"],
+    ["2^2^2","256"],
+    ["3^2","9"],
+    ["3^2^2","81"],
+    ["4^2","16"],
+    ["4^2^2","256"],
+    ["5^2","25"],
+    ["5^2^2","625"],
+    ["6^2","36"],
+    ["6^2^2","1296"],
+    ["7^2","49"],
+    ["7^2^2","2401"],
+    ["7^2^2^2","5764801"],
+    ["8^2","64"],
+    ["8^2^2","4096"],
+    ["9^2","81"],
+    ["9^2^2","6561"],
+    ["9^2^2^2","43046721"]
+    ];
+  mtrx.sort(function(a,b){
+        if( a[1] > b[1] ) return -1;
+        if( a[1] < b[1] ) return 1;
+        return 0;
+  });
+
+  var tmpRE=new RegExp(mtrx.map(val=>val[1]).join("|"),"g");
+  var tmp=str.match(tmpRE);
+  if (tmp && tmp.length>6) {
+    alertMsg.push("<a href='#power'> n回二乗する値 ((x^2)^2)^2 ガラケー入力か？</a>");
+    tmp.forEach(val=>{
+      mtrx.forEach(val2=>{
+        if(val2[1]==val) alertMsg.push(val2[0]+" = "+val2[1]);
+      });
+    });
+  }
+
 
   var tmp=str.match(
     /(1[0-8]\d\.\d|[1-9]\d\.\d|[1-9]\.\d)[NEWS]/ig);
