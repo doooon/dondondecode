@@ -39,7 +39,7 @@ if (
   htmlTmp.push(TEXT);
   htmlTmp.push("<b>(a〜d回 数字を二乗してガラケー打ち)</b>");
   var tmp=TEXT.match(/[abcd][!@#$%^&*(]\d*/ig);
-  tmp=tmp.map(v=>symbol2num(v));
+  tmp=tmp.map(v=>symbol2Num(v));
   let mtrx=[
     ["2","a2"],
     ["22","b4"],
