@@ -1714,6 +1714,10 @@ function checkCodeHTML(str, noA) {
     return result;
   }
 
+  let kouseimojiL=str.split("").filter(
+        function (x, i, self) {
+          return self.indexOf(x) === i;
+        });
 
   result=str.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
@@ -1908,6 +1912,20 @@ function checkCodeHTML(str, noA) {
     }
   }
   
+
+  // なんらかのpadding(埋め)を検出&マーク
+  if (
+    result.match(/^((.){3,})([^\2]{3,})$/) && 
+    kouseimojiL.length>=4
+  ) {
+    result="<span class='alert'>"+RegExp.$1+"</span>"+RegExp.$3;
+  } else if (
+    result.split("").reverse().join("").match(/^((.){3,})([^\2]{3,})$/) && 
+    kouseimojiL.length>=4
+  ) {
+    result=(RegExp.$3)split("").reverse().join("")+"<span class='alert'>"+RegExp.$1+"</span>";
+  }
+
   return "<div class='result'>"+result+"</div>";
 }
 
