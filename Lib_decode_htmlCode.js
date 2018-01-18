@@ -1912,7 +1912,7 @@ function checkCodeHTML(str, noA) {
     }
   }
   
-
+  /*
   // なんらかのpadding(埋め)を検出&マーク
   if (
     result.match(/^((.){3,})([^\2]{3,})$/) && 
@@ -1925,6 +1925,7 @@ function checkCodeHTML(str, noA) {
   ) {
     result=(RegExp.$3)split("").reverse().join("")+"<span class='alert'>"+RegExp.$1+"</span>";
   }
+  */
 
   return "<div class='result'>"+result+"</div>";
 }
