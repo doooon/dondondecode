@@ -1912,7 +1912,7 @@ function checkCodeHTML(str, noA) {
     }
   }
   
-  /*
+  
   // なんらかのpadding(埋め)を検出&マーク
   if (
     result.match(/^((.){3,})([^\2]{3,})$/) && 
@@ -1923,9 +1923,9 @@ function checkCodeHTML(str, noA) {
     result.split("").reverse().join("").match(/^((.){3,})([^\2]{3,})$/) && 
     kouseimojiL.length>=4
   ) {
-    result=(RegExp.$3)split("").reverse().join("")+"<span class='alert'>"+RegExp.$1+"</span>";
+    result=(RegExp.$3).split("").reverse().join("")+"<span class='alert'>"+RegExp.$1+"</span>";
   }
-  */
+  
 
   return "<div class='result'>"+result+"</div>";
 }
