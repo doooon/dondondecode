@@ -1915,12 +1915,12 @@ function checkCodeHTML(str, noA) {
   
   // なんらかのpadding(埋め)を検出&マーク
   if (
-    result.match(/^((.){3,})([^\2]{3,})$/) && 
+    result.match(/^((.)\2{3,})([^\2]{4,})$/) && 
     kouseimojiL.length>=4
   ) {
     result="<span class='alert'>"+RegExp.$1+"</span>"+RegExp.$3;
   } else if (
-    result.split("").reverse().join("").match(/^((.){3,})([^\2]{3,})$/) && 
+    result.split("").reverse().join("").match(/^((.)\2{3,})([^\2]{4,})$/) && 
     kouseimojiL.length>=4
   ) {
     result=(RegExp.$3).split("").reverse().join("")+"<span class='alert'>"+RegExp.$1+"</span>";
