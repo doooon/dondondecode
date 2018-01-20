@@ -4121,7 +4121,7 @@ function base32Enc(str, inBase) {
 //======================================
 
 // ヴィジュネルautokeyエンコード
-function vigenereAutoEnc(phrase, key) {
+function vigenereAutoEnc(phrase, key, reverseFlag) {
   if (key=="") return phrase;
   if (!phrase) return phrase;
   //大文字小文字を保存
@@ -4143,14 +4143,22 @@ function vigenereAutoEnc(phrase, key) {
       if (phraseL[j][i].match(/\d/)) {
         var p=Number(phraseL[j][i]);
         var k=Number(letter2Num(key[i]));
-        var c=rotN(String(p),+k);
+       if(reverseFlag && reverseFlag.match(/^reverse$/i)){
+          var c=rotN(String(p),-k);
+        } else {
+          var c=rotN(String(p),+k);
+        }
         result+=c;
         newKey+=phraseL[j][i];
       } else {
         var p=Number(
           letter2Num(phraseL[j][i]));
         var k=Number(letter2Num(key[i]));
-        var c=(p+k)%26;
+        if(reverseFlag && reverseFlag.match(/^reverse$/i)){
+          var c=(p-k+26)%26;
+        } else {
+          var c=(p+k)%26;
+        }
         result+=to012abc(c);
         newKey+=phraseL[j][i];
       }
@@ -4179,7 +4187,7 @@ function vigenereAutoEnc(phrase, key) {
 }
 
 // ヴィジュネルautokeyデコード
-function vigenereAutoDec(cipher, key) {
+function vigenereAutoDec(cipher, key, reverseFlag) {
   if (key=="") return cipher;
   if (!cipher) return cipher;
   //大文字小文字を保存
@@ -4203,14 +4211,22 @@ function vigenereAutoDec(cipher, key) {
       if (cipherL[j][i] && cipherL[j][i].match(/\d/)) {
         var c=Number(cipherL[j][i]);
         var k=Number(letter2Num(key[i]));
-        var p=rotN(String(c),-k);
+        if(reverseFlag && reverseFlag.match(/^reverse$/i)){
+          var p=rotN(String(c),+k);
+        } else {
+          var p=rotN(String(c),-k);
+        }
         result+=p;
         newKey+=p;
       } else {
         var c=Number(
           letter2Num(cipherL[j][i]));
         var k=Number(letter2Num(key[i]));
-        var p=(c-k+26)%26;
+        if(reverseFlag && reverseFlag.match(/^reverse$/i)){
+          var p=(c+k)%26;
+        } else {
+          var p=(c-k+26)%26;
+        }
         result+=to012abc(p);
         newKey+=to012abc(p);
       }
@@ -4239,7 +4255,7 @@ function vigenereAutoDec(cipher, key) {
 }
 
 //ビジュネルエンコード
-function vigenereEnc(str,key) {
+function vigenereEnc(str,key,reverseFlag) {
   if (!str) return str;
   //大文字小文字を保存
   var updown=str.replace(/[^A-Z]/ig, "*").replace(/[a-z]/g, "0").replace(/[A-Z]/g, "1");
@@ -4267,12 +4283,21 @@ function vigenereEnc(str,key) {
     if (str[i].match(/\d/)) {
       var p=Number(str[i]);
       var k=Number(letter2Num(key[i]));
-      var c=rotN(String(p),+k);
+      if(reverseFlag && reverseFlag.match(/^reverse$/i)){
+        var c=rotN(String(p),-k);
+      } else {
+        var c=rotN(String(p),+k);
+      }
       ciphered+=c;
     } else {
       var p=Number(letter2Num(str[i]));
       var k=Number(letter2Num(key[i]));
-      var c=(p+k)%26;
+      if(reverseFlag && reverseFlag.match(/^reverse$/i)){
+        var c=(p-k+26)%26;
+      } else {
+        var c=(p+k)%26;
+
+      }
       ciphered+=to012abc(c);
     }
   }
@@ -4291,7 +4316,7 @@ function vigenereEnc(str,key) {
 }
 
 //ヴィジュネルデコード
-function vigenereDec(str,key) {
+function vigenereDec(str,key ,reverseFlag) {
   if (!str) return str;
   //大文字小文字を保存
   var updown=str.replace(/[^A-Z]/ig, "*").replace(/[a-z]/g, "0").replace(/[A-Z]/g, "1");
@@ -4319,12 +4344,20 @@ function vigenereDec(str,key) {
     if (str[i].match(/\d/)) {
       var c=Number(str[i]);
       var k=Number(letter2Num(key[i]));
-      var p=rotN(String(c),-k);
+      if(reverseFlag && reverseFlag.match(/^reverse$/i)){
+        var p=rotN(String(c),+k);
+      } else {
+        var p=rotN(String(c),-k);
+      }
       ciphered+=p;
     } else {
       var c=Number(letter2Num(str[i]));
       var k=Number(letter2Num(key[i]));
-      var p=(c-k+26)%26;
+      if(reverseFlag && reverseFlag.match(/^reverse$/i)){
+        var p=(c+k)%26;
+      } else {
+        var p=(c-k+26)%26;
+      }
       ciphered+=to012abc(p);
     }
   }
