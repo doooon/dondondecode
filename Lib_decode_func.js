@@ -4604,6 +4604,7 @@ function polybius(str) {
   map[5]=" vwxyz".split("");
   var result="";
   var list=str.replace(/\s+/g,"").match(/\d\d/g);
+debug(list);
   for (var i in list) {
     result+=map[list[i][0]][list[i][1]];
   }
