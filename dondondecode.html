@@ -130,6 +130,9 @@
               htmlTmp.push(`key: ${vkey}`);
               htmlCode(vigenereDec(TEXT,vkey),"vig");
               htmlCode(vigenereAutoDec(TEXT,vkey),"auto");
+
+              htmlCode(vigenereDec(TEXT,vkey, "reverse"),"逆方向 vig");
+              htmlCode(vigenereAutoDec(TEXT,vkey, "reverse"),"逆方向 auto");
 			  ikkatsuFinish();
             }
 
