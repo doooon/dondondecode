@@ -4595,6 +4595,7 @@ function rotN(str, n, flag) {
 
 // polybius換字変換
 function polybius(str) {
+  if (str.match(/[^12345\s]/)) return null;
   var map=new Array(6);
   map[0]=[];
   map[1]=" abcde".split("");
@@ -4604,9 +4605,9 @@ function polybius(str) {
   map[5]=" vwxyz".split("");
   var result="";
   var list=str.replace(/\s+/g,"").match(/\d\d/g);
-debug(list);
+
   for (var i in list) {
-    //result+=map[list[i][0]][list[i][1]];
+    result+=map[list[i][0]][list[i][1]];
   }
   return result;
 }
