@@ -4371,7 +4371,7 @@ function vigenereDec(str,key ,reverseFlag) {
     }
   }
   ciphered=resulttmp.join("");
-  
+  debug("vigenereDec() out");
   return ciphered;
 }
 
