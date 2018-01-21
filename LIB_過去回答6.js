@@ -35,14 +35,12 @@ if (
 ) {
   htmlTmp.push(TEXT);
   htmlTmp.push("<b>(奇数偶数で逆方向vig)</b>");
-  var tmp=[];
+  var tmp=["",""];
   TEXT.replace(/(.)(.)/g, (m,p1,p2)=>{
     tmp[0]+=p1;
     tmp[1]+=p2;
  });
-    debug(tmp[0]);
-    debug(tmp[1]);
-  htmlCode(vigenereDec(tmp[0],tmp[1]), "", `(vig key: ${tmp[1]})`);
+ htmlCode(vigenereDec(tmp[0],tmp[1]), "", `(vig key: ${tmp[1]})`);
   htmlCode(vigenereDec(tmp[0],tmp[1],"reverse"), "", `(vig key: ${tmp[1]})`);
 
   htmlCode(vigenereDec(tmp[1],tmp[0]), "", `(vig key: ${tmp[0]})`);
