@@ -27,6 +27,27 @@ if (
 }
 */
 
+// 奇数偶数で逆方向vig
+if (
+  TEXT.match(/^\w+$/i) && 
+  TEXT.length%2==0 && 
+  kouseimoji.length>=3
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(奇数偶数で逆方向vig)</b>");
+  var tmp=[];
+  TEXT.replace(/(.)(.)/g, (m,p1,p2)=>{
+    tmp[0]+=p1;
+    tmp[1]+=p2;
+  });
+  htmlCode(vigenereDec(tmp[0],tmp[1]), "", "(vig key: "+tmp[1]+")");
+  htmlCode(vigenereDec(vigenereDec(tmp[0],tmp[1],"reverse"), "", "(逆方向vig key: "+tmp[1]+")");
+  htmlCode(vigenereDec(tmp[1],tmp[0]), "", "(vig key: "+tmp[0]+")");
+  htmlCode(vigenereDec(vigenereDec(tmp[1],tmp[0],"reverse"), "", "(逆方向vig key: "+tmp[0]+")");
+  htmlTmp.push("==============");
+}
+
+
 
 
 // a〜d回 数字を二乗してガラケー打ち
