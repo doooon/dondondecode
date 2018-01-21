@@ -4606,7 +4606,7 @@ function polybius(str) {
   var list=str.replace(/\s+/g,"").match(/\d\d/g);
 debug(list);
   for (var i in list) {
-    result+=map[list[i][0]][list[i][1]];
+    //result+=map[list[i][0]][list[i][1]];
   }
   return result;
 }
