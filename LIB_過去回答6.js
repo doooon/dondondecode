@@ -40,10 +40,11 @@ if (
     tmp[0]+=p1;
     tmp[1]+=p2;
   });
-  htmlCode(vigenereDec(tmp[0],tmp[1]), "", "(vig key: "+tmp[1]+")");
-  htmlCode(vigenereDec(vigenereDec(tmp[0],tmp[1],"reverse"), "", "(逆方向vig key: "+tmp[1]+")");
-  htmlCode(vigenereDec(tmp[1],tmp[0]), "", "(vig key: "+tmp[0]+")");
-  htmlCode(vigenereDec(vigenereDec(tmp[1],tmp[0],"reverse"), "", "(逆方向vig key: "+tmp[0]+")");
+  htmlCode(vigenereDec(tmp[0],tmp[1]), "", `(vig key: ${tmp[1]})`);
+  htmlCode(vigenereDec(tmp[0],tmp[1],"reverse"), "", `(vig key: ${tmp[1]})`);
+
+  htmlCode(vigenereDec(tmp[1],tmp[0]), "", `(vig key: ${tmp[0]})`);
+  htmlCode(vigenereDec(tmp[1],tmp[0],"reverse"), "", `(vig key: ${tmp[0]})`);
   htmlTmp.push("==============");
 }
 
