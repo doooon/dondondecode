@@ -41,7 +41,7 @@ if (
     tmp[1]+=p2;
  });
     debug(tmp[0]);
-    debug(tmp[1];
+    debug(tmp[1]);
   htmlCode(vigenereDec(tmp[0],tmp[1]), "", `(vig key: ${tmp[1]})`);
   htmlCode(vigenereDec(tmp[0],tmp[1],"reverse"), "", `(vig key: ${tmp[1]})`);
 
