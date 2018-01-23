@@ -7,6 +7,8 @@ function goKeywExchange() {
 
   var exL=[
   // ["","",""],
+["_os","save","SOS > Save Our Souls"], 
+["so_","soul","SOS > Save Our Souls"], 
 ["sos","save","SOS > Save Our Souls"], 
 ["sos","soul","SOS > Save Our Souls"], 
 ["r[3E]p[0o]r[7t]","report","leet"], 
