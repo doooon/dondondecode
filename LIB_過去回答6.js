@@ -709,7 +709,7 @@ if (TEXT.match(/^\w+$/) &&
 
 
 // 3行にわけて上へ下へ段々スライド
-
+/*
 ver tmp=TEXT.split(/\n/g);
 if (
   (TEXT.match(/^\w+$/) && 
@@ -768,7 +768,7 @@ if (
   htmlTmp.push("==============");
   
 }
-
+*/
 
 // 半分で前後入れ替えて連結&ペアで前後入れ替え
 if (TEXT.match(/^\w+$/) && 
