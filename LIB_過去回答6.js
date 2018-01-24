@@ -709,7 +709,7 @@ if (TEXT.match(/^\w+$/) &&
 
 
 // 3行にわけて上へ下へ段々スライド
-/*
+
 ver tmp=TEXT.split(/\n/g);
 if (
   (TEXT.match(/^\w+$/) && 
@@ -753,7 +753,7 @@ if (
 
   let pos=0; //position
   for (var i in tmpR) {
-    result[i]=slideArry(tmpR[i],n);
+    result[i]=slideArry(tmpR[i], pos);
   }
   
   let result2=rectReflect(result);
@@ -766,9 +766,8 @@ if (
   htmlCode(result2[2]);
 
   htmlTmp.push("==============");
-  
 }
-*/
+
 
 // 半分で前後入れ替えて連結&ペアで前後入れ替え
 if (TEXT.match(/^\w+$/) && 
