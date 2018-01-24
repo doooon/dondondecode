@@ -1392,6 +1392,7 @@ function leetKeyws() {
 
 
 
+["ry[6b][4A][7T]","rybat","leet"], 
 ["h[1i]d[3E]","hide","leet"], 
 ["533k","seek","leet"], 
 ["tt0074285","carrie","IMDb 映画キャリーより"],
