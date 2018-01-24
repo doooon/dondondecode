@@ -710,7 +710,7 @@ if (TEXT.match(/^\w+$/) &&
 
 // 3行にわけて上へ下へ段々スライド
 
-ver tmp=TEXT.split(/\n/g);
+var tmp=TEXT.split(/\n/g);
 if (
   (TEXT.match(/^\w+$/) && 
   kouseimoji.length>=4 && 
