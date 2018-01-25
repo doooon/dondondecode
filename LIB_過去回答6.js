@@ -729,7 +729,7 @@ if (
   }
 
   function slideArry(ary,n){
-    if(!ary || !n || typeodf(ary)!="Arrey" || typeof(n)!="Number") {
+    if(!ary || !n || typeof(ary)!="Arrey" || typeof(n)!="Number") {
       return false;
     } else {
       if (Math.abs(n)>=100) return false;
