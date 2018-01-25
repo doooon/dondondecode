@@ -98,9 +98,9 @@ if (
   
   //htmlCode(result2.join("\n"));
  
-  htmlCode(result2[0]);
-  htmlCode(result2[1]);
-  htmlCode(result2[2]);
+  htmlCode(result2[0].join(""));
+  htmlCode(result2[1].join(""));
+  htmlCode(result2[2].join(""));
 
   htmlTmp.push("==============");
 }
