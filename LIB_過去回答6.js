@@ -44,13 +44,13 @@ if (
 ) {
   htmlTmp.push(TEXT);
   htmlTmp.push("<b>(3行にわけて上へ下へ段々スライド)</b>");
-htmlTmp.push(`••••••A•••••••A••
-•••••ABA•••••ABA•
-A•••ABCBA•••ABCBA
-BA•ABC•CBA•ABC•CB
-CBABC•••CBABC•••C
-•CBC•••••CBC•••••
-••C•••••••C••••••`);
+htmlTmp.push(`BACABCACBACABCACB
+CBABCABACBABCABAC
+ACBCABCBACBCABCBA
+BACABCACBACABCACB
+CBABCABACBABCABAC
+ACBCABCBACBCABCBA
+BACABCACBACABCACB`);
 
   if (!TEXT.match(/\n/)) {
     var tmpRE=new RegExp(".{"+TEXT.length/3+"}", "g");

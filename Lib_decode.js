@@ -372,6 +372,70 @@ function qwerty180(str) {
   return result.join("");
 }
 
+// Dvorak180度回転
+function dvorak180(str) {
+  if (!str) return false;
+  //大文字小文字を保存
+  var updown=str.replace(/[a-z\d',.;]/g, "0").replace(/[A-Z!@#$%^&*()<>":]/g, "1").replace(/[^01]/g, "0");
+
+  var result=[];
+  var map=[];
+  map[0]=[
+    ["1","!"], ["2","@"], ["3","#"], 
+    ["4","$"], ["5","%"], ["6","^"], 
+    ["7","&"], ["8","*"], ["9","("], 
+    ["0",")"]
+  ];
+  map[1]=[
+    ["'","\""], [",","<"], [".",">"], 
+    ["p","P"], ["y","Y"], ["f","F"], 
+    ["g","G"], ["c","C"], ["r","R"], 
+    ["l","L"]
+  ];
+  map[2]=[
+    ["a","A"], ["o","O"], ["e","E"], 
+    ["u","U"], ["i","I"], ["d","D"], 
+    ["h","H"], ["t","T"], ["n","N"], 
+    ["s","S"]
+  ];
+  map[3]=[
+    [";",":"], ["q","Q"], ["j","J"], 
+    ["k","K"], ["x","X"], ["b","B"], 
+    ["m","M"], ["w","W"], ["v","V"], 
+    ["z","Z"]
+  ];
+  for (var i in str) {
+    var flag=0;
+    for (var j in map) {
+      for (var k=0; k<=9; k++) {
+        var tmp=map[j][k][updown[i]];
+        if (tmp.match(/[\^$?*()\/]/)) {
+          tmp="\\"+tmp;
+        }
+       var re=
+        new RegExp(tmp,"");
+        if (str[i].match(re)) {
+/*alert(
+"str["+i+"]="+str[i]+"\n"+
+"updown["+i+"]="+updown[i]+"\n"+
+"re="+re+"\n"+
+"map["+(3-j)+"]["+(9-k)+"]["+updown[i]+"]="+map[3-j][9-k][updown[i]]+"\n"+
+"map["+(j)+"]["+(k)+"]["+updown[i]+"]="+map[j][k][updown[i]]+"\n"
+);*/
+          result.push(
+            map[3-j][9-k][updown[i]]);
+          flag=1;
+          break;
+        }
+      }
+      if (flag) break;
+    }
+    if (flag==0) result.push("∎");
+  }
+  return result.join("");
+}
+
+
 // Qwerty180度回転 OLD
 function qwerty180_old(str) {
   if (!str) return false;
