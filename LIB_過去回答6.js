@@ -96,7 +96,7 @@ if (
 
   let result2=rectReflect(result);
   
-  //htmlCode(result2.join("\n"));
+  htmlTmp.push(result2.map(v=>v.join("")).join("\n"));
  
   htmlCode(result2[0].join(""));
   htmlCode(result2[1].join(""));
