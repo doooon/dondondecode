@@ -82,7 +82,7 @@ if (
 
   let pos=0; //position
   for (var i=1; i<=tmpR.length; i++) {
-    let j=i%8; //振幅8(振幅の中の位置を得る)
+    let j=i%8===0?8:i%8; //振幅8(振幅の中の位置を得る)
     if(j>=1 && j<4) pos=j-1;
     else if(j>=4 && j<8) pos=3-(j-3)-1;
     else if(j==8) pos=-1;
