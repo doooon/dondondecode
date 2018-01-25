@@ -27,29 +27,6 @@ if (
 }
 */
 
-// 奇数偶数でvig & 逆方向vig
-if (
-  TEXT.match(/^\w+$/i) && 
-  TEXT.length%2==0 && 
-  kouseimoji.length>=3
-) {
-  htmlTmp.push(TEXT);
-  htmlTmp.push("<b>(奇数偶数でvig & 逆方向vig)</b>");
-  var tmp=["",""];
-  TEXT.replace(/(.)(.)/g, (m,p1,p2)=>{
-    tmp[0]+=p1;
-    tmp[1]+=p2;
- });
-  htmlTmp.push(tmp[0]);
-  htmlTmp.push(tmp[1]);
-  htmlCode(vigenereDec(tmp[0],tmp[1]), "", `(vig key: ${tmp[1]})`);
-  htmlCode(vigenereDec(tmp[0],tmp[1],"reverse"), "", `(vig key: ${tmp[1]})`);
-
-  htmlCode(vigenereDec(tmp[1],tmp[0]), "", `(vig key: ${tmp[0]})`);
-  htmlCode(vigenereDec(tmp[1],tmp[0],"reverse"), "", `(vig key: ${tmp[0]})`);
-  htmlTmp.push("==============");
-}
-
 
 // 3行にわけて上へ下へ段々スライド
 var tmp=TEXT.split(/\n/g);
@@ -98,8 +75,8 @@ if (
   let tmpR=rectReflect(tmp);
   var result=[];
 
-  let dtmp=tmpR.map(v=>v.join(",")); //debug
-  debug(dtmp.join("\n"));
+  //let dtmp=tmpR.map(v=>v.join(",")); //debug
+  debug(tmpR.join("\n"));
 
   let pos=0; //position
   for (var i=1; i<=tmpR.length; i++) {
@@ -111,8 +88,8 @@ if (
     result[i-1]=slideArry(tmpR[i-1], pos);
   }
   
-  let dtmp2=result.map(v=>v.join(",")); //debug
-  debug(dtmp2.join("\n"));
+  //let dtmp2=result.map(v=>v.join(",")); //debug
+  debug(result.join("\n"));
 
 
   let result2=rectReflect(result);
@@ -124,6 +101,30 @@ if (
   htmlCode(result2[1]);
   htmlCode(result2[2]);
 
+  htmlTmp.push("==============");
+}
+
+
+// 奇数偶数でvig & 逆方向vig
+if (
+  TEXT.match(/^\w+$/i) && 
+  TEXT.length%2==0 && 
+  kouseimoji.length>=3
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(奇数偶数でvig & 逆方向vig)</b>");
+  var tmp=["",""];
+  TEXT.replace(/(.)(.)/g, (m,p1,p2)=>{
+    tmp[0]+=p1;
+    tmp[1]+=p2;
+ });
+  htmlTmp.push(tmp[0]);
+  htmlTmp.push(tmp[1]);
+  htmlCode(vigenereDec(tmp[0],tmp[1]), "", `(vig key: ${tmp[1]})`);
+  htmlCode(vigenereDec(tmp[0],tmp[1],"reverse"), "", `(vig key: ${tmp[1]})`);
+
+  htmlCode(vigenereDec(tmp[1],tmp[0]), "", `(vig key: ${tmp[0]})`);
+  htmlCode(vigenereDec(tmp[1],tmp[0],"reverse"), "", `(vig key: ${tmp[0]})`);
   htmlTmp.push("==============");
 }
 
