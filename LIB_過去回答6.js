@@ -59,13 +59,13 @@ if (
       if (Math.abs(n)>=100) return false;
     }
 
-    let len=ary.length;
-    let slide=n%len; //実スライド量
+    let slide=n%ary.length; //実スライド量
     let newary=[];
     let m=0;
 
-    for(let i=0; i<len; i++) {
-      m=(i+slide)%len;
+    for(let i=0; i<ary.length; i++) {
+      m=(i+slide)%ary.length;
+      if(m<0) m=ary.length-1-m;
       newary[i]=ary[m];
     }
     
