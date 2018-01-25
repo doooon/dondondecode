@@ -48,14 +48,16 @@ if (
   }
 
   function slideArry(ary,n){
-   if(!ary || !n || ary.length<1 || typeof(n)!="number") {
+
+    debug(ary.join(","));
+    debug(n);
+
+    if (n===0) return ary;
+    if(!ary || !n || ary.length<1 || typeof(n)!="number") {
       return false;
     } else {
       if (Math.abs(n)>=100) return false;
     }
-
-    debug(ary);
-    debug(n);
 
     let len=ary.length;
     let slide=n%len; //実スライド量
@@ -67,7 +69,7 @@ if (
       newary[i]=ary[m];
     }
     
-    debug(newary);
+    debug(newary.join(","));
 
     return newary;
   }
