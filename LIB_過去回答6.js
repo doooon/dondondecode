@@ -96,12 +96,19 @@ if (
 
   let result2=rectReflect(result);
   
-  htmlCode(result2.join("\n"));
+  //htmlCode(result2.join("\n"));
+  htmlTmp.push(result2.join("\n"));
   htmlTmp.push("----");
 
+  htmlTmp.push(result2[0]);
+  htmlTmp.push(result2[1]);
+  htmlTmp.push(result2[2]);
+
+/*
   htmlCode(result2[0]);
   htmlCode(result2[1]);
   htmlCode(result2[2]);
+*/
 
   htmlTmp.push("==============");
 }
