@@ -96,8 +96,10 @@ if (
 
   let result2=rectReflect(result);
   
+  htmlTmp.push(tmp.join("\n"));
+  htmlTmp.push("-------");
   htmlTmp.push(result2.map(v=>v.join("")).join("\n"));
- 
+  htmlTmp.push("-------");
   htmlCode(result2[0].join(""));
   htmlCode(result2[1].join(""));
   htmlCode(result2[2].join(""));
