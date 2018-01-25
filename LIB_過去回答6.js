@@ -111,8 +111,8 @@ if (
   for (var i=1; i<=tmpR.length; i++) {
     let j=i%8===0?8:i%8; //振幅8(振幅の中の位置を得る)
     if(j>=1 && j<4) pos=1-j;
-    else if(j>=4 && j<8) pos=-3+(j-3);
-    else if(j==8) pos=2;
+    else if(j>=4 && j<8) pos=-3+(j-2);
+    else if(j==8) pos=1;
     result[i-1]=slideArry(tmpR[i-1], pos);
   }
   
