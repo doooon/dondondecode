@@ -65,8 +65,8 @@ if (
 
     for(let i=0; i<ary.length; i++) {
       m=(i+slide)%ary.length;
-      if(m<0) m=ary.length-1-m;
-      newary[i]=ary[m];
+      if(m<0) m=ary.length-1+m;
+      newary[m]=ary[i];
     }
     
     debug(newary.join(","));
