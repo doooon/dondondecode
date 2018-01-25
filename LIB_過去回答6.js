@@ -101,6 +101,27 @@ if (
   htmlCode(result2[1].join(""));
   htmlCode(result2[2].join(""));
 
+  htmlTmp.push("-----------------");
+
+  //逆方向へスライド
+  result=[];
+  pos=0; //position
+  for (var i=1; i<=tmpR.length; i++) {
+    let j=i%8===0?8:i%8; //振幅8(振幅の中の位置を得る)
+    if(j>=1 && j<4) pos=1-j;
+    else if(j>=4 && j<8) pos=-3+(j-3);
+    else if(j==8) pos=2;
+    result[i-1]=slideArry(tmpR[i-1], pos);
+  }
+  
+ let result3=rectReflect(result);
+  
+  htmlTmp.push(result3.map(v=>v.join("")).join("\n"));
+  htmlTmp.push("-------");
+  htmlCode(result3[0].join(""));
+  htmlCode(result3[1].join(""));
+  htmlCode(result3[2].join(""));
+
   htmlTmp.push("==============");
 }
 
