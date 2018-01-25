@@ -33,12 +33,14 @@ var tmp=TEXT.split(/\n/g);
 if (
   (TEXT.match(/^\w+$/) && 
   kouseimoji.length>=4 && 
-  TEXT.length%3==0) ||
+  TEXT.length%3==0 &&
+  TEXT.length>=30) ||
   (TEXT.match(/^\w+\n\w+\n\w+$/) && 
   kouseimoji.length>=4 && 
   tmp.length==3 && 
   tmp[0].length==tmp[0].length &&
-  tmp[1].length==tmp[2].length)
+  tmp[1].length==tmp[2].length &&
+  tmp[0].length>=10)
 ) {
   htmlTmp.push(TEXT);
   htmlTmp.push("<b>(3行にわけて上へ下へ段々スライド)</b>");
