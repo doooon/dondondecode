@@ -49,8 +49,8 @@ if (
 
   function slideArry(ary,n){
 
-    debug(ary.join(","));
-    debug(n);
+    //debug(ary.join(","));
+    //debug(n);
 
     if (n===0) return ary;
     if(!ary || !n || ary.length<1 || typeof(n)!="number") {
@@ -69,7 +69,7 @@ if (
       newary[m]=ary[i];
     }
     
-    debug(newary.join(","));
+    //debug(newary.join(","));
 
     return newary;
   }
@@ -77,8 +77,7 @@ if (
   let tmpR=rectReflect(tmp);
   var result=[];
 
-  //let dtmp=tmpR.map(v=>v.join(",")); //debug
-  debug(tmpR.join("\n"));
+  //debug(tmpR.join("\n"));
 
   let pos=0; //position
   for (var i=1; i<=tmpR.length; i++) {
@@ -86,13 +85,11 @@ if (
     if(j>=1 && j<4) pos=j-1;
     else if(j>=4 && j<8) pos=3-(j-3)-1;
     else if(j==8) pos=-1;
-    debug(`i=${i}, j=${j} , pos=${pos}`);
+    //debug(`i=${i}, j=${j} , pos=${pos}`);
     result[i-1]=slideArry(tmpR[i-1], pos);
   }
   
-  //let dtmp2=result.map(v=>v.join(",")); //debug
-  debug(result.join("\n"));
-
+  //debug(result.join("\n"));
 
   let result2=rectReflect(result);
   
