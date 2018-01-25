@@ -745,7 +745,7 @@ if (
 
     for(let i=0; i<len; i++) {
       m=(i+slide)%len;
-      newary[i]=aly[m];
+      newary[i]=ary[m];
     }
     
     debug(newary);
