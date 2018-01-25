@@ -51,6 +51,81 @@ if (
 }
 
 
+// 3行にわけて上へ下へ段々スライド
+var tmp=TEXT.split(/\n/g);
+if (
+  (TEXT.match(/^\w+$/) && 
+  kouseimoji.length>=4 && 
+  TEXT.length%3==0) ||
+  (TEXT.match(/^\w+\n\w+\n\w+$/) && 
+  kouseimoji.length>=4 && 
+  tmp.length==3 && 
+  tmp[0].length==tmp[0].length &&
+  tmp[1].length==tmp[2].length)
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(3行にわけて上へ下へ段々スライド)</b>");
+  if (!TEXT.match(/\n/)) {
+    var tmpRE=new RegExp(".{"+TEXT.length/3+"}", "g");
+    tmp=TEXT.match(tmpRE);
+  }
+
+  function slideArry(ary,n){
+   if(!ary || !n || ary.length<1 || typeof(n)!="number") {
+      return false;
+    } else {
+      if (Math.abs(n)>=100) return false;
+    }
+
+    debug(ary);
+    debug(n);
+
+    let len=ary.length;
+    let slide=n%len; //実スライド量
+    let newary=[];
+    let m=0;
+
+    for(let i=0; i<len; i++) {
+      m=(i+slide)%len;
+      newary[i]=ary[m];
+    }
+    
+    debug(newary);
+
+    return newary;
+  }
+
+  let tmpR=rectReflect(tmp);
+  var result=[];
+
+  let dtmp=tmpR.map(v=>v.join(",")); //debug
+  debug(dtmp.join("\n"));
+
+  let pos=0; //position
+  for (var i=1; i<=tmpR.length; i++) {
+    let j=i%8; //振幅8(振幅の中の位置を得る)
+    if(j>=1 && j<4) pos=j-1;
+    else if(j>=4 && j<8) pos=3-(j-3)-1;
+    else if(j==8) pos=-1;
+    debug(`i=${i}, j=${j} , pos=${pos}`);
+    result[i-1]=slideArry(tmpR[i-1], pos);
+  }
+  
+  let dtmp2=result.map(v=>v.join(",")); //debug
+  debug(dtmp2.join("\n"));
+
+
+  let result2=rectReflect(result);
+  
+  htmlCode(result2.join("\n"));
+  htmlTmp.push("----");
+
+  htmlCode(result2[0]);
+  htmlCode(result2[1]);
+  htmlCode(result2[2]);
+
+  htmlTmp.push("==============");
+}
 
 
 // a〜d回 数字を二乗してガラケー打ち
@@ -708,76 +783,6 @@ if (TEXT.match(/^\w+$/) &&
 }
 
 
-// 3行にわけて上へ下へ段々スライド
-
-var tmp=TEXT.split(/\n/g);
-if (
-  (TEXT.match(/^\w+$/) && 
-  kouseimoji.length>=4 && 
-  TEXT.length%3==0) ||
-  (TEXT.match(/^\w+\n\w+\n\w+$/) && 
-  kouseimoji.length>=4 && 
-  tmp.length==3 && 
-  tmp[0].length==tmp[0].length &&
-  tmp[1].length==tmp[2].length)
-) {
-  htmlTmp.push(TEXT);
-  htmlTmp.push("<b>(3行にわけて上へ下へ段々スライド)</b>");
-  if (!TEXT.match(/\n/)) {
-    var tmpRE=new RegExp(".{"+TEXT.length/3+"}", "g");
-    tmp=TEXT.match(tmpRE);
-  }
-
-  function slideArry(ary,n){
-   if(!ary || !n || ary.length<1 || typeof(n)!="number") {
-      return false;
-    } else {
-      if (Math.abs(n)>=100) return false;
-    }
-
-    debug(ary);
-    debug(n);
-
-    let len=ary.length;
-    let slide=n%len; //実スライド量
-    let newary=[];
-    let m=0;
-
-    for(let i=0; i<len; i++) {
-      m=(i+slide)%len;
-      newary[i]=ary[m];
-    }
-    
-    debug(newary);
-
-    return newary;
-  }
-
-  let tmpR=rectReflect(tmp);
-  var result=[];
-
-  let pos=0; //position
-  for (var i=1; i<=tmpR.length; i++) {
-    let j=i%8; //振幅8(振幅の中の位置を得る)
-    if(j>=1 && j<4) pos=j-1;
-    else if(j>=4 && j<8) pos=3-(j-3)-1;
-    else if(j==8) pos=-1;
-    result[i-1]=slideArry(tmpR[i-1], pos);
-  }
-  
-  debug(result);
-
-  let result2=rectReflect(result);
-  
-  htmlCode(result2.join("\n"));
-  htmlTmp.push("----");
-
-  htmlCode(result2[0]);
-  htmlCode(result2[1]);
-  htmlCode(result2[2]);
-
-  htmlTmp.push("==============");
-}
 
 
 // 半分で前後入れ替えて連結&ペアで前後入れ替え
