@@ -735,6 +735,9 @@ if (
       if (Math.abs(n)>=100) return false;
     }
 
+    debug(ary);
+    debug(n);
+
     let len=ary.length;
     let slide=n%len; //実スライド量
     let newary=[];
@@ -745,6 +748,8 @@ if (
       newary[i]=aly[m];
     }
     
+    debug(newary);
+
     return newary;
   }
 
@@ -760,6 +765,8 @@ if (
     result[i-1]=slideArry(tmpR[i-1], pos);
   }
   
+  debug(result);
+
   let result2=rectReflect(result);
   
   htmlCode(result2.join("\n"));
