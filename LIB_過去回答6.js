@@ -729,6 +729,9 @@ if (
   }
 
   function slideArry(ary,n){
+    debug(typeof(ary));
+    debug(typeof(n));
+
     if(!ary || !n || typeof(ary)!="Arrey" || typeof(n)!="Number") {
       return false;
     } else {
