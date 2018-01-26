@@ -399,12 +399,13 @@ function dvorak2qwerty(str) {
           tmp="\\"+tmp;
         }
         var re=new RegExp(tmp,"");
-        debug(`i: ${i}, j: ${j}, k: ${k}, updown: ${updown[i]}, `);
-        debug(re);
         if (str[i].match(re)) {
+          debug(`i: ${i}, j: ${j}, k: ${k}, updown: ${updown[i]}, `);
+          debug(re);
           result.push(
             qwertymap[j][k][updown[i]]);
           flag=1;
+          debug(`result: ${result}`);
           break;
         }
       }
