@@ -405,6 +405,8 @@ function dvorak2qwerty(str) {
           result.push(
             qwertymap[j][k][updown[i]]);
           flag=1;
+          debug(`qwertymap[${j}][${k}][updown[${i}]]: ${qwertymap[j][k][updown[i]]}`);
+          debug(`dvorakmap[${j}][${k}][updown[${i}]]: ${dvorakmap[j][k][updown[i]]}`);
           debug(`result: ${result}`);
           break;
         }
