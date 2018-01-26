@@ -1689,7 +1689,7 @@ htmlTmp.push("===============");
 var strQ180=qwerty180(TEXT);
 htmlTmp.push("→Qwertyキーボード上で180度回転");
 htmlCode(strQ180);
-htmlTmp.push("===============");
+htmlTmp.push("----------");
 var strQ180=dvorak180(TEXT);
 htmlTmp.push("→Dvorakキーボード上で180度回転");
 htmlCode(strQ180);
