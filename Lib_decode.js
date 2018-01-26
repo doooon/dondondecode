@@ -313,8 +313,7 @@ function qwerty2dvorak(str) {
         if (tmp.match(/[\^$?*()\/.]/)) {
           tmp="\\"+tmp;
         }
-       var re=
-        new RegExp(tmp,"");
+       var re=new RegExp(tmp,"");
         if (str[i].match(re)) {
           result.push(
             dvorakmap[j][k][updown[i]]);
@@ -399,8 +398,9 @@ function dvorak2qwerty(str) {
         if (tmp.match(/[\^$?*()\/.]/)) {
           tmp="\\"+tmp;
         }
-       var re=
-        new RegExp(tmp,"");
+        var re=new RegExp(tmp,"");
+        debug(`i: ${i}, j: ${j}, k: ${k}, updown: ${updown[i]}, `);
+        debug(re);
         if (str[i].match(re)) {
           result.push(
             qwertymap[j][k][updown[i]]);
