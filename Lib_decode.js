@@ -245,6 +245,178 @@ function defCharCount(str) {
 
 //======================================
 
+
+// Qwerty to Dvorak
+function qwerty2dvorak(str) {
+  if (!str) return false;
+  //大文字小文字を保存
+  var updown=str.replace(/[a-z\d,.\/]/g, "0").replace(/[A-Z!@#$%^&*()<>?]/g, "1").replace(/[^01]/g, "0");
+
+  var result=[];
+  var qwertymap=[];
+  qwertymap[0]=[
+    ["1","!"], ["2","@"], ["3","#"], 
+    ["4","$"], ["5","%"], ["6","^"], 
+    ["7","&"], ["8","*"], ["9","("], 
+    ["0",")"]
+  ];
+  qwertymap[1]=[
+    ["q","Q"], ["w","W"], ["e","E"], 
+    ["r","R"], ["t","T"], ["y","Y"], 
+    ["u","U"], ["i","I"], ["o","O"], 
+    ["p","P"]
+  ];
+  qwertymap[2]=[
+    ["a","A"], ["s","S"], ["d","D"], 
+    ["f","F"], ["g","G"], ["h","H"], 
+    ["j","J"], ["k","K"], ["l","L"], 
+    [";",":"]
+  ];
+  qwertymap[3]=[
+    ["z","Z"], ["x","X"], ["c","C"], 
+    ["v","V"], ["b","B"], ["n","N"], 
+    ["m","M"], [",","<"], [".",">"], 
+    ["/","?"]
+  ];
+
+  var dvorakmap=[];
+  dvorakmap[0]=[
+    ["1","!"], ["2","@"], ["3","#"], 
+    ["4","$"], ["5","%"], ["6","^"], 
+    ["7","&"], ["8","*"], ["9","("], 
+    ["0",")"]
+  ];
+  dvorakmap[1]=[
+    ["q","Q"], ["w","W"], ["e","E"], 
+    ["r","R"], ["t","T"], ["y","Y"], 
+    ["u","U"], ["i","I"], ["o","O"], 
+    ["p","P"]
+  ];
+  dvorakmap[2]=[
+    ["a","A"], ["s","S"], ["d","D"], 
+    ["f","F"], ["g","G"], ["h","H"], 
+    ["j","J"], ["k","K"], ["l","L"], 
+    [";",":"]
+  ];
+  dvorakmap[3]=[
+    ["z","Z"], ["x","X"], ["c","C"], 
+    ["v","V"], ["b","B"], ["n","N"], 
+    ["m","M"], [",","<"], [".",">"], 
+    ["/","?"]
+  ];
+
+  for (var i in str) {
+    var flag=0;
+    for (var j in qwertymap) {
+      for (var k=0; k<=9; k++) {
+        var tmp=qwertymap[j][k][updown[i]];
+        if (tmp.match(/[\^$?*()\/.]/)) {
+          tmp="\\"+tmp;
+        }
+       var re=
+        new RegExp(tmp,"");
+        if (str[i].match(re)) {
+          result.push(
+            dvorakmap[j][k][updown[i]]);
+          flag=1;
+          break;
+        }
+      }
+      if (flag) break;
+    }
+    if (flag==0) result.push("∎");
+  }
+  return result.join("");
+}
+
+
+
+
+// Dvorak to Qwerty
+function dvorak2qwerty(str) {
+  if (!str) return false;
+  //大文字小文字を保存
+  var updown=str.replace(/[a-z\d,.\/]/g, "0").replace(/[A-Z!@#$%^&*()<>?]/g, "1").replace(/[^01]/g, "0");
+
+  var result=[];
+  var qwertymap=[];
+  qwertymap[0]=[
+    ["1","!"], ["2","@"], ["3","#"], 
+    ["4","$"], ["5","%"], ["6","^"], 
+    ["7","&"], ["8","*"], ["9","("], 
+    ["0",")"]
+  ];
+  qwertymap[1]=[
+    ["q","Q"], ["w","W"], ["e","E"], 
+    ["r","R"], ["t","T"], ["y","Y"], 
+    ["u","U"], ["i","I"], ["o","O"], 
+    ["p","P"]
+  ];
+  qwertymap[2]=[
+    ["a","A"], ["s","S"], ["d","D"], 
+    ["f","F"], ["g","G"], ["h","H"], 
+    ["j","J"], ["k","K"], ["l","L"], 
+    [";",":"]
+  ];
+  qwertymap[3]=[
+    ["z","Z"], ["x","X"], ["c","C"], 
+    ["v","V"], ["b","B"], ["n","N"], 
+    ["m","M"], [",","<"], [".",">"], 
+    ["/","?"]
+  ];
+
+  var dvorakmap=[];
+  dvorakmap[0]=[
+    ["1","!"], ["2","@"], ["3","#"], 
+    ["4","$"], ["5","%"], ["6","^"], 
+    ["7","&"], ["8","*"], ["9","("], 
+    ["0",")"]
+  ];
+  dvorakmap[1]=[
+    ["q","Q"], ["w","W"], ["e","E"], 
+    ["r","R"], ["t","T"], ["y","Y"], 
+    ["u","U"], ["i","I"], ["o","O"], 
+    ["p","P"]
+  ];
+  dvorakmap[2]=[
+    ["a","A"], ["s","S"], ["d","D"], 
+    ["f","F"], ["g","G"], ["h","H"], 
+    ["j","J"], ["k","K"], ["l","L"], 
+    [";",":"]
+  ];
+  dvorakmap[3]=[
+    ["z","Z"], ["x","X"], ["c","C"], 
+    ["v","V"], ["b","B"], ["n","N"], 
+    ["m","M"], [",","<"], [".",">"], 
+    ["/","?"]
+  ];
+
+  for (var i in str) {
+    var flag=0;
+    for (var j in dvorakmap) {
+      for (var k=0; k<=9; k++) {
+        var tmp=dvorakmap[j][k][updown[i]];
+        if (tmp.match(/[\^$?*()\/.]/)) {
+          tmp="\\"+tmp;
+        }
+       var re=
+        new RegExp(tmp,"");
+        if (str[i].match(re)) {
+          result.push(
+            qwertymap[j][k][updown[i]]);
+          flag=1;
+          break;
+        }
+      }
+      if (flag) break;
+    }
+    if (flag==0) result.push("∎");
+  }
+  return result.join("");
+}
+
+
+
 // Qwerty180度回転
 function qwerty180(str) {
   if (!str) return false;
@@ -307,6 +479,7 @@ function qwerty180(str) {
   }
   return result.join("");
 }
+
 
 // Dvorak180度回転
 function dvorak180(str) {

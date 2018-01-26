@@ -1709,12 +1709,12 @@ var strTop=
   qwertyTop(strReverse(TEXT));
 htmlTmp.push("(reverse)");
 htmlCode(strTop);
-htmlTmp.push("=--------------");
+htmlTmp.push("--------------");
 var strTop=dvorakTop(TEXT);
 htmlTmp.push("→Dvorakキーボードで上にスライドして数字");
 htmlCode(strTop);
 htmlTmp.push("----");
-var strTop= dvorakTop(atbash19(TEXT));
+var strTop=dvorakTop(atbash19(TEXT));
 htmlTmp.push("(atbash)");
 htmlCode(strTop);
 htmlTmp.push("----");
@@ -1742,11 +1742,26 @@ htmlTmp.push(TEXT);
 var strSwitch=qwertyFlipV(TEXT);
 htmlTmp.push("→Qwerty上下反転");
 htmlCode(strSwitch);
-htmlTmp.push("=----------");
+htmlTmp.push("----------");
 var strSwitch=dvorakFlipV(TEXT);
 htmlTmp.push("→Dvorak上下反転");
 htmlCode(strSwitch);
 htmlTmp.push("===============");
+
+
+// キーボード変換
+htmlTmp.push(TEXT);
+var q2d=qwerty2dvorak(TEXT);
+htmlTmp.push("キーボード変換 Qwerty → Dvorak");
+htmlCode(q2d);
+htmlTmp.push("----------");
+var d2q=dvorak2qwerty(TEXT);
+htmlTmp.push("キーボード変換 Dvorak → Qwerty");
+htmlCode(d2q);
+htmlTmp.push("===============");
+
+
+
 
 
 // キーボード座標
