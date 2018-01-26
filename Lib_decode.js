@@ -282,7 +282,7 @@ function qwerty180(str) {
     for (var j in map) {
       for (var k=0; k<=9; k++) {
         var tmp=map[j][k][updown[i]];
-        if (tmp.match(/[\^$?*()\/]/)) {
+        if (tmp.match(/[\^$?*()\/.]/)) {
           tmp="\\"+tmp;
         }
        var re=
@@ -345,7 +345,7 @@ function dvorak180(str) {
     for (var j in map) {
       for (var k=0; k<=9; k++) {
         var tmp=map[j][k][updown[i]];
-        if (tmp.match(/[\^$?*()\/]/)) {
+        if (tmp.match(/[\^$?*()\/.]/)) {
           tmp="\\"+tmp;
         }
        var re=
@@ -409,7 +409,7 @@ function qwertyFlipV(str) {
     for (var j in map) {
       for (var k=0; k<=9; k++) {
         var tmp=map[j][k][updown[i]];
-        if (tmp.match(/[\^$?*()\/]/)) {
+        if (tmp.match(/[\^$?*()\/.]/)) {
           tmp="\\"+tmp;
         }
        var re=
@@ -466,7 +466,7 @@ function dvorakFlipV(str) {
     for (var j in map) {
       for (var k=0; k<=9; k++) {
         var tmp=map[j][k][updown[i]];
-        if (tmp.match(/[\^$?*()\/]/)) {
+        if (tmp.match(/[\^$?*()\/.]/)) {
           tmp="\\"+tmp;
         }
        var re=
@@ -523,7 +523,7 @@ function qwertyFlipH(str) {
     for (var j in map) {
       for (var k=0; k<=9; k++) {
         var tmp=map[j][k][updown[i]];
-        if (tmp.match(/[\^$?*()\/]/)) {
+        if (tmp.match(/[\^$?*()\/.]/)) {
           tmp="\\"+tmp;
         }
        var re=
@@ -580,7 +580,7 @@ function dvorakFlipH(str) {
     for (var j in map) {
       for (var k=0; k<=9; k++) {
         var tmp=map[j][k][updown[i]];
-        if (tmp.match(/[\^$?*()\/]/)) {
+        if (tmp.match(/[\^$?*()\/.]/)) {
           tmp="\\"+tmp;
         }
        var re=
@@ -637,7 +637,7 @@ function qwertyTop(str) {
     for (var j in map) {
       for (var k=0; k<=9; k++) {
         var tmp=map[j][k][updown[i]];
-        if (tmp.match(/[\^$?*()\/]/)) {
+        if (tmp.match(/[\^$?*()\/.]/)) {
           tmp="\\"+tmp;
         }
        var re=
@@ -694,7 +694,7 @@ function dvorakTop(str) {
     for (var j in map) {
       for (var k=0; k<=9; k++) {
         var tmp=map[j][k][updown[i]];
-        if (tmp.match(/[\^$?*()\/]/)) {
+        if (tmp.match(/[\^$?*()\/.]/)) {
           tmp="\\"+tmp;
         }
        var re=
@@ -751,7 +751,7 @@ function qwertyLeft(str) {
     for (var j in map) {
       for (var k=0; k<=9; k++) {
         var tmp=map[j][k][updown[i]];
-        if (tmp.match(/[\^$?*()\/]/)) {
+        if (tmp.match(/[\^$?*()\/.]/)) {
           tmp="\\"+tmp;
         }
        var re=
@@ -809,7 +809,7 @@ function dvorakLeft(str) {
     for (var j in map) {
       for (var k=0; k<=9; k++) {
         var tmp=map[j][k][updown[i]];
-        if (tmp.match(/[\^$?*()\/]/)) {
+        if (tmp.match(/[\^$?*()\/.]/)) {
           tmp="\\"+tmp;
         }
        var re=
