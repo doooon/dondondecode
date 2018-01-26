@@ -1676,47 +1676,80 @@ if (TEXT.match(/[!@#\$%\?&\*\(\)]/)) {
 
 // キーボード上で1文字左へ
 var str=qwertyLeft(TEXT);
-htmlTmp.push("→キーボード上で1文字左へ");
+htmlTmp.push("→Qwertyキーボード上で1文字左へ");
+htmlCode(str);
+htmlTmp.push("----------");
+var str=dvorakLeft(TEXT);
+htmlTmp.push("→Dvorakキーボード上で1文字左へ");
 htmlCode(str);
 htmlTmp.push("===============");
 
+
 // キーボード上で180度回転
 var strQ180=qwerty180(TEXT);
-htmlTmp.push("→キーボード上で180度回転");
+htmlTmp.push("→Qwertyキーボード上で180度回転");
+htmlCode(strQ180);
+htmlTmp.push("===============");
+var strQ180=dvorak180(TEXT);
+htmlTmp.push("→Dvorakキーボード上で180度回転");
 htmlCode(strQ180);
 htmlTmp.push("===============");
 
-// qwertyキーボードで上にスライドして数字を拾う
+
+// キーボードで上にスライドして数字を拾う
 var strTop=qwertyTop(TEXT);
 htmlTmp.push("→qwertyキーボードで上にスライドして数字");
 htmlCode(strTop);
-htmlTmp.push("--------");
+htmlTmp.push("----");
 var strTop=qwertyTop(atbash19(TEXT));
 htmlTmp.push("(atbash)");
 htmlCode(strTop);
-htmlTmp.push("--------");
+htmlTmp.push("----");
 var strTop=
   qwertyTop(strReverse(TEXT));
 htmlTmp.push("(reverse)");
 htmlCode(strTop);
+htmlTmp.push("=--------------");
+var strTop=dvorakTop(TEXT);
+htmlTmp.push("→Dvorakキーボードで上にスライドして数字");
+htmlCode(strTop);
+htmlTmp.push("----");
+var strTop= dvorakTop(atbash19(TEXT));
+htmlTmp.push("(atbash)");
+htmlCode(strTop);
+htmlTmp.push("----");
+var strTop=
+  dvorakTop(strReverse(TEXT));
+htmlTmp.push("(reverse)");
+htmlCode(strTop);
 htmlTmp.push("===============");
   
-// Qwerty左右反転
+
+// キーボード左右反転
 htmlTmp.push(TEXT);
 var strSwitch=qwertyFlipH(TEXT);
 htmlTmp.push("→Qwerty左右反転");
 htmlCode(strSwitch);
-htmlTmp.push("===============");
-
-// Qwerty上下反転
-htmlTmp.push(TEXT);
-var strSwitch=qwertyFlipV(TEXT);
-htmlTmp.push("→Qwerty上下反転");
+htmlTmp.push("----------");
+var strSwitch=dvorakFlipH(TEXT);
+htmlTmp.push("→Dvorak左右反転");
 htmlCode(strSwitch);
 htmlTmp.push("===============");
 
 
-// Qwerty座標
+// キーボード上下反転
+htmlTmp.push(TEXT);
+var strSwitch=qwertyFlipV(TEXT);
+htmlTmp.push("→Qwerty上下反転");
+htmlCode(strSwitch);
+htmlTmp.push("=----------");
+var strSwitch=dvorakFlipV(TEXT);
+htmlTmp.push("→Dvorak上下反転");
+htmlCode(strSwitch);
+htmlTmp.push("===============");
+
+
+// キーボード座標
 if (TEXT.match(
   /^([0-9][0-3][\s\/\-.,:])*[0-9][0-3]$/)
 ) {
@@ -1724,10 +1757,14 @@ if (TEXT.match(
   var strQXY=qwertyXY(TEXT);
   htmlTmp.push("→Qwerty座標");
   htmlCode(strQXY);
+  htmlTmp.push("----------");
+  var strQXY=dvorakXY(TEXT);
+  htmlTmp.push("→Dvorak座標");
+  htmlCode(strQXY);
   htmlTmp.push("===============");
 }
 
-// Qwerty座標XXX
+// キーボード座標XXX
 if (TEXT.match(
   /^(?:([0-9])\1*[\s\/\-.,:])*([0-9])\1*$/)
 ) {
@@ -1735,8 +1772,13 @@ if (TEXT.match(
   var strQXY=qwertyXXX(TEXT);
   htmlTmp.push("→Qwerty座標XXX");
   htmlCode(strQXY);
+  htmlTmp.push("----------");
+  var strQXY=dvorakXXX(TEXT);
+  htmlTmp.push("→Dvorak座標XXX");
+  htmlCode(strQXY);
   htmlTmp.push("===============");
 }
+
 
 goMorse(TEXT);
 htmlTmp.push("===============");
