@@ -252,8 +252,8 @@ function qwerty2dvorak(str) {
   //大文字小文字を保存
   var updown=str.replace(/[a-z\d,.\/]/g, "0").replace(/[A-Z!@#$%^&*()<>?]/g, "1").replace(/[^01]/g, "0");
 
-  var result=[];
-  var qwertymap=[];
+  let result=[];
+  let qwertymap=[];
   qwertymap[0]=[
     ["1","!"], ["2","@"], ["3","#"], 
     ["4","$"], ["5","%"], ["6","^"], 
@@ -279,7 +279,7 @@ function qwerty2dvorak(str) {
     ["/","?"]
   ];
 
-  var dvorakmap=[];
+  let dvorakmap=[];
   dvorakmap[0]=[
     ["1","!"], ["2","@"], ["3","#"], 
     ["4","$"], ["5","%"], ["6","^"], 
@@ -313,7 +313,7 @@ function qwerty2dvorak(str) {
         if (tmp.match(/[\^$?*()\/.]/)) {
           tmp="\\"+tmp;
         }
-       var re=new RegExp(tmp,"");
+        var re=new RegExp(tmp,"");
         if (str[i].match(re)) {
           result.push(
             dvorakmap[j][k][updown[i]]);
@@ -390,10 +390,6 @@ function dvorak2qwerty(str) {
     ["z","Z"]
   ];
 
-  debug(qwertymap);
-  debug(dvorakmap);
-
-
   for (var i in str) {
     var flag=0;
     for (var j in dvorakmap) {
@@ -404,14 +400,9 @@ function dvorak2qwerty(str) {
         }
         var re=new RegExp(tmp,"");
         if (str[i].match(re)) {
-          debug(`i: ${i}, j: ${j}, k: ${k}, updown: ${updown[i]}, `);
-          debug(re);
           result.push(
             qwertymap[j][k][updown[i]]);
           flag=1;
-          debug(`qwertymap[${j}][${k}][updown[${i}]]: ${qwertymap[j][k][updown[i]]}`);
-          debug(`dvorakmap[${j}][${k}][updown[${i}]]: ${dvorakmap[j][k][updown[i]]}`);
-          debug(`result: ${result}`);
           break;
         }
       }
