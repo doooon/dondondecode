@@ -1754,6 +1754,10 @@ if (TEXT.match(
   /^([0-9][0-3][\s\/\-.,:])*[0-9][0-3]$/)
 ) {
   htmlTmp.push(TEXT);
+  var strQXY=qwertyXY_old(TEXT);
+  htmlTmp.push("→Qwerty座標 old");
+  htmlCode(strQXY);
+  htmlTmp.push("----------");
   var strQXY=qwertyXY(TEXT);
   htmlTmp.push("→Qwerty座標");
   htmlCode(strQXY);
@@ -1769,6 +1773,10 @@ if (TEXT.match(
   /^(?:([0-9])\1*[\s\/\-.,:])*([0-9])\1*$/)
 ) {
   htmlTmp.push(TEXT);
+  var strQXY=qwertyXXX_old(TEXT);
+  htmlTmp.push("→Qwerty座標XXX old");
+  htmlCode(strQXY);
+  htmlTmp.push("----------");
   var strQXY=qwertyXXX(TEXT);
   htmlTmp.push("→Qwerty座標XXX");
   htmlCode(strQXY);
