@@ -337,8 +337,8 @@ function dvorak2qwerty(str) {
   //大文字小文字を保存
   var updown=str.replace(/[a-z\d,.\/]/g, "0").replace(/[A-Z!@#$%^&*()<>?]/g, "1").replace(/[^01]/g, "0");
 
-  var result=[];
-  var qwertymap=[];
+  let result=[];
+  let qwertymap=[];
   qwertymap[0]=[
     ["1","!"], ["2","@"], ["3","#"], 
     ["4","$"], ["5","%"], ["6","^"], 
@@ -364,7 +364,7 @@ function dvorak2qwerty(str) {
     ["/","?"]
   ];
 
-  var dvorakmap=[];
+  let dvorakmap=[];
   dvorakmap[0]=[
     ["1","!"], ["2","@"], ["3","#"], 
     ["4","$"], ["5","%"], ["6","^"], 
@@ -389,6 +389,10 @@ function dvorak2qwerty(str) {
     ["m","M"], [",","<"], [".",">"], 
     ["/","?"]
   ];
+
+  debug(qwertymap);
+  debug(dvorakmap);
+
 
   for (var i in str) {
     var flag=0;
