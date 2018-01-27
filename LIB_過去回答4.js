@@ -913,10 +913,25 @@ if (TEXT.match(/^[123QWEASDX]+$/i))  {
 }
 
 
-// 前後入れ替え
+// 真ん中で分割してそれぞれreverse
 if (TEXT.length%2==0) {
   htmlTmp.push(TEXT);
-  htmlTmp.push("<b>(前後入れ替え)</b>");
+  htmlTmp.push("<b>(真ん中で分割してそれぞれreverse)</b>");
+  var tmpRE=new RegExp(
+      "(.|\\s){"+TEXT.length/2+"}", "g");
+  var tmp=TEXT.match(tmpRE);
+  var result=strReverse(tmp[0])+strReverse(tmp[1]);
+  htmlCode(result);
+  htmlTmp.push("(reverse)");
+  htmlCode(strReverse(result));
+  htmlTmp.push("==============");
+}
+
+
+// 真ん中で分割して前後入れ替え
+if (TEXT.length%2==0) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(真ん中で分割して前後入れ替え)</b>");
   var tmpRE=
     new RegExp(
       "(.|\\s){"+TEXT.length/2+"}", "g");
