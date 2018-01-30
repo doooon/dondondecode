@@ -7,6 +7,7 @@ function goKeywExchange() {
 
   var exL=[
   // ["","",""],
+["[1l]u[11][2z][1i]","luizi","leet"], 
 ["[1i]mpr[0o][5v][3e]","improve","leet"], 
 ["degrade","improve","意味bash"], 
 ["n[0o][5v][4A]","nova","leet"], 
