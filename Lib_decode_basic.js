@@ -1389,8 +1389,8 @@ function leetKeyws() {
 
 
 
-
-
+["[1i]mpr[0o][5v][3e]","improve","leet"], 
+["degrade","improve","意味bash"], 
 ["n[0o][5v][4A]","nova","leet"], 
 ["ry[6b][4A][7T]","rybat","leet"], 
 ["h[1i]d[3E]","hide","leet"], 
