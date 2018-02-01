@@ -169,7 +169,7 @@ function specialKW(specialstr){
   // U→you 
   var tmpYou= replaceYou(specialstr);
   if (tmpYou) {
-    if ( printMain( tmpYou, "more", "(more U <> you )" ) == "fix") {
+    if ( printMain( tmpYou, "more", "(more U > you )" ) == "fix") {
       return "fix";
     }
   }			
@@ -177,7 +177,7 @@ function specialKW(specialstr){
   // w→worth
   var tmpW= replaceWorth(specialstr);
   if (tmpW) {
-    if ( printMain( tmpW, "more", "(more W <> worth )" ) == "fix") {
+    if ( printMain( tmpW, "more", "(more W > worth )" ) == "fix") {
       return "fix";
     }
   }
@@ -185,10 +185,19 @@ function specialKW(specialstr){
   // 10|X → verity seke
   var tmpX= replaceVertiy(specialstr);
   if (tmpX) {
-    if ( printMain( tmpX, "more", "(more X|10 <> verity )" ) == "fix") {
+    if ( printMain( tmpX, "more", "(more X|10 > verity )" ) == "fix") {
       return "fix";
     }
   }
+
+  // 53 → se
+  var tmpSE=replaceSE(specialstr);
+  if (tmpSE) {
+    if ( printMain( tmpSE, "more", "(more 53 > se)" ) == "fix") {
+      return "fix";
+    }
+  }
+
 
 } // end function specialKW()
 
@@ -731,6 +740,38 @@ function replaceKw012(str, kw) {
 	}
 }
 
+
+
+// 53 → se
+function replaceSE(str) {
+	
+	var tmp1 = "([2-9][a-hjkm-z]{3}[2-9])(53)([a-hjkm-z][2-9][a-hjkm-z][2-9][a-hjkm-z])";
+	var tmp2 = "([a-hjkm-z]{3}[2-9]{2})(53)([2-9]{3}[a-hjkm-z]{2})";
+	var tmp3 = "([a-hjkm-z][0-9][a-hjkm-z][0-9])(53)([a-hjkm-z][0-9][a-hjkm-z][a-hjkm-z])";
+	var tmp4 = "(53)([2-9][a-hjkm-z][a-hjkm-z][2-9][2-9][a-hjkm-z][a-hjkm-z][2-9])";
+	var tmp5 = "([a-hjkm-z]{8}[2-9][2-9])(53)([2-9][2-9])";
+	var tmpRE = new RegExp( `^(${tmp1}|${tmp2}|${tmp3}|${tmp4}|${tmp5})$`, "i");
+	
+	if ( str.match(tmpRE) ) {
+	
+		var tmpRE1 = new RegExp("^"+tmp1+"$", "i");
+		var tmpRE2 = new RegExp("^"+tmp2+"$", "i");
+		var tmpRE3 = new RegExp("^"+tmp3+"$", "i");
+		var tmpRE4 = new RegExp("^"+tmp4+"$", "i");
+		var tmpRE5 = new RegExp("^"+tmp5+"$", "i");
+		
+		var str2 = "";
+		     if (str.match(tmpRE1)) { str2 = str.replace(tmpRE1, "$1se$3"); } 
+		else if (str.match(tmpRE2)) { str2 = str.replace(tmpRE2, "$1se$3"); } 
+		else if (str.match(tmpRE3)) { str2 = str.replace(tmpRE3, "$1se$3"); } 
+		else if (str.match(tmpRE4)) { str2 = str.replace(tmpRE4, "se$2"  ); } 
+		else if (str.match(tmpRE5)) { str2 = str.replace(tmpRE5, "$1se$3"); }
+	
+		return(str2);
+	} else {
+		return null;
+	}
+}
 
 
 // X|10 → Verity
