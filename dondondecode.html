@@ -158,7 +158,11 @@
 			    docCookies.setItem("search", s, 60*60*24*365*10);
 			    docCookies.setItem("replace", r, 60*60*24*365*10);
                 htmlTmp.push("------");
-                let RE=new RegExp(s, "ig");
+                let RE_opt="g";
+                if (document.getElementById('RE_I_flag').checked) {
+                  RE_opt="i"+RE_opt;
+                }
+                let RE=new RegExp(s, RE_opt);
                 let newTEXT=TEXT.replace(RE, r);
                 htmlTmp.push("<code style='border: 1px solid #000; margin: 10px 0px;'>"+newTEXT+"</code>");
                 ikkatsuFinish();
@@ -253,7 +257,7 @@
 			<input type="button" value="kw RegExp" id="kwRegExpButton">
 			<input type="button" value="kw Search" id="kwSearchButton"><br>
 			<input type="button" value="vigenere" id="vigenereButton">
-			<input type="button" value="replace RE" id="RE_replaceButton">
+			<input type="button" value="replace RE" id="RE_replaceButton"><input type="checkbox" id="RE_I_flag" value="1" checked="checked">IgnoreCase
 
 		</form>
 	</div>
