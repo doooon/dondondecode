@@ -145,7 +145,7 @@
 			let s=prompt("search RegExp?", docCookies.getItem("search"));
             if (s) {
               let r=prompt("replace word?", docCookies.getItem("replace"));
-              if (r) {
+              //if (r) {
                 
                 htmlTmp.push(`search: ${s}`);
                 htmlTmp.push(`replace: ${r}`);
@@ -162,7 +162,7 @@
                 let newTEXT=TEXT.replace(RE, r);
                 htmlTmp.push("<code style='border: 1px solid #000; margin: 10px 0px;'>"+newTEXT+"</code>");
                 ikkatsuFinish();
-              }
+              //}
             }
 
 		} else {
