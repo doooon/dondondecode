@@ -49,16 +49,39 @@ if (
   htmlCode("--------");
 
   var result=TEXT.replace(/[a-z\d]/g, "0").replace(/[A-Z!@#$*%^&()]/g, "1");
-  htmlTmp.push("LowerとUper(shift)でバイナリ");
-
+  htmlTmp.push("LowerとUper(shift)でバイナリ [A-Zsymbol] > 1");
   htmlTmp.push(result.match(/.{8}/g).join(" "));
   htmlCode(result);
   htmlCode("--------");
 
   var tmp=symbol2Num(TEXT);
-  var result=tmp.replace(/[aeiou02468]/g, "0").replace(/[^aeiou02468]/ig, "1");
-  htmlTmp.push("母音と偶数でバイナリ");
+  var result=tmp.replace(/[aeiou02468]/ig, "0").replace(/[^aeiou02468]/ig, "1");
+  htmlTmp.push("母音と偶数でバイナリ aeiou02468 > 0");
+  htmlTmp.push(result.match(/.{8}/g).join(" "));
+  htmlCode(result);
+  htmlCode("--------");
 
+  var tmp=symbol2Num(TEXT);
+  var result=tmp.replace(/[aeiou13579]/ig, "0").replace(/[^aeiou13579]/ig, "1");
+  htmlTmp.push("母音と奇数でバイナリ aeiou13579 > 0");
+  htmlTmp.push(result.match(/.{8}/g).join(" "));
+  htmlCode(result);
+  htmlCode("--------");
+
+  var tmp=symbol2Num(TEXT);
+  var result=abc012(tmp);
+  htmlTmp.push("abc012して偶数奇数でバイナリ");
+  htmlTmp.push(result.match(/.{8}/g).join(" "));
+  result=tmp.replace(/[13579]/ig, "0").replace(/[02468]/ig, "1");
+  htmlTmp.push(result.match(/.{8}/g).join(" "));
+  htmlCode(result);
+  htmlCode("--------");
+
+  var tmp=symbol2Num(TEXT);
+  var result=abc123(tmp);
+  htmlTmp.push("abc123して偶数奇数でバイナリ");
+  htmlTmp.push(result.match(/.{8}/g).join(" "));
+  result=tmp.replace(/[13579]/ig, "0").replace(/[02468]/ig, "1");
   htmlTmp.push(result.match(/.{8}/g).join(" "));
   htmlCode(result);
 
