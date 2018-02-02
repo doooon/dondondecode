@@ -38,10 +38,20 @@ if (
   // i(#s4f(8a!(al^9!i&#e)67eaa#%ap!Tuu#%Uw8Ao#!Kue!5i#&4nU2Vo%!Oo5q7u%(edAo%o(%8j5hUa%#Za#o2ue&%4IJ*ou%#j)EUuu%(6aP(a!(eUE&0o!#6WBQ9
   htmlTmp.push(TEXT);
   htmlTmp.push("<b>(8で割り切れる文字数にバイナリを仕込んである)</b>");
-  var tmp=symbol2Num(TEXT);
-  var result=tmp.replace(/\d/ig, "1").replace(/\D/ig, "0");
+  htmlTmp.push(TEXT.match(/.{8}/).join(" ");
+
   htmlTmp.push("文字と数字(含むsymbol)でバイナリ");
-  htmlCode(binASCII(result));
+  var tmp=symbol2Num(TEXT);
+  htmlTmp.push(tmp.match(/.{8}/).join(" ");
+  var result=tmp.replace(/\d/ig, "1").replace(/\D/ig, "0");
+  htmlTmp.push(result.match(/.{8}/).join(" ");
+  htmlCode(result);
+  htmlCode("--------");
+
+  var result=TEXT.replace(/[a-z\d]/g, "0").replace(/[A-Z!@#$*%^&()/g, "1");
+  htmlTmp.push(result.match(/.{8}/).join(" ");
+  htmlCode(result);
+
   htmlTmp.push("==============");
 }
 
