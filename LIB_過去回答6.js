@@ -48,7 +48,7 @@ if (
   htmlCode(result);
   htmlCode("--------");
 
-  var result=TEXT.replace(/[a-z\d]/g, "0").replace(/[A-Z!@#$*%^&()/g, "1");
+  var result=TEXT.replace(/[a-z\d]/g, "0").replace(/[A-Z!@#$*%^&()]/g, "1");
   htmlTmp.push(result.match(/.{8}/).join(" "));
   htmlCode(result);
 
