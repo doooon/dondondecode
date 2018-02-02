@@ -69,7 +69,7 @@ if (
   htmlCode("--------");
 
   var tmp=symbol2Num(TEXT);
-  var result=abc012(tmp.split(""));
+  var result=tmp.split("").map(v=>abc012(v));
   htmlTmp.push("symbolを数字にしてからabc012して偶数奇数でバイナリ");
   htmlTmp.push(result.join(" "));
   result=result.map(v=>v%2==0?1:0);
@@ -78,7 +78,7 @@ if (
   htmlCode("--------");
 
   var tmp=symbol2Num(TEXT);
-  var result=abc123(tmp.split(""));
+  var result=tmp.split("").map(v=>abc123(v));
   htmlTmp.push("symbolを数字にしてからabc123して偶数奇数でバイナリ");
   htmlTmp.push(result.join(" "));
   result=result.map(v=>v%2==0?1:0);
