@@ -28,6 +28,25 @@ if (
 */
 
 
+
+// 8で割り切れる文字数にバイナリを仕込んである
+if (
+  TEXT.match(/^([\w!@#$%*&^()]{8})+$/i) && 
+  TEXT.length>=64 && 
+  kouseimoji.length>=6
+) {
+  // i(#s4f(8a!(al^9!i&#e)67eaa#%ap!Tuu#%Uw8Ao#!Kue!5i#&4nU2Vo%!Oo5q7u%(edAo%o(%8j5hUa%#Za#o2ue&%4IJ*ou%#j)EUuu%(6aP(a!(eUE&0o!#6WBQ9
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(8で割り切れる文字数にバイナリを仕込んである)</b>");
+  var tmp=symbol2Num(TEXT);
+  var result=replace(/\d/ig, "1").replace(/\D/ig, "0");
+  htmlTmp.push("文字と数字(含むsymbol)でバイナリ");
+  htmlCode(result);
+  htmlTmp.push("==============");
+}
+
+
+
 // 3行にわけて上へ下へ段々スライド
 var tmp=TEXT.split(/\n/g);
 if (
