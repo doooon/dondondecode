@@ -39,9 +39,9 @@ if (
   htmlTmp.push(TEXT);
   htmlTmp.push("<b>(8で割り切れる文字数にバイナリを仕込んである)</b>");
   var tmp=symbol2Num(TEXT);
-  var result=replace(/\d/ig, "1").replace(/\D/ig, "0");
+  var result=tmp.replace(/\d/ig, "1").replace(/\D/ig, "0");
   htmlTmp.push("文字と数字(含むsymbol)でバイナリ");
-  htmlCode(result);
+  htmlCode(binASCII(result));
   htmlTmp.push("==============");
 }
 
