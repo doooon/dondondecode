@@ -67,7 +67,7 @@ if (
   htmlTmp.push(result.match(/.{8}/g).join(" "));
   htmlCode(result);
   htmlCode("--------");
-
+/*
   var tmp=symbol2Num(TEXT);
   var result=tmp.split("").map(v=>abc012(v));
   htmlTmp.push("symbolを数字にしてからabc012して偶数奇数でバイナリ");
@@ -84,7 +84,7 @@ if (
   result=result.map(v=>v%2==0?1:0);
   htmlTmp.push(result.join("").match(/.{8}/g).join(" "));
   htmlCode(result);
-
+*/
   htmlTmp.push("==============");
 }
 
