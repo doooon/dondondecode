@@ -78,7 +78,7 @@ if (
   htmlCode("--------");
 
   var tmp=symbol2Num(TEXT);
-  var result=abc123(tmp);
+  var result=abc123(tmp.split(""));
   htmlTmp.push("symbolを数字にしてからabc123して偶数奇数でバイナリ");
   htmlTmp.push(result.join(" "));
   result=result.map(v=>v%2==0?1:0);
