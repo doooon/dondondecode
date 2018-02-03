@@ -39,7 +39,6 @@ if (
   htmlTmp.push(TEXT);
   htmlTmp.push("<b>(8で割り切れる文字数にバイナリを仕込んである)</b>");
   htmlTmp.push(TEXT.match(/.{8}/g).join(" "));
-
   htmlTmp.push("文字と数字(含むsymbol)でバイナリ [a-zA-Z] > 0, [0-9symbol] > 1");
   var tmp=symbol2Num(TEXT);
   htmlTmp.push(tmp.match(/.{8}/g).join(" "));
@@ -48,12 +47,14 @@ if (
   htmlCode(result);
   htmlCode("--------");
 
+  htmlTmp.push(TEXT.match(/.{8}/g).join(" "));
   var result=TEXT.replace(/[a-z\d]/g, "0").replace(/[A-Z!@#$*%^&()]/g, "1");
   htmlTmp.push("LowerとUper(shift)でバイナリ [a-z0-9] > 0, [A-Zsymbol] > 1");
   htmlTmp.push(result.match(/.{8}/g).join(" "));
   htmlCode(result);
   htmlCode("--------");
 
+  htmlTmp.push(TEXT.match(/.{8}/g).join(" "));
   var tmp=symbol2Num(TEXT);
   var result=tmp.replace(/[aeiou02468]/ig, "0").replace(/[^aeiou02468]/ig, "1");
   htmlTmp.push("symbolを数字にしてから母音と偶数でバイナリ aeiou02468 > 0");
@@ -61,6 +62,7 @@ if (
   htmlCode(result);
   htmlCode("--------");
 
+  htmlTmp.push(TEXT.match(/.{8}/g).join(" "));
   var tmp=symbol2Num(TEXT);
   var result=tmp.replace(/[aeiou13579]/ig, "a").replace(/[^aeiou13579]/ig, "1").replace(/a/ig, "0");
   htmlTmp.push("symbolを数字にしてから母音と奇数でバイナリ aeiou13579 > 0");
@@ -68,6 +70,7 @@ if (
   htmlCode(result);
   htmlCode("--------");
 
+  htmlTmp.push(TEXT.match(/.{8}/g).join(" "));
   var tmp=symbol2Num(TEXT);
   var result=tmp.split("").map(v=>abc012(v));
   htmlTmp.push("symbolを数字にしてからabc012して偶数奇数でバイナリ");
@@ -77,6 +80,7 @@ if (
   htmlCode(result.join(""));
   htmlCode("--------");
 
+  htmlTmp.push(TEXT.match(/.{8}/g).join(" "));
   var tmp=symbol2Num(TEXT);
   var result=tmp.split("").map(v=>abc123(v));
   htmlTmp.push("symbolを数字にしてからabc123して偶数奇数でバイナリ");
