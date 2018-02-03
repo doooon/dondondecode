@@ -72,7 +72,7 @@ if (
   var result=tmp.split("").map(v=>abc012(v));
   htmlTmp.push("symbolを数字にしてからabc012して偶数奇数でバイナリ");
   htmlTmp.push(result.join(" "));
-  result=result.map(v=>Number(v)%2==0?1:0);
+  //result=result.map(v=>Number(v)%2==0?1:0);
   htmlTmp.push(result.join("").match(/.{8}/g).join(" "));
   htmlCode(result);
   htmlCode("--------");
