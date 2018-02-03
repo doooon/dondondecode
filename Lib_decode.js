@@ -1983,8 +1983,8 @@ function binASCII(line) {
   for (var j in binlist) {
     tmp+=String.fromCharCode(
       parseInt(binlist[j], 2));
-    debug(binlist[j] +" → "+String.fromCharCode(parseInt(binlist[j], 2)));
   }
+  debug(tmp);
   return tmp;
 }
 
