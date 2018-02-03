@@ -1984,7 +1984,6 @@ function binASCII(line) {
     tmp+=String.fromCharCode(
       parseInt(binlist[j], 2));
   }
-  debug(tmp);
   return tmp;
 }
 

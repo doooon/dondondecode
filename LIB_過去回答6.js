@@ -60,6 +60,7 @@ if (
   htmlTmp.push("symbolを数字にしてから母音と偶数でバイナリ aeiou02468 > 0");
   htmlTmp.push(result.match(/.{8}/g).join(" "));
   htmlCode(result);
+  htmlTmp.push(binASCII(result));
   htmlCode("--------");
 
   htmlTmp.push(TEXT.match(/.{8}/g).join(" "));
