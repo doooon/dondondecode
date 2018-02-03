@@ -62,7 +62,7 @@ if (
   htmlCode("--------");
 
   var tmp=symbol2Num(TEXT);
-  var result=tmp.replace(/[aeiou13579]/ig, "0").replace(/[^aeiou13579]/ig, "1");
+  var result=tmp.replace(/[aeiou13579]/ig, "a").replace(/[^aeiou13579]/ig, "1").replace(/a/ig, "0");
   htmlTmp.push("symbolを数字にしてから母音と奇数でバイナリ aeiou13579 > 0");
   htmlTmp.push(result.match(/.{8}/g).join(" "));
   htmlCode(result);
