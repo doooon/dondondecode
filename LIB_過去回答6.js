@@ -72,19 +72,19 @@ if (
   var result=tmp.split("").map(v=>abc012(v));
   htmlTmp.push("symbolを数字にしてからabc012して偶数奇数でバイナリ");
   htmlTmp.push(result.join(" "));
-  //result=result.map(v=>Number(v)%2==0?1:0);
+  result=result.map(v=>Number(v)%2==0?1:0);
   htmlTmp.push(result.join("").match(/.{8}/g).join(" "));
-  htmlCode(result);
+  htmlCode(result.join(""));
   htmlCode("--------");
-/*
+
   var tmp=symbol2Num(TEXT);
   var result=tmp.split("").map(v=>abc123(v));
   htmlTmp.push("symbolを数字にしてからabc123して偶数奇数でバイナリ");
   htmlTmp.push(result.join(" "));
   result=result.map(v=>v%2==0?1:0);
   htmlTmp.push(result.join("").match(/.{8}/g).join(" "));
-  htmlCode(result);
-*/
+  htmlCode(result.join(""));
+
   htmlTmp.push("==============");
 }
 
