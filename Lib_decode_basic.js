@@ -1386,7 +1386,8 @@ function leetKeyws() {
   
   
 
-
+["[1l][3e][4a]d","lead","leet"], 
+["f[0o][1l][1l][0o]w","follow","leet"], 
 ["[5s]h[4A]p[3E]d","shaped","leet"], 
 ["[1l]u[11][2z][1i]","luizi","leet"], 
 ["[1i]mpr[0o][5v][3e]","improve","leet"], 
