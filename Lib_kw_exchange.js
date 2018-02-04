@@ -7,6 +7,10 @@ function goKeywExchange() {
 
   var exL=[
   // ["","",""],
+["0000ff","blue","RGB Hex coror"], 
+["ffff00","blue","意味bash 0000ff blue"], 
+["00ff00","green","RGB Hex coror"], 
+["ff00ff","green","意味bash 00ff00 green"], 
 ["follow","lead","意味bash"], 
 ["lead","follow","意味bash"], 
 ["[1l][3e][4a]d","lead","leet"], 
