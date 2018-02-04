@@ -1783,8 +1783,9 @@ function checkCodeHTML(str, noA) {
       var sstr=str.split(re);
 
       // debug
-      if (kList[0].match(/sigint/i)) {
-        debug(`sstr[0] = ${sstr[0]}
+      if (str.match(/sigint/i)) {
+        debug(`kList[0] = ${kList[0]}
+sstr[0] = ${sstr[0]}
 sstr[1] = ${sstr[1]}`);
       }
 
