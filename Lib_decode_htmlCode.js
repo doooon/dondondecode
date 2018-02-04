@@ -1782,14 +1782,6 @@ function checkCodeHTML(str, noA) {
       var re2=new RegExp("^"+kList[0]+"$", "i");
       var sstr=str.split(re);
 
-      // debug
-      if (str.match(/sigint/i)) {
-        debug(`leetLessKw = ${leetLessKw}
-kList[0] = ${kList[0]}
-sstr[0] = ${sstr[0]}
-sstr[1] = ${sstr[1]}`);
-      }
-
       for (var i=0; i<sstr.length; i=i+1) {
         if (!sstr[i]) {
           sstr.splice(i,1); //空の配列を削除
