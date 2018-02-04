@@ -61,6 +61,7 @@ if (
   htmlTmp.push(result.match(/.{8}/g).join(" "));
   htmlCode(result);
   htmlTmp.push(binASCII(result));
+  htmlCode(checkCodeHTML(binASCII(result)));
   htmlCode("--------");
 
   htmlTmp.push(TEXT.match(/.{8}/g).join(" "));
@@ -69,7 +70,6 @@ if (
   htmlTmp.push("symbolを数字にしてから母音と奇数でバイナリ aeiou13579 > 0");
   htmlTmp.push(result.match(/.{8}/g).join(" "));
   htmlCode(result);
-  htmlCode(checkCodeHTML(result));
   htmlCode("--------");
 
   htmlTmp.push(TEXT.match(/.{8}/g).join(" "));
