@@ -1384,8 +1384,15 @@ function leetKeyws() {
   */
   
   
-  
 
+
+
+
+
+
+["[5s][7T][4A][7T][3E]","state","leet"], 
+["h[3e]nry","henry","leet"], 
+["m[4A][6G]nu[5s]","magnus","leet"]
 ["[1l][3e][4a]d","lead","leet"], 
 ["f[0o][1l][1l][0o]w","follow","leet"], 
 ["[5s]h[4A]p[3E]d","shaped","leet"], 
