@@ -7,6 +7,12 @@ function goKeywExchange() {
 
   var exL=[
   // ["","",""],
+["wave","particle","意味bash"], 
+["particle","wave","意味bash"], 
+["p[4A]r[7T][1i](?:100|c)[71l][3E]","particle","leet"], 
+["w[4A][5v][3E]","wave","leet"], 
+["[0o]p[3E]n","open","leet"], 
+["[5v][1i]","vi","leet"], 
 ["[5s][7T][4A][7T][3E]","state","leet"], 
 ["h[3e]nry","henry","leet"], 
 ["00","magnus","前例あり"], 
