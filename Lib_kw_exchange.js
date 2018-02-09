@@ -10,7 +10,7 @@ function goKeywExchange() {
 ["[5s][7T][4A][7T][3E]","state","leet"], 
 ["h[3e]nry","henry","leet"], 
 ["00","magnus","前例あり"], 
-["m[4A][6G]nu[5s]","magnus","leet"]
+["m[4A][6G]nu[5s]","magnus","leet"], 
 ["0000ff","blue","RGB Hex coror"], 
 ["ffff00","blue","意味bash 0000ff blue"], 
 ["00ff00","green","RGB Hex coror"], 
