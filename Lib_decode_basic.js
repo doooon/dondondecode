@@ -1287,6 +1287,15 @@ if(str.match(tmpRE)){
   tmp2.forEach((val,i)=>alertMsg.push(tmp[i]+" > <a href='https://maps.google.com/?q="+val+"&z=15' target='_blank'>"+val+"</a>"));
 }
 
+if (str.match(/^[o\-=≠#\s]+$/i) && 
+    str.match(/o/i) && 
+    str.match(/-/i) && 
+    str.match(/=/i) && 
+    str.match(/≠/i) && 
+    str.match(/#/i)
+) {
+  alertMsg.push("直線の数 o-=≠# > 01234 からのbase5 や polybius");
+}
 
 
 
