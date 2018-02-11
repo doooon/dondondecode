@@ -56,14 +56,10 @@ if (
     htmlTmp.push("(base 5 > 10)");
     htmlTmp.push(tmpL2.join(" "));
 
-    htmlTmp.push(to012abc(tmpL2.join("")));
-    htmlTmp.push(to012abc(tmpL2.join(" ")));
-    htmlTmp.push(to012abc(tmpL2));
-
-    htmlCode(to012abc(tmpL2.join("")));
-    htmlCode(to123abc(tmpL2.join("")));
-    htmlCode(tmpL2.join(""));
-
+    htmlTmp.push("(012abc)");
+    htmlCode(to012abcString(tmpL2.join(" ")));
+    htmlTmp.push("(123abc)");
+    htmlCode(to123abcString(tmpL2.join(" ")));
   }
 
   if(tmp.match(/^([0-4]{2}\s*)+$/i)) {
