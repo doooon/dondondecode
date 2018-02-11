@@ -29,6 +29,47 @@ if (
 
 
 
+
+
+// 直線の数 o-=≠# > 01234
+if (
+  TEXT.match(/^[o\-=≠#\s]+$/i) && 
+  TEXT.match(/o/i) && 
+  TEXT.match(/-/i) && 
+  TEXT.match(/=/i) && 
+  TEXT.match(/≠/i) && 
+  TEXT.match(/#/i) && 
+  TEXT.length>=20 && 
+  kouseimoji.length>=5
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b class='alert'>(直線の数 o-=≠# > 01234)</b>");
+  var tmp=TEXT.replace(/o/ig,"0").replace(/-/ig,"1").replace(/=/ig,"2").replace(/≠/ig,"3").replace(/#/ig,"4");
+  htmlTmp.push(tmp);
+
+  if(tmp.match(/^([0-4]{3}\s*)+$/i)) {
+    htmlTmp.push("(base 5)");
+    let tmpL=tmp.replace(/\s+/g,"").match(/[0-4]{3}/g);
+    htmlTmp.push(tmpL.join(" "));
+    let tmpL2=tmpL.map(v=>parseInt(v).toString(10));
+    htmlTmp.push("(base 5 > 10)");
+    htmlTmp.push(tmpL2.join(" "));
+    htmlCode(012abc(tmpL2.join("")));
+    htmlCode(123abc(tmpL2.join("")));
+    htmlCode(tmpL2.join(""));
+  }
+
+  if(tmp.match(/^([0-4]{2}\s*)+$/i)) {
+    htmlTmp.push("(polybius)");
+    htmlCode(polybius(tmp.replace(/\s+/g,"")));
+  }
+
+  htmlTmp.push("==============");
+}
+
+
+
+
 // 8で割り切れる文字数にバイナリを仕込んである
 if (
   TEXT.match(/^([\w!@#$%*&^()]{8})+$/i) && 
