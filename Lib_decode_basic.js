@@ -1291,7 +1291,7 @@ if(str.match(tmpRE)){
 // 直線の数
 if (str.match(/^[o\-=≠#\s]+$/i) && 
     str.match(/o/i) && 
-    //str.match(/-/i) && 
+    str.match(/-/i) && 
     str.match(/=/i) && 
     //str.match(/≠/i) && 
     str.match(/#/i)
