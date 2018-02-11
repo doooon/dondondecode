@@ -52,7 +52,7 @@ if (
     htmlTmp.push("(base 5)");
     let tmpL=tmp.replace(/\s+/g,"").match(/[0-4]{3}/g);
     htmlTmp.push(tmpL.join(" "));
-    let tmpL2=tmpL.map(v=>parseInt(v,5).toString(10));
+    let tmpL2=tmpL.map(v=>("0"+parseInt(v,5).toString(10)).slice(-2));
     htmlTmp.push("(base 5 > 10)");
     htmlTmp.push(tmpL2.join(" "));
 
