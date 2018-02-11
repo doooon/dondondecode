@@ -53,13 +53,13 @@ if (
     let tmpL=tmp.replace(/\s+/g,"").match(/[0-4]{3}/g);
     htmlTmp.push(tmpL.join(" "));
     let tmpL2=tmpL.map(v=>parseInt(v).toString(10));
-/*
     htmlTmp.push("(base 5 > 10)");
     htmlTmp.push(tmpL2.join(" "));
+
     htmlCode(012abc(tmpL2.join("")));
     htmlCode(123abc(tmpL2.join("")));
     htmlCode(tmpL2.join(""));
-*/
+
   }
 /*
   if(tmp.match(/^([0-4]{2}\s*)+$/i)) {
