@@ -28,7 +28,37 @@ if (
 */
 
 
-
+// 数字と文字でshift区切りモールス
+if (
+  TEXT.match(/^[12345!@#$%abcde]+$/i) && 
+  TEXT.match(/^[12345]+$/i) && 
+  TEXT.match(/^[!@#$%]+$/i) && 
+  TEXT.match(/^[abcde]+$/i) && 
+  TEXT.match(/^([12345abcde]*[!@#$%ABCDE]){10,}$/) && 
+  TEXT.length>=15 && 
+  kouseimoji.length>=5
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(数字と文字でshift区切りモールス)</b>");
+  var tmp=TEXT.match(/[12345abcde]*[!@#$%ABCDE]/g);
+  htmlTmp.push(tmp.join(" "));
+  var result=tmp.map(v=>{
+    v=v.replace(/aA/g,".");
+    v=v.replace(/bB/g,"..");
+    v=v.replace(/cC/g,"...");
+    v=v.replace(/dD/g,"....");
+    v=v.replace(/eE/g,".....");
+    v=v.replace(/1!/g,"-");
+    v=v.replace(/2@/g,"--");
+    v=v.replace(/3#/g,"---");
+    v=v.replace(/4\$/g,"----");
+    v=v.replace(/5%/g,"-----");
+    return v;
+  });
+  htmlTmp.push(result.join(" "));
+  goMorse(result.join(" "));
+  htmlTmp.push("==============");
+}
 
 
 // 直線の数 o-=≠# > 01234
