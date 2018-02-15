@@ -56,7 +56,7 @@ if (
     return v;
   });
   htmlTmp.push(result.join(" "));
-  goMorse(result.join(" "));
+  htmlCode(morse(result.join(" ")));
   htmlTmp.push("==============");
 }
 
