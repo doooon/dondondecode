@@ -42,21 +42,11 @@ if (
   htmlTmp.push("<b>(数字と文字でshift区切りモールス)</b>");
   var tmp=TEXT.match(/[12345abcde]*[!@#$%ABCDE]/g);
   htmlTmp.push(tmp.join(" "));
-  var result=tmp.map(v=>{
-    v=v.replace(/aA/g,".");
-    v=v.replace(/bB/g,"..");
-    v=v.replace(/cC/g,"...");
-    v=v.replace(/dD/g,"....");
-    v=v.replace(/eE/g,".....");
-    v=v.replace(/1!/g,"-");
-    v=v.replace(/2@/g,"--");
-    v=v.replace(/3#/g,"---");
-    v=v.replace(/4\$/g,"----");
-    v=v.replace(/5%/g,"-----");
-    return v;
-  });
+  var result=tmp.map(v=>
+    v.replace(/aA/g,".").replace(/bB/g,"..").replace(/cC/g,"...").replace(/dD/g,"....").replace(/eE/g,".....").replace(/1!/g,"-").replace(/2@/g,"--").replace(/3#/g,"---").replace(/4\$/g,"----").replace(/5%/g,"-----")
+  );
   htmlTmp.push(result.join(" "));
-  debug(result.join(" "));
+  goMorse(result.join(" "));
   htmlTmp.push("==============");
 }
 
