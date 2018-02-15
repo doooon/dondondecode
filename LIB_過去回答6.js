@@ -31,9 +31,9 @@ if (
 // 数字と文字でshift区切りモールス
 if (
   TEXT.match(/^[12345!@#$%abcde]+$/i) && 
-  TEXT.match(/^[12345]+$/i) && 
-  TEXT.match(/^[!@#$%]+$/i) && 
-  TEXT.match(/^[abcde]+$/i) && 
+  TEXT.match(/[12345]/i) && 
+  TEXT.match(/[!@#$%]/i) && 
+  TEXT.match(/[abcde]/i) && 
   TEXT.match(/^([12345abcde]*[!@#$%ABCDE]){10,}$/) && 
   TEXT.length>=15 && 
   kouseimoji.length>=5
