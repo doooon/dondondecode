@@ -29,6 +29,7 @@ if (
 
 
 // 数字と文字でshift区切りモールス
+// @#2C3Bd!Ac!1Ba1a!a1AA2A#a2Ab#1Db!b@a1A
 if (
   TEXT.match(/^[12345!@#$%abcde]+$/i) && 
   TEXT.match(/[12345]/i) && 
