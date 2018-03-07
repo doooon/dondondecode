@@ -1398,7 +1398,9 @@ function leetKeyws() {
 
 
 
-
+["[5s][7T][3E][1i]n","stein","leet"], 
+["[5s][1i][6G]n[4A][1L]","signal","leet"], 
+["[0o][6b][5s][1i]d[1i]u[5s]","obsidius","leet"], 
 ["noise","signal","意味bash"], 
 ["p[4A]r[7T][1i](?:100|c)[71l][3E]","particle","leet"], 
 ["w[4A][5v][3E]","wave","leet"], 

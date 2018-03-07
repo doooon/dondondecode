@@ -7,6 +7,9 @@ function goKeywExchange() {
 
   var exL=[
   // ["","",""],
+["[5s][7T][3E][1i]n","stein","leet"], 
+["[5s][1i][6G]n[4A][1L]","signal","leet"], 
+["[0o][6b][5s][1i]d[1i]u[5s]","obsidius","leet"], 
 ["wave","particle","意味bash"], 
 ["particle","wave","意味bash"], 
 ["p[4A]r[7T][1i](?:100|c)[71l][3E]","particle","leet"], 
