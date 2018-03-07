@@ -1399,7 +1399,7 @@ function leetKeyws() {
 
 
 
-
+["noise","signal","意味bash"], 
 ["p[4A]r[7T][1i](?:100|c)[71l][3E]","particle","leet"], 
 ["w[4A][5v][3E]","wave","leet"], 
 ["[0o]p[3E]n","open","leet"], 
