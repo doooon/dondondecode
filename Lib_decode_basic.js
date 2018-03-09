@@ -1398,6 +1398,13 @@ function leetKeyws() {
 
 
 
+["[5v][1i][4A][17L]u(?:10|x)","vialux","leet"], 
+["(?:100|c)[1i][5v][1i][17L][1i][5z][4A][7t][1i][0o]n","civilization","leet"], 
+["n[4A][7T]ur[3E]","nature","leet"], 
+["(?:100|c)[0o]n[7T]r[4A](?:100|c)[7T]","contract","leet"], 
+["n[3E][5s][7T]","nest","leet"], 
+["[4A][5s]p[1i]r[4A][7T][1i][0o]n","aspiration","leet"], 
+["[9q]u[4A]n[7T]u(?:1000|m)","quantum","leet"], 
 ["[5s][7T][3E][1i]n","stein","leet"], 
 ["[5s][1i][6G]n[4A][1L]","signal","leet"], 
 ["[0o][6b][5s][1i]d[1i]u[5s]","obsidius","leet"], 
