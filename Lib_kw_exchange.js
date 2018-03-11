@@ -7,6 +7,11 @@ function goKeywExchange() {
 
   var exL=[
   // ["","",""],
+["n[0o][1i]r","noir","leet"], 
+["[7L]u(?:10|x)","lux","leet"], 
+["n[1i]","ni","leet"], 
+["h[1i][6G][6G][5s]","higgs","leet"], 
+["[6b][0o][5s][0o]n","boson","leet"], 
 ["civilization","nature","対グリフ"], 
 ["[5v][1i][4A][17L]u(?:10|x)","vialux","leet"], 
 ["(?:100|c)[1i][5v][1i][17L][1i][5z][4A][7t][1i][0o]n","civilization","leet"], 
