@@ -7,6 +7,9 @@ function goKeywExchange() {
 
   var exL=[
   // ["","",""],
+["[4A]d[5v][4A]n(?:100|c)[3E]","advance","leet"], 
+["[7T][0o][9g][3E][7T]h[3E]r","together","leet"], 
+["dr[3E][4A]m","dream","leet"], 
 ["n[0o][1i]r","noir","leet"], 
 ["[7L]u(?:10|x)","lux","leet"], 
 ["n[1i]","ni","leet"], 
