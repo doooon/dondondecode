@@ -2369,6 +2369,40 @@ if (
   htmlTmp.push("==============");
 }
 
+
+// [a-z]>abc, [A-Z]>ABC, !@#>123 Base64dec
+// c#h^)DVpbnZlbmlyaTU)Nm(v
+if (
+  TEXT.match(/^[a-zA-Z0-9!@#\$%\^&\*\(\)]+$/i) && 
+  (
+    TEXT.match(/[!@#\$%\^&\*\(\)]/) || 
+    TEXT.match(/\d/)
+  ) && 
+  TEXT.match(/[A-Z]/) && 
+  TEXT.match(/[a-z]/)
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push(
+    "<b>( [a-z]>abc, [A-Z]>ABC, !@#>123 )</b>");
+  var result=[];
+  for (var i in TEXT) {
+    if (TEXT[i].match(/[!@#$%\^&\*\(\)]/)) {
+      result.push(symbol2Num(TEXT[i]));
+    } else if (TEXT[i].match(/\d/)) {
+      result.push(TEXT[i]);
+    } else if (TEXT[i].match(/[A-Z]/)) {
+      result.push(TEXT[i]);
+    } else if (TEXT[i].match(/[a-z]/)) {
+      result.push(TEXT[i]);
+    }
+  }
+  htmlCode(result.join(""));
+  htmlTmp.push("(Base64 decode)");
+  htmlCode(base64Dec(result.join("")));
+  htmlTmp.push("==============");
+}
+
+
 // [a-z]>ABC, [A-Z]>abc, !@#>123 Base64dec
 // C#H^)dvPBNzLBMLYAtu)nM(V
 if (
