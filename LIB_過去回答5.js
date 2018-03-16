@@ -2371,7 +2371,7 @@ if (
 
 
 // [a-z]>abc, [A-Z]>ABC, !@#>123 Base64dec
-// c#h^)DVpbnZlbmlyaTU)Nm(v
+// c#h^ODVpbnZlbmlyaTU)Nm(v
 if (
   TEXT.match(/^[a-zA-Z0-9!@#\$%\^&\*\(\)]+$/i) && 
   (
@@ -2404,7 +2404,7 @@ if (
 
 
 // [a-z]>ABC, [A-Z]>abc, !@#>123 Base64dec
-// C#H^)dvPBNzLBMLYAtu)nM(V
+// C#H^odvPBNzLBMLYAtu)nM(V
 if (
   TEXT.match(/^[a-zA-Z0-9!@#\$%\^&\*\(\)]+$/i) && 
   (
@@ -2437,6 +2437,8 @@ if (
 
 
 // [a-j]>012, [A-Z]>abc, !@#>ABC Base64dec
+// CdHg!$)#@!PBN@%LBMLYA!(@)a!#MjV
+// 02d07gODV150113Z110112112400TUN12j21
 if (
   TEXT.match(/^([a-jA-Z]|[0-9]{2}|[!@#\$%\^&\*\(\)]{2})+$/i) && 
   (
@@ -2450,26 +2452,37 @@ if (
   htmlTmp.push(
     "<b>( [a-j]>012, [A-Z]>abc, !@#>ABC )</b>");
   var result=[];
+  var result2=[];
   var tmps=TEXT.match(/([!@#\$%\^&\*\(\)]{2}|\d{2}|[a-jA-Z])/g);
-  debug(tmps);
   for (var i in tmps) {
     if (tmps[i].match(/[!@#$%\^&\*\(\)]/)) {
       result.push(to012abc(symbol2Num(tmps[i])).toUpperCase());
+      result2.push(to012abc(symbol2Num(tmps[i])).toLowerCase());
     } else if (tmps[i].match(/\d/)) {
       result.push(to012abc(tmps[i]).toUpperCase());
+      result2.push(to012abc(tmps[i]).toLowerCase());
     } else if (tmps[i].match(/[A-Z]/)) {
       result.push(tmps[i].toLowerCase());
+      result2.push(tmps[i]);
     } else if (tmps[i].match(/[a-j]/)) {
       result.push(abc012(tmps[i]));
+      result2.push(abc012(tmps[i]));
     }
   }
   htmlCode(result.join(""));
   htmlTmp.push("(Base64 decode)");
   htmlCode(base64Dec(result.join("")));
+  htmlTmp.push("------");
+  htmlTmp.push(
+    "<b>( [a-j]>012, [A-Z]>ABC, !@#>abc )</b>");
+  htmlCode(result2.join(""));
+  htmlTmp.push("(Base64 decode)");
+  htmlCode(base64Dec(result2.join("")));
   htmlTmp.push("==============");
-} else{
-  debug("(੭ु ˃̶͈̀ ω ˂̶͈́)੭ु⁾⁾ ");
 }
+
+
+
 
 // 1# 1 1!1! 4! 4! ! 1@1 1 !1! ! 2 @ # % #2 1$ 1! !2!
 // 数字とシンボルでモールス
