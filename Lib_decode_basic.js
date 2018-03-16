@@ -1398,7 +1398,11 @@ function leetKeyws() {
 
 
 
-  
+
+["d[3E]f[3E]nd","defend","leet"], 
+["[4A][7T][7T][4A]ck","attack","leet"], 
+["d[4A]n[6G9g][3E]r","danger","leet"], 
+["[6b][4A]rr[1i][E3]","barrie","leet"], 
 ["[3E]nd","end","leet"], 
 ["[1i]n[5v][3E]n[1i]r[1i]","inveniri","leet"], 
 ["[4A]d[5v][4A]n(?:100|c)[3E]","advance","leet"], 
