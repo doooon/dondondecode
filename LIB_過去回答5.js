@@ -2467,6 +2467,7 @@ if (
 // [a-z]>ABC, [A-J]>012, !@#>abc Base64dec
 // [a-z]>abc, [A-J]>012, !@#>ABC Base64dec
 // 
+/*
 if (
   TEXT.match(/^([a-zA-J]|[0-9]{2}|[!@#\$%\^&\*\(\)]{2})+$/i) && 
   (
@@ -2508,7 +2509,7 @@ if (
   htmlCode(base64Dec(result2.join("")));
   htmlTmp.push("==============");
 }
-
+*/
 
 
 
