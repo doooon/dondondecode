@@ -4,7 +4,7 @@
 
 function kakokaitou5() {
 
-htmlTmp.push("<div class='red'>--- kako 6 ---</div>");
+htmlTmp.push("<div class='red'>--- kako 5 ---</div>");
 
 
 // ze=0, on=1, te=10, el=11, hu=100, th=1000, でバイナリ
@@ -2370,6 +2370,7 @@ if (
 }
 
 // [a-z]>ABC, [A-Z]>abc, !@#>123 Base64dec
+// C#H^)dvPBNzLBMLYAtu)nM(V
 if (
   TEXT.match(/^[a-zA-Z0-9!@#\$%\^&\*\(\)]+$/i) && 
   (
