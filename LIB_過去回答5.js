@@ -2370,41 +2370,10 @@ if (
 }
 
 
-// [a-z]>abc, [A-Z]>ABC, !@#>123 Base64dec
-// c#h^ODVpbnZlbmlyaTU)Nm(v
-if (
-  TEXT.match(/^[a-zA-Z0-9!@#\$%\^&\*\(\)]+$/i) && 
-  (
-    TEXT.match(/[!@#\$%\^&\*\(\)]/) || 
-    TEXT.match(/\d/)
-  ) && 
-  TEXT.match(/[A-Z]/) && 
-  TEXT.match(/[a-z]/)
-) {
-  htmlTmp.push(TEXT);
-  htmlTmp.push(
-    "<b>( [a-z]>abc, [A-Z]>ABC, !@#>123 )</b>");
-  var result=[];
-  for (var i in TEXT) {
-    if (TEXT[i].match(/[!@#$%\^&\*\(\)]/)) {
-      result.push(symbol2Num(TEXT[i]));
-    } else if (TEXT[i].match(/\d/)) {
-      result.push(TEXT[i]);
-    } else if (TEXT[i].match(/[A-Z]/)) {
-      result.push(TEXT[i]);
-    } else if (TEXT[i].match(/[a-z]/)) {
-      result.push(TEXT[i]);
-    }
-  }
-  htmlCode(result.join(""));
-  htmlTmp.push("(Base64 decode)");
-  htmlCode(base64Dec(result.join("")));
-  htmlTmp.push("==============");
-}
-
-
 // [a-z]>ABC, [A-Z]>abc, !@#>123 Base64dec
+// [a-z]>abc, [A-Z]>ABC, !@#>123 Base64dec
 // C#H^odvPBNzLBMLYAtu)nM(V
+// c#h^ODVpbnZlbmlyaTU)Nm(v
 if (
   TEXT.match(/^[a-zA-Z0-9!@#\$%\^&\*\(\)]+$/i) && 
   (
@@ -2418,27 +2387,40 @@ if (
   htmlTmp.push(
     "<b>( [a-z]>ABC, [A-Z]>abc, !@#>123 )</b>");
   var result=[];
+  var result2=[];
   for (var i in TEXT) {
     if (TEXT[i].match(/[!@#$%\^&\*\(\)]/)) {
       result.push(symbol2Num(TEXT[i]));
+      result2.push(symbol2Num(TEXT[i]));
     } else if (TEXT[i].match(/\d/)) {
       result.push(TEXT[i]);
+      result2.push(TEXT[i]);
     } else if (TEXT[i].match(/[A-Z]/)) {
       result.push(TEXT[i].toLowerCase());
+      result2.push(TEXT[i]);
     } else if (TEXT[i].match(/[a-z]/)) {
       result.push(TEXT[i].toUpperCase());
+      result2.push(TEXT[i]);
     }
   }
   htmlCode(result.join(""));
   htmlTmp.push("(Base64 decode)");
   htmlCode(base64Dec(result.join("")));
+  htmlTmp.push("------");
+  htmlTmp.push(
+    "<b>( [a-z]>abc, [A-Z]>ABC, !@#>123 )</b>");
+  htmlCode(result2.join(""));
+  htmlTmp.push("(Base64 decode)");
+  htmlCode(base64Dec(result2.join("")));
   htmlTmp.push("==============");
 }
 
 
 // [a-j]>012, [A-Z]>abc, !@#>ABC Base64dec
+// [a-j]>012, [A-Z]>ABC, !@#>abc Base64dec
 // CdHg!$)#@!PBN@%LBMLYA!(@)a!#MjV
 // 02d07gODV150113Z110112112400TUN12j21
+// )@d)&gODV!%)!!#Z!!)!!@!!@$))TUaN!@j@!
 if (
   TEXT.match(/^([a-jA-Z]|[0-9]{2}|[!@#\$%\^&\*\(\)]{2})+$/i) && 
   (
@@ -2475,6 +2457,52 @@ if (
   htmlTmp.push("------");
   htmlTmp.push(
     "<b>( [a-j]>012, [A-Z]>ABC, !@#>abc )</b>");
+  htmlCode(result2.join(""));
+  htmlTmp.push("(Base64 decode)");
+  htmlCode(base64Dec(result2.join("")));
+  htmlTmp.push("==============");
+}
+
+
+// [a-z]>ABC, [A-J]>012, !@#>abc Base64dec
+// [a-z]>abc, [A-J]>012, !@#>ABC Base64dec
+// 
+if (
+  TEXT.match(/^([a-zA-J]|[0-9]{2}|[!@#\$%\^&\*\(\)]{2})+$/i) && 
+  (
+    TEXT.match(/[!@#\$%\^&\*\(\)]{2}/) || 
+    TEXT.match(/\d{2}/)
+  ) && 
+  TEXT.match(/[A-J]/) && 
+  TEXT.match(/[a-z]/)
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push(
+    "<b>( [a-z]>ABC, [A-J]>012, !@#>abc )</b>");
+  var result=[];
+  var result2=[];
+  var tmps=TEXT.match(/([!@#\$%\^&\*\(\)]{2}|\d{2}|[a-zA-J])/g);
+  for (var i in tmps) {
+    if (tmps[i].match(/[!@#$%\^&\*\(\)]/)) {
+      result.push(to012abc(symbol2Num(tmps[i])).toLowerCase());
+      result2.push(to012abc(symbol2Num(tmps[i])).toUpperCase());
+    } else if (tmps[i].match(/\d/)) {
+      result.push(to012abc(tmps[i]).toLowerCase());
+      result2.push(to012abc(tmps[i]).toUpperCase());
+    } else if (tmps[i].match(/[A-J]/)) {
+      result.push(abc012(tmps[i]));
+      result2.push(abc012(tmps[i]);
+    } else if (tmps[i].match(/[a-z]/)) {
+      result.push(tmps[i].toUpperCase());
+      result2.push(tmps[i]);
+    }
+  }
+  htmlCode(result.join(""));
+  htmlTmp.push("(Base64 decode)");
+  htmlCode(base64Dec(result.join("")));
+  htmlTmp.push("------");
+  htmlTmp.push(
+    "<b>( [a-z]>abc, [A-J]>012, !@#>ABC )</b>");
   htmlCode(result2.join(""));
   htmlTmp.push("(Base64 decode)");
   htmlCode(base64Dec(result2.join("")));

@@ -1394,8 +1394,13 @@ function leetKeyws() {
     ["Akira","Tsukasa","登場人物 Akira Tsukasa"], 
   */
   
-  
 
+
+
+
+  
+["[3E]nd","end","leet"], 
+["[1i]n[5v][3E]n[1i]r[1i]","inveniri","leet"], 
 ["[4A]d[5v][4A]n(?:100|c)[3E]","advance","leet"], 
 ["[7T][0o][9g][3E][7T]h[3E]r","together","leet"], 
 ["dr[3E][4A]m","dream","leet"], 
