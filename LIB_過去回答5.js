@@ -4,6 +4,8 @@
 
 function kakokaitou5() {
 
+htmlTmp.push("<div class='red'>--- kako 6 ---</div>");
+
 
 // ze=0, on=1, te=10, el=11, hu=100, th=1000, でバイナリ
 if (
@@ -2398,6 +2400,7 @@ if (
   htmlTmp.push("==============");
 }
 
+
 // [a-j]>012, [A-Z]>abc, !@#>ABC Base64dec
 if (
   TEXT.match(/^([a-jA-Z]|[0-9]{2}|[!@#\$%\^&\*\(\)]{2})+$/i) && 
@@ -2413,6 +2416,7 @@ if (
     "<b>( [a-j]>012, [A-Z]>abc, !@#>ABC )</b>");
   var result=[];
   var tmps=TEXT.match(/([!@#\$%\^&\*\(\)]{2}|\d{2}|[a-jA-Z])/g);
+  debug(tmps);
   for (var i in tmps) {
     if (tmps[i].match(/[!@#$%\^&\*\(\)]/)) {
       result.push(to012abc(symbol2Num(tmps[i])).toUpperCase());
@@ -2428,6 +2432,8 @@ if (
   htmlTmp.push("(Base64 decode)");
   htmlCode(base64Dec(result.join("")));
   htmlTmp.push("==============");
+} else{
+  debug("(੭ु ˃̶͈̀ ω ˂̶͈́)੭ु⁾⁾ ");
 }
 
 // 1# 1 1!1! 4! 4! ! 1@1 1 !1! ! 2 @ # % #2 1$ 1! !2!
