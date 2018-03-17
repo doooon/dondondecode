@@ -2491,13 +2491,19 @@ if (
     debug(tmps[i]);
     
     if (tmps[i].match(/[!@#$%^&*()]{2}/)) {
-      result.push(to012abc(symbol2Num(tmps[i])));
+      result.push(
+        to012abc(symbol2Num(tmps[i])).toLowerCase());
+      result2.push(
+        to012abc(symbol2Num(tmps[i])).toUpperCase());
     } else if (tmps[i].match(/\d{2}/)) {
-      result.push(to012abc(tmps[i]));
+      result.push(to012abc(tmps[i]).toLowerCase());
+      result2.push(to012abc(tmps[i]).toUpperCase());
     } else if (tmps[i].match(/[A-J]/)) {
       result.push(abc012(tmps[i]));
+      result2.push(abc012(tmps[i]));
     } else if (tmps[i].match(/[a-z]/)) {
-      result.push(tmps[i]);
+      result.push(tmps[i].toUpperCase());
+      result2.push(tmps[i]);
     }
 
     /*
