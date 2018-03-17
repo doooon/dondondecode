@@ -2466,8 +2466,8 @@ if (
 
 // [a-z]>ABC, [A-J]>012, !@#>abc Base64dec
 // [a-z]>abc, [A-J]>012, !@#>ABC Base64dec
-// 
-
+// )@D)&Godv!%)!!#z!!)!!@!!@$))tuAn!@J@!
+// cDhG!$)#@!pbn@%lbmlya!(@)A!#mJv
 if (
   TEXT.match(/^([a-zA-J]|[0-9]{2}|[!@#\$%\^&\*\(\)]{2})+$/i) && 
   (
@@ -2484,11 +2484,7 @@ if (
   var result2=[];
   var tmps=TEXT.match(/([!@#\$%\^&\*\(\)]{2}|\d{2}|[a-zA-J])/g);
 
-  debug(tmps.join(", "));
-  debug(tmps.length);
-
   for (var i in tmps) {
-    debug(tmps[i]);
     
     if (tmps[i].match(/[!@#$%^&*()]{2}/)) {
       result.push(
@@ -2506,26 +2502,7 @@ if (
       result2.push(tmps[i]);
     }
 
-    /*
-    if (tmps[i].match(/[!@#$%\^&\*\(\)]/)) {
-      result.push(
-        to012abc(symbol2Num(tmps[i])).toLowerCase());
-      result2.push(
-        to012abc(symbol2Num(tmps[i])).toUpperCase());
-    } else if (tmps[i].match(/\d/)) {
-      result.push( to012abc(tmps[i]).toLowerCase());
-      result2.push(to012abc(tmps[i]).toUpperCase());
-    } else if (tmps[i].match(/[A-J]/)) {
-      result.push( abc012(tmps[i]));
-      result2.push(abc012(tmps[i]);
-    } else if (tmps[i].match(/[a-z]/)) {
-      result.push( tmps[i].toUpperCase());
-      result2.push(tmps[i]);
-    }
-    */
-
   }
-
 
   htmlCode(result.join(""));
   htmlTmp.push("(Base64 decode)");
