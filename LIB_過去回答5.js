@@ -2523,9 +2523,9 @@ if (
 // c3h6!$)#@!pbn@%lbmlya!(@)0!#m9v
 // 
 if (
-  TEXT.match(/^([a-zA-Z]|[0-9]|[!@#\$%\^&\*\(\)]{2})+$/i) && 
+  TEXT.match(/^([a-zA-Z0-9]|[!@#\$%\^&\*\(\)]{2})+$/i) && 
   TEXT.match(/[!@#\$%\^&\*\(\)]{2}/) && 
-  TEXT.match(/\d/) && 
+  TEXT.match(/[0-9]/) && 
   TEXT.match(/[a-zA-Z]/)
 ) {
   htmlTmp.push(TEXT);
