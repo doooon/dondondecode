@@ -2467,7 +2467,7 @@ if (
 // [a-z]>ABC, [A-J]>012, !@#>abc Base64dec
 // [a-z]>abc, [A-J]>012, !@#>ABC Base64dec
 // 
-/*
+
 if (
   TEXT.match(/^([a-zA-J]|[0-9]{2}|[!@#\$%\^&\*\(\)]{2})+$/i) && 
   (
@@ -2483,6 +2483,7 @@ if (
   var result=[];
   var result2=[];
   var tmps=TEXT.match(/([!@#\$%\^&\*\(\)]{2}|\d{2}|[a-zA-J])/g);
+/*
   for (var i in tmps) {
     if (tmps[i].match(/[!@#$%\^&\*\(\)]/)) {
       result.push(to012abc(symbol2Num(tmps[i])).toLowerCase());
@@ -2498,6 +2499,7 @@ if (
       result2.push(tmps[i]);
     }
   }
+*/
   htmlCode(result.join(""));
   htmlTmp.push("(Base64 decode)");
   htmlCode(base64Dec(result.join("")));
@@ -2509,7 +2511,7 @@ if (
   htmlCode(base64Dec(result2.join("")));
   htmlTmp.push("==============");
 }
-*/
+
 
 
 
