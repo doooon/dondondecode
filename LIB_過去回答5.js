@@ -2483,10 +2483,13 @@ if (
   var result=[];
   var result2=[];
   var tmps=TEXT.match(/([!@#\$%\^&\*\(\)]{2}|\d{2}|[a-zA-J])/g);
-    debug(tmps);
+
+  debug(tmps);
+
+  /*
   for (var i in tmps) {
     //debug(tmps[i]);
-    */
+    
     if (tmps[i].match(/[!@#$%\^&\*\(\)]/)) {
       result.push(
         to012abc(symbol2Num(tmps[i])).toLowerCase());
@@ -2502,8 +2505,9 @@ if (
       result.push( tmps[i].toUpperCase());
       result2.push(tmps[i]);
     }
-    */
+    
   }
+  */
 
   htmlCode(result.join(""));
   htmlTmp.push("(Base64 decode)");
