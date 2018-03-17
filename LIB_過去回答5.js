@@ -2487,10 +2487,10 @@ if (
   debug(tmps.join(", "));
   debug(tmps.length);
 
-  /*
   for (var i in tmps) {
-    //debug(tmps[i]);
+    debug(tmps[i]);
     
+    /*
     if (tmps[i].match(/[!@#$%\^&\*\(\)]/)) {
       result.push(
         to012abc(symbol2Num(tmps[i])).toLowerCase());
@@ -2506,9 +2506,10 @@ if (
       result.push( tmps[i].toUpperCase());
       result2.push(tmps[i]);
     }
-    
+    */
+
   }
-  */
+
 
   htmlCode(result.join(""));
   htmlTmp.push("(Base64 decode)");
