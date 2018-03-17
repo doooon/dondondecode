@@ -2483,9 +2483,9 @@ if (
   var result=[];
   var result2=[];
   var tmps=TEXT.match(/([!@#\$%\^&\*\(\)]{2}|\d{2}|[a-zA-J])/g);
-
+    debug(tmps);
   for (var i in tmps) {
-    debug(tmps[i]);
+    //debug(tmps[i]);
     */
     if (tmps[i].match(/[!@#$%\^&\*\(\)]/)) {
       result.push(
