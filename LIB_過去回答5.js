@@ -2523,8 +2523,8 @@ if (
 // c3h6!$)#@!pbn@%lbmlya!(@)0!#m9v
 // 
 if (
-  TEXT.match(/^([a-zA-Z0-9]|[!@#\$%\^&\*\(\)]{2})+$/i) && 
-  TEXT.match(/[!@#\$%\^&\*\(\)]{2}/) && 
+  TEXT.match(/^([a-zA-Z0-9]|[!@#$%^&*()]{2})+$/i) && 
+  TEXT.match(/[!@#$%^&*()]{2}/) && 
   TEXT.match(/[0-9]/) && 
   TEXT.match(/[a-zA-Z]/)
 ) {
@@ -2533,7 +2533,7 @@ if (
     "<b>( [a-zA-Z]>ABC, [0-9]>012, !@#>abc )</b>");
   var result=[];
   var result2=[];
-  var tmps=TEXT.match(/([!@#\$%\^&\*\(\)]{2}|\d|[a-zA-Z])/g);
+  var tmps=TEXT.match(/([!@#$%^&*()]{2}|\d|[a-zA-Z])/g);
 
   for (var i in tmps) {
     
