@@ -2488,10 +2488,11 @@ if (
 
     if (tmps[i].match(/[!@#$%\^&\*\(\)]/)) {
       result.push(
-        to012abc(symbol2Num(tmps[i])).toLowerCase());
+       to012abc(symbol2Num(tmps[i])).toLowerCase()
+      );
       //result2.push(
         //to012abc(symbol2Num(tmps[i])).toUpperCase());
-    } */else if (tmps[i].match(/\d/)) {
+    } */ else if (tmps[i].match(/\d/)) {
       result.push( to012abc(tmps[i]).toLowerCase());
       result2.push(to012abc(tmps[i]).toUpperCase());
     } else if (tmps[i].match(/[A-J]/)) {
