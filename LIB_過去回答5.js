@@ -2491,11 +2491,11 @@ if (
     debug(tmps[i]);
     
     if (tmps[i].match(/[!@#$%^&*()]{2}/)) {
-      result.push(tmps[i]);
+      result.push(to012abc(symbol2Num(tmps[i])));
     } else if (tmps[i].match(/\d{2}/)) {
-      result.push(tmps[i]);
+      result.push(to012abc(tmps[i]));
     } else if (tmps[i].match(/[A-J]/)) {
-      result.push(tmps[i]);
+      result.push(abc012(tmps[i]));
     } else if (tmps[i].match(/[a-z]/)) {
       result.push(tmps[i]);
     }
