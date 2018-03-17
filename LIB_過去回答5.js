@@ -2518,6 +2518,53 @@ if (
 
 
 
+// [a-zA-Z]>ABC, [0-9]>012, !@#>abc Base64dec
+// [a-zA-Z]>abc, [0-9]>012, !@#>ABC Base64dec
+// c3h6!$)#@!pbn@%lbmlya!(@)0!#m9v
+// 
+if (
+  TEXT.match(/^([a-zA-Z]|[0-9]|[!@#\$%\^&\*\(\)]{2})+$/i) && 
+  TEXT.match(/[!@#\$%\^&\*\(\)]{2}/) && 
+  TEXT.match(/\d/) && 
+  TEXT.match(/[a-zA-Z]/)
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push(
+    "<b>( [a-zA-Z]>ABC, [0-9]>012, !@#>abc )</b>");
+  var result=[];
+  var result2=[];
+  var tmps=TEXT.match(/([!@#\$%\^&\*\(\)]{2}|\d|[a-zA-Z])/g);
+
+  for (var i in tmps) {
+    
+    if (tmps[i].match(/[!@#$%^&*()]{2}/)) {
+      result.push(
+        to012abc(symbol2Num(tmps[i])).toLowerCase());
+      result2.push(
+        to012abc(symbol2Num(tmps[i])).toUpperCase());
+    } else if (tmps[i].match(/\d/)) {
+      result.push(tmps[i]);
+      result2.push(tmps[i]);
+    } else if (tmps[i].match(/[a-zA-Z]/)) {
+      result.push(tmps[i].toUpperCase());
+      result2.push(tmps[i].toLowerCase());
+    }
+
+  }
+
+  htmlCode(result.join(""));
+  htmlTmp.push("(Base64 decode)");
+  htmlCode(base64Dec(result.join("")));
+  htmlTmp.push("------");
+  htmlTmp.push(
+    "<b>( [a-zA-Z]>abc, [0-9]>012, !@#>ABC )</b>");
+  htmlCode(result2.join(""));
+  htmlTmp.push("(Base64 decode)");
+  htmlCode(base64Dec(result2.join("")));
+  htmlTmp.push("==============");
+}
+
+
 
 // 1# 1 1!1! 4! 4! ! 1@1 1 !1! ! 2 @ # % #2 1$ 1! !2!
 // 数字とシンボルでモールス
