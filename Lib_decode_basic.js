@@ -1399,6 +1399,14 @@ function leetKeyws() {
 
 
 
+["j[4A]r[5v][1i][5s]","jarvis","leet"], 
+["[4A]d[4A]","ada","leet"], 
+["r[0o][7L][4A]nd","roland","leet"], 
+["[5s][7T][4A]y","stay","leet"], 
+["[4A]d[5v][4A]nc[3E]","advance","leet"], 
+["j[0o]urn[3E]y","journey","leet"], 
+["c[0o][5v][3E]rup","coverup","leet"], 
+["h[0o]n[3E][5s][7T]y","honesty","leet"], 
 ["d[3E]f[3E]nd","defend","leet"], 
 ["[4A][7T][7T][4A]ck","attack","leet"], 
 ["d[4A]n[6G9g][3E]r","danger","leet"], 
