@@ -2484,7 +2484,8 @@ if (
   var result2=[];
   var tmps=TEXT.match(/([!@#\$%\^&\*\(\)]{2}|\d{2}|[a-zA-J])/g);
 
-  debug(tmps);
+  debug(tmps.join(", "));
+  debug(tmps.length);
 
   /*
   for (var i in tmps) {
