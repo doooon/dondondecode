@@ -2483,23 +2483,27 @@ if (
   var result=[];
   var result2=[];
   var tmps=TEXT.match(/([!@#\$%\^&\*\(\)]{2}|\d{2}|[a-zA-J])/g);
-/*
+
   for (var i in tmps) {
+/*
     if (tmps[i].match(/[!@#$%\^&\*\(\)]/)) {
-      result.push(to012abc(symbol2Num(tmps[i])).toLowerCase());
-      result2.push(to012abc(symbol2Num(tmps[i])).toUpperCase());
+      result.push(
+        to012abc(symbol2Num(tmps[i])).toLowerCase());
+      result2.push(
+        to012abc(symbol2Num(tmps[i])).toUpperCase());
     } else if (tmps[i].match(/\d/)) {
-      result.push(to012abc(tmps[i]).toLowerCase());
+      result.push( to012abc(tmps[i]).toLowerCase());
       result2.push(to012abc(tmps[i]).toUpperCase());
     } else if (tmps[i].match(/[A-J]/)) {
-      result.push(abc012(tmps[i]));
+      result.push( abc012(tmps[i]));
       result2.push(abc012(tmps[i]);
     } else if (tmps[i].match(/[a-z]/)) {
-      result.push(tmps[i].toUpperCase());
+      result.push( tmps[i].toUpperCase());
       result2.push(tmps[i]);
     }
-  }
 */
+  }
+
   htmlCode(result.join(""));
   htmlTmp.push("(Base64 decode)");
   htmlCode(base64Dec(result.join("")));
