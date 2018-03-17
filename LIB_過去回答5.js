@@ -2490,6 +2490,16 @@ if (
   for (var i in tmps) {
     debug(tmps[i]);
     
+    if (tmps[i].match(/[!@#$%^&*()]{2}/)) {
+      result.push(tmps[i]);
+    } else if (tmps[i].match(/\d{2}/)) {
+      result.push(tmps[i]);
+    } else if (tmps[i].match(/[A-J]/)) {
+      result.push(tmps[i]);
+    } else if (tmps[i].match(/[a-z]/)) {
+      result.push(tmps[i]);
+    }
+
     /*
     if (tmps[i].match(/[!@#$%\^&\*\(\)]/)) {
       result.push(
