@@ -55,14 +55,14 @@ htmlTmp.push("================");
 //atbash
 if (TEXT.match(/[a-z0-9]/i)) {
   htmlTmp.push("※意味bashの可能性も忘れずに");
-    htmlTmp.push("(atbash)");
+    htmlTmp.push("<b>(atbash)</b>");
     htmlCode(atbash(TEXT));
     
   if (TEXT.match(/\d/)) {
-    htmlTmp.push("(atbash19)");
+    htmlTmp.push("<b>(atbash19)</b>");
     htmlCode(atbash19(TEXT));
     
-    htmlTmp.push("(atbash09)");
+    htmlTmp.push("<b>(atbash09)</b>");
     htmlCode(atbash09(TEXT));
   }
   /*
