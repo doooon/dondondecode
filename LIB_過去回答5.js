@@ -234,8 +234,8 @@ if (
     htmlTmp.push(symbol2Num(TEXT));
   }
   var tmpRE=
-    new RegExp((RegExp.$1)+"+", "g");
-  var tmp=TEXT.replace(tmpRE, " ");
+    new RegExp(RegExp.$1, "g");
+  var tmp=TEXT.replace(tmpRE, " ").replace(/\s+/g," ");
   tmp=tmp.replace(/a/ig, ".");
   tmp=tmp.replace(/b/ig, "..");  
   tmp=tmp.replace(/c/ig, "...");  
