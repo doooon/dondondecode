@@ -1398,7 +1398,10 @@ function leetKeyws() {
 
 
 
-
+["[6G9g]r[3E][3E]n","green","leet"], 
+["[6b][7L1l]u[3E]","blue","leet"], 
+["r[3E][4A]c[7T]","react","leet"], 
+["pr[0o]n[0o][1i][4A]","pronoia","leet"], 
 ["j[4A]r[5v][1i][5s]","jarvis","leet"], 
 ["[4A]d[4A]","ada","leet"], 
 ["r[0o][7L][4A]nd","roland","leet"], 
