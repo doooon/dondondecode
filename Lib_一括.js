@@ -139,6 +139,7 @@ htmlCode(strReverse(odd)+even);
 htmlCode(even+strReverse(odd));
 htmlCode(odd+strReverse(even));
 htmlCode(strReverse(even)+odd);
+htmlTmp.push("===============");
 
 // 大文字、小文字、数字、記号を二種類で全組み合わせ抽出
 if (
@@ -151,11 +152,23 @@ if (
 ) {
   htmlTmp.push("<a name=''><b>(大文字、小文字、数字、記号を二種類で全組み合わせ抽出)</b></a>");
   htmlCode(TEXT.match(/[a-z!@#$%^&*^()]+/g).join(" "));
+  htmlCode(TEXT.match(/[a-z!@#$%^&*^()]+/g));
+  htmlTmp.push("------");
   htmlCode(TEXT.match(/[A-Z0-9]+/g).join(" "));
+  htmlCode(TEXT.match(/[A-Z0-9]+/g));
+  htmlTmp.push("------");
   htmlCode(TEXT.match(/[A-Z!@#$%^&*^()]+/g).join(" "));
+  htmlCode(TEXT.match(/[A-Z!@#$%^&*^()]+/g));
+  htmlTmp.push("------");
   htmlCode(TEXT.match(/[a-z0-9]+/g).join(" "));
+  htmlCode(TEXT.match(/[a-z0-9]+/g));
+  htmlTmp.push("------");
   htmlCode(TEXT.match(/[a-zA-Z]+/g).join(" "));
+  htmlCode(TEXT.match(/[a-zA-Z]+/g));
+  htmlTmp.push("------");
   htmlCode(TEXT.match(/[!@#$%^&*()0-9]+/g).join(" "));
+  htmlCode(TEXT.match(/[!@#$%^&*()0-9]+/g));
+  htmlTmp.push("===============");
 }
 
 // 片方がprefix+sufixのみ、もう片方がkw
