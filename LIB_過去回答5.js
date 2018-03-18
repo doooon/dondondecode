@@ -229,24 +229,27 @@ if (
 ) {
   htmlTmp.push(TEXT);
   htmlTmp.push("<b>(NEW abcdeを.....、12345を-----でモールス)</b>");
-  if (TEXT.match(/^[a-e!@#$%]{1,4}([\s0f69\-.,:;|\\&+])+([a-e!@#$%]{1,4}\1+)+[a-e!@#$%]{1,4}\1*$/i)) {
-    htmlTmp.push("symbol > 123");
-    htmlTmp.push(symbol2Num(TEXT));
-  }
   var tmpRE=
     new RegExp(RegExp.$1, "g");
   var tmp=TEXT.replace(tmpRE, " ");
-  //tmp=tmp.replace(/ +/g," ")
+  tmp=tmp.replace(/ +/g," ")
+
+  if (TEXT.match(/^[a-e!@#$%]{1,4}([\s0f69\-.,:;|\\&+])+([a-e!@#$%]{1,4}\1+)+[a-e!@#$%]{1,4}\1*$/i)) {
+    htmlTmp.push("symbol > 123");
+    tmp=symbol2Num(TEXT);
+    htmlTmp.push(tmp));
+  }
+
   tmp=tmp.replace(/a/ig, ".");
   tmp=tmp.replace(/b/ig, "..");  
   tmp=tmp.replace(/c/ig, "...");  
   tmp=tmp.replace(/d/ig, "....");  
   tmp=tmp.replace(/e/ig, ".....");  
-  tmp=tmp.replace(/[1!]/ig, "-");
-  tmp=tmp.replace(/[2@]/ig, "--");  
-  tmp=tmp.replace(/[3#]/ig, "---");  
-  tmp=tmp.replace(/[4$]/ig, "----");  
-  tmp=tmp.replace(/[5%]/ig, "-----");  
+  tmp=tmp.replace(/[1]/ig, "-");
+  tmp=tmp.replace(/[2]/ig, "--");  
+  tmp=tmp.replace(/[3]/ig, "---");  
+  tmp=tmp.replace(/[4]/ig, "----");  
+  tmp=tmp.replace(/[5]/ig, "-----");  
   htmlTmp.push(tmp);
   goMorse(tmp);
   htmlTmp.push("==============");
