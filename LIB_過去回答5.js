@@ -192,6 +192,7 @@ if (
 }
 
 
+/*
 // abcdeを.....、12345を-----でモールス
 if (
   TEXT.match(/^[a-e1-5]{1,5}([\s0f69\-.,:;|\\&+])([a-e1-5]{1,5}\1)+[a-e1-5]{1,5}\1?$/i) && 
@@ -216,10 +217,11 @@ if (
   goMorse(tmp);
   htmlTmp.push("==============");
 }
-
+*/
 
 // NEW abcdeを.....、12345を-----でモールス
 // 2a1 c1 1c d1 3b 1a b a1 1a 1 b 1a1a c2 d1 d1 a3 a
+// @a! c! !c d! #b !a b a! !a ! b !a!a c@ d! d! a# a
 if (
   (
   TEXT.match(/^[a-e1-5]{1,4}([\s0f69\-.,:;|\\&+])+([a-e1-5]{1,4}\1+)+[a-e1-5]{1,4}\1*$/i) || 
@@ -245,16 +247,47 @@ if (
   tmp=tmp.replace(/c/ig, "...");  
   tmp=tmp.replace(/d/ig, "....");  
   tmp=tmp.replace(/e/ig, ".....");  
-  tmp=tmp.replace(/[1]/ig, "-");
-  tmp=tmp.replace(/[2]/ig, "--");  
-  tmp=tmp.replace(/[3]/ig, "---");  
-  tmp=tmp.replace(/[4]/ig, "----");  
-  tmp=tmp.replace(/[5]/ig, "-----");  
+  tmp=tmp.replace(/1/ig, "-");
+  tmp=tmp.replace(/2/ig, "--");  
+  tmp=tmp.replace(/3/ig, "---");  
+  tmp=tmp.replace(/4/ig, "----");  
+  tmp=tmp.replace(/5/ig, "-----");  
   htmlTmp.push(tmp);
   goMorse(tmp);
   htmlTmp.push("==============");
 }
 
+
+// !@#$%を.....、12345を-----でモールス
+// 
+if (
+  TEXT.match(/^[!@#$%1-5]{1,4}([\s069\-.,:;|\\&+])+([!@#$%1-5]{1,4}\1+)+[!@#$%1-5]{1,4}\1*$/i) && 
+  kouseimoji.length>=3
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(!@#$%を.....、12345を-----でモールス)</b>");
+  var tmpRE=
+    new RegExp(RegExp.$1, "g");
+  var tmp=TEXT.replace(tmpRE, " ");
+  tmp=tmp.replace(/ +/g," ")
+
+  htmlTmp.push("symbol > 123");
+  htmlTmp.push(symbol2Num(TEXT));
+
+  tmp=tmp.replace(/!/ig, ".");
+  tmp=tmp.replace(/@/ig, "..");  
+  tmp=tmp.replace(/#/ig, "...");  
+  tmp=tmp.replace(/\$/ig, "....");  
+  tmp=tmp.replace(/%/ig, ".....");  
+  tmp=tmp.replace(/1/ig, "-");
+  tmp=tmp.replace(/2/ig, "--");  
+  tmp=tmp.replace(/3/ig, "---");  
+  tmp=tmp.replace(/4/ig, "----");  
+  tmp=tmp.replace(/5/ig, "-----");  
+  htmlTmp.push(tmp);
+  goMorse(tmp);
+  htmlTmp.push("==============");
+}
 
 
 // バイナリ操作 上位4ビットで下位4ビットをXOR
