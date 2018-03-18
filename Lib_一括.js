@@ -140,6 +140,24 @@ htmlCode(even+strReverse(odd));
 htmlCode(odd+strReverse(even));
 htmlCode(strReverse(even)+odd);
 
+// 大文字、小文字、数字、記号を二種類で全組み合わせ抽出
+if (
+  (
+  TEXT.match(/[a-z]/) && 
+  TEXT.match(/[A-Z]/) &&
+  TEXT.match(/[!@#$%^&*()]/) &&
+  TEXT.match(/[0-9]/)
+  ) && TEXT.match(/^[0-9a-zA-Z!@#$%^&*()]+$/)
+) {
+  htmlTmp.push("<a name=''><b>(大文字、小文字、数字、記号を二種類で全組み合わせ抽出)</b></a>");
+  htmlCode(TEXT.match(/[a-z!@#$%^&*^()]+/g).join(" "));
+  htmlCode(TEXT.match(/[A-Z0-9]+/g).join(" "));
+  htmlCode(TEXT.match(/[A-Z!@#$%^&*^()]+/g).join(" "));
+  htmlCode(TEXT.match(/[a-z0-9]+/g).join(" "));
+  htmlCode(TEXT.match(/[a-zA-Z]+/g).join(" "));
+  htmlCode(TEXT.match(/[!@#$%^&*()0-9]+/g).join(" "));
+}
+
 // 片方がprefix+sufixのみ、もう片方がkw
 if (odd.match(/^([2-9][a-hjkm-z]{3}[2-9])([a-hjkm-z][2-9][a-hjkm-z][2-9][a-hjkm-z])$/i)) {
   htmlCode(RegExp.$1+even+RegExp.$2);
