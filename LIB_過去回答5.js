@@ -218,6 +218,35 @@ if (
 }
 
 
+// NEW abcdeを.....、12345を-----でモールス
+if (
+  (
+    TEXT.match(/^(([a-e1-5]{1,5})([\s0f69\-.,:;|\\&+]))+\2$/i) || 
+    TEXT.match(/^(([a-e!@#$%]{1,5})([\s0f69\-.,:;|\\&+]))+\2$/i)
+  ) && 
+  kouseimoji.length>=3
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(NEW abcdeを.....、12345を-----でモールス)</b>");
+  var tmpRE=
+    new RegExp(RegExp.$1, "g");
+  var tmp=TEXT.replace(tmpRE, " ");
+  tmp=tmp.replace(/a/ig, ".");
+  tmp=tmp.replace(/b/ig, "..");  
+  tmp=tmp.replace(/c/ig, "...");  
+  tmp=tmp.replace(/d/ig, "....");  
+  tmp=tmp.replace(/e/ig, ".....");  
+  tmp=tmp.replace(/[1!]/ig, "-");
+  tmp=tmp.replace(/[2@]/ig, "--");  
+  tmp=tmp.replace(/[3#]/ig, "---");  
+  tmp=tmp.replace(/[4$]/ig, "----");  
+  tmp=tmp.replace(/[5%]/ig, "-----");  
+  htmlTmp.push(tmp);
+  goMorse(tmp);
+  htmlTmp.push("==============");
+}
+
+
 
 // バイナリ操作 上位4ビットで下位4ビットをXOR
 if (
@@ -2521,7 +2550,7 @@ if (
 // [a-zA-Z]>ABC, [0-9]>012, !@#>abc Base64dec
 // [a-zA-Z]>abc, [0-9]>012, !@#>ABC Base64dec
 // c3h6!$)#@!pbn@%lbmlya!(@)0!#m9v
-// 
+// )@3)&6ODV!%)!!#Z!!)!!@!!@$))TU0N!@9@!
 if (
   TEXT.match(/^([a-zA-Z0-9]|[!@#$%^&*()]{2})+$/i) && 
   TEXT.match(/[!@#$%^&*()]{2}/) && 
