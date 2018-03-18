@@ -291,7 +291,7 @@ if (
 
 
 // abcを.....、ABCを-----でモールス
-// 
+// BaA cA Ac dA Cb Aa b aA Aa A b AaAa cB dA dA aC a
 if (
   TEXT.match(/^[a-eA-E]{1,4}([\sfF0\-.,:;|\\&+])+([a-eA-E]{1,4}\1+)+[a-eA-E]{1,4}\1*$/) && 
   kouseimoji.length>=3
