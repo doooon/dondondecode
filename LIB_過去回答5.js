@@ -259,7 +259,7 @@ if (
 
 
 // !@#$%を.....、12345を-----でモールス
-// 
+// @1! 3! !3 4! #2 !1 2 1! !1 ! 2 !1!1 3@ 4! 4! 1# 1
 if (
   TEXT.match(/^[!@#$%1-5]{1,4}([\s069\-.,:;|\\&+])+([!@#$%1-5]{1,4}\1+)+[!@#$%1-5]{1,4}\1*$/i) && 
   kouseimoji.length>=3
@@ -284,6 +284,35 @@ if (
   tmp=tmp.replace(/3/ig, "---");  
   tmp=tmp.replace(/4/ig, "----");  
   tmp=tmp.replace(/5/ig, "-----");  
+  htmlTmp.push(tmp);
+  goMorse(tmp);
+  htmlTmp.push("==============");
+}
+
+
+// abcを.....、ABCを-----でモールス
+// 
+if (
+  TEXT.match(/^[a-eA-E]{1,4}([\sfF0\-.,:;|\\&+])+([a-eA-E]{1,4}\1+)+[a-eA-E]{1,4}\1*$/) && 
+  kouseimoji.length>=3
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(abcを.....、ABCを-----でモールス)</b>");
+  var tmpRE=
+    new RegExp(RegExp.$1, "g");
+  var tmp=TEXT.replace(tmpRE, " ");
+  tmp=tmp.replace(/ +/g," ")
+
+  tmp=tmp.replace(/a/g, ".");
+  tmp=tmp.replace(/b/g, "..");  
+  tmp=tmp.replace(/c/g, "...");  
+  tmp=tmp.replace(/d/g, "....");  
+  tmp=tmp.replace(/e/g, ".....");  
+  tmp=tmp.replace(/A/g, "-");
+  tmp=tmp.replace(/B/g, "--");  
+  tmp=tmp.replace(/C/g, "---");  
+  tmp=tmp.replace(/D/g, "----");  
+  tmp=tmp.replace(/E/g, "-----");  
   htmlTmp.push(tmp);
   goMorse(tmp);
   htmlTmp.push("==============");
