@@ -151,6 +151,7 @@ if (
   ) && TEXT.match(/^[0-9a-zA-Z!@#$%^&*()]+$/)
 ) {
   htmlTmp.push("<a name=''><b>(大文字、小文字、数字、記号を二種類で全組み合わせ抽出)</b></a>");
+  htmlTmp.push("(小文字と記号、大文字と数字)");
   var tmp=TEXT.match(/[a-z!@#$%^&*^()]+/g);
   htmlTmp.push(tmp.join(" "));
   htmlCode(tmp.join(""));
@@ -159,6 +160,7 @@ if (
   htmlTmp.push(tmp.join(" "));
   htmlCode(tmp.join(""));
   htmlTmp.push("--------------");
+  htmlTmp.push("(大文字と記号、小文字と数字)");
   var tmp=TEXT.match(/[A-Z!@#$%^&*^()]+/g);
   htmlTmp.push(tmp.join(" "));
   htmlCode(tmp.join(""));
@@ -167,6 +169,7 @@ if (
   htmlTmp.push(tmp.join(" "));
   htmlCode(tmp.join(""));
   htmlTmp.push("--------------");
+  htmlTmp.push("(小文字と大文字、記号と数字)");
   var tmp=TEXT.match(/[a-zA-Z]+/g);
   htmlTmp.push(tmp.join(" "));
   htmlCode(tmp.join(""));
