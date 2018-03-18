@@ -221,10 +221,7 @@ if (
 // NEW abcdeを.....、12345を-----でモールス
 // 2a1 c1 1c d1 3b 1a b a1 1a 1 b 1a1a c2 d1 d1 a3 a
 if (
-  (
-    TEXT.match(/^(([a-e1-5]{1,4})([\s0f69\-.,:;|\\&+]))+\2\3?$/i) || 
-    TEXT.match(/^(([a-e!@#$%]{1,4})([\s0f69\-.,:;|\\&+]))+\2\3?$/i)
-  ) && 
+    TEXT.match(/^([a-e1-5]{1,4}([\s0f69\-.,:;|\\&+]))+ [a-e1-5]{1,4}\2?$/i) && 
   kouseimoji.length>=3
 ) {
   htmlTmp.push(TEXT);
