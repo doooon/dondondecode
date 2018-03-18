@@ -235,7 +235,8 @@ if (
   }
   var tmpRE=
     new RegExp(RegExp.$1, "g");
-  var tmp=TEXT.replace(tmpRE, " ").replace(/ +/g," ");
+  var tmp=TEXT.replace(tmpRE, " ");
+  tmp=tmp.replace(/ +/g," ")
   tmp=tmp.replace(/a/ig, ".");
   tmp=tmp.replace(/b/ig, "..");  
   tmp=tmp.replace(/c/ig, "...");  
