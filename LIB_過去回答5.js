@@ -237,7 +237,7 @@ if (
   if (TEXT.match(/^[a-e!@#$%]{1,4}([\s0f69\-.,:;|\\&+])+([a-e!@#$%]{1,4}\1+)+[a-e!@#$%]{1,4}\1*$/i)) {
     htmlTmp.push("symbol > 123");
     tmp=symbol2Num(TEXT);
-    htmlTmp.push(tmp));
+    htmlTmp.push(tmp);
   }
 
   tmp=tmp.replace(/a/ig, ".");
