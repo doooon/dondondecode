@@ -151,23 +151,29 @@ if (
   ) && TEXT.match(/^[0-9a-zA-Z!@#$%^&*()]+$/)
 ) {
   htmlTmp.push("<a name=''><b>(大文字、小文字、数字、記号を二種類で全組み合わせ抽出)</b></a>");
-  htmlCode(TEXT.match(/[a-z!@#$%^&*^()]+/g).join(" "));
-  htmlCode(TEXT.match(/[a-z!@#$%^&*^()]+/g));
+  var tmp=TEXT.match(/[a-z!@#$%^&*^()]+/g);
+  htmlTmp.push(tmp.join(" "));
+  htmlCode(tmp.join(""));
   htmlTmp.push("------");
-  htmlCode(TEXT.match(/[A-Z0-9]+/g).join(" "));
-  htmlCode(TEXT.match(/[A-Z0-9]+/g));
+  var tmp=TEXT.match(/[A-Z0-9]+/g);
+  htmlTmp.push(tmp.join(" "));
+  htmlCode(tmp.join(""));
   htmlTmp.push("------");
-  htmlCode(TEXT.match(/[A-Z!@#$%^&*^()]+/g).join(" "));
-  htmlCode(TEXT.match(/[A-Z!@#$%^&*^()]+/g));
+  var tmp=TEXT.match(/[A-Z!@#$%^&*^()]+/g);
+  htmlTmp.push(tmp.join(" "));
+  htmlCode(tmp.join(""));
   htmlTmp.push("------");
-  htmlCode(TEXT.match(/[a-z0-9]+/g).join(" "));
-  htmlCode(TEXT.match(/[a-z0-9]+/g));
+  var tmp=TEXT.match(/[a-z0-9]+/g);
+  htmlTmp.push(tmp.join(" "));
+  htmlCode(tmp.join(""));
   htmlTmp.push("------");
-  htmlCode(TEXT.match(/[a-zA-Z]+/g).join(" "));
-  htmlCode(TEXT.match(/[a-zA-Z]+/g));
+  var tmp=TEXT.match(/[a-zA-Z]+/g);
+  htmlTmp.push(tmp.join(" "));
+  htmlCode(tmp.join(""));
   htmlTmp.push("------");
-  htmlCode(TEXT.match(/[!@#$%^&*()0-9]+/g).join(" "));
-  htmlCode(TEXT.match(/[!@#$%^&*()0-9]+/g));
+  var tmp=TEXT.match(/[!@#$%^&*()0-9]+/g);
+  htmlTmp.push(tmp.join(" "));
+  htmlCode(tmp.join(""));
   htmlTmp.push("===============");
 }
 
