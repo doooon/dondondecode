@@ -229,8 +229,12 @@ if (
 ) {
   htmlTmp.push(TEXT);
   htmlTmp.push("<b>(NEW abcdeを.....、12345を-----でモールス)</b>");
+  if (TEXT.match(/^[a-e!@#$%]{1,4}([\s0f69\-.,:;|\\&+])+([a-e!@#$%]{1,4}\1+)+[a-e!@#$%]{1,4}\1*$/i)) {
+    htmlTmp.push("symbol > 123");
+    htmlTmp.push(symbol2Num(TEXT));
+  }
   var tmpRE=
-    new RegExp(RegExp.$1, "g");
+    new RegExp(RegExp.$1+"+", "g");
   var tmp=TEXT.replace(tmpRE, " ");
   tmp=tmp.replace(/a/ig, ".");
   tmp=tmp.replace(/b/ig, "..");  
