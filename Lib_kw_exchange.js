@@ -7,6 +7,11 @@ function goKeywExchange() {
 
   var exL=[
   // ["","",""],
+["[4A][5s]p[1i]r[4A][7T][1i][0o]n","aspiration","leet"], 
+["[9q]u[3E][5s][7T][1i][0o]n","question","leet"], 
+["question","answer","意味bash"], 
+["question","harmony","意味bash"], 
+["despair","aspiration","意味bash 失望<>願望"],
 ["green","blue","意味bash"], 
 ["blue","green","意味bash"], 
 ["react","ignore","意味bash 無視する"], 
