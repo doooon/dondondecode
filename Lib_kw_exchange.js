@@ -7,6 +7,17 @@ function goKeywExchange() {
 
   var exL=[
   // ["","",""],
+["[3E](?:10|x)[0o][7T][1i]c","exotic","leet"], 
+["domestic","exotic","意味bash"], 
+["cr[3E][4A][7T][1i][5v][3E]","creative","leet"], 
+["dull","creative","意味bash"], 
+["[B8][5S][5S]","855","leet"], 
+["great ?old ?o?nes?","cthulhu","クトゥルフ神話の旧支配者"], 
+["c[7L1l][4A]m[4A]n[7T][1i][5s]","clamantis","leet"], 
+["cryp[7T][0o]","crypto","leet"], 
+["c[7T]hu[7L1l]hu","cthulhu","leet"], 
+["(?:John ?)?Gower","clamantis","'Vox Clamantis'の作者 John Gower"], 
+["vox","clamantis","'Vox Clamantis'の作者 John Gower"], 
 ["[4A][5s]p[1i]r[4A][7T][1i][0o]n","aspiration","leet"], 
 ["[9q]u[3E][5s][7T][1i][0o]n","question","leet"], 
 ["question","answer","意味bash"], 
