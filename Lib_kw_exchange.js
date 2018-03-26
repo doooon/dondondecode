@@ -7,6 +7,14 @@ function goKeywExchange() {
 
   var exL=[
   // ["","",""],
+
+["[5s][3E]n[5s][1i][7T][1i][5v][3E]","sensitive","leet"], 
+["[5s][7T]ru[6G9g][6G9g][1l7L][3E]","struggle","leet"], 
+["[8B][1l7L][4A]c[0o]p[5s]","blackops","leet"], 
+["contemplate","sensitive","意味bash"], 
+["sensitive","contemplate","意味bash"], 
+["(?:idle|rest)","struggle","意味bash 奮闘"], 
+["war","blackops","意味bash 暗殺"], 
 ["[3E](?:10|x)[0o][7T][1i]c","exotic","leet"], 
 ["domestic","exotic","意味bash"], 
 ["cr[3E][4A][7T][1i][5v][3E]","creative","leet"], 
