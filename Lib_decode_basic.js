@@ -1397,7 +1397,9 @@ function leetKeyws() {
 
 
 
-
+["h[4A]r[3M]","harm","leet"], 
+["pur[3E]","pure","leet"], 
+["r[3E][5S][1i][5S][7T]","resist","leet"], 
 ["[5s][3E]n[5s][1i][7T][1i][5v][3E]","sensitive","leet"], 
 ["[5s][7T]ru[6G9g][6G9g][1l7L][3E]","struggle","leet"], 
 ["[8B][1l7L][4A]c[0o]p[5s]","blackops","leet"], 

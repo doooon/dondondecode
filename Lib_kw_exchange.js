@@ -7,7 +7,16 @@ function goKeywExchange() {
 
   var exL=[
   // ["","",""],
-
+["h[4A]r[3M]","harm","leet"], 
+["pur[3E]","pure","leet"], 
+["r[3E][5S][1i][5S][7T]","resist","leet"], 
+["heal","harm","意味bash 癒す<>害する"], 
+["improve","harm","意味bash 良くする<>害する"], 
+["harm","improve","意味bash 害する<>良くする"], 
+["pure","impure","意味bash"], 
+["impure","pure","意味bash"], 
+["resist","accept","意味bash 反抗<>受諾"], 
+["accept","resist","意味bash 受諾<>反抗"], 
 ["[5s][3E]n[5s][1i][7T][1i][5v][3E]","sensitive","leet"], 
 ["[5s][7T]ru[6G9g][6G9g][1l7L][3E]","struggle","leet"], 
 ["[8B][1l7L][4A]c[0o]p[5s]","blackops","leet"], 
