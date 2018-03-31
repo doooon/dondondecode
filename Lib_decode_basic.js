@@ -1397,6 +1397,18 @@ function leetKeyws() {
 
 
 
+
+
+
+["[1l7L][0o][5v][3E][1l7L][4A]c[3E]","lovelace","leet"], 
+["[5s]h[0o]n[1i]n","shonin","leet"], 
+["nu[3m][1i]n[0o]u[5s]","numinous","leet"], 
+["ru[6b8B][1i]c[0o]n","rubicon","leet"], 
+["[4A][6b8B][4A]dd[0o]n","abaddon","leet"], 
+["ph[0o][7T][1i]n[7T]","photint","leet"], 
+["[3E][9q]u[4A][1l7L]","equal","leet"], 
+["[5v][4A]u[1l7T][7T]","vault","leet"], 
+["f[3E][1l7L][1i]c[1i][4A]","felicia","leet"], 
 ["h[4A]r[3M]","harm","leet"], 
 ["pur[3E]","pure","leet"], 
 ["r[3E][5S][1i][5S][7T]","resist","leet"], 
@@ -1748,8 +1760,7 @@ function getKeyws() {
   spacetime|spirit|spooky|spy|squid|stability|statue|stay|stein|strategic
   strong|structure|struggle|substitute|substitution|substrate|success|susanna|symbol|symbols
   syphax|technology|tenniel|them|thought|time|timezero|together|transpose|transposition
-  truth|turing|tycho|tyro|ultra|unbounded|urban|urbdrone|us|use
-  verum|vi(?!f)|victor|victory|visur|voynich|want|war|wave|we
+  truth|turing|tycho|tyro|ultra|unbounded|urban|urbdrone|us|use|vault|verum|vi(?!f)|victor|victory|visur|voynich|want|war|wave|we
   weak|whydah|win|wolfe|worth|write|xm|yantra|yeats|you
   your|yuen|yuri|zurich`.replace(/\s*\n\s*/g, "|").split("|");
   var addkw=[];
@@ -1781,6 +1792,7 @@ function getKeyws() {
   addkw.push("exogenous"); //勝手追加
   addkw.push("endogenous"); //勝手追加
   addkw.push("reawaken"); //勝手追加
+  addkw.push("darzalas"); //勝手追加 2018/03/31
   
 
 
