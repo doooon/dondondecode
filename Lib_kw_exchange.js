@@ -7,6 +7,8 @@ function goKeywExchange() {
 
   var exL=[
   // ["","",""],
+["sigint","sigint","ネットワーク諜報"], 
+["[5s][1i][6G9g][1i]nt","sigint","leet"], 
 ["[1l7L][0o][5v][3E][1l7L][4A]c[3E]","lovelace","leet"], 
 ["[5s]h[0o]n[1i]n","shonin","leet"], 
 ["nu[3m][1i]n[0o]u[5s]","numinous","leet"], 
