@@ -7,6 +7,8 @@ function goKeywExchange() {
 
   var exL=[
   // ["","",""],
+["darzalas","darzalas","Derzelas(Darzalas)はダーチャンやトラキアの豊かさと地下世界、健康と人間精神の活力の神です。"], 
+["d[4A]r[2z][4A][1l7T][4A][5s]","darzalas","leet"], 
 ["sigint","sigint","ネットワーク諜報"], 
 ["[5s][1i][6G9g][1i]nt","sigint","leet"], 
 ["[1l7L][0o][5v][3E][1l7L][4A]c[3E]","lovelace","leet"], 
