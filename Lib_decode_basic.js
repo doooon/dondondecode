@@ -1796,7 +1796,8 @@ function getKeyws() {
   addkw.push("endogenous"); //勝手追加
   addkw.push("reawaken"); //勝手追加
   addkw.push("darzalas"); //勝手追加 2018/03/31
-  
+  addkw.push("chimera"); //勝手追加 2018/03/31
+ 
 
 
   addkw.push("cologne"); //一回きりかも2016/07/25
