@@ -1401,6 +1401,11 @@ function leetKeyws() {
 
 
 
+
+["r[3E][7T]r[3E][4A][7T]","retreat","leet"], 
+["[4A]d[5v][4A]nc[3E]","advance","leet"], 
+["[9g6G]h[0o][5s][7T]","ghost","leet"], 
+["[6b8B][0o]dy","body","leet"], 
 ["d[4A]r[2z][4A][1l7T][4A][5s]","darzalas","leet"], 
 ["[5s][1i][6G9g][1i]nt","sigint","leet"], 
 ["[1l7L][0o][5v][3E][1l7L][4A]c[3E]","lovelace","leet"], 
