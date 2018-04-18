@@ -1402,6 +1402,11 @@ function leetKeyws() {
 
 
 
+
+["c[1l7L][4A][3m][4A]n[7T][1i][5s","clamantis","leet"], 
+["[7T][1i][3m][3E][2z][3E]r[0o]","timezero","leet"], 
+["d[3E]c[3E]p[7T][1i][0o]n","deception","leet"], 
+["00:00","timezero","関連"], 
 ["r[3E][7T]r[3E][4A][7T]","retreat","leet"], 
 ["[4A]d[5v][4A]nc[3E]","advance","leet"], 
 ["[9g6G]h[0o][5s][7T]","ghost","leet"], 
