@@ -1402,7 +1402,11 @@ function leetKeyws() {
 
 
 
-
+["[3E][5v][0o][1l7L][5v][3E]","evolve","leet"], 
+["c[4A]p[7T]ur[3E]","capture","leet"], 
+["[5s][1i][6G9g][1i]n[7T]","sigint","leet"], 
+["[1i][3m][1i]n[7T]","imint","leet"], 
+["[1l7L][1i][8B][3E]r[4A][7T][3E]","liberate","leet"], 
 ["c[1l7L][4A][3m][4A]n[7T][1i][5s]","clamantis","leet"], 
 ["[7T][1i][3m][3E][2z][3E]r[0o]","timezero","leet"], 
 ["d[3E]c[3E]p[7T][1i][0o]n","deception","leet"], 
