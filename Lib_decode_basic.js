@@ -1401,7 +1401,14 @@ function leetKeyws() {
 
 
 
-
+["[5s]h[4A]p[3E]r[5s]","shapers","leet"], 
+["[5s]h[4A]p[3E]r","shaper","leet"], 
+["c[4A][3m]p[8B6b][3E][7L1l][7L1l]","campbell","leet"], 
+["[8B6b][4A][7T1l][4A]nc[3E]","balance","leet"], 
+["p[3E]rf[3E]c[7T][1i][0o]n","perfection","leet], 
+["c[4A]rr[1i][3E]","carrie","leet"], 
+["c[0o][7L1l][7L1l][3E]c[7T][1i][5v][3E]","collective","leet"], 
+["n[2z][3E][3E]r","nzeer","leet"], 
 ["[3E][5v][0o][1l7L][5v][3E]","evolve","leet"], 
 ["c[4A]p[7T]ur[3E]","capture","leet"], 
 ["[5s][1i][6G9g][1i]n[7T]","sigint","leet"], 
