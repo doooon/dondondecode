@@ -1402,7 +1402,7 @@ function leetKeyws() {
 
 
 
-<<<<<<< HEAD
+
 ["d[4A]r[5s][4A]n[4A]","darsana","leet"], 
 ["[5s]cu[1l7L]p[7T]","sculpt","leet"], 
 ["h[0o][0o][1l7L][1l7L][4A]nd","holland","leet"], 
@@ -1509,7 +1509,6 @@ function leetKeyws() {
 ["ry[6b][4A][7T]","rybat","leet"], 
 ["h[1i]d[3E]","hide","leet"], 
 ["533k","seek","leet"], 
->>>>>>> c5fb526cd0dabc46a10ee0ae4c8608bd3c84d909
 ["tt0074285","carrie","IMDb 映画キャリーより"],
 ["[7T][5S]uk[4A][5S][4A]","tsukasa","leet"],
 ["[4A]k[1i]R[4A]","akira","leet"],
