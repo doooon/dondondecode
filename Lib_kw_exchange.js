@@ -8,6 +8,8 @@ function goKeywExchange() {
 
   var exL=[
   // ["","",""],
+["ctrlv","cut","ctrl+v → paste 意味bash cut"], 
+["cmdv","cut","cmd+v → paste 意味bash cut"], 
 ["d[4A]r[5s][4A]n[4A]","darsana","leet"], 
 ["[5s]cu[1l7L]p[7T]","sculpt","leet"], 
 ["h[0o][0o][1l7L][1l7L][4A]nd","holland","leet"], 
