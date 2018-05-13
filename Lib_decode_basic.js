@@ -37,9 +37,9 @@ function analyzeText(str) {
   result.push("Length: "+n+prime);
   result.push("different chars: "+m);
   result.push("-----------------");
-  
+
   result.push("<!--fixCodeList-->");
-  
+
   result.push("-----------------");
   var wL="";
   for (var i=1; i<=n-10; i++) { wL+="." }
@@ -76,10 +76,10 @@ function analyzeText(str) {
     strw+=" "+wL5.length+"char";
     result.push(strw);
   }
-  result.push("-----------------"); 
+  result.push("-----------------");
   var charlist=Object.keys(tmp);
   charlist.sort(arraySortNumber);
-  
+
   var resulttmp="<table border=1 cellspacing=0 cellpadding=0>";
   resulttmp+="<tr><td>chr</td>";
   resulttmp+="<td>cnt</td>";
@@ -89,10 +89,10 @@ function analyzeText(str) {
   resulttmp+="<td>oct</td>";
   resulttmp+="<td>bin</td>";
   resulttmp+="<td>morse</td></tr>";
-  
+
   var attentionMarkStr="";
   var attentionMarkFlag=0;
-  
+
   for (var i in charlist) {
     resulttmp+="<tr class='";
     if (
@@ -130,7 +130,7 @@ function analyzeText(str) {
     resulttmp+="</td></tr>";
   }
   resulttmp+="</table>";
-  
+
   if (attentionMarkFlag) {
     for (var i in str) {
       if (
@@ -149,7 +149,7 @@ function analyzeText(str) {
     result.push(attentionMarkStr);
   }
   result.push(resulttmp);
-  
+
   // ヒストグラム
   function histogram(start, count) {
     for (var i=0; i<count; i++) {
@@ -157,8 +157,8 @@ function analyzeText(str) {
         String.fromCharCode(start+i);
       var tmpstr=tmpchar+": ";
       for (
-        var j=0; 
-        j<Number(tmp[tmpchar]); 
+        var j=0;
+        j<Number(tmp[tmpchar]);
         j++
       ) {
         tmpstr+="+";
@@ -170,15 +170,15 @@ function analyzeText(str) {
   histogram(65, 26);
   histogram(97, 26);
   result.push("===========");
-  
+
   function histogram2() {
     for (var i=0; i<26; i++) {
       var tmpchar=
         String.fromCharCode(65+i);
       var tmpstr=tmpchar+": ";
       for (
-        var j=0; 
-        j<=Number(tmp[tmpchar]); 
+        var j=0;
+        j<=Number(tmp[tmpchar]);
         j++
       ) {
         tmpstr+="+";
@@ -186,8 +186,8 @@ function analyzeText(str) {
       var tmpchar=
         String.fromCharCode(65+32+i);
       for (
-        var j=0; 
-        j<=Number(tmp[tmpchar]); 
+        var j=0;
+        j<=Number(tmp[tmpchar]);
         j++
       ) {
         tmpstr+="+";
@@ -196,7 +196,7 @@ function analyzeText(str) {
     }
   }
   histogram2();
-  
+
   result.push("DEC: 48-57(0-9), 65-90(A-Z), 97-122(a-z)");
   result.push("OCT: 60-71(0-9), 101-132(A-Z), 141-172(a-z)");
   result.push("HEX: 30-39(0-9), 41-5a(A-Z), 61-7a(a-z)");
@@ -254,7 +254,7 @@ function analyzeText(str) {
   result.push("<a href='https://www.geocachingtoolbox.com/index.php?lang=en&page=baseConversion' target='_blank'>基底(base)変換</a>");
   result.push("kw ^ more war die grow atack");
   result.push("Rot+1 単数→複数形> portals, shapers, symbols, glyphs (単数なし sirens");
-  
+
   var alertMsg=[];
   if (str.match(
     /&amp;/i)) {
@@ -272,11 +272,11 @@ function analyzeText(str) {
     alertMsg.push(
       "構成文字がqwerty上段のみ");
   } else if(strNoSpace.match(
-    /^[asdfghjkl;]+$/i)){ 
+    /^[asdfghjkl;]+$/i)){
     alertMsg.push(
       "構成文字がqwerty中段のみ");
   }else if(strNoSpace.match(
-    /^[zxcvbnm,\.\/]+$/i)){ 
+    /^[zxcvbnm,\.\/]+$/i)){
     alertMsg.push(
       "構成文字がqwerty下段のみ");
   }
@@ -342,7 +342,7 @@ function analyzeText(str) {
       "reverse1文字目がNMO。Base64?");
   }
   if (strNoSpace.match(
-    /^[a-zA-Z0-9+\/=]+$/) 
+    /^[a-zA-Z0-9+\/=]+$/)
     && str.match(/[a-z]/)
     && str.match(/[A-Z]/)
     && str.match(/[0-9]/)
@@ -354,7 +354,7 @@ function analyzeText(str) {
   var word="";
   if (wordL) word=wordL.join("");
   if (word.match(
-    /^(\w{4}[NMO]\w+|\w+[NMO]\w{4}|[NMO]\w+|\w+[NMO])$/i) 
+    /^(\w{4}[NMO]\w+|\w+[NMO]\w{4}|[NMO]\w+|\w+[NMO])$/i)
     && word.length%4==0) {
     alertMsg.push(
       "文字数4の倍数、特定の位置にNMOがあるのでbase64の可能性あり");
@@ -414,7 +414,7 @@ function analyzeText(str) {
 	  }
   }
   if (
-    str.match(/^[eish5]+$/i) && 
+    str.match(/^[eish5]+$/i) &&
     str.length%2==0
   ) {
     alertMsg.push(
@@ -448,7 +448,7 @@ function analyzeText(str) {
   if (str.match(/^([MDCLXVI]+[\s\.,\/\|\\\-]?)+$/i)) {
     alertMsg.push("<a href='romannum'>ローマ数字</a>");
   } else if (
-    str.match(/^(([2-9]|[1-9][0-9])?[MDCLXVI][\s\.,\/\|\\\-]?)+$/i) && 
+    str.match(/^(([2-9]|[1-9][0-9])?[MDCLXVI][\s\.,\/\|\\\-]?)+$/i) &&
     !str.match(/([MDCLXVI])\1/i)
   ) {
     alertMsg.push("<a href='#romannum'>N×ローマ数字(3x=xxx)</a>");
@@ -561,27 +561,27 @@ function analyzeText(str) {
     str.match(/^[1-6]{10,}$/) &&
     str.match(/[12]/) &&
     str.match(/[34]/) &&
-    str.match(/[56]/) && 
-    !(str.match(/[12][12]/) && 
-     str.match(/[34][34]/) && 
+    str.match(/[56]/) &&
+    !(str.match(/[12][12]/) &&
+     str.match(/[34][34]/) &&
      str.match(/[56][56]/))
   ) {
-    var tmp=""; 
+    var tmp="";
     if (!str.match(/[12][12]/)) {
-     tmp+="[12] "; 
-    } 
+     tmp+="[12] ";
+    }
     if (!str.match(/[34][34]/)) {
-     tmp+="[34] "; 
+     tmp+="[34] ";
     }
     if (!str.match(/[56][56]/)) {
-     tmp+="[56] "; 
-    } 
+     tmp+="[56] ";
+    }
     alertMsg.push(
       "1〜6の数字のみ。12 34 56 でモールスかも？"+" 連続しない文字は "+tmp);
   }
   if (
     str.match(
-    /^([1-8]{1,4}[\s\-/\\|.,:]){9,}[1-8]{1,4}$/) 
+    /^([1-8]{1,4}[\s\-/\\|.,:]){9,}[1-8]{1,4}$/)
     && str.match(/[1-4]/)
     && str.match(/[5-8]/)
   ) {
@@ -607,9 +607,9 @@ function analyzeText(str) {
       "0〜9の数字のみ。01区切り、2345/ 6789 でモールスかも？");
   }
   if (
-    str.match(/^([a-zA-Z]{1,5}[.,\/\\|\-:]){5,}[a-zA-Z]+$/) && 
-    str.match(/[a-z]/) && 
-    str.match(/[A-Z]/) && 
+    str.match(/^([a-zA-Z]{1,5}[.,\/\\|\-:]){5,}[a-zA-Z]+$/) &&
+    str.match(/[a-z]/) &&
+    str.match(/[A-Z]/) &&
     kouseimoji.length>=3
   ) {
     alertMsg.push("大文字と小文字でモールスかも");
@@ -648,65 +648,65 @@ function analyzeText(str) {
       "atbashして全てが2文字数字の構成");
   }
   if (
-    str.match(/\d/) && 
-    str.match(/[pm]/i) && 
+    str.match(/\d/) &&
+    str.match(/[pm]/i) &&
     str.match(/^[\dpm=]+$/i)
   ) {
     alertMsg.push(
       "数字をプラスマイナスの可能性");
   }
   if (
-    str.match(/-/) && 
-    str.match(/–/) && 
+    str.match(/-/) &&
+    str.match(/–/) &&
     str.match(/—/)
   ) {
     alertMsg.push(
       "3種類のハイフンがある。AAかも⁉︎");
   }
   if (str.match(
-    /^(ne|wo|ee|ur|ve|ix|en|ht|ne|ro){5,}$/i) || 
+    /^(ne|wo|ee|ur|ve|ix|en|ht|ne|ro){5,}$/i) ||
     strReverse(str).match(
-    /^(ne|wo|ee|ur|ve|ix|en|ht|ne|ro){5,}$/i) || 
+    /^(ne|wo|ee|ur|ve|ix|en|ht|ne|ro){5,}$/i) ||
     atbash19(str).match(
-    /^(ne|wo|ee|ur|ve|ix|en|ht|ne|ro){5,}$/i) || 
+    /^(ne|wo|ee|ur|ve|ix|en|ht|ne|ro){5,}$/i) ||
     strReverse(atbash19(str)).match(
-    /^(ne|wo|ee|ur|ve|ix|en|ht|ne|ro){5,}$/i) 
+    /^(ne|wo|ee|ur|ve|ix|en|ht|ne|ro){5,}$/i)
   ) {
     alertMsg.push(
       "構成文字が、後ろから2文字の数字のみの");
   }
   if (str.match(
-    /^(one|two|ree|our|ive|six|ven|ght|ine|ero){5,}$/i) || 
+    /^(one|two|ree|our|ive|six|ven|ght|ine|ero){5,}$/i) ||
     strReverse(str).match(
-    /^(one|two|ree|our|ive|six|ven|ght|ine|ero){5,}$/i) || 
+    /^(one|two|ree|our|ive|six|ven|ght|ine|ero){5,}$/i) ||
     atbash19(str).match(
-    /^(one|two|ree|our|ive|six|ven|ght|ine|ero){5,}$/i) || 
+    /^(one|two|ree|our|ive|six|ven|ght|ine|ero){5,}$/i) ||
     strReverse(atbash19(str)).match(
-    /^(one|two|ree|our|ive|six|ven|ght|ine|ero){5,}$/i) 
+    /^(one|two|ree|our|ive|six|ven|ght|ine|ero){5,}$/i)
   ) {
     alertMsg.push(
       "構成文字が、後ろから3文字の数字のみの");
   }
   if (str.match(
-    /^(one|two|hre|our|ive|six|eve|igh|ine|ero){5,}$/i) || 
+    /^(one|two|hre|our|ive|six|eve|igh|ine|ero){5,}$/i) ||
     strReverse(str).match(
-    /^(one|two|hre|our|ive|six|eve|igh|ine|ero){5,}$/i) || 
+    /^(one|two|hre|our|ive|six|eve|igh|ine|ero){5,}$/i) ||
     atbash19(str).match(
-    /^(one|two|hre|our|ive|six|eve|igh|ine|ero){5,}$/i) || 
+    /^(one|two|hre|our|ive|six|eve|igh|ine|ero){5,}$/i) ||
     strReverse(atbash19(str)).match(
-    /^(one|two|hre|our|ive|six|eve|igh|ine|ero){5,}$/i) 
+    /^(one|two|hre|our|ive|six|eve|igh|ine|ero){5,}$/i)
   ) {
     alertMsg.push(
       "構成文字が、途中3文字の数字のみの");
   }
   if (str.match(
-    /^(ne|wo|hr|ur|ve|ix|ev|ig|in|er){5,}$/i) || 
+    /^(ne|wo|hr|ur|ve|ix|ev|ig|in|er){5,}$/i) ||
     strReverse(str).match(
-    /^(ne|wo|hr|ur|ve|ix|ev|ig|in|er){5,}$/i) || 
+    /^(ne|wo|hr|ur|ve|ix|ev|ig|in|er){5,}$/i) ||
     atbash19(str).match(
-    /^(ne|wo|hr|ur|ve|ix|ev|ig|in|er){5,}$/i) || 
+    /^(ne|wo|hr|ur|ve|ix|ev|ig|in|er){5,}$/i) ||
     strReverse(atbash19(str)).match(
-    /^(ne|wo|hr|ur|ve|ix|ev|ig|in|er){5,}$/i) 
+    /^(ne|wo|hr|ur|ve|ix|ev|ig|in|er){5,}$/i)
   ) {
     alertMsg.push(
       "構成文字が、途中2文字の数字のみの");
@@ -765,7 +765,7 @@ function analyzeText(str) {
       "↑UNIXタイムっぽい");
   }
   }
-  { 
+  {
   var tmpRE=new RegExp(
     "(?:"+
     "([12][0-9]|3[01]|0[1-9])\\W"+
@@ -813,17 +813,17 @@ function analyzeText(str) {
   } else if (str.match(/^[1-7]+$/)) {
     alertMsg.push("7区切りの1〜6の数字の可能性。奇偶モールス後、12,34,56で大文字小文字分けてbase64かも");
   }
-  
+
   var tmpRE=new RegExp("^(MAGICIAN|BATELEUR|PAPESS|(HIGH)?PRIESTESS|PAPESSE|EMPRESS|IMPERATRICE|EMPEROR|EMPEREUR|POPE|HIEROPHANT|PAPE|LOVERS|AMOUREUX|CHARIOT|STRENGTH|FORTITUDE|FORCE|HERMIT|ERMITE|WHEEL|ROUE|FORTUNE|JUSTICE|HANGED(MAN)?|PENDU|DEATH|MORT|TEMPERANCE|DEVIL|DIABLE|TOWER|MAISON(dieu)?|STAR|ETOILE|MOON|LUNE|SUN|SOLEIL|JUDGEMENT|JUGEMENT|WORLD|MONDE|FOOL|FOU)+$", "i");
   if (
-    str.match(tmpRE) || 
+    str.match(tmpRE) ||
     atbash19(str).match(tmpRE)
   ) {
     alertMsg.push(
       "タロットカードの名前");
   }
   //--------------
-  if (str.match(/(11[-_A-Za-z0-9]{10}[AEIMQUYcgkosw048]|[-_A-Za-z0-9]{10}[AEIMQUYcgkosw048]11)/) && 
+  if (str.match(/(11[-_A-Za-z0-9]{10}[AEIMQUYcgkosw048]|[-_A-Za-z0-9]{10}[AEIMQUYcgkosw048]11)/) &&
   kouseimoji.length>=4) {
     alertMsg.push(
       "11のヒントはyoutubeのIDの可能性あり");
@@ -834,7 +834,7 @@ function analyzeText(str) {
     }
     alertMsg.push("<a href='vnd.youtube://"+ytlink[0]+"'>googlechrome://youtu.be/"+ytlink[0]+"</a>");
   }
-    if (str.match(/(22[-_A-Za-z0-9]{21}[AQgw]|[-_A-Za-z0-9]{21}[AQgw]22)/) && 
+    if (str.match(/(22[-_A-Za-z0-9]{21}[AQgw]|[-_A-Za-z0-9]{21}[AQgw]22)/) &&
   kouseimoji.length>=4) {
     alertMsg.push(
       "22のヒントはyoutubeのChannel IDの可能性あり");
@@ -846,7 +846,7 @@ function analyzeText(str) {
     alertMsg.push("<a href='vnd.youtube://"+ytlink[0]+"'>googlechrome://youtu.be/"+ytlink[0]+"</a>");
   }
 
-  if (str.match(/\b(v=)?([-_A-Za-z0-9]{10}[AEIMQUYcgkosw048])(11|v)?\b/) && 
+  if (str.match(/\b(v=)?([-_A-Za-z0-9]{10}[AEIMQUYcgkosw048])(11|v)?\b/) &&
   kouseimoji.length>=4) {
     alertMsg.push(
       "youtubeのIDの可能性あり");
@@ -854,8 +854,8 @@ function analyzeText(str) {
     ytlink[0]=ytlink[0].replace(/(v=)?([-_A-Za-z0-9]{10}[AEIMQUYcgkosw048])(11|v)?/, "$2");
     alertMsg.push("<a href='vnd.youtube://"+ytlink[0]+"'>googlechrome://youtu.be/"+ytlink[0]+"</a>");
   }
-  
-  if (str.match(/\b(11|v)?([AEIMQUYcgkosw048][-_A-Za-z0-9]{10})(=v)?\b/) && 
+
+  if (str.match(/\b(11|v)?([AEIMQUYcgkosw048][-_A-Za-z0-9]{10})(=v)?\b/) &&
   kouseimoji.length>=4) {
     alertMsg.push(
       "reverseでyoutubeのIDの可能性あり");
@@ -863,9 +863,9 @@ function analyzeText(str) {
     ytlink[0]=ytlink[0].replace(/(v=)?([-_A-Za-z0-9]{10}[AEIMQUYcgkosw048])(11|v)?/, "$2");
     alertMsg.push("<a href='vnd.youtube://"+ytlink[0]+"'>googlechrome://youtu.be/"+ytlink[0]+"</a>");
   }
-  
+
   //--------------
-  
+
 if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
     var tmp=str.match(/\d+[.\/\\\-|,%]\d+/g);
     var res=[];
@@ -1006,7 +1006,7 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
     alertMsg.push(
     "一部がギリシャ文字");
   }
-  
+
   var phoneticRE=RegExp("Alfa|Alpha|Bravo|Charlie|Delta|Echo|Foxtrot|Golf|Hotel|India|Juliett|Juliet|Kilo|Lima|Mike|November|Oscar|Papa|Quebec|Romeo|Sierra|Tango|Uniform|Victor|Whiskey|X-ray|Yankee|Zulu","ig");
   var tmp=str.match(phoneticRE);
   if (tmp) {
@@ -1028,11 +1028,11 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
     alertMsg.push("atbashすると、1〜5のペア。polybius");
   }
   if (
-    str.match(/^[(\\\/_)\s]{15,}$/) && 
-    str.match(/[(]/) && 
-    str.match(/[)]/) &&  
-    str.match(/[\\]/) && 
-    str.match(/[\/]/) && 
+    str.match(/^[(\\\/_)\s]{15,}$/) &&
+    str.match(/[(]/) &&
+    str.match(/[)]/) &&
+    str.match(/[\\]/) &&
+    str.match(/[\/]/) &&
     str.match(/[_]/)
   ) {
     alertMsg.push("3行AAの可能性");
@@ -1047,19 +1047,19 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
     alertMsg.push("使用文字が([mp][aeio])+のみ。カナダ先住民文字を使ったセマフォの可能性\n<a href='googlechrome://en.m.wikipedia.org/wiki/Canadian_Aboriginal_syllabics'>Semapgore wikipedia</a>");
   }
   if (
-    str.length%2==0 && 
+    str.length%2==0 &&
     kouseimoji.length==8
   ) {
     alertMsg.push("8種類の文字(8方向)でペアになるからsemaphoreの可能性");
   }
   if (
-    str.match(/^((ze|on|te|el|hu|th)[\s\|\-\.,\/]?){8,}$/i) && 
+    str.match(/^((ze|on|te|el|hu|th)[\s\|\-\.,\/]?){8,}$/i) &&
     kouseimoji.length>=5
   ) {
     alertMsg.push("ze=0, on=1, te=10, el=11, hu=100, th=1000, でバイナリの可能性");
   }
   if (
-    str.match(/^[a-r]{2}[0-9]{2}[a-x]{2}$/i) && 
+    str.match(/^[a-r]{2}[0-9]{2}[a-x]{2}$/i) &&
     kouseimoji.length>=3
   ) {
     alertMsg.push("<a href='googlechrome://www.qrz.com/gridmapper'>GL(Grid Locator)</a>での座標の可能性");
@@ -1070,40 +1070,40 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
   var tmp=str.match(/2304|2401|2500|2601|2704|2809|2916|3025|3136|3249|4225|4356|4489|4624|4761|4900|5041|5184|5329|5476|5625|5776|5929|6084|6241|6400|6561|6724|6889|7056|7225|7396|7569|7744|7921|8100/g);
   if (tmp && tmp.length>=3) {
     alertMsg.push("decASCIIの二乗を3つ以上発見 [ "+tmp.join(", ")+" ]");
-  }  
+  }
   var tmp=str.match(/110592|117649|125000|132651|140608|148877|157464|166375|175616|185193|274625|287496|300763|314432|328509|343000|357911|373248|389017|405224|421875|438976|456533|474552|493039|512000|531441|551368|571787|592704|614125|636056|658503|681472|704969|729000/g);
   if (tmp && tmp.length>=3) {
     alertMsg.push("decASCIIの三乗を3つ以上発見 [ "+tmp.join(", ")+" ]");
-  }  
+  }
   if (
-    str.match(/^(([a-f][1-6]){3,}[a-f]?|([1-6][a-f]){3,}[1-6]?)$/i) && 
+    str.match(/^(([a-f][1-6]){3,}[a-f]?|([1-6][a-f]){3,}[1-6]?)$/i) &&
     kouseimoji.length>=5
   ) {
     alertMsg.push("123とabcが交互でRLEバイナリの可能性");
   }
   if (
-    str.match(/^([2-9]?[b-g]){4,}$/i) && 
-    !str.match(/(.)\1/) && 
+    str.match(/^([2-9]?[b-g]){4,}$/i) &&
+    !str.match(/(.)\1/) &&
     kouseimoji.length>=3
   ) {
     alertMsg.push("n × abc012でRLE×RLEバイナリの可能性");
   }
   if (
-    str.match(/^([2-9]?[!@#$%^]){4,}$/i) && 
-    !str.match(/(.)\1/) && 
+    str.match(/^([2-9]?[!@#$%^]){4,}$/i) &&
+    !str.match(/(.)\1/) &&
     kouseimoji.length>=3
   ) {
     alertMsg.push("n × symbol012でRLE×RLEバイナリの可能性");
   }
   if (
-    str.match(/^(((viiii|9)|(iiii|4)|(viii|8)|(iii|3)|(vii|7)|(ii|2)|(vi|6)|(iv|4)|(v|5))?[b-g]){4,}$/i) && 
+    str.match(/^(((viiii|9)|(iiii|4)|(viii|8)|(iii|3)|(vii|7)|(ii|2)|(vi|6)|(iv|4)|(v|5))?[b-g]){4,}$/i) &&
     kouseimoji.length>=3
   ) {
     alertMsg.push("ローマ数字 × abc012でRLE×RLEバイナリの可能性");
   }
 
   if (
-    str.match(/^[1-9]{4,}$/i) && 
+    str.match(/^[1-9]{4,}$/i) &&
     kouseimoji.length>=3
   ) {
     var tmps=str.split("");
@@ -1132,14 +1132,14 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
   str.replace(/(?:(.)(.?))/g, function(match, p1, p2){tmpL[0]+=p1;tmpL[1]+=p2;});
   if (
     (tmpL[0].match(/^[a-z]{6,}$/i) && tmpL[1].match(/^[^a-z]{6,}$/i)) ||
-    (tmpL[0].match(/^[^a-z]{6,}$/i) && tmpL[1].match(/^[a-z]{6,}$/i)) && 
+    (tmpL[0].match(/^[^a-z]{6,}$/i) && tmpL[1].match(/^[a-z]{6,}$/i)) &&
     kouseimoji.length>=3
   ) {
     alertMsg.push("<a href='#oddeven'>奇数偶数に特徴あり</a>");
   }
 
   if (
-    str.length>60 && 
+    str.length>60 &&
     kouseimoji.length==2
   ) {
     if (str.length%8==0) {
@@ -1158,8 +1158,8 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
   }
 
   if (
-    (str.match(/^[ADFGVX]{6,}$/i) || atbash(str).match(/^[ADFGVX]{6,}$/i)) && 
-    kouseimoji.length>=4 && 
+    (str.match(/^[ADFGVX]{6,}$/i) || atbash(str).match(/^[ADFGVX]{6,}$/i)) &&
+    kouseimoji.length>=4 &&
     str.length%2==0
   ) {
     if (str.match(/^[ADFGVX]{6,}$/i)) {
@@ -1170,8 +1170,8 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
   }
 
   if (
-    (str.match(/^[ADFGX]{5,}$/i) || atbash(str).match(/^[ADFGX]{5,}$/i)) && 
-    kouseimoji.length>=4 && 
+    (str.match(/^[ADFGX]{5,}$/i) || atbash(str).match(/^[ADFGX]{5,}$/i)) &&
+    kouseimoji.length>=4 &&
     str.length%2==0
   ) {
     if (str.match(/^[ADFGX]{5,}$/i)) {
@@ -1183,28 +1183,28 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
 
   // 月名
   if (
-    (str.match(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec){10,}$/i) || atbash(str).match(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec){10,}$/i)) && 
+    (str.match(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec){10,}$/i) || atbash(str).match(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec){10,}$/i)) &&
     kouseimoji.length>=4
   ) {
     if(str.match(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec){10,}$/i)) {
       alertMsg.push("<a href='#month'>すべて3文字の月名</a>");
     } else {
-      alertMsg.push("<a href='#month'>atbashするとすべて3文字の月名</a>");      
-      alertMsg.push(atbash(str));      
+      alertMsg.push("<a href='#month'>atbashするとすべて3文字の月名</a>");
+      alertMsg.push(atbash(str));
     }
   }
 
   if (
-    (str.match(/^(an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec){10,}$/i) || atbash(str).match(/^(an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec){10,}$/i)) && 
+    (str.match(/^(an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec){10,}$/i) || atbash(str).match(/^(an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec){10,}$/i)) &&
     kouseimoji.length>=4
   ) {
     if(str.match(/^(an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec){10,}$/i)) {
       alertMsg.push("<a href='#month'>すべて2文字の月名</a>");
     } else {
-      alertMsg.push("<a href='#month'>atbashするとすべて2文字の月名</a>");      
-      alertMsg.push(atbash(str));      
+      alertMsg.push("<a href='#month'>atbashするとすべて2文字の月名</a>");
+      alertMsg.push(atbash(str));
     }
-    alertMsg.push("an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec");    
+    alertMsg.push("an|eb|ar|pr|ay|un|ul|ug|ep|ct|ov|ec");
   }
 
 // 曜日
@@ -1215,8 +1215,8 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
     if(str.match(/^(sun|mon|tue|wed|thu|fri|sat){5,}$/i)) {
       alertMsg.push("<a href='#dayoftheweek'>すべて曜日名</a>");
     } else if(atbash(str).match(/^(sun|mon|tue|wed|thu|fri|sat){5,}$/i)) {
-      alertMsg.push("<a href='#dayoftheweek'>atbashするとすべて曜日名</a>");      
-      alertMsg.push(atbash(str));      
+      alertMsg.push("<a href='#dayoftheweek'>atbashするとすべて曜日名</a>");
+      alertMsg.push(atbash(str));
     } else if(str.match(/^(un|on|ue|ed|hu|ri|at){10,}$/i)) {
       alertMsg.push("<a href='#dayoftheweek'>すべて2文字の曜日名</a>");
   var tmp=str.match(/un|on|ue|ed|hu|ri|at/ig);
@@ -1231,15 +1231,15 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
   tmp=tmp.map(val=>val.replace(/su/i,"Sun").replace(/mo/i,"Mon").replace(/th/i,"Tue").replace(/we/i,"Wed").replace(/hu/i,"Thur").replace(/fr/i,"Fri").replace(/sa/i,"Sat"));
   alertMsg.push(tmp.join(" "));
     }
-   
+
   }
 
   // abc012 6以下
   var tmp=abc012(str);
-  if (tmp.match(/^[123456]{25,}$/i) && 
+  if (tmp.match(/^[123456]{25,}$/i) &&
     kouseimoji.length>=4
   ) {
-    if(tmp.match(/^[12345]{25,}$/i) && 
+    if(tmp.match(/^[12345]{25,}$/i) &&
       tmp.length%2==0) {
       alertMsg.push("<a href='#'>abc012で1〜5のみでペアになる > polybiusか？</a>");
     } else if(tmp.match(/^[123456]{25,}$/i) && tmp.split("").reduce((val,e)=>Number(e)+Number(val))%8==0) {
@@ -1290,11 +1290,11 @@ if(str.match(tmpRE)){
 
 
 // 直線の数
-if (str.match(/^[o\-=≠#\s]+$/i) && 
-    str.match(/o/i) && 
-    str.match(/-/i) && 
-    str.match(/=/i) && 
-    str.match(/≠/i) && 
+if (str.match(/^[o\-=≠#\s]+$/i) &&
+    str.match(/o/i) &&
+    str.match(/-/i) &&
+    str.match(/=/i) &&
+    str.match(/≠/i) &&
     str.match(/#/i)
 ) {
   alertMsg.push("直線の数 o-=≠# > 01234 からのbase5 や polybius");
@@ -1306,8 +1306,8 @@ if (str.match(/^[o\-=≠#\s]+$/i) &&
 
   // ===========
   if (alertMsg.length>0) {
-    result.push("-----------------"); 
-    result.push(str); 
+    result.push("-----------------");
+    result.push(str);
     for (var j in alertMsg) {
       alertMsg[j]="<span class='alert'>"
         +alertMsg[j]+"</span>";
@@ -1321,80 +1321,79 @@ if (str.match(/^[o\-=≠#\s]+$/i) &&
 function leetKeyws() {
     var kwlist=[
   /*
-  ["fire7", "forget", " 7→& 軍事用語 fire & forget"], 
-  ["311nt", "elint", "leet"], 
-  ["vi", "verum", "人名: Verum Inveniri"], 
-  ["vi", "Inveniri", "人名: Verum Inveniri"], 
-  ["mindsoul", "body", "glyphパターン"], 
-  ["u", "you", "1文字置き換え"], 
-  ["g", "gravity", "キーワード部一文字。頭文字が g > gravity"], 
-  ["0ut51d21", "outside", "leet> 0ut51d3 > outside"], 
-  ["zerout5oned2one", "outside", "leet> zerout5oned2one > 0ut51d21 > 0ut51d3 > outside"], 
-  ["SYPHAXCYBELLA", "obsidius", "SYPHAXとCYBELLAとobsidiusの3人はTitusに会うことになっていた"], 
-  ["\\.", "darsana", "darsana pointより"], 
-  ["point", "darsana", "darsana pointより"], 
-  ["c", "see", "同じ発音"], 
-  ["spoils", "kureze", "ことわざ「To the victor goes the spoils.」戦利品は勝利者のもの。からvictor→人名「victor kureze」"], 
-  ["wien", "acolyte", "Obsidian vienna (オーストリアのウィーン)配布メダルの人物 'The Acolyte'"], 
-  ["devoidofjoy", "interitus", "anomaly"], 
-  ["Pb", "lead", "元素記号Pb→鉛→lead"], 
-  ["jarvisshot", "zurich", "jarvisが撃たれた場所はチューリッヒ"], 
-  ["voxgower", "clamantis", "ポエム Vox Clamantisより"], 
-  ["<", "less", "数学記号 < 'less than'"], 
-  ["bogdanovich", "devra", "人名 Devra Bogdanovich"], 
-  ["see", "c", "同じ発音"], 
-  ["us", "them", "反対語"], 
-  ["w", "worth", "glyph"], 
-  ["belongthespoil", "kureze", "諺「to the victor belong the spoils」よりVictor > 人名 Victor Kureze"], 
-  ["belongthespoil", "victor", "諺「to the victor belong the spoils」より"], 
-  ["persepolis", "shonin", "前例あり。anomaly繋がり"], 
-  ["foodfor", "thought", "'food for thought' 思考の糧"], 
-  ["alien", "predator", "alien を対抗するpredatorに意味bash"], 
-  ["j0hn51", "johnsone", "leet"], 
-  ["v", "defendv", "グリフ変換"], 
-  ["twentyfivemillionforonyx", "recharger", "2,500万XMでONYXメダル"], 
-  ["Dalbysee", "Enoch", "musician Enoch Dalbyより"], 
-  ["Dalby", "Enoch", "musician Enoch Dalbyより"], 
-  ["theimaginationofourselves", "dream", "事例あり"], 
-  ["Beautifulfriend", "end", "This is the end Beautiful friend で始まるDoorsのThe endという歌"], 
-  ["anti", "magnus", "前例あり"], 
-  ["1iric", "oneiric", "前例あり"], 
-  ["zero", "cipher", "アラビア語でゼロの意味"], 
-  ["yellow", "blue", "前例あり"], 
-  ["-", "not", "前例あり"], 
-  ["young", "old", "反対語"], 
-  ["3cb371", "green", "Color #3cb371 Medium sea green"], 
-  ["isdead", "Jarvis", "is dead -> Roland Jarvis"], 
-  ["iamnotdead", "Jarvis", "i am not dead -> Roland Jarvis"], 
-  ["hulongtrans", "global", "関連企業 Hulong Transglobal社"], 
-  ["great", "magnus", "English → Latin (ラテン語) "], 
-  ["Oliver", "Wolfe", "人名 Oliver Lynton-Wolfe"], 
-  ["@", "search", "グリフの形"], 
-  ["Susanna", "Moyer", "登場人物 Susanna Moyer"], 
-  ["Izik", "Avinoam", "登場人物 Izik Avinoam"], 
-  ["calvin", "Ezekiel", "登場人物 Dr. Ezekiel Calvin"], 
-  ["roland", "jarvis", "登場人物 Roland Jarvis"], 
-  ["Ezekiel", "Calvin", "登場人物 Ezekiel Calvin"], 
-  ["stein", "lightman", "登場人物 Stein Lightman"], 
-  ["exagoge", "Ezekiel", "預言者エゼキエルと関連"], 
-  ["80860", "intel", "インテル i860プロセッサ"], 
-  ["IntelliJ", "IDEA", "Java IDE の一種"], 
-  ["jsx", "react", "プログラミング言語JSXより"], 
-  ["alorazon", "iqtech", "NianticProjectWikiより"], 
-  ["adetection", "algorithm", "a adetection algorithm (ADA)より"], 
-  ["hat", "chapeau", "フランス語へ"], 
-  ["epiphanynightcatalyst", "powercube", "epiphany night catalyst 啓示の夜のきっかけ"], 
-  ["deadnotami", "roland", "i am not dead から Roland Jarvis"], 
-  ["vaccinemaker", "devra", "vaccine maker (ワクチン製作者)は Devra Bogdanovich"], 
-  ["glitchyben", "jackland", "glitchy ben から人名 Ben Jackland"], 
-  ["scannerapp", "ingress", "scanner app"], 
-  ["victor", "kureze", "人名 Victor Kureze"], 
-  ["farlowe", "hubert", "人名 Hubert Farlowe より"], 
+  ["fire7", "forget", " 7→& 軍事用語 fire & forget"],
+  ["311nt", "elint", "leet"],
+  ["vi", "verum", "人名: Verum Inveniri"],
+  ["vi", "Inveniri", "人名: Verum Inveniri"],
+  ["mindsoul", "body", "glyphパターン"],
+  ["u", "you", "1文字置き換え"],
+  ["g", "gravity", "キーワード部一文字。頭文字が g > gravity"],
+  ["0ut51d21", "outside", "leet> 0ut51d3 > outside"],
+  ["zerout5oned2one", "outside", "leet> zerout5oned2one > 0ut51d21 > 0ut51d3 > outside"],
+  ["SYPHAXCYBELLA", "obsidius", "SYPHAXとCYBELLAとobsidiusの3人はTitusに会うことになっていた"],
+  ["\\.", "darsana", "darsana pointより"],
+  ["point", "darsana", "darsana pointより"],
+  ["c", "see", "同じ発音"],
+  ["spoils", "kureze", "ことわざ「To the victor goes the spoils.」戦利品は勝利者のもの。からvictor→人名「victor kureze」"],
+  ["wien", "acolyte", "Obsidian vienna (オーストリアのウィーン)配布メダルの人物 'The Acolyte'"],
+  ["devoidofjoy", "interitus", "anomaly"],
+  ["Pb", "lead", "元素記号Pb→鉛→lead"],
+  ["jarvisshot", "zurich", "jarvisが撃たれた場所はチューリッヒ"],
+  ["voxgower", "clamantis", "ポエム Vox Clamantisより"],
+  ["<", "less", "数学記号 < 'less than'"],
+  ["bogdanovich", "devra", "人名 Devra Bogdanovich"],
+  ["see", "c", "同じ発音"],
+  ["us", "them", "反対語"],
+  ["w", "worth", "glyph"],
+  ["belongthespoil", "kureze", "諺「to the victor belong the spoils」よりVictor > 人名 Victor Kureze"],
+  ["belongthespoil", "victor", "諺「to the victor belong the spoils」より"],
+  ["persepolis", "shonin", "前例あり。anomaly繋がり"],
+  ["foodfor", "thought", "'food for thought' 思考の糧"],
+  ["alien", "predator", "alien を対抗するpredatorに意味bash"],
+  ["j0hn51", "johnsone", "leet"],
+  ["v", "defendv", "グリフ変換"],
+  ["twentyfivemillionforonyx", "recharger", "2,500万XMでONYXメダル"],
+  ["Dalbysee", "Enoch", "musician Enoch Dalbyより"],
+  ["Dalby", "Enoch", "musician Enoch Dalbyより"],
+  ["theimaginationofourselves", "dream", "事例あり"],
+  ["Beautifulfriend", "end", "This is the end Beautiful friend で始まるDoorsのThe endという歌"],
+  ["anti", "magnus", "前例あり"],
+  ["1iric", "oneiric", "前例あり"],
+  ["zero", "cipher", "アラビア語でゼロの意味"],
+  ["yellow", "blue", "前例あり"],
+  ["-", "not", "前例あり"],
+  ["young", "old", "反対語"],
+  ["3cb371", "green", "Color #3cb371 Medium sea green"],
+  ["isdead", "Jarvis", "is dead -> Roland Jarvis"],
+  ["iamnotdead", "Jarvis", "i am not dead -> Roland Jarvis"],
+  ["hulongtrans", "global", "関連企業 Hulong Transglobal社"],
+  ["great", "magnus", "English → Latin (ラテン語) "],
+  ["Oliver", "Wolfe", "人名 Oliver Lynton-Wolfe"],
+  ["@", "search", "グリフの形"],
+  ["Susanna", "Moyer", "登場人物 Susanna Moyer"],
+  ["Izik", "Avinoam", "登場人物 Izik Avinoam"],
+  ["calvin", "Ezekiel", "登場人物 Dr. Ezekiel Calvin"],
+  ["roland", "jarvis", "登場人物 Roland Jarvis"],
+  ["Ezekiel", "Calvin", "登場人物 Ezekiel Calvin"],
+  ["stein", "lightman", "登場人物 Stein Lightman"],
+  ["exagoge", "Ezekiel", "預言者エゼキエルと関連"],
+  ["80860", "intel", "インテル i860プロセッサ"],
+  ["IntelliJ", "IDEA", "Java IDE の一種"],
+  ["jsx", "react", "プログラミング言語JSXより"],
+  ["alorazon", "iqtech", "NianticProjectWikiより"],
+  ["adetection", "algorithm", "a adetection algorithm (ADA)より"],
+  ["hat", "chapeau", "フランス語へ"],
+  ["epiphanynightcatalyst", "powercube", "epiphany night catalyst 啓示の夜のきっかけ"],
+  ["deadnotami", "roland", "i am not dead から Roland Jarvis"],
+  ["vaccinemaker", "devra", "vaccine maker (ワクチン製作者)は Devra Bogdanovich"],
+  ["glitchyben", "jackland", "glitchy ben から人名 Ben Jackland"],
+  ["scannerapp", "ingress", "scanner app"],
+  ["victor", "kureze", "人名 Victor Kureze"],
+  ["farlowe", "hubert", "人名 Hubert Farlowe より"],
   ["verum", "inveniri", "人名 Verum Inveniri より"]
-  ["pa","chapeau","登場人物"], 
-    ["Akira","Tsukasa","登場人物 Akira Tsukasa"], 
+  ["pa","chapeau","登場人物"],
+    ["Akira","Tsukasa","登場人物 Akira Tsukasa"],
   */
-  
 
 
 
@@ -1402,236 +1401,237 @@ function leetKeyws() {
 
 
 
-["[5s]h[4A]p[3E]r[5s]","shapers","leet"], 
-["[5s]h[4A]p[3E]r","shaper","leet"], 
-["c[4A][3m]p[8B6b][3E][7L1l][7L1l]","campbell","leet"], 
-["[8B6b][4A][7T1l][4A]nc[3E]","balance","leet"], 
-["p[3E]rf[3E]c[7T][1i][0o]n","perfection","leet], 
-["c[4A]rr[1i][3E]","carrie","leet"], 
-["c[0o][7L1l][7L1l][3E]c[7T][1i][5v][3E]","collective","leet"], 
-["n[2z][3E][3E]r","nzeer","leet"], 
-["[3E][5v][0o][1l7L][5v][3E]","evolve","leet"], 
-["c[4A]p[7T]ur[3E]","capture","leet"], 
-["[5s][1i][6G9g][1i]n[7T]","sigint","leet"], 
-["[1i][3m][1i]n[7T]","imint","leet"], 
-["[1l7L][1i][8B][3E]r[4A][7T][3E]","liberate","leet"], 
-["c[1l7L][4A][3m][4A]n[7T][1i][5s]","clamantis","leet"], 
-["[7T][1i][3m][3E][2z][3E]r[0o]","timezero","leet"], 
-["d[3E]c[3E]p[7T][1i][0o]n","deception","leet"], 
-["00:00","timezero","関連"], 
-["r[3E][7T]r[3E][4A][7T]","retreat","leet"], 
-["[4A]d[5v][4A]nc[3E]","advance","leet"], 
-["[9g6G]h[0o][5s][7T]","ghost","leet"], 
-["[6b8B][0o]dy","body","leet"], 
-["d[4A]r[2z][4A][1l7T][4A][5s]","darzalas","leet"], 
-["[5s][1i][6G9g][1i]nt","sigint","leet"], 
-["[1l7L][0o][5v][3E][1l7L][4A]c[3E]","lovelace","leet"], 
-["[5s]h[0o]n[1i]n","shonin","leet"], 
-["nu[3m][1i]n[0o]u[5s]","numinous","leet"], 
-["ru[6b8B][1i]c[0o]n","rubicon","leet"], 
-["[4A][6b8B][4A]dd[0o]n","abaddon","leet"], 
-["ph[0o][7T][1i]n[7T]","photint","leet"], 
-["[3E][9q]u[4A][1l7L]","equal","leet"], 
-["[5v][4A]u[1l7T][7T]","vault","leet"], 
-["f[3E][1l7L][1i]c[1i][4A]","felicia","leet"], 
-["h[4A]r[3M]","harm","leet"], 
-["pur[3E]","pure","leet"], 
-["r[3E][5S][1i][5S][7T]","resist","leet"], 
-["[5s][3E]n[5s][1i][7T][1i][5v][3E]","sensitive","leet"], 
-["[5s][7T]ru[6G9g][6G9g][1l7L][3E]","struggle","leet"], 
-["[8B][1l7L][4A]c[0o]p[5s]","blackops","leet"], 
-["[3E](?:10|x)[0o][7T][1i]c","exotic","leet"], 
-["domestic","exotic","意味bash"], 
-["cr[3E][4A][7T][1i][5v][3E]","creative","leet"], 
-["dull","creative","意味bash"], 
-//["[B8][5S][5S]","855","leet"], 
-["great ?old ?o?nes?","cthulhu","クトゥルフ神話の旧支配者"], 
-["c[7L1l][4A]m[4A]n[7T][1i][5s]","clamantis","leet"], 
-["cryp[7T][0o]","crypto","leet"], 
-["c[7T]hu[7L1l]hu","cthulhu","leet"], 
-["(?:John ?)?Gower","clamantis","'Vox Clamantis'の作者 John Gower"], 
-["[4A][5s]p[1i]r[4A][7T][1i][0o]n","aspiration","leet"], 
-["[9q]u[3E][5s][7T][1i][0o]n","question","leet"], 
-["[6G9g]r[3E][3E]n","green","leet"], 
-["[6b][7L1l]u[3E]","blue","leet"], 
-["r[3E][4A]c[7T]","react","leet"], 
-["pr[0o]n[0o][1i][4A]","pronoia","leet"], 
-["j[4A]r[5v][1i][5s]","jarvis","leet"], 
-["[4A]d[4A]","ada","leet"], 
-["r[0o][7L][4A]nd","roland","leet"], 
-["[5s][7T][4A]y","stay","leet"], 
-["[4A]d[5v][4A]nc[3E]","advance","leet"], 
-["j[0o]urn[3E]y","journey","leet"], 
-["c[0o][5v][3E]rup","coverup","leet"], 
-["h[0o]n[3E][5s][7T]y","honesty","leet"], 
-["d[3E]f[3E]nd","defend","leet"], 
-["[4A][7T][7T][4A]ck","attack","leet"], 
-["d[4A]n[6G9g][3E]r","danger","leet"], 
-["[6b][4A]rr[1i][E3]","barrie","leet"], 
-["[3E]nd","end","leet"], 
-["[1i]n[5v][3E]n[1i]r[1i]","inveniri","leet"], 
-["[4A]d[5v][4A]n(?:100|c)[3E]","advance","leet"], 
-["[7T][0o][9g][3E][7T]h[3E]r","together","leet"], 
-["dr[3E][4A]m","dream","leet"], 
-["n[0o][1i]r","noir","leet"], 
-["[7L]u(?:10|x)","lux","leet"], 
-["n[1i]","ni","leet"], 
-["h[1i][6G][6G][5s]","higgs","leet"], 
-["[6b][0o][5s][0o]n","boson","leet"], 
-["[5v][1i][4A][17L]u(?:10|x)","vialux","leet"], 
-["(?:100|c)[1i][5v][1i][17L][1i][5z][4A][7t][1i][0o]n","civilization","leet"], 
-["n[4A][7T]ur[3E]","nature","leet"], 
-["(?:100|c)[0o]n[7T]r[4A](?:100|c)[7T]","contract","leet"], 
-["n[3E][5s][7T]","nest","leet"], 
-["[4A][5s]p[1i]r[4A][7T][1i][0o]n","aspiration","leet"], 
-["[9q]u[4A]n[7T]u(?:1000|m)","quantum","leet"], 
-["[5s][7T][3E][1i]n","stein","leet"], 
-["[5s][1i][6G]n[4A][1L]","signal","leet"], 
-["[0o][6b][5s][1i]d[1i]u[5s]","obsidius","leet"], 
-["noise","signal","意味bash"], 
-["p[4A]r[7T][1i](?:100|c)[71l][3E]","particle","leet"], 
-["w[4A][5v][3E]","wave","leet"], 
-["[0o]p[3E]n","open","leet"], 
-["[5s][7T][4A][7T][3E]","state","leet"], 
-["h[3e]nry","henry","leet"], 
-["m[4A][6G]nu[5s]","magnus","leet"], 
-["[1l][3e][4a]d","lead","leet"], 
-["f[0o][1l][1l][0o]w","follow","leet"], 
-["[5s]h[4A]p[3E]d","shaped","leet"], 
-["[1l]u[11][2z][1i]","luizi","leet"], 
-["[1i]mpr[0o][5v][3e]","improve","leet"], 
-["degrade","improve","意味bash"], 
-["n[0o][5v][4A]","nova","leet"], 
-["ry[6b][4A][7T]","rybat","leet"], 
-["h[1i]d[3E]","hide","leet"], 
-["533k","seek","leet"], 
+
+["[5s]h[4A]p[3E]r[5s]","shapers","leet"],
+["[5s]h[4A]p[3E]r","shaper","leet"],
+["c[4A][3m]p[8B6b][3E][7L1l][7L1l]","campbell","leet"],
+["[8B6b][4A][7T1l][4A]nc[3E]","balance","leet"],
+["p[3E]rf[3E]c[7T][1i][0o]n","perfection","leet"], 
+["c[4A]rr[1i][3E]","carrie","leet"],
+["c[0o][7L1l][7L1l][3E]c[7T][1i][5v][3E]","collective","leet"],
+["n[2z][3E][3E]r","nzeer","leet"],
+["[3E][5v][0o][1l7L][5v][3E]","evolve","leet"],
+["c[4A]p[7T]ur[3E]","capture","leet"],
+["[5s][1i][6G9g][1i]n[7T]","sigint","leet"],
+["[1i][3m][1i]n[7T]","imint","leet"],
+["[1l7L][1i][8B][3E]r[4A][7T][3E]","liberate","leet"],
+["c[1l7L][4A][3m][4A]n[7T][1i][5s]","clamantis","leet"],
+["[7T][1i][3m][3E][2z][3E]r[0o]","timezero","leet"],
+["d[3E]c[3E]p[7T][1i][0o]n","deception","leet"],
+["00:00","timezero","関連"],
+["r[3E][7T]r[3E][4A][7T]","retreat","leet"],
+["[4A]d[5v][4A]nc[3E]","advance","leet"],
+["[9g6G]h[0o][5s][7T]","ghost","leet"],
+["[6b8B][0o]dy","body","leet"],
+["d[4A]r[2z][4A][1l7T][4A][5s]","darzalas","leet"],
+["[5s][1i][6G9g][1i]nt","sigint","leet"],
+["[1l7L][0o][5v][3E][1l7L][4A]c[3E]","lovelace","leet"],
+["[5s]h[0o]n[1i]n","shonin","leet"],
+["nu[3m][1i]n[0o]u[5s]","numinous","leet"],
+["ru[6b8B][1i]c[0o]n","rubicon","leet"],
+["[4A][6b8B][4A]dd[0o]n","abaddon","leet"],
+["ph[0o][7T][1i]n[7T]","photint","leet"],
+["[3E][9q]u[4A][1l7L]","equal","leet"],
+["[5v][4A]u[1l7T][7T]","vault","leet"],
+["f[3E][1l7L][1i]c[1i][4A]","felicia","leet"],
+["h[4A]r[3M]","harm","leet"],
+["pur[3E]","pure","leet"],
+["r[3E][5S][1i][5S][7T]","resist","leet"],
+["[5s][3E]n[5s][1i][7T][1i][5v][3E]","sensitive","leet"],
+["[5s][7T]ru[6G9g][6G9g][1l7L][3E]","struggle","leet"],
+["[8B][1l7L][4A]c[0o]p[5s]","blackops","leet"],
+["[3E](?:10|x)[0o][7T][1i]c","exotic","leet"],
+["domestic","exotic","意味bash"],
+["cr[3E][4A][7T][1i][5v][3E]","creative","leet"],
+["dull","creative","意味bash"],
+//["[B8][5S][5S]","855","leet"],
+["great ?old ?o?nes?","cthulhu","クトゥルフ神話の旧支配者"],
+["c[7L1l][4A]m[4A]n[7T][1i][5s]","clamantis","leet"],
+["cryp[7T][0o]","crypto","leet"],
+["c[7T]hu[7L1l]hu","cthulhu","leet"],
+["(?:John ?)?Gower","clamantis","'Vox Clamantis'の作者 John Gower"],
+["[4A][5s]p[1i]r[4A][7T][1i][0o]n","aspiration","leet"],
+["[9q]u[3E][5s][7T][1i][0o]n","question","leet"],
+["[6G9g]r[3E][3E]n","green","leet"],
+["[6b][7L1l]u[3E]","blue","leet"],
+["r[3E][4A]c[7T]","react","leet"],
+["pr[0o]n[0o][1i][4A]","pronoia","leet"],
+["j[4A]r[5v][1i][5s]","jarvis","leet"],
+["[4A]d[4A]","ada","leet"],
+["r[0o][7L][4A]nd","roland","leet"],
+["[5s][7T][4A]y","stay","leet"],
+["[4A]d[5v][4A]nc[3E]","advance","leet"],
+["j[0o]urn[3E]y","journey","leet"],
+["c[0o][5v][3E]rup","coverup","leet"],
+["h[0o]n[3E][5s][7T]y","honesty","leet"],
+["d[3E]f[3E]nd","defend","leet"],
+["[4A][7T][7T][4A]ck","attack","leet"],
+["d[4A]n[6G9g][3E]r","danger","leet"],
+["[6b][4A]rr[1i][E3]","barrie","leet"],
+["[3E]nd","end","leet"],
+["[1i]n[5v][3E]n[1i]r[1i]","inveniri","leet"],
+["[4A]d[5v][4A]n(?:100|c)[3E]","advance","leet"],
+["[7T][0o][9g][3E][7T]h[3E]r","together","leet"],
+["dr[3E][4A]m","dream","leet"],
+["n[0o][1i]r","noir","leet"],
+["[7L]u(?:10|x)","lux","leet"],
+["n[1i]","ni","leet"],
+["h[1i][6G][6G][5s]","higgs","leet"],
+["[6b][0o][5s][0o]n","boson","leet"],
+["[5v][1i][4A][17L]u(?:10|x)","vialux","leet"],
+["(?:100|c)[1i][5v][1i][17L][1i][5z][4A][7t][1i][0o]n","civilization","leet"],
+["n[4A][7T]ur[3E]","nature","leet"],
+["(?:100|c)[0o]n[7T]r[4A](?:100|c)[7T]","contract","leet"],
+["n[3E][5s][7T]","nest","leet"],
+["[4A][5s]p[1i]r[4A][7T][1i][0o]n","aspiration","leet"],
+["[9q]u[4A]n[7T]u(?:1000|m)","quantum","leet"],
+["[5s][7T][3E][1i]n","stein","leet"],
+["[5s][1i][6G]n[4A][1L]","signal","leet"],
+["[0o][6b][5s][1i]d[1i]u[5s]","obsidius","leet"],
+["noise","signal","意味bash"],
+["p[4A]r[7T][1i](?:100|c)[71l][3E]","particle","leet"],
+["w[4A][5v][3E]","wave","leet"],
+["[0o]p[3E]n","open","leet"],
+["[5s][7T][4A][7T][3E]","state","leet"],
+["h[3e]nry","henry","leet"],
+["m[4A][6G]nu[5s]","magnus","leet"],
+["[1l][3e][4a]d","lead","leet"],
+["f[0o][1l][1l][0o]w","follow","leet"],
+["[5s]h[4A]p[3E]d","shaped","leet"],
+["[1l]u[11][2z][1i]","luizi","leet"],
+["[1i]mpr[0o][5v][3e]","improve","leet"],
+["degrade","improve","意味bash"],
+["n[0o][5v][4A]","nova","leet"],
+["ry[6b][4A][7T]","rybat","leet"],
+["h[1i]d[3E]","hide","leet"],
+["533k","seek","leet"],
 ["tt0074285","carrie","IMDb 映画キャリーより"],
-["[7T][5S]uk[4A][5S][4A]","tsukasa","leet"], 
-["[4A]k[1i]R[4A]","akira","leet"], 
-["darkxm","xm","意味bash"], 
-["xm","darkxm","意味bash"], 
+["[7T][5S]uk[4A][5S][4A]","tsukasa","leet"],
+["[4A]k[1i]R[4A]","akira","leet"],
+["darkxm","xm","意味bash"],
+["xm","darkxm","意味bash"],
 ["[4A][3M][0o]n[6G]u[5s]","amongus","leet"],
-["[3E][1i]n[5s][7t][3E][1i]n","einstein","leet"], 
-["radium\s?1898","discovery","Pierre and Marie Curie (1898)"], 
-["[0o][86b][5s]cur[3e]d","obscured","leet"], 
- ["[1i]mp[3E]rf[3e]c[7T]","imperfect","leet"], 
-  ["[3E]xp[1L][0o]r[3E]","explore","leet"], 
-  ["c[1l][0o][5s][3e]","open","意味bash"], 
-  ["jormung[7&]","jormungand ","and変換"], 
-  ["alex[7&]er","alexander ","and変換"], 
-  ["cass[7&]ra","cassandra ","and変換"], 
-  ["jackl[7&]","jackland ","and変換"], 
-  ["ab[7&]on","abandon ","and変換"], 
-  ["holl[7&]","holland ","and変換"], 
-  ["p[7&]ora","pandora ","and変換"], 
-  ["rol[7&]|1714117","roland ","and変換"], 
-  ["[3E]nl[1i][6G]h[7T][3E]n","enlighten","leet"], 
-  ["[3E]nl[1i][6G]h[7T][3E]n[3E]d","enlightened","leet"], 
-  ["r[3E][5S][1i][5S][7T]","resist","leet"], 
-  ["r[3E][5S][1i][5S][7T][4A]nc[3E]","resistance","leet"], 
+["[3E][1i]n[5s][7t][3E][1i]n","einstein","leet"],
+["radium\s?1898","discovery","Pierre and Marie Curie (1898)"],
+["[0o][86b][5s]cur[3e]d","obscured","leet"],
+ ["[1i]mp[3E]rf[3e]c[7T]","imperfect","leet"],
+  ["[3E]xp[1L][0o]r[3E]","explore","leet"],
+  ["c[1l][0o][5s][3e]","open","意味bash"],
+  ["jormung[7&]","jormungand ","and変換"],
+  ["alex[7&]er","alexander ","and変換"],
+  ["cass[7&]ra","cassandra ","and変換"],
+  ["jackl[7&]","jackland ","and変換"],
+  ["ab[7&]on","abandon ","and変換"],
+  ["holl[7&]","holland ","and変換"],
+  ["p[7&]ora","pandora ","and変換"],
+  ["rol[7&]|1714117","roland ","and変換"],
+  ["[3E]nl[1i][6G]h[7T][3E]n","enlighten","leet"],
+  ["[3E]nl[1i][6G]h[7T][3E]n[3E]d","enlightened","leet"],
+  ["r[3E][5S][1i][5S][7T]","resist","leet"],
+  ["r[3E][5S][1i][5S][7T][4A]nc[3E]","resistance","leet"],
 
-  ["combine","separate","意味bash"], 
-  ["MOVES ?3 ?HONINBO ?SHOWED","ghost","AlphaGo 本因坊"], 
-  ["nothing","all","意味bash"], 
-  ["[5s][1i][9g][1i](?:13|n)[7t]","sigint","leet+012abc"], 
-  ["[5s][1i][9g](?:13|n)[4a][1L]","signal","leet+012abc"], 
-  ["[5s][1i][9g](?:13|n)[5s]","signs","leet+012abc"], 
-  ["acceptance","denial","意味bash"], 
-  ["precursor","exogenous","関連"], 
-  ["pass","code","関連"], 
-  ["honesty","deception","意味bash"], 
-  ["D[3E]C[3E]P[7T][1I][0O]N","deception","leet"], 
-  ["M[3E][ZN][7T][4A][1L][1I][5VS]M","mentalism","leet"], 
-  ["100ern","cern","ローマ数字"], 
-  ["apart","together","意味bash"], 
-  ["[0O]P[3E]R[4A][7T][1I][5V][3E]","operative","leet"], 
-  ["confront","avoid","意味bash"], 
-  ["WQnh0diWkxk","ghost","youtube"], 
-  ["franken","stein","フランケンシュタイン"], 
-  ["terras ?astraea ?reliquit","titus","web検索"], 
-  ["pobednik","victor","ボスニア語「勝者」"], 
-  ["m[0o][1L][3e]","mole","leet"], 
-  ["i ?am ?not ?dead","roland","不死身のRoland Jarvis"], 
-  ["Worlds ?Enough","time","本 Worlds Enough & Time"],   
-  ["my ?only ?friend","end","doorsの曲「The End」の歌詞から"], 
-  ["veruminvenirisur","visur","vi+sur"], 
-  ["subject ?28","akira","大友克洋のAKIRAより"], 
-  ["[1L][0o][5s][5s]","loss","leet"], 
-  ["smiles","kodama","登場人物 Kodama Smiles"], 
-  ["[1i][5s][0o][6b]r[0o]n[7t]","isobront","leet"], 
-  ["spacthtime","spacetime","homonym"], 
-  ["(?:the ?)?Explorer",'Hank Johnson',"13アーキタイプ"], 
-  ["(?:the ?)?Dreamer",'Misty Hannah',"13アーキタイプ"], 
-  ["(?:the ?)?Alchemist",'Victor Kureze',"13アーキタイプ"], 
-  ["(?:the ?)?Humanist",'Yuri Nagassa',"13アーキタイプ"], 
-  ["(?:the ?)?Spiritualist",'Roland Jarvis',"13アーキタイプ"], 
-  ["(?:the ?)?Omniscient",'ADA',"13アーキタイプ"], 
-  ["(?:the ?)?Interpreter",'Stein Lightman',"13アーキタイプ"], 
-  ["(?:the ?)?Trickster",'Oliver Lynton-Wolfe',"13アーキタイプ"], 
-  ["(?:the ?)?Skeptic",'Martin Schubert',"13アーキタイプ"], 
-  ["(?:the ?)?Listener",'Enoch Dalby',"13アーキタイプ"], 
-  ["(?:the ?)?Visionary",'Carrie Campbell',"13アーキタイプ"], 
-  ["(?:the ?)?Patron",'Ezekiel “Zeke” Calvin',"13アーキタイプ"], 
-  ["(?:the ?)?Catalyst",'Devra Bogdanovich',"13アーキタイプ"], 
-  ["hungry ?like ?the","wolfe","曲 Hungry Like The Wolf"], 
-  ["wolf","wolfe","同音"], 
-  ["[1L][3E][5S][5S]", "less", "leet"], 
-  ["[5S][0o]u[1L]", "soul", "leet"], 
-  ["wright","write","同音異義語"], 
-  ["rite","write","同音異義語"], 
-  ["right","write","同音異義語"], 
-  ["slavorum ?rex","henry","web検索"], 
-  ["[1i]n[9g]r[3e][5s][5s]","ingress","leet"], 
-  ["exit","ingress","意味bash"], 
-  ["[1i]n[5v][3E]n[1i]r[1i]","inveniri","leet"], 
-  ["light","dark","意味bash"], 
-  ["crater","luizi","Luizi crater"], 
-  ["S[/ ]?1980[. ]?S ?26","pandora","土星の衛星パンドラ"], 
-  ["expand","contract","意味bash"], 
-  ["[1L][0o][5v][3e][1L][4a](?:100|c)[3e]","lovelace","leet"], 
-  ["intellij","idea","web検索"], 
-  ["000[\- ]?28VS","martin","ギターの型番"], 
+  ["combine","separate","意味bash"],
+  ["MOVES ?3 ?HONINBO ?SHOWED","ghost","AlphaGo 本因坊"],
+  ["nothing","all","意味bash"],
+  ["[5s][1i][9g][1i](?:13|n)[7t]","sigint","leet+012abc"],
+  ["[5s][1i][9g](?:13|n)[4a][1L]","signal","leet+012abc"],
+  ["[5s][1i][9g](?:13|n)[5s]","signs","leet+012abc"],
+  ["acceptance","denial","意味bash"],
+  ["precursor","exogenous","関連"],
+  ["pass","code","関連"],
+  ["honesty","deception","意味bash"],
+  ["D[3E]C[3E]P[7T][1I][0O]N","deception","leet"],
+  ["M[3E][ZN][7T][4A][1L][1I][5VS]M","mentalism","leet"],
+  ["100ern","cern","ローマ数字"],
+  ["apart","together","意味bash"],
+  ["[0O]P[3E]R[4A][7T][1I][5V][3E]","operative","leet"],
+  ["confront","avoid","意味bash"],
+  ["WQnh0diWkxk","ghost","youtube"],
+  ["franken","stein","フランケンシュタイン"],
+  ["terras ?astraea ?reliquit","titus","web検索"],
+  ["pobednik","victor","ボスニア語「勝者」"],
+  ["m[0o][1L][3e]","mole","leet"],
+  ["i ?am ?not ?dead","roland","不死身のRoland Jarvis"],
+  ["Worlds ?Enough","time","本 Worlds Enough & Time"],
+  ["my ?only ?friend","end","doorsの曲「The End」の歌詞から"],
+  ["veruminvenirisur","visur","vi+sur"],
+  ["subject ?28","akira","大友克洋のAKIRAより"],
+  ["[1L][0o][5s][5s]","loss","leet"],
+  ["smiles","kodama","登場人物 Kodama Smiles"],
+  ["[1i][5s][0o][6b]r[0o]n[7t]","isobront","leet"],
+  ["spacthtime","spacetime","homonym"],
+  ["(?:the ?)?Explorer",'Hank Johnson',"13アーキタイプ"],
+  ["(?:the ?)?Dreamer",'Misty Hannah',"13アーキタイプ"],
+  ["(?:the ?)?Alchemist",'Victor Kureze',"13アーキタイプ"],
+  ["(?:the ?)?Humanist",'Yuri Nagassa',"13アーキタイプ"],
+  ["(?:the ?)?Spiritualist",'Roland Jarvis',"13アーキタイプ"],
+  ["(?:the ?)?Omniscient",'ADA',"13アーキタイプ"],
+  ["(?:the ?)?Interpreter",'Stein Lightman',"13アーキタイプ"],
+  ["(?:the ?)?Trickster",'Oliver Lynton-Wolfe',"13アーキタイプ"],
+  ["(?:the ?)?Skeptic",'Martin Schubert',"13アーキタイプ"],
+  ["(?:the ?)?Listener",'Enoch Dalby',"13アーキタイプ"],
+  ["(?:the ?)?Visionary",'Carrie Campbell',"13アーキタイプ"],
+  ["(?:the ?)?Patron",'Ezekiel “Zeke” Calvin',"13アーキタイプ"],
+  ["(?:the ?)?Catalyst",'Devra Bogdanovich',"13アーキタイプ"],
+  ["hungry ?like ?the","wolfe","曲 Hungry Like The Wolf"],
+  ["wolf","wolfe","同音"],
+  ["[1L][3E][5S][5S]", "less", "leet"],
+  ["[5S][0o]u[1L]", "soul", "leet"],
+  ["wright","write","同音異義語"],
+  ["rite","write","同音異義語"],
+  ["right","write","同音異義語"],
+  ["slavorum ?rex","henry","web検索"],
+  ["[1i]n[9g]r[3e][5s][5s]","ingress","leet"],
+  ["exit","ingress","意味bash"],
+  ["[1i]n[5v][3E]n[1i]r[1i]","inveniri","leet"],
+  ["light","dark","意味bash"],
+  ["crater","luizi","Luizi crater"],
+  ["S[/ ]?1980[. ]?S ?26","pandora","土星の衛星パンドラ"],
+  ["expand","contract","意味bash"],
+  ["[1L][0o][5v][3e][1L][4a](?:100|c)[3e]","lovelace","leet"],
+  ["intellij","idea","web検索"],
+  ["000[\- ]?28VS","martin","ギターの型番"],
   ["Great ?Old ?(?:1|Ones?)","cthulhu","旧き者達"],
   ["an ?iliad ?of ?woes","ANATHEMA","web検索"],
-  ["cowardice","fear","類義語"], 
+  ["cowardice","fear","類義語"],
   ["(?:the ?)?scout","obsidius","obsidiusはtitusの斥候"],
-  ["ghost ?artist","tycho","関連"], 
+  ["ghost ?artist","tycho","関連"],
   ["woolf","wolfe","同音"],
   ["shut","open","対義語"],
   ["albert","einstein","人名 アインシュタイン Albert Einstein"],
   ["iskar ?zaqiqu","dream","web検索"],
   ["park","bletchley","bletchley park"],
-  ["kthulhu","cthulhu","homonym 同音異字"], 
-  ["(?:1|one|[0o]n[3e])[1i]r[1i]c", "oneiric", "leet"], 
+  ["kthulhu","cthulhu","homonym 同音異字"],
+  ["(?:1|one|[0o]n[3e])[1i]r[1i]c", "oneiric", "leet"],
   ["66000741","danger","web検索 danger cave"],
   ["tactical","strategic","対義語 戦術と戦略"],
-  ["artefact","artifact","同義語"], 
-  ["artifakt","artifact","同音"], 
+  ["artefact","artifact","同義語"],
+  ["artifakt","artifact","同音"],
   ["2001-?006b","DESTINY","人工衛星の名前"],
   ["join","separate","反対語"],
   ["foggys?","misty","類義語"],
   ["\b90091","googlechrome://goo.gl/","leet"],
-  ["bifid","cipher","関連"], 
+  ["bifid","cipher","関連"],
   ["local","global","反対語"],
   ["[5v][1i][5s]ur","visur","leet"],
   ["empire","rebel","帝国軍<>反乱軍"],
-  ["[5v][3E]R[1I][7T][4A][5S]","veritas","leet"], 
-  ["[0o]u[7t][5s][1i]d[3e]","outside","leet"], 
+  ["[5v][3E]R[1I][7T][4A][5S]","veritas","leet"],
+  ["[0o]u[7t][5s][1i]d[3e]","outside","leet"],
   ["[1L][0o][5s][3e]","lose","leet"],
   ["[5s][4a][5v][3e]","save","leet"],
   ["khaos","chaos","ギリシャ語"],
   ["temple","body","関連"],
-  ["R[3E][5S][7T]R[4A][1I]N[7T]","restraint","leet"], 
+  ["R[3E][5S][7T]R[4A][1I]N[7T]","restraint","leet"],
   ["long ?(?:&|and) ?prosper","live","Mr.spock"],
-  ["nowhere ?ks","courage","漫画の中の町"], 
-  ["p[0o]t[3e]nt[1i][4a][7l]","potential","leet"], 
+  ["nowhere ?ks","courage","漫画の中の町"],
+  ["p[0o]t[3e]nt[1i][4a][7l]","potential","leet"],
   ["POTIDAEA","Cassandra","古代都市名"],["speedtime","distance","speed=time×distance"],
   ["4virgates","hide","単位"],
   ["dzire","desire","雰囲気"],
   ["myosotis","forget","forget-me-not(勿忘草)の学名"],
   ["prrfktshnn","perfection","雰囲気?"],
-  ["79843","Marfa","web検索"], 
-  ["stone","shonin","関連"], 
+  ["79843","Marfa","web検索"],
+  ["stone","shonin","関連"],
   ["liveagain","reincarnate","グリフ同形"],
   ["H[0o][1L][1L][4A]ND","holland","leet"],
   ["pr[0o]f[1i][7L][3e]","profile","leet"],
@@ -1645,10 +1645,10 @@ function leetKeyws() {
   ["5au50t","vault","leet"],
   ["5er1ty","verity","leet"],
   ["scanner","ingress","関連"],
-  ["great", "magnus", "ラテン語"], 
+  ["great", "magnus", "ラテン語"],
   ["subject[2][8]","akira","web検索"],
   ["5ucc355","success","leet"],
-  ["9781626361737","discover","図書コード?"], 
+  ["9781626361737","discover","図書コード?"],
   ["BLKOPS","blackops","略"],
   ["\\\?dah","whydah","? → why"],
   ["7k8","martin","空港コード"],
@@ -1660,76 +1660,76 @@ function leetKeyws() {
   ["omega","mantra","ヨガ用語でmantra"],
   ["मन्त्र","mantra","サンスクリット語"],
   ["1938XE","aura","小惑星 Asteroid 1488 Aura (1938 XE)"],
-  ["abdn","abaddon","略"],  
+  ["abdn","abaddon","略"],
   ["दर्शन","darsana","サンスクリット語"],
   ["philosophy","darsana","哲学"],
   ["nc205y","alexander","alexander航空所有の機体ナンバー"],
-  ["eroteme","question","eroteme = question mark"], 
-  ["tarboosh","fez","トルコ帽(fez)の別名"], 
-  ["spoils","kureze","登場人物"], 
-  ["thirteen","magnus","13magnus"], 
-  ["GIST","googlechrome://gist.github.com/anonymous/",""], 
-  ["KiflShrine","ezekiel","関連"], 
-  ["ezechiel","ezekiel","同義"], 
-  ["ancientseer","cybella","ancient seer (預言者) oracle > cybella"], 
-  ["a-a","ada",""], 
-  ["int3l","intel","leet"], 
-  ["d3vra","devra","leet"], 
-  ["N1GhTM4R3","dream","leet & 関連語"], 
-  ["akolouthos","Acolyte","ギリシャ語よみ"], 
-  ["bhoot","ghost","インドのホラー映画(英名ghost)"], 
-  ["62fb5d750c30a27a26d01c5f3d8df459","oneiric","Ubuntu 11.10 Oneiric Ocelot isoイメージのMD5 hash"], 
-  ["[3e][5v][0o][1L][5v][3e]","evolve","leet"], 
-  ["GilfKebir","barrier","別名the Great Barrier"], 
-  ["JilfalKabir","barrier","別名the Great Barrier"], 
-  ["c0v3rup","coverup","leet"], 
-  ["nearhigh","farlowe","意味bash near high <> far low"], 
-  ["DaBaDee","Blue","Eiffel 65 のデビュー曲"], 
-  ["night","epiphany","epiphany night (啓示の夜)"], 
-  ["000000DEV","blackdev","#000000 > black"], 
-  ["c011ap53","collapse","leet"], 
-  ["j0hn50n","johnson","leet"], 
-  ["B0117ZVZBY","Hajra","The Niantic Project: Ingress 図書コード ASIN: B0117ZVZBY 著者 Felicia Hajra-Lee"], 
-  ["Oliver","Wolfe","登場人物 Oliver Lynton-Wolfe"], 
-  ["Lynton","Wolfe","登場人物 Oliver Lynton-Wolfe"], 
-  ["Jay","Phillips","登場人物 Jay Phillips"], 
-  ["Bowles","Henry","登場人物 Henry Bowles"], 
-  ["Bogdanovich","Devra","登場人物 Devra Bogdanovich"], 
-  ["Seke","Verity","登場人物 Verity Seke"], 
-  ["Thomas","Greanias","登場人物 Thomas Greanias"], 
-  ["Nigel","Moyer","登場人物 Nigel Moyer (Susanna Moyerの父)"], 
-  ["kinetic","potential","対グリフ 運動エネルギー<>位置エネルギー"], 
-  ["Lee","Hajra","登場人物 Felicia Hajra-Lee"], 
-  ["3XP10R3R","EXPLORER","Leet"], 
-  ["eskiskisepje","skepsis","skepsisの別名？"], 
-  ["witness","shonin","witness > 証人"], 
-  ["atbash","cipher","暗号方法"], 
-  ["helenus","Cassandra","ギリシャ神話の予言者ヘレノスと双子の兄妹カサンドラ"], ["rong","write","rong>wrong<>right<write (同音異義語&意味bash)"], 
-  ["TainEnabran","obsidian","STAR TREK 登場人物"], 
-  ["j4r51s","jarvis","leet"], 
-  ["energy","matter","energy ⇔ matter(物質)"], 
-  ["gluonplasma","quark","Quark-Gluon Plasma, QGP"], 
-  ["destoneny","destiny","one → i"], 
-  ["rcrsn","recursion","rcrsn → recursion"], 
-  ["loeb","richard","登場人物 Richard Loeb"], 
-  ["nikolaital","matter","nikolaitalはThe Matter Valleyの別名"], 
-  ["Role","alignment","net検索で出てくる"], 
-  ["g43.1","aura","net検索で「G43.1 Migraine with aura」出てくる"], 
-  ["mork","mindy","コメディ番組 mork&mindy"], 
-  ["ASTERION","minotaur","ミノタウロスの名前"], 
-  ["ofCrows","murder","A Murder of Crows"], 
-  ["dnargeuguf","13","弦楽四重奏曲第13番「巨大なフーガ」"], 
-  ["ayze1863","mole","フランスの標高1863mの山'Le Môle'"], 
-  ["youonstuck","failure","Fantastic Planetのアルバム'failure'の15曲目'stuck on you'"], 
-  ["stuckonyou","failure","Fantastic Planetのアルバム'failure'の15曲目"], 
-  ["then","now","熟語 now and than"], 
-  ["61DZC-60x20","journey","googlechrome://youtu.be/61DZC-60x20"], 
-  ["576505181","ingress","iOS Ingress app ID: 576505181"], 
-  ["7306050","more","検索>more on Vimeo"], 
-  ["springdwindle", "collapse", "Colony Collapse Disorder"], 
-  ["herm1204","mole","model No. herm1204 > Hernan Mole Poblano"], 
-  ["fire7", "forget", "fire & forget"], 
-  ["j0hn51", "johnsone", "leet"], 
+  ["eroteme","question","eroteme = question mark"],
+  ["tarboosh","fez","トルコ帽(fez)の別名"],
+  ["spoils","kureze","登場人物"],
+  ["thirteen","magnus","13magnus"],
+  ["GIST","googlechrome://gist.github.com/anonymous/",""],
+  ["KiflShrine","ezekiel","関連"],
+  ["ezechiel","ezekiel","同義"],
+  ["ancientseer","cybella","ancient seer (預言者) oracle > cybella"],
+  ["a-a","ada",""],
+  ["int3l","intel","leet"],
+  ["d3vra","devra","leet"],
+  ["N1GhTM4R3","dream","leet & 関連語"],
+  ["akolouthos","Acolyte","ギリシャ語よみ"],
+  ["bhoot","ghost","インドのホラー映画(英名ghost)"],
+  ["62fb5d750c30a27a26d01c5f3d8df459","oneiric","Ubuntu 11.10 Oneiric Ocelot isoイメージのMD5 hash"],
+  ["[3e][5v][0o][1L][5v][3e]","evolve","leet"],
+  ["GilfKebir","barrier","別名the Great Barrier"],
+  ["JilfalKabir","barrier","別名the Great Barrier"],
+  ["c0v3rup","coverup","leet"],
+  ["nearhigh","farlowe","意味bash near high <> far low"],
+  ["DaBaDee","Blue","Eiffel 65 のデビュー曲"],
+  ["night","epiphany","epiphany night (啓示の夜)"],
+  ["000000DEV","blackdev","#000000 > black"],
+  ["c011ap53","collapse","leet"],
+  ["j0hn50n","johnson","leet"],
+  ["B0117ZVZBY","Hajra","The Niantic Project: Ingress 図書コード ASIN: B0117ZVZBY 著者 Felicia Hajra-Lee"],
+  ["Oliver","Wolfe","登場人物 Oliver Lynton-Wolfe"],
+  ["Lynton","Wolfe","登場人物 Oliver Lynton-Wolfe"],
+  ["Jay","Phillips","登場人物 Jay Phillips"],
+  ["Bowles","Henry","登場人物 Henry Bowles"],
+  ["Bogdanovich","Devra","登場人物 Devra Bogdanovich"],
+  ["Seke","Verity","登場人物 Verity Seke"],
+  ["Thomas","Greanias","登場人物 Thomas Greanias"],
+  ["Nigel","Moyer","登場人物 Nigel Moyer (Susanna Moyerの父)"],
+  ["kinetic","potential","対グリフ 運動エネルギー<>位置エネルギー"],
+  ["Lee","Hajra","登場人物 Felicia Hajra-Lee"],
+  ["3XP10R3R","EXPLORER","Leet"],
+  ["eskiskisepje","skepsis","skepsisの別名？"],
+  ["witness","shonin","witness > 証人"],
+  ["atbash","cipher","暗号方法"],
+  ["helenus","Cassandra","ギリシャ神話の予言者ヘレノスと双子の兄妹カサンドラ"], ["rong","write","rong>wrong<>right<write (同音異義語&意味bash)"],
+  ["TainEnabran","obsidian","STAR TREK 登場人物"],
+  ["j4r51s","jarvis","leet"],
+  ["energy","matter","energy ⇔ matter(物質)"],
+  ["gluonplasma","quark","Quark-Gluon Plasma, QGP"],
+  ["destoneny","destiny","one → i"],
+  ["rcrsn","recursion","rcrsn → recursion"],
+  ["loeb","richard","登場人物 Richard Loeb"],
+  ["nikolaital","matter","nikolaitalはThe Matter Valleyの別名"],
+  ["Role","alignment","net検索で出てくる"],
+  ["g43.1","aura","net検索で「G43.1 Migraine with aura」出てくる"],
+  ["mork","mindy","コメディ番組 mork&mindy"],
+  ["ASTERION","minotaur","ミノタウロスの名前"],
+  ["ofCrows","murder","A Murder of Crows"],
+  ["dnargeuguf","13","弦楽四重奏曲第13番「巨大なフーガ」"],
+  ["ayze1863","mole","フランスの標高1863mの山'Le Môle'"],
+  ["youonstuck","failure","Fantastic Planetのアルバム'failure'の15曲目'stuck on you'"],
+  ["stuckonyou","failure","Fantastic Planetのアルバム'failure'の15曲目"],
+  ["then","now","熟語 now and than"],
+  ["61DZC-60x20","journey","googlechrome://youtu.be/61DZC-60x20"],
+  ["576505181","ingress","iOS Ingress app ID: 576505181"],
+  ["7306050","more","検索>more on Vimeo"],
+  ["springdwindle", "collapse", "Colony Collapse Disorder"],
+  ["herm1204","mole","model No. herm1204 > Hernan Mole Poblano"],
+  ["fire7", "forget", "fire & forget"],
+  ["j0hn51", "johnsone", "leet"],
   ["311nt", "elint", "leet"]
   ];
   kwlist.sort(function(a,b){
@@ -1819,13 +1819,13 @@ function getKeyws() {
   addkw.push("reawaken"); //勝手追加
   addkw.push("darzalas"); //勝手追加 2018/03/31
   addkw.push("chimera"); //勝手追加 2018/03/31
- 
+
 
 
   addkw.push("cologne"); //一回きりかも2016/07/25
   addkw.push("singapore"); //一回きりかも2016/07/25
   addkw.push("denver"); //一回きりかも2016/07/25
-  
+
   addkw.push("sustain"); //候補
   Array.prototype.push.apply(
     kwlist, addkw);
@@ -2020,4 +2020,3 @@ function htmlHeader() {
   */
   return h;
 }
-
