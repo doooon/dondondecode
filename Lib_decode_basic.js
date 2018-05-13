@@ -2,6 +2,7 @@
 // Lib_decode_basic
 // #LIB
 
+
 // テキストアナライズ
 function analyzeText(str) {
   if (!str) return false;
