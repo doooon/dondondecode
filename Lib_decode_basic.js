@@ -1401,7 +1401,9 @@ function leetKeyws() {
 
 
 
-
+["d[4A]r[5s][4A]n[4A]","darsana","leet"], 
+["[5s]cu[1l7L]p[7T]","sculpt","leet"], 
+["h[0o][0o][1l7L][1l7L][4A]nd","holland","leet"], 
 ["[5s]h[4A]p[3E]r[5s]","shapers","leet"], 
 ["[5s]h[4A]p[3E]r","shaper","leet"], 
 ["c[4A][3m]p[8B6b][3E][7L1l][7L1l]","campbell","leet"], 

@@ -7,6 +7,13 @@ function goKeywExchange() {
 
   var exL=[
   // ["","",""],
+["d[4A]r[5s][4A]n[4A]","darsana","leet"], 
+["[5s]cu[1l7L]p[7T]","sculpt","leet"], 
+["h[0o][0o][1l7L][1l7L][4A]nd","holland","leet"], 
+["destroy","sculpt","壊す<>形作る"], 
+["sculpt","sculpt","形作る"], 
+["darsana","darsana","anomalyシリーズ名"], 
+["holland","holland","オランダ"],
 ["[5s]h[4A]p[3E]r[5s]","shapers","leet"], 
 ["[5s]h[4A]p[3E]r","shaper","leet"], 
 ["c[4A][3m]p[8B6b][3E][7L1l][7L1l]","campbell","leet"], 
