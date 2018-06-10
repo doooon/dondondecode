@@ -1402,7 +1402,14 @@ function leetKeyws() {
 
 
 
-
+["[zn][3E][3w]","new","leet"], 
+["h[3E][7L1l][1i][0o][5s]","helios","leet"], 
+["k[1i]r[7L1l][1i][4A]n","kirlian","leet"], 
+["f[1i][nz][4A][7L1l][1i][7T]y","finality","leet"], ["wr[1i][7T][3E]","write","leet"], 
+["r[3E][4A]d","read","leet"], 
+["d[1i][3E]","die","leet"], 
+["[8B6b]r[3E][4A][7T]h","breath","leet"], 
+["[7Ll1][1i][5v][3E]","live","leet"], 
 ["d[4A]r[5s][4A]n[4A]","darsana","leet"], 
 ["[5s]cu[1l7L]p[7T]","sculpt","leet"], 
 ["h[0o][0o][1l7L][1l7L][4A]nd","holland","leet"], 
