@@ -3525,6 +3525,19 @@ function phonetic(str) {
     var result=phonetic(TEXT);
     htmlTmp.push(result[1]);
     htmlCode(result[0]);
+    if (result[0].match(/one|two|thr(ee?)?|four?|five?|six|sev(en?)?|eig(ht?)?|nine?|zero?/i)) {
+      result[0]=result[0].replace(/one/,"1");
+      result[0]=result[0].replace(/two/,"2");
+      result[0]=result[0].replace(/thr(ee?)?/,"3");
+      result[0]=result[0].replace(/four?/,"4");
+      result[0]=result[0].replace(/five?/,"5");
+      result[0]=result[0].replace(/six/,"6");
+      result[0]=result[0].replace(/sev(en?)?/,"7");
+      result[0]=result[0].replace(/eig(ht?)?/,"8");
+      result[0]=result[0].replace(/nine?/,"9");
+      result[0]=result[0].replace(/zero?/,"0");
+      htmlCode(result[0]);
+    }
     htmlTmp.push("==============");
   }
 
