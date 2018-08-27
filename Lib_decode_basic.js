@@ -1007,7 +1007,7 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
     "一部がギリシャ文字");
   }
 
-  var phoneticRE=RegExp("Alfa|Alpha|Bravo|Charlie|Delta|Echo|Foxtrot|Golf|Hotel|India|Juliett|Juliet|Kilo|Lima|Mike|November|Oscar|Papa|Quebec|Romeo|Sierra|Tango|Uniform|Victor|Whiskey|X-ray|Yankee|Zulu","ig");
+  var phoneticRE=RegExp("Alfa|Alpha?|Bravo?|Char(lie)?|Delta?|Echo|Foxt(rot)?|Golf|Hotel?|India?|Juli(ett)?|Juli(et)?|Kilo|Lima|Mike|Nove(mber)?|Oscar?|Papa|Queb(ec)?|Romeo?|Sier(ra)?|Tango?|Unif(orm)?|Vict(or)?|Whis(key)?|(X-ray|Xray)|Yank(ee)?|Zulu","ig");
   var tmp=str.match(phoneticRE);
   if (tmp) {
   alertMsg.push(
