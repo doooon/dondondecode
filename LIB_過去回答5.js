@@ -3526,16 +3526,16 @@ function phonetic(str) {
     htmlTmp.push(result[1]);
     htmlCode(result[0]);
     if (result[0].match(/one|two|thr(ee?)?|four?|five?|six|sev(en?)?|eig(ht?)?|nine?|zero?/i)) {
-      result[0]=result[0].replace(/one/,"1");
-      result[0]=result[0].replace(/two/,"2");
-      result[0]=result[0].replace(/thr(ee?)?/,"3");
-      result[0]=result[0].replace(/four?/,"4");
-      result[0]=result[0].replace(/five?/,"5");
-      result[0]=result[0].replace(/six/,"6");
-      result[0]=result[0].replace(/sev(en?)?/,"7");
-      result[0]=result[0].replace(/eig(ht?)?/,"8");
-      result[0]=result[0].replace(/nine?/,"9");
-      result[0]=result[0].replace(/zero?/,"0");
+      result[0]=result[0].replace(/one/ig,"1");
+      result[0]=result[0].replace(/two/ig,"2");
+      result[0]=result[0].replace(/thr(ee?)?/ig,"3");
+      result[0]=result[0].replace(/four?/ig,"4");
+      result[0]=result[0].replace(/five?/ig,"5");
+      result[0]=result[0].replace(/six/ig,"6");
+      result[0]=result[0].replace(/sev(en?)?/ig,"7");
+      result[0]=result[0].replace(/eig(ht?)?/ig,"8");
+      result[0]=result[0].replace(/nine?/ig,"9");
+      result[0]=result[0].replace(/zero?/ig,"0");
       htmlCode(result[0]);
     }
     htmlTmp.push("==============");
