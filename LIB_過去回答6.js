@@ -29,7 +29,7 @@ if (
 
 
 // bcdef. ghijk- a区切りモールス
-// bhkfakbkahkcgkgkbkfbfkgakfafkfkfckjkafakiakbgk 
+// ciagbacabiadhahacagcgahbagbgagagdakabgbajbacha 
 if (
   TEXT.match(/^[a-k]+$/i) && 
   TEXT.match(/[a]/i) && 
