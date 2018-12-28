@@ -1401,7 +1401,7 @@ function leetKeyws() {
 
 
 
-
+["[1i][3m]pur[3E]","impure","leet"], 
 ["[zn][3E][3w]","new","leet"], 
 ["h[3E][7L1l][1i][0o][5s]","helios","leet"], 
 ["k[1i]r[7L1l][1i][4A]n","kirlian","leet"], 
