@@ -27,6 +27,36 @@ if (
 }
 */
 
+// abcde. fghij- k区切りモールス
+// bhkfakbkahkcgkgkbkfbfkgakfafkfkfckjkafakiakbgk
+if (
+  TEXT.match(/^[a-k]+$/i) && 
+  TEXT.match(/[k]/i) && 
+  !TEXT.match(/kk/i) && 
+  !TEXT.match(/[a-j]{3}/i)
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(abcde. fghij- k区切りモールス)</b>");
+  var tmp=TEXT.match(/[a-j]+/g);
+  htmlTmp.push(tmp.join(" "));
+  var result=tmp.map(v=>{
+    v=v.replace(/[a]/ig,".");
+    v=v.replace(/[b]/ig,"..") ;
+    v=v.replace(/[c]/ig,"...") ;
+    v=v.replace(/[d]/ig,"....") ;
+    v=v.replace(/[e]/ig,".....") ;
+    v=v.replace(/[f]/ig,"-") ;
+    v=v.replace(/[g]/ig,"--") ;
+    v=v.replace(/[h]/ig,"---") ;
+    v=v.replace(/[i]/ig,"----") ;
+    v=v.replace(/[j]/ig,"-----") ;
+    return v;
+  });
+  htmlTmp.push(result.join(" "));
+  goMorse(result.join(" "));
+  htmlTmp.push("==============");
+}
+
 
 // 数字と文字でshift区切りモールス
 // @#2C3Bd!Ac!1Ba1a!a1AA2A#a2Ab#1Db!b@a1A
