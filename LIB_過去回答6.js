@@ -35,7 +35,9 @@ if (
   TEXT.match(/[a]/i) && 
   !TEXT.match(/aa/i) && 
   !TEXT.match(/[b-k]{6}/i) && 
-  TEXT.match(/([b-k]{,5}a){2}[b-k]{,5}/i)
+  TEXT.match(/([b-k]{1,5}a){2}[b-k]{1,5}/i) && 
+  !TEXT.match(/[b-f]{2}/i) && 
+  !TEXT.match(/[g-k]{2}/i)
 ) {
   htmlTmp.push(TEXT);
   htmlTmp.push("<b>(bcdef. ghijk- a区切りモールス)</b>");
@@ -66,7 +68,9 @@ if (
   TEXT.match(/[k]/i) && 
   !TEXT.match(/kk/i) && 
   !TEXT.match(/[a-j]{6}/i) && 
-  TEXT.match(/([a-j]{1,5}k){2}[a-j]{1,5}/i)
+  TEXT.match(/([a-j]{1,5}k){2}[a-j]{1,5}/i) && 
+  !TEXT.match(/[a-e]{2}/i) && 
+  !TEXT.match(/[f-j]{2}/i)
 ) {
   htmlTmp.push(TEXT);
   htmlTmp.push("<b>(abcde. fghij- k区切りモールス)</b>");
