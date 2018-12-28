@@ -27,13 +27,46 @@ if (
 }
 */
 
+
+// bcdef. ghijk- a区切りモールス
+// bhkfakbkahkcgkgkbkfbfkgakfafkfkfckjkafakiakbgk 
+if (
+  TEXT.match(/^[a-k]+$/i) && 
+  TEXT.match(/[a]/i) && 
+  !TEXT.match(/aa/i) && 
+  !TEXT.match(/[b-k]{6}/i) && 
+  TEXT.match(/([b-k]{,5}a){2}[b-k]{,5}/i)
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(bcdef. ghijk- a区切りモールス)</b>");
+  var tmp=TEXT.match(/[b-k]+/g);
+  htmlTmp.push(tmp.join(" "));
+  var result=tmp.map(v=>{
+    v=v.replace(/[b]/ig,".");
+    v=v.replace(/[c]/ig,"..") ;
+    v=v.replace(/[d]/ig,"...") ;
+    v=v.replace(/[e]/ig,"....") ;
+    v=v.replace(/[f]/ig,".....") ;
+    v=v.replace(/[g]/ig,"-") ;
+    v=v.replace(/[h]/ig,"--") ;
+    v=v.replace(/[i]/ig,"---") ;
+    v=v.replace(/[j]/ig,"----") ;
+    v=v.replace(/[k]/ig,"-----") ;
+    return v;
+  });
+  htmlTmp.push(result.join(" "));
+  goMorse(result.join(" "));
+  htmlTmp.push("==============");
+}
+
 // abcde. fghij- k区切りモールス
 // bhkfakbkahkcgkgkbkfbfkgakfafkfkfckjkafakiakbgk
 if (
   TEXT.match(/^[a-k]+$/i) && 
   TEXT.match(/[k]/i) && 
   !TEXT.match(/kk/i) && 
-  !TEXT.match(/[a-j]{6}/i)
+  !TEXT.match(/[a-j]{6}/i) && 
+  TEXT.match(/([a-j]{,5}k){2}[a-j]{,5}/i)
 ) {
   htmlTmp.push(TEXT);
   htmlTmp.push("<b>(abcde. fghij- k区切りモールス)</b>");
