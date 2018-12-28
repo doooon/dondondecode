@@ -1300,27 +1300,32 @@ if (str.match(/^[o\-=≠#\s]+$/i) &&
   alertMsg.push("直線の数 o-=≠# > 01234 からのbase5 や polybius");
 }
 
-// abcde. fghij- k区切りモールス
-if (
-  TEXT.match(/^[a-k]+$/i) && 
-  TEXT.match(/[k]/i) && 
-  !TEXT.match(/kk/i) && 
-  !TEXT.match(/[a-j]{6}/i) && 
-  TEXT.match(/([a-j]{,5}k){2}[a-j]{,5}/i)
-) {
-  alertMsg.push("abcde. fghij- k区切りモールス");
-}
-
 // bcdef. ghijk- a区切りモールス
 if (
   TEXT.match(/^[a-k]+$/i) && 
   TEXT.match(/[a]/i) && 
   !TEXT.match(/aa/i) && 
   !TEXT.match(/[b-k]{6}/i) && 
-  TEXT.match(/([b-k]{,5}a){2}[b-k]{,5}/i)
+  TEXT.match(/([b-k]{1,5}a){2}[b-k]{1,5}/i) && 
+  !TEXT.match(/[b-f]{2}/i) && 
+  !TEXT.match(/[g-k]{2}/i)
 ) {
   alertMsg.push("bcdef. ghijk- a区切りモールス");
 }
+
+// abcde. fghij- k区切りモールス
+if (
+  TEXT.match(/^[a-k]+$/i) && 
+  TEXT.match(/[a]/i) && 
+  !TEXT.match(/aa/i) && 
+  !TEXT.match(/[b-k]{6}/i) && 
+  TEXT.match(/([b-k]{1,5}a){2}[b-k]{1,5}/i) && 
+  !TEXT.match(/[b-f]{2}/i) && 
+  !TEXT.match(/[g-k]{2}/i)
+) {
+  alertMsg.push("abcde. fghij- k区切りモールス");
+}
+
 
 
 
