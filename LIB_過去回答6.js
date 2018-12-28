@@ -66,7 +66,7 @@ if (
   TEXT.match(/[k]/i) && 
   !TEXT.match(/kk/i) && 
   !TEXT.match(/[a-j]{6}/i) && 
-  TEXT.match(/([a-j]{,5}k){2}[a-j]{,5}/i)
+  TEXT.match(/([a-j]{1,5}k){2}[a-j]{1,5}/i)
 ) {
   htmlTmp.push(TEXT);
   htmlTmp.push("<b>(abcde. fghij- k区切りモールス)</b>");
