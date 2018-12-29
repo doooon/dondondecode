@@ -1727,11 +1727,31 @@ htmlTmp.push("===============");
 
 // キーボード上で1文字下へ
 var str=qwertyDown(TEXT);
-htmlTmp.push("→Qwertyキーボード上で1文字左 下へ");
+htmlTmp.push("→Qwertyキーボード上で1文字下へ");
 htmlCode(str);
 htmlTmp.push("----------");
 var str=dvorakDown(TEXT);
 htmlTmp.push("→Dvorakキーボード上で1文字下へ");
+htmlCode(str);
+htmlTmp.push("===============");
+
+// キーボード上で1文字右へ
+var str=qwertyRight(TEXT);
+htmlTmp.push("→Qwertyキーボード上で1文字右へ");
+htmlCode(str);
+htmlTmp.push("----------");
+var str=dvorakRight(TEXT);
+htmlTmp.push("→Dvorakキーボード上で1文字右へ");
+htmlCode(str);
+htmlTmp.push("===============");
+
+// キーボード上で1文字上へ
+var str=qwertyUp(TEXT);
+htmlTmp.push("→Qwertyキーボード上で1文字上へ");
+htmlCode(str);
+htmlTmp.push("----------");
+var str=dvorakUp(TEXT);
+htmlTmp.push("→Dvorakキーボード上で1文字上へ");
 htmlCode(str);
 htmlTmp.push("===============");
 
