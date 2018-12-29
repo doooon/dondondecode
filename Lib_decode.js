@@ -945,6 +945,7 @@ function qwertyDown(str) {
 
 // Dvorak下シフト
 function dvorakDown(str) {
+  return str; //debug
   if (!str) return false;
   //大文字小文字を保存
   var updown=str.replace(/[a-z\d,.\/]/g, "0").replace(/[A-Z!@#$%^&*()<>?]/g, "1").replace(/[^01]/g, "0");
