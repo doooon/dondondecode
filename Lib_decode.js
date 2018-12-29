@@ -929,6 +929,7 @@ function qwertyDown(str) {
         new RegExp(tmp,"");
         if (str[i].match(re)) {
           if (k===0) k=10;
+          if (j===3) j=-1;
           result.push(
             map[j+1][k][updown[i]]);
           flag=1;
@@ -987,6 +988,7 @@ function dvorakDown(str) {
         new RegExp(tmp,"");
         if (str[i].match(re)) {
           if (k===0) k=10;
+          if (j===3) j=-1;
           result.push(
             map[j+1][k][updown[i]]);
           flag=1;
