@@ -925,11 +925,12 @@ function qwertyDown(str) {
         if (tmp.match(/[\^$?*()\/.]/)) {
           tmp="\\"+tmp;
         }
-       var re=
-        new RegExp(tmp,"");
+       var re=new RegExp(tmp,"");
         if (str[i].match(re)) {
           if (k===0) k=10;
+          alert(tmp+'\n'+j)
           if (j===3) j=-1;
+          alert(tmp+'→→→\n'+j)
           result.push(
             map[j+1][k][updown[i]]);
           flag=1;
