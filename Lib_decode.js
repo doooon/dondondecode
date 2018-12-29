@@ -930,7 +930,7 @@ function qwertyDown(str) {
           //if (k===0) k=10;
           alert(tmp+'\n'+j+'\n map['+j+']['+k+'][updown['+i+']] = '+map[j][k][updown[i]]);
           if (j===3) j=-1;
-          //alert(tmp+'\n'+j+'\n map['+j+'+1]['+k+'][updown['+i+']] = '+map[j+1][k][updown[i]]);
+          alert(tmp+'\n'+j+'\n map['+(j+1)+']['+k+'][updown['+i+']]');
           result.push(
             1);//map[j+1][k][updown[i]]);
           flag=1;
