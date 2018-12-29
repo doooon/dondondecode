@@ -927,7 +927,7 @@ function qwertyDown(str) {
         }
        var re=new RegExp(tmp,"");
         if (str[i].match(re)) {
-          if (k===0) k=10;
+          //if (k===0) k=10;
           alert(tmp+'\n'+j)
           if (j===3) j=-1;
           alert(tmp+'→→→\n'+j)
