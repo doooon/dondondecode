@@ -930,7 +930,7 @@ function qwertyUp(str) {
           //if (k===0) k=10;
           if (j===0) j=4;
           result.push(
-            map[Number(j)-1][k][updown[i]]);
+            map[j-1][k][updown[i]]);
           flag=1;
           break;
         }
@@ -989,7 +989,7 @@ function dvorakUp(str) {
           //if (k===0) k=10;
           if (j===0) j=4;
           result.push(
-            map[Number(j)-1][k][updown[i]]);
+            map[j-1][k][updown[i]]);
           flag=1;
           break;
         }
