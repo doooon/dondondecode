@@ -1725,6 +1725,17 @@ htmlCode(str);
 htmlTmp.push("===============");
 
 
+// キーボード上で1文字下へ
+var str=qwertyDown(TEXT);
+htmlTmp.push("→Qwertyキーボード上で1文字左 下へ");
+htmlCode(str);
+htmlTmp.push("----------");
+var str=dvorakDown(TEXT);
+htmlTmp.push("→Dvorakキーボード上で1文字下へ");
+htmlCode(str);
+htmlTmp.push("===============");
+
+
 // キーボード上で180度回転
 var strQ180=qwerty180(TEXT);
 htmlTmp.push("→Qwertyキーボード上で180度回転");

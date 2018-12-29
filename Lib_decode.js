@@ -885,6 +885,122 @@ function dvorakTop(str) {
 }
 
 
+// Qwerty下シフト
+function qwertyDown(str) {
+  if (!str) return false;
+  //大文字小文字を保存
+  var updown=str.replace(/[a-z\d,.\/]/g, "0").replace(/[A-Z!@#$%^&*()<>?]/g, "1").replace(/[^01]/g, "0");
+
+  var result=[];
+  var map=[];
+  map[0]=[
+    ["1","!"], ["2","@"], ["3","#"], 
+    ["4","$"], ["5","%"], ["6","^"], 
+    ["7","&"], ["8","*"], ["9","("], 
+    ["0",")"]
+  ];
+  map[1]=[
+    ["q","Q"], ["w","W"], ["e","E"], 
+    ["r","R"], ["t","T"], ["y","Y"], 
+    ["u","U"], ["i","I"], ["o","O"], 
+    ["p","P"]
+  ];
+  map[2]=[
+    ["a","A"], ["s","S"], ["d","D"], 
+    ["f","F"], ["g","G"], ["h","H"], 
+    ["j","J"], ["k","K"], ["l","L"], 
+    [";",":"]
+  ];
+  map[3]=[
+    ["z","Z"], ["x","X"], ["c","C"], 
+    ["v","V"], ["b","B"], ["n","N"], 
+    ["m","M"], [",","<"], [".",">"], 
+    ["/","?"]
+  ];
+  for (var i in str) {
+    var flag=0;
+    for (var j in map) {
+      for (var k=0; k<=9; k++) {
+        var tmp=map[j][k][updown[i]];
+        if (tmp.match(/[\^$?*()\/.]/)) {
+          tmp="\\"+tmp;
+        }
+       var re=
+        new RegExp(tmp,"");
+        if (str[i].match(re)) {
+          if (k===0) k=10;
+          result.push(
+            map[j+1][k][updown[i]]);
+          flag=1;
+          break;
+        }
+      }
+      if (flag) break;
+    }
+    if (flag==0) result.push("∎");
+  }
+  return result.join("");
+}
+
+
+// Dvorak下シフト
+function dvorakDown(str) {
+  if (!str) return false;
+  //大文字小文字を保存
+  var updown=str.replace(/[a-z\d,.\/]/g, "0").replace(/[A-Z!@#$%^&*()<>?]/g, "1").replace(/[^01]/g, "0");
+
+  var result=[];
+  var map=[];
+  map[0]=[
+    ["1","!"], ["2","@"], ["3","#"], 
+    ["4","$"], ["5","%"], ["6","^"], 
+    ["7","&"], ["8","*"], ["9","("], 
+    ["0",")"]
+  ];
+  map[1]=[
+    ["'","\""], [",","<"], [".",">"], 
+    ["p","P"], ["y","Y"], ["f","F"], 
+    ["g","G"], ["c","C"], ["r","R"], 
+    ["l","L"]
+  ];
+  map[2]=[
+    ["a","A"], ["o","O"], ["e","E"], 
+    ["u","U"], ["i","I"], ["d","D"], 
+    ["h","H"], ["t","T"], ["n","N"], 
+    ["s","S"]
+  ];
+  map[3]=[
+    [";",":"], ["q","Q"], ["j","J"], 
+    ["k","K"], ["x","X"], ["b","B"], 
+    ["m","M"], ["w","W"], ["v","V"], 
+    ["z","Z"]
+  ];
+  for (var i in str) {
+    var flag=0;
+    for (var j in map) {
+      for (var k=0; k<=9; k++) {
+        var tmp=map[j][k][updown[i]];
+        if (tmp.match(/[\^$?*()\/.]/)) {
+          tmp="\\"+tmp;
+        }
+       var re=
+        new RegExp(tmp,"");
+        if (str[i].match(re)) {
+          if (k===0) k=10;
+          result.push(
+            map[j+1][k][updown[i]]);
+          flag=1;
+          break;
+        }
+      }
+      if (flag) break;
+    }
+    if (flag==0) result.push("∎");
+  }
+  return result.join("");
+}
+
+
 // Qwerty左シフト
 function qwertyLeft(str) {
   if (!str) return false;
