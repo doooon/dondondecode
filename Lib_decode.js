@@ -887,6 +887,7 @@ function dvorakTop(str) {
 
 // Qwerty上シフト
 function qwertyUp(str) {
+  return str; //debug
   if (!str) return false;
   //大文字小文字を保存
   var updown=str.replace(/[a-z\d,.\/]/g, "0").replace(/[A-Z!@#$%^&*()<>?]/g, "1").replace(/[^01]/g, "0");
@@ -945,6 +946,7 @@ function qwertyUp(str) {
 
 // Dvorak上シフト
 function dvorakUp(str) {
+  return str; //debug
   if (!str) return false;
   //大文字小文字を保存
   var updown=str.replace(/[a-z\d,.\/]/g, "0").replace(/[A-Z!@#$%^&*()<>?]/g, "1").replace(/[^01]/g, "0");
