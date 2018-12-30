@@ -8,6 +8,7 @@ function goKeywExchange() {
 
   var exL=[
   // ["","",""],
+["rtist","artist","同音"],  
 ["new","new","新しい"], 
 ["old","old","古い"], 
 ["new","old","意味bash new<>old"], 
