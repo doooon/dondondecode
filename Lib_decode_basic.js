@@ -254,6 +254,7 @@ function analyzeText(str) {
   result.push("<a href='https://www.geocachingtoolbox.com/index.php?lang=en&page=baseConversion' target='_blank'>基底(base)変換</a>");
   result.push("kw ^ more war die grow atack");
   result.push("Rot+1 単数→複数形> portals, shapers, symbols, glyphs (単数なし sirens");
+  result.push("30〜166.15までの数字なら、正多角形の内角。正n角形の内角は180×(n-2)÷nで求められる。172〜177の範囲なら正n角形でASCIIかも。");
 
   var alertMsg=[];
   if (str.match(

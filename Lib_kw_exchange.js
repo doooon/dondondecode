@@ -8,6 +8,11 @@ function goKeywExchange() {
 
   var exL=[
   // ["","",""],
+//
+["aprohias","spy","aprohias > Antonio Prohías > 漫画Spy vs. Spy for Madの作者"], 
+["cagniard","siren","フランスの物理学者カニヤール・ド・ラ・トゥール（Cagniard de la Tour）によってサイレンが発明された。 cagniard >> siren"],  
+["everywhere","visur","同義語 ubiqitous >> everywhere >> visur"],  
+["ubiqitous","visur","同義語 ubiqitous >> everywhere >> visur"],  
 ["rtist","artist","同音"],  
 ["new","new","新しい"], 
 ["old","old","古い"], 
