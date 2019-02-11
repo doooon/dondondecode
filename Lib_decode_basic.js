@@ -211,6 +211,7 @@ function analyzeText(str) {
   result.push("大文字小文字数字の6文字 →goo.gl/短縮url");
   result.push("数字10文字 →国際標準図書番号 ISBN-10 amazon検索");
   result.push("978か979で始まる数字13文字 →国際標準図書番号 ISBN-13 amazon検索");
+  result.push("数字8文字 → <a href='https://portal.issn.org'> ISSN 国際標準逐次刊行物番号</a>");
   result.push("大文字小文字数字-_の11文字 →youtu.be/videoid (12文字以上は無視される)");
   result.push("大文字小文字数字-_の22文字 →youtu.be/channelid (23文字以上は無視される)");
   result.push("数字なし大文字小文字どちらかでRotやRectでフォーマットが出てこないならvigenereの可能性");

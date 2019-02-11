@@ -28,6 +28,41 @@ if (
 */
 
 
+// 123とabcでRunLengthバイナリ
+if (
+  TEXT.match(/^\w+$/i) && 
+  kouseimoji.length>=3 && 
+  TEXT.match(/^[a-f1-6]+$/i) && 
+  !TEXT.match(/[a-f]{2}/i) && 
+  !TEXT.match(/[1-6]{2}/i)
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(123とabcでRunLengthバイナリ)</b>");
+  var tmp=TEXT.match(/./g);
+  var result=[];
+  var result=tmp.map(v=>{
+    v=v.replace(/[a]/i,"0");
+    v=v.replace(/[b]/i,"00") ;
+    v=v.replace(/[c]/i,"000") ;
+    v=v.replace(/[d]/i,"0000") ;
+    v=v.replace(/[e]/i,"00000") ;
+    v=v.replace(/[f]/i,"000000") ;
+    v=v.replace(/[1]/i,"1") ;
+    v=v.replace(/[2]/i,"11") ;
+    v=v.replace(/[3]/i,"111") ;
+    v=v.replace(/[4]/i,"1111") ;
+    v=v.replace(/[5]/i,"11111") ;
+    v=v.replace(/[6]/i,"111111") ;
+    return v;
+  });
+  htmlCode(result.join(""));
+  htmlTmp.push("==============");
+}
+
+
+
+
+
 // bcdef. ghijk- a区切りモールス
 // ciagbacabiadhahacagcgahbagbgagagdakabgbajbacha 
 if (
