@@ -55,7 +55,7 @@ if (
     v=v.replace(/[6]/i,"111111") ;
     return v;
   });
-  htmlCode(result.join(""));
+  goBinary(result.join(""));
   htmlTmp.push("==============");
 }
 
