@@ -31,7 +31,7 @@ if (
 // 数字とアルファベットでバイナリ
 if (
   TEXT.match(/^\w+$/i) && 
-  kouseimoji.length>=3 && 
+  kouseimoji.length>=2 && 
   TEXT.length >= 10 && 
   TEXT.match(/^[a-z0-9]+$/i)
 ) {
@@ -53,7 +53,7 @@ if (
 // 大文字と小文字でバイナリ
 if (
   TEXT.match(/^\w+$/i) && 
-  kouseimoji.length>=3 && 
+  kouseimoji.length>=2 && 
   TEXT.length >= 10 && 
   TEXT.match(/^[a-zA-Z]+$/) && 
 ) {
@@ -74,7 +74,7 @@ if (
 // 数字と記号でバイナリ
 if (
   TEXT.match(/^\w+$/i) && 
-  kouseimoji.length>=3 && 
+  kouseimoji.length>=2 && 
   TEXT.length >= 10 && 
   TEXT.match(/^[0-9!@#$%^&*()]+$/) && 
 ) {
