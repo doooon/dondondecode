@@ -28,37 +28,68 @@ if (
 */
 
 
-// 123とabcでRunLengthバイナリ
+// 数字とアルファベットでバイナリ
 if (
   TEXT.match(/^\w+$/i) && 
   kouseimoji.length>=3 && 
-  TEXT.match(/^[a-f1-6]+$/i) && 
-  !TEXT.match(/[a-f]{2}/i) && 
-  !TEXT.match(/[1-6]{2}/i)
+  TEXT.length >= 10 && 
+  TEXT.match(/^[a-z0-9]+$/i)
 ) {
   htmlTmp.push(TEXT);
-  htmlTmp.push("<b>(123とabcでRunLengthバイナリ)</b>");
+  htmlTmp.push("<b>(数字とアルファベットでバイナリ)</b>");
   var tmp=TEXT.match(/./g);
   var result=[];
   var result=tmp.map(v=>{
-    v=v.replace(/[a]/i,"0");
-    v=v.replace(/[b]/i,"00") ;
-    v=v.replace(/[c]/i,"000") ;
-    v=v.replace(/[d]/i,"0000") ;
-    v=v.replace(/[e]/i,"00000") ;
-    v=v.replace(/[f]/i,"000000") ;
-    v=v.replace(/[1]/i,"1") ;
-    v=v.replace(/[2]/i,"11") ;
-    v=v.replace(/[3]/i,"111") ;
-    v=v.replace(/[4]/i,"1111") ;
-    v=v.replace(/[5]/i,"11111") ;
-    v=v.replace(/[6]/i,"111111") ;
+    v=v.replace(/[a-z]/i,"=");
+    v=v.replace(/[0-9]/,"1") ;
+    v=v.replace(/[=]/,"0") ;
     return v;
   });
   goBinary(result.join(""));
   htmlTmp.push("==============");
 }
 
+
+// 大文字と小文字でバイナリ
+if (
+  TEXT.match(/^\w+$/i) && 
+  kouseimoji.length>=3 && 
+  TEXT.length >= 10 && 
+  TEXT.match(/^[a-zA-Z]+$/) && 
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(大文字と小文字でバイナリ)</b>");
+  var tmp=TEXT.match(/./g);
+  var result=[];
+  var result=tmp.map(v=>{
+    v=v.replace(/[a-z]/,"0");
+    v=v.replace(/[A-Z]/,"1") ;
+    return v;
+  });
+  goBinary(result.join(""));
+  htmlTmp.push("==============");
+}
+
+
+// 数字と記号でバイナリ
+if (
+  TEXT.match(/^\w+$/i) && 
+  kouseimoji.length>=3 && 
+  TEXT.length >= 10 && 
+  TEXT.match(/^[0-9!@#$%^&*()]+$/) && 
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(数字と記号でバイナリ)</b>");
+  var tmp=TEXT.match(/./g);
+  var result=[];
+  var result=tmp.map(v=>{
+    v=v.replace(/[0-9]/,"0");
+    v=v.replace(/[!@#$%^&*()]/,"1") ;
+    return v;
+  });
+  goBinary(result.join(""));
+  htmlTmp.push("==============");
+}
 
 
 
