@@ -75,7 +75,7 @@ if (
 if (
   TEXT.match(/^[0-9!@#$%^&*()]+$/) && 
   kouseimoji.length>=2 && 
-  TEXT.length >= 10 && 
+  TEXT.length >= 10
 ) {
   htmlTmp.push(TEXT);
   htmlTmp.push("<b>(数字と記号でバイナリ)</b>");
