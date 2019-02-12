@@ -773,14 +773,14 @@ function goBinary(binstr) {
     htmlTmp.push(
       "<b>(Braille点字 渦巻き型)</b>");
     htmlTmp.push(binstr);
-    makeRectBrailleYoko(binstr);
+    makeRectBrailleUzumaki(binstr);
     var braille=bin2brailleAscii(
       binstr, "uzumaki");
     htmlCode(braille);
     
     htmlTmp.push("---");
     htmlTmp.push("(reverse)");
-    makeRectBrailleYoko(
+    makeRectBrailleUzumaki(
       strReverse(binstr));
     var braille=bin2brailleAscii(
       strReverse(binstr), "uzumaki");
@@ -788,7 +788,7 @@ function goBinary(binstr) {
     
     htmlTmp.push("---");
     htmlTmp.push("(swap)");
-    makeRectBrailleYoko(
+    makeRectBrailleUzumaki(
       binbash(binstr));
     var braille=bin2brailleAscii(
       binbash(binstr), "uzumaki");
@@ -796,7 +796,7 @@ function goBinary(binstr) {
     
     htmlTmp.push("---");
     htmlTmp.push("(swap & reverse)");
-    makeRectBrailleYoko(
+    makeRectBrailleUzumaki(
       binbash(strReverse(binstr)));
     var braille=bin2brailleAscii(
       binbash(
@@ -1057,6 +1057,32 @@ function makeRectBrailleYoko(binstr) {
     rect[0]+=recttmp[i][0]+recttmp[i][1];
     rect[1]+=recttmp[i][2]+recttmp[i][3];
     rect[2]+=recttmp[i][4]+recttmp[i][5];
+  }
+  htmlTmp.push("6文字ずつbraille点字");
+  htmlTmp.push("<div class='braille'>");
+  for (var i in rect) {
+    htmlTmp.push(
+      rect[i].match(
+        /../g).join(" ").replace(
+          /1/g,"●").replace(/0/g,"◌"));
+  }
+  htmlTmp.push("</div>");
+  htmlTmp.push("</div>");
+}
+
+// ======================
+function makeRectBrailleUzumaki(binstr) {
+  //if (binstr%6!=0) return null;
+  htmlTmp.push("<div class='braillebox'>");
+  htmlTmp.push("①②⑦⑧"); 
+  htmlTmp.push("⑥③"); 
+  htmlTmp.push("⑤④"); 
+  var recttmp=binstr.match(/.{6}/g);
+  var rect=["","",""];
+  for (var i in recttmp) {
+    rect[0]+=recttmp[i][0]+recttmp[i][1];
+    rect[1]+=recttmp[i][5]+recttmp[i][2];
+    rect[2]+=recttmp[i][4]+recttmp[i][3];
   }
   htmlTmp.push("6文字ずつbraille点字");
   htmlTmp.push("<div class='braille'>");
