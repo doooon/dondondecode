@@ -8,7 +8,9 @@ function goKeywExchange() {
 
   var exL=[
   // ["","",""],
-// b00j2pjt8i
+//
+["CHAMPAGNE ?BOTTLE ?POTENTIAL","higgs","higgs粒子の別名。ヒッグス粒子の場のポテンシャルがシャンパンボトルの底の形をしていることから。"],
+["CHAMPAGNE ?BOTTLE ?POTENTIAL","boson","higgs粒子(higgs boson)の別名。ヒッグス粒子の場のポテンシャルがシャンパンボトルの底の形をしていることから。"],
 ["b00j2pjt8i","felicia","amazon b00j2pjt8i → Felicia Hajra-Lee"],
 ["b00j2pjt8i","hajra","amazon b00j2pjt8i → Felicia Hajra-Lee"],
 ["aprohias","spy","aprohias > Antonio Prohías > 漫画Spy vs. Spy for Madの作者"], 
