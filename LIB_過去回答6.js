@@ -73,10 +73,9 @@ if (
 
 // 数字と記号でバイナリ
 if (
-  TEXT.match(/^\w+$/i) && 
+  TEXT.match(/^[0-9!@#$%^&*()]+$/) && 
   kouseimoji.length>=2 && 
   TEXT.length >= 10 && 
-  TEXT.match(/^[0-9!@#$%^&*()]+$/)
 ) {
   htmlTmp.push(TEXT);
   htmlTmp.push("<b>(数字と記号でバイナリ)</b>");
@@ -88,9 +87,6 @@ if (
     return v;
   });
   goBinary(result.join(""));
-  htmlTmp.push("==============");
-} else {
-  htmlTmp.push("<div class='alert'> 数字と記号でバイナリ  にマッチしない</div>");
   htmlTmp.push("==============");
 }
 
