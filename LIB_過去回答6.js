@@ -89,6 +89,9 @@ if (
   });
   goBinary(result.join(""));
   htmlTmp.push("==============");
+} else {
+  htmlTmp.push("<div class='alert'> 数字と記号でバイナリ  にマッチしない</div>");
+  htmlTmp.push("==============");
 }
 
 
