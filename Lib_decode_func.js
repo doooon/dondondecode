@@ -3552,7 +3552,22 @@ function bin2brailleAscii(bin,flag) {
       tmp[i]=tmp[i].replace(
         /(.)(.)(.)(.)(.)(.)/, "$1$6$5$2$3$4");
     }
-  }
+  } else if (flag=="3line") {
+    // ①②③…
+    // ④⑤⑥…
+    // ⑦⑧⑨…
+    var binNew="";
+    var n=bin.length/3;
+    var nRE=new RegExp("[01]{"+n+"}","g");
+    var lines=bin.match(nRE);
+    for (var i=0; i<n; i++) {
+      for (var j in lines) {
+        binNew+=lines[j][i];
+      }
+    }
+    tmp=binNew.match(/.{6}/g);
+  }
+
 
   
   for (var j in tmp) {
