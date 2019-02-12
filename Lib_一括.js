@@ -385,23 +385,24 @@ goRotate(26,TEXT,"reverse","atbash");
 
 htmlTmp.push("===============");
 
-htmlTmp.push("数字の直後のみRot+");
+htmlTmp.push(TEXT);
+htmlTmp.push("数字の後続をRot+");
 var tmp = TEXT.split("");
+var n = 0;
 for (i=0; i<tmp.length; i++){
     if (i==0) continue;
-    if (tmp[i-1].match(/\d/)) {
-        tmp[i] = rotN(tmp[i], tmp[i-1]);
-　　}
+    if (tmp[i-1].match(/\d/)) n = tmp[i-1];
+    if (tmp[i].match(/[a-Z]/i)) tmp[i] = rotN(tmp[i], n);
 }
 htmlCode(tmp.join(""));
 htmlTmp.push("---");
-htmlTmp.push("数字の直後のみRot-");
+htmlTmp.push("数字の後続をRot-");
 var tmp = TEXT.split("");
+var n = 0;
 for (i=0; i<tmp.length; i++){
     if (i==0) continue;
-    if (tmp[i-1].match(/\d/)) {
-        tmp[i] = rotN(tmp[i], 0-tmp[i-1]);
-　　}
+    if (tmp[i-1].match(/\d/)) n = tmp[i-1];
+    if (tmp[i].match(/[a-Z]/i)) tmp[i] = rotN(tmp[i], 0-n);
 }
 htmlCode(tmp.join(""));
 htmlTmp.push("===============");
