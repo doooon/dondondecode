@@ -27,7 +27,7 @@ if (
 }
 */
 
-/*
+
 // 数字とアルファベットでバイナリ
 if (
   TEXT.match(/^\w+$/i) && 
@@ -41,15 +41,15 @@ if (
   var result=[];
   var result=tmp.map(v=>{
     v=v.replace(/[a-z]/i,"=");
-    v=v.replace(/[0-9]/,"1") ;
-    v=v.replace(/[=]/,"0") ;
+    v=v.replace(/[0-9]/,"1");
+    v=v.replace(/[=]/,"0");
     return v;
   });
   goBinary(result.join(""));
   htmlTmp.push("==============");
 }
 
-
+/*
 // 大文字と小文字でバイナリ
 if (
   TEXT.match(/^\w+$/i) && 
@@ -63,7 +63,7 @@ if (
   var result=[];
   var result=tmp.map(v=>{
     v=v.replace(/[a-z]/,"0");
-    v=v.replace(/[A-Z]/,"1") ;
+    v=v.replace(/[A-Z]/,"1");
     return v;
   });
   goBinary(result.join(""));
