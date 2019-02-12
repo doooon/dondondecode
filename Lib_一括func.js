@@ -769,6 +769,40 @@ function goBinary(binstr) {
         strReverse(binstr)), "switch");
     htmlCode(braille);
     
+    // 渦巻き型
+    htmlTmp.push(
+      "<b>(Braille点字 渦巻き型)</b>");
+    htmlTmp.push(binstr);
+    makeRectBrailleYoko(binstr);
+    var braille=bin2brailleAscii(
+      binstr, "uzumaki");
+    htmlCode(braille);
+    
+    htmlTmp.push("---");
+    htmlTmp.push("(reverse)");
+    makeRectBrailleYoko(
+      strReverse(binstr));
+    var braille=bin2brailleAscii(
+      strReverse(binstr), "uzumaki");
+    htmlCode(braille);
+    
+    htmlTmp.push("---");
+    htmlTmp.push("(swap)");
+    makeRectBrailleYoko(
+      binbash(binstr));
+    var braille=bin2brailleAscii(
+      binbash(binstr), "uzumaki");
+    htmlCode(braille);
+    
+    htmlTmp.push("---");
+    htmlTmp.push("(swap & reverse)");
+    makeRectBrailleYoko(
+      binbash(strReverse(binstr)));
+    var braille=bin2brailleAscii(
+      binbash(
+        strReverse(binstr)), "uzumaki");
+    htmlCode(braille);
+    
     // 3行型
     htmlTmp.push("------");
     htmlTmp.push(
