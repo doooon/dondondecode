@@ -387,7 +387,7 @@ htmlTmp.push("===============");
 
 htmlTmp.push("数字の直後のみRot+");
 var tmp = TEXT.split("");
-for (i=0, i<tmp.length, i++){
+for (i=0; i<tmp.length; i++){
     if (i==0) continue;
     if (tmp[i-1].match(/\d/)) {
         tmp[i] = rotN(tmp[i], tmp[i-1]);
@@ -397,7 +397,7 @@ htmlCode(tmp.join(""));
 htmlTmp.push("---");
 htmlTmp.push("数字の直後のみRot-");
 var tmp = TEXT.split("");
-for (i=0, i<tmp.length, i++){
+for (i=0; i<tmp.length; i++){
     if (i==0) continue;
     if (tmp[i-1].match(/\d/)) {
         tmp[i] = rotN(tmp[i], 0-tmp[i-1]);
