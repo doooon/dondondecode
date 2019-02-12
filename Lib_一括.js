@@ -388,7 +388,7 @@ htmlTmp.push("===============");
 if (!TEXT.match(/\d\d/) && TEXT.match(/\d/) && TEXT.match(/[a-z]/i)) {
 	
 htmlTmp.push(TEXT);
-htmlTmp.push("数字の後続をRot+");
+htmlTmp.push("数字の後続をその数字で+Rot");
 var tmp = TEXT.split("");
 var n = 0;
 for (i=0; i<tmp.length; i++){
@@ -400,7 +400,7 @@ htmlCode(tmp.join(""));
 	
 htmlTmp.push("---");
 	
-htmlTmp.push("数字の後続をRot-");
+htmlTmp.push(数字の後続をその数字で-Rot");
 var tmp = TEXT.split("");
 var n = 0;
 for (i=0; i<tmp.length; i++){
