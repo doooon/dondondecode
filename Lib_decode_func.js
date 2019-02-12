@@ -3534,9 +3534,7 @@ function bin2brailleAscii(bin,flag) {
       tmp[i]=tmp[i].replace(
         /(.)(.)(.)(.)(.)(.)/, "$1$3$5$2$4$6");
     }
-  }
-  
-  if (flag=="orikaeshi") {
+  } else if (flag=="orikaeshi") {
     // ①⑥
     // ②⑤
     // ③④
@@ -3545,7 +3543,17 @@ function bin2brailleAscii(bin,flag) {
       tmp[i]=tmp[i].replace(
         /(.)(.)(.)(.)(.)(.)/, "$1$2$3$6$5$4");
     }
+  } else if (flag=="uzumaki") {
+    // ①②
+    // ⑥③
+    // ⑤④
+    // 165234
+    for (var i in tmp) {
+      tmp[i]=tmp[i].replace(
+        /(.)(.)(.)(.)(.)(.)/, "$1$6$5$2$3$4");
+    }
   }
+
   
   for (var j in tmp) {
     var str="";
