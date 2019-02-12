@@ -385,6 +385,8 @@ goRotate(26,TEXT,"reverse","atbash");
 
 htmlTmp.push("===============");
 
+if (!TEXT.match(/\d\d/) && TEXT.match(/\d/) && TEXT.match(/[a-z]/i)) {
+	
 htmlTmp.push(TEXT);
 htmlTmp.push("数字の後続をRot+");
 var tmp = TEXT.split("");
@@ -408,6 +410,7 @@ for (i=0; i<tmp.length; i++){
 }
 htmlCode(tmp.join(""));
 htmlTmp.push("===============");
+}
 
 
 // 01のみだった
