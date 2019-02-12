@@ -49,13 +49,13 @@ if (
   htmlTmp.push("==============");
 }
 
-/*
+
 // 大文字と小文字でバイナリ
 if (
   TEXT.match(/^\w+$/i) && 
   kouseimoji.length>=2 && 
   TEXT.length >= 10 && 
-  TEXT.match(/^[a-zA-Z]+$/) && 
+  TEXT.match(/^[a-zA-Z]+$/)
 ) {
   htmlTmp.push(TEXT);
   htmlTmp.push("<b>(大文字と小文字でバイナリ)</b>");
@@ -76,7 +76,7 @@ if (
   TEXT.match(/^\w+$/i) && 
   kouseimoji.length>=2 && 
   TEXT.length >= 10 && 
-  TEXT.match(/^[0-9!@#$%^&*()]+$/) && 
+  TEXT.match(/^[0-9!@#$%^&*()]+$/)
 ) {
   htmlTmp.push(TEXT);
   htmlTmp.push("<b>(数字と記号でバイナリ)</b>");
@@ -90,7 +90,7 @@ if (
   goBinary(result.join(""));
   htmlTmp.push("==============");
 }
-*/
+
 
 
 
