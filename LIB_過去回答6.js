@@ -70,7 +70,7 @@ if (
   htmlTmp.push("==============");
 }
 
-
+/*
 // 数字と記号でバイナリ
 if (
   TEXT.match(/^\w+$/i) && 
@@ -90,7 +90,7 @@ if (
   goBinary(result.join(""));
   htmlTmp.push("==============");
 }
-
+*/
 
 
 
