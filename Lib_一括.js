@@ -392,17 +392,19 @@ var n = 0;
 for (i=0; i<tmp.length; i++){
     if (i==0) continue;
     if (tmp[i-1].match(/\d/)) n = tmp[i-1];
-    if (tmp[i].match(/[a-Z]/i)) tmp[i] = rotN(tmp[i], n);
+    if (tmp[i].match(/[a-z]/i)) tmp[i] = rotN(tmp[i], n);
 }
 htmlCode(tmp.join(""));
+	
 htmlTmp.push("---");
+	
 htmlTmp.push("数字の後続をRot-");
 var tmp = TEXT.split("");
 var n = 0;
 for (i=0; i<tmp.length; i++){
     if (i==0) continue;
     if (tmp[i-1].match(/\d/)) n = tmp[i-1];
-    if (tmp[i].match(/[a-Z]/i)) tmp[i] = rotN(tmp[i], 0-n);
+    if (tmp[i].match(/[a-z]/i)) tmp[i] = rotN(tmp[i], 0-n);
 }
 htmlCode(tmp.join(""));
 htmlTmp.push("===============");
