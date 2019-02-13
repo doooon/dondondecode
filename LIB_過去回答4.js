@@ -4,6 +4,9 @@
 
 function kakokaitou4() {
   
+htmlTmp.push("<div class='red'>--- kako 4 ---</div>");
+
+
 // QRコード & MicroQR
 // 21=441, 25=625, 29=841, 33=1089, 37=1369,,, 177=31329まで
 //21モジュールから4Mずつ増える

@@ -3,6 +3,10 @@
 // #LIB
 
 function kakokaitou2() {
+
+htmlTmp.push("<div class='red'>--- kako 2 ---</div>");
+
+
   
 // Xをゼロにして012abc
 if (TEXT.match(/^[X1-9]+$/)

@@ -2,6 +2,9 @@
 // LIB_過去回答
 
 function kakokaitou() {
+
+htmlTmp.push("<div class='red'>--- kako 1 ---</div>");
+
   
   // Color Codeの0-7(oct)に対応
   if (TEXT.match(/^[BRGYIMCW]+$/i)) {

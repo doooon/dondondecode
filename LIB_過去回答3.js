@@ -4,6 +4,9 @@
 
 function kakokaitou3() {
   
+htmlTmp.push("<div class='red'>--- kako 3 ---</div>");
+
+
 // 3組の16進数([0-9a-f]{6})で割り切れる
 // colorコード
 if (TEXT.match(/^([0-9a-f]{6})+$/i)) {
