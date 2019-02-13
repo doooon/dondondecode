@@ -55,7 +55,6 @@ if ((lengSqrt-21)%4==0 || (lengSqrt-11)%2==0) {
 // 先頭から順にROT0,+1,-1,+2,-2,+3...
   htmlTmp.push(TEXT);
   htmlTmp.push("<b>(先頭から順にROT0,+1,-2,+3...)</b>");
-  htmlTmp.push("kwは wave の可能性");
   htmlTmp.push("0,+1,-2,+3...");
   var result=[];
   for (var i in TEXT) {
@@ -84,15 +83,16 @@ if ((lengSqrt-21)%4==0 || (lengSqrt-11)%2==0) {
   
   htmlTmp.push("==============");
 
-
+/*
 // 先頭から順にROT0,+1,0,-1,0,+1,0,-1...
   htmlTmp.push(TEXT);
-  htmlTmp.push("<b>(先頭から順にROT0,+1,0,-1,0,+1,0,-1...)</b>");
+  htmlTmp.push("<b>(先頭から順にROT0,+1,0,-1,0,+1...)</b>");
+  htmlTmp.push("kwは wave の可能性");
   htmlTmp.push("0,+1,0,-1,0,+1...");
   var result=[];
   for (var i in TEXT) {
     if (i%3==0) {
-      result.push(TEXT[0]);
+      result.push(TEXT[i]);
     } else if (i%3==1) {
       result.push(rotN(TEXT[i],1));
     } else if (i%3==2) {
@@ -100,12 +100,14 @@ if ((lengSqrt-21)%4==0 || (lengSqrt-11)%2==0) {
     }
   }
   htmlCode(result.join(""));
+
   htmlTmp.push("--------------------");
+
   htmlTmp.push("0,-1,0,+1,0,-1...");
   var result=[];
   for (var i in TEXT) {
     if (i%3==0) {
-      result.push(TEXT[0]);
+      result.push(TEXT[i]);
     } else if (i%3==1) {
       result.push(rotN(TEXT[i],-1));
     } else if (i%3==2) {
@@ -114,7 +116,7 @@ if ((lengSqrt-21)%4==0 || (lengSqrt-11)%2==0) {
   htmlCode(result.join(""));
   
   htmlTmp.push("==============");
-
+*/
 
 // 記号123、abc012 > decASCII
 //5554%e%7f%%^f5555e^9515b5%5b%5%@f$535e5&f$g(5%%d51%%%f%@55f$%457f$53
