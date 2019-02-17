@@ -400,7 +400,7 @@ htmlCode(tmp.join(""));
 	
 htmlTmp.push("---");
 	
-htmlTmp.push(数字の後続をその数字で-Rot");
+htmlTmp.push("数字の後続をその数字で-Rot");
 var tmp = TEXT.split("");
 var n = 0;
 for (i=0; i<tmp.length; i++){
