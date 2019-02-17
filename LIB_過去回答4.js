@@ -55,10 +55,6 @@ if ((lengSqrt-21)%4==0 || (lengSqrt-11)%2==0) {
 // 先頭から順にROT0,+1,-1,+2,-2,+3...
   htmlTmp.push(TEXT);
   htmlTmp.push("<b>(先頭から順にROT0,+1,-2,+3...)</b>");
-<<<<<<< HEAD
-=======
-  
->>>>>>> parent of cdcfd28... up
   htmlTmp.push("0,+1,-2,+3...");
   var result=[];
   for (var i in TEXT) {
