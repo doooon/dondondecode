@@ -6,7 +6,7 @@ function kakokaitou4() {
   
 htmlTmp.push("<div class='red'>--- kako 4 ---</div>");
 
-/*
+
 
 // QRコード & MicroQR
 // 21=441, 25=625, 29=841, 33=1089, 37=1369,,, 177=31329まで
@@ -50,7 +50,8 @@ if ((lengSqrt-21)%4==0 || (lengSqrt-11)%2==0) {
   htmlTmp.push(result);
   htmlTmp.push("==============");
 }
-  
+
+/*
 
   
 // 先頭から順にROT0,+1,-1,+2,-2,+3...
