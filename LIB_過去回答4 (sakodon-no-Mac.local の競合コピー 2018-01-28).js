@@ -2,11 +2,8 @@
 // LIB_過去回答4
 // #LIB
 
-function kakokaitou4() {
+// function kakokaitou4() {
   
-htmlTmp.push("<div class='red'>--- kako 4 ---</div>");
-
-
 // QRコード & MicroQR
 // 21=441, 25=625, 29=841, 33=1089, 37=1369,,, 177=31329まで
 //21モジュールから4Mずつ増える
@@ -55,10 +52,7 @@ if ((lengSqrt-21)%4==0 || (lengSqrt-11)%2==0) {
 // 先頭から順にROT0,+1,-1,+2,-2,+3...
   htmlTmp.push(TEXT);
   htmlTmp.push("<b>(先頭から順にROT0,+1,-2,+3...)</b>");
-<<<<<<< HEAD
-=======
   
->>>>>>> parent of cdcfd28... up
   htmlTmp.push("0,+1,-2,+3...");
   var result=[];
   for (var i in TEXT) {
@@ -87,43 +81,6 @@ if ((lengSqrt-21)%4==0 || (lengSqrt-11)%2==0) {
   
   htmlTmp.push("==============");
 
-<<<<<<< HEAD
-/*
-// 先頭から順にROT0,+1,0,-1,0,+1,0,-1...
-  htmlTmp.push(TEXT);
-  htmlTmp.push("<b>(先頭から順にROT0,+1,0,-1,0,+1...)</b>");
-  htmlTmp.push("kwは wave の可能性");
-  htmlTmp.push("0,+1,0,-1,0,+1...");
-  var result=[];
-  for (var i in TEXT) {
-    if (i%3==0) {
-      result.push(TEXT[i]);
-    } else if (i%3==1) {
-      result.push(rotN(TEXT[i],1));
-    } else if (i%3==2) {
-      result.push(rotN(TEXT[i],-1));
-    }
-  }
-  htmlCode(result.join(""));
-
-  htmlTmp.push("--------------------");
-
-  htmlTmp.push("0,-1,0,+1,0,-1...");
-  var result=[];
-  for (var i in TEXT) {
-    if (i%3==0) {
-      result.push(TEXT[i]);
-    } else if (i%3==1) {
-      result.push(rotN(TEXT[i],-1));
-    } else if (i%3==2) {
-      result.push(rotN(TEXT[i],1));
-    }
-  htmlCode(result.join(""));
-  
-  htmlTmp.push("==============");
-*/
-=======
->>>>>>> parent of cdcfd28... up
 
 // 記号123、abc012 > decASCII
 //5554%e%7f%%^f5555e^9515b5%5b%5%@f$535e5&f$g(5%%d51%%%f%@55f$%457f$53
@@ -956,25 +913,10 @@ if (TEXT.match(/^[123QWEASDX]+$/i))  {
 }
 
 
-// 真ん中で分割してそれぞれreverse
+// 前後入れ替え
 if (TEXT.length%2==0) {
   htmlTmp.push(TEXT);
-  htmlTmp.push("<b>(真ん中で分割してそれぞれreverse)</b>");
-  var tmpRE=new RegExp(
-      "(.|\\s){"+TEXT.length/2+"}", "g");
-  var tmp=TEXT.match(tmpRE);
-  var result=strReverse(tmp[0])+strReverse(tmp[1]);
-  htmlCode(result);
-  htmlTmp.push("(reverse)");
-  htmlCode(strReverse(result));
-  htmlTmp.push("==============");
-}
-
-
-// 真ん中で分割して前後入れ替え
-if (TEXT.length%2==0) {
-  htmlTmp.push(TEXT);
-  htmlTmp.push("<b>(真ん中で分割して前後入れ替え)</b>");
+  htmlTmp.push("<b>(前後入れ替え)</b>");
   var tmpRE=
     new RegExp(
       "(.|\\s){"+TEXT.length/2+"}", "g");
@@ -1230,4 +1172,10 @@ if (kouseimoji.length==3) {
 }
 
 
-} // end function
+// } // end function
+
+
+var script = document.createElement("script");
+script.src = "LIB_過去回答5.js";
+document.getElementsByTagName("head")[0].appendChild(script);
+
