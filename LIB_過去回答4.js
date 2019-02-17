@@ -438,7 +438,7 @@ if (TEXT.match(/^([xci]{1,5}[\s|\-/\\.,]*)+$/i)) {
   htmlTmp.push(TEXT);
   htmlTmp.push("<b>(i>-,c>.,x>--でモールス)</b>");
   var tmp=TEXT;
-  tmp=tmp.replace(/([\s|\-/\\.,])\1*/ig, " ");
+  tmp=tmp.replace(/(([\s|\-/\\.,])\1*)/ig, " ");
   tmp=tmp.replace(/[i]/ig, "-");
   tmp=tmp.replace(/[x]/ig, "--");
   tmp=tmp.replace(/[c]/ig, ".");
