@@ -6,6 +6,8 @@ function kakokaitou4() {
   
 htmlTmp.push("<div class='red'>--- kako 4 ---</div>");
 
+/*
+
 // QRコード & MicroQR
 // 21=441, 25=625, 29=841, 33=1089, 37=1369,,, 177=31329まで
 //21モジュールから4Mずつ増える
@@ -1166,10 +1168,10 @@ if (kouseimoji.length==3) {
   htmlTmp.push(TEXT);
   htmlTmp.push(
     "<b>(構成文字3種でモールス)</b>");
-  /*for (var i in kouseimoji) {
-    kouseimoji[i]=
-      kouseimoji[i].replace(/\]/, "\\$&");
-  }*/
+  //for (var i in kouseimoji) {
+  //  kouseimoji[i]=
+  //    kouseimoji[i].replace(/\]/, "\\$&");
+  //}
   var tmpRE0=
     new RegExp("\\"+kouseimoji[0],"ig");
   var tmpRE1=
@@ -1221,5 +1223,6 @@ if (kouseimoji.length==3) {
   htmlTmp.push("==============");
 }
 
+*/
 
 } // end function
