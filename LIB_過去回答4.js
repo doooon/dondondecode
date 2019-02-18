@@ -86,7 +86,7 @@ if ((lengSqrt-21)%4==0 || (lengSqrt-11)%2==0) {
   htmlTmp.push("==============");
 
 
-/*
+
 
 // 先頭から順にROT0,+1,0,-1,0,+1,0,-1...
   htmlTmp.push(TEXT);
@@ -117,11 +117,12 @@ if ((lengSqrt-21)%4==0 || (lengSqrt-11)%2==0) {
     } else if (i%3==2) {
       result.push(rotN(TEXT[i],1));
     }
+  }
   htmlCode(result.join(""));
   
   htmlTmp.push("==============");
 
-*/
+
 
 // 記号123、abc012 > decASCII
 //5554%e%7f%%^f5555e^9515b5%5b%5%@f$535e5&f$g(5%%d51%%%f%@55f$%457f$53
