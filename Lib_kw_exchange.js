@@ -8,7 +8,13 @@ function goKeywExchange() {
 
   var exL=[
   // ["","",""],
-//
+//の
+["(diff(erence ?)?)?engine","ada","階差機関を発明したチャールズ・バベッジに学んだ世界初のプログラマーとされるAda Lovelaceから"],
+["(diff(erence ?)?)?engine","augusta","階差機関を発明したチャールズ・バベッジに学んだ世界初のプログラマーとされるAda Lovelaceのフルネーム「Augusta Ada King, Countess of Lovelace ラブレース伯爵夫人オーガスタ・エイダ・キング」から"],
+["576505181","ingress","iOSでのIngressアプリのID"],
+["rush16.9","resist","Rushというバンドの16thアルバムの9曲目 = resist"],
+["356 ?312","alexander","BC356 - BC312 → Alexander"],
+["secret ?niantic ?agenda","ezekiel","Niantic計画に隠された意図 → エゼキエルカルビン博士が仕組んでいた"], 
 ["CHAMPAGNE ?BOTTLE ?POTENTIAL","higgs","higgs粒子の別名。ヒッグス粒子の場のポテンシャルがシャンパンボトルの底の形をしていることから。"],
 ["CHAMPAGNE ?BOTTLE ?POTENTIAL","boson","higgs粒子(higgs boson)の別名。ヒッグス粒子の場のポテンシャルがシャンパンボトルの底の形をしていることから。"],
 ["b00j2pjt8i","felicia","amazon b00j2pjt8i → Felicia Hajra-Lee"],
