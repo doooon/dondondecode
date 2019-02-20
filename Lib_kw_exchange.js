@@ -8,9 +8,11 @@ function goKeywExchange() {
 
   var exL=[
   // ["","",""],
-//の
-["(diff(erence ?)?)?engine","ada","階差機関を発明したチャールズ・バベッジに学んだ世界初のプログラマーとされるAda Lovelaceから"],
-["(diff(erence ?)?)?engine","augusta","階差機関を発明したチャールズ・バベッジに学んだ世界初のプログラマーとされるAda Lovelaceのフルネーム「Augusta Ada King, Countess of Lovelace ラブレース伯爵夫人オーガスタ・エイダ・キング」から"],
+//residual
+["residual","residual","残留物・剰余"],
+["r[3E][5S][1i]du[4A][1l]","residual","leet"],
+["(diff(erence ?)?)?engine","ada","階差機関(差分機関)を発明したチャールズ・バベッジに学んだ世界初のプログラマーとされるAda Lovelaceから"],
+["(diff(erence ?)?)?engine","augusta","階差機関(差分機関)を発明したチャールズ・バベッジに学んだ世界初のプログラマーとされるAda Lovelaceのフルネーム「Augusta Ada King, Countess of Lovelace ラブレース伯爵夫人オーガスタ・エイダ・キング」から"],
 ["576505181","ingress","iOSでのIngressアプリのID"],
 ["rush16.9","resist","Rushというバンドの16thアルバムの9曲目 = resist"],
 ["356 ?312","alexander","BC356 - BC312 → Alexander"],
