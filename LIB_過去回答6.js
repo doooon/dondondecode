@@ -38,11 +38,24 @@ if (
   htmlTmp.push(TEXT);
   htmlTmp.push("<b>(2桁区切りの数字n組を順にn-1ずつ足していく)</b>");
   var tmp=TEXT.match(/../g);
+
+  htmlTmp.push("Length("+tmp.length+")");
   var result=[];
   for (var i=0; i<tmp.length; i++) {
     var j= tmp.length - i;
     result.push(Number(tmp[i])+j);
-    htmlTmp.push("["+i+"] "+tmp[i]+" + "+j+" ("+tmp.length+" - "+i+")");
+    //htmlTmp.push("["+i+"] "+tmp[i]+" + "+j+" ("+tmp.length+" - "+i+")");
+  }
+  htmlCode(result.join(""));
+
+  htmlTmp.push("------");
+  htmlTmp.push("Length("+tmp.length+")-1を使う");
+
+  var result=[];
+  for (var i=0; i<tmp.length; i++) {
+    var j= (tmp.length-1) - i;
+    result.push(Number(tmp[i])+j);
+    //htmlTmp.push("["+i+"] "+tmp[i]+" + "+j+" ("+tmp.length+" - "+i+")");
   }
   htmlCode(result.join(""));
   htmlTmp.push("==============");
