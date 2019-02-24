@@ -9,6 +9,7 @@ function goKeywExchange() {
   var exL=[
   // ["","",""],
 //residual
+["[7T][3E]chn[0o][1l][0o][6G]y","technology","leet"],
 ["residual","residual","残留物・剰余"],
 ["r[3E][5S][1i]du[4A][1l]","residual","leet"],
 ["(diff(erence ?)?)?engine","ada","階差機関(差分機関)を発明したチャールズ・バベッジに学んだ世界初のプログラマーとされるAda Lovelaceから"],

@@ -1414,6 +1414,22 @@ if (tmp.match(/^(\d*[a-z]*\d*)+$/i)) {
     vige(tmp1.join(""));
     vige(tmp2.join(""));
   }
+
+
+  // 奇数偶数がkey
+  if (tmp.length%2==0 && 
+    tmp.length<=100 && 
+    kouseimoji.length>=4
+  ) {
+    htmlTmp.push("奇数偶数がkey");
+    var odd=TEXT.replace(/(.).?/g, "$1");
+    var even=TEXT.replace(/.(.)?/g, "$1");
+    htmlCode(odd);
+    htmlCode(even);
+    htmlCode(vigenereDec(odd, even), "", "(vig key: "+ even+")");
+    htmlCode(vigenereDec(even, odd), "", "(vig key: "+ even+")");
+  }
+
   
   // 1/3ずつがkey
   if (tmp.length%3==0 && 
