@@ -28,6 +28,27 @@ if (
 */
 
 
+
+// 2桁区切りの数字n組を順にn-1ずつ足していく
+if (
+  TEXT.match(/^(\d\d[\s,.-/|]?){5,}$/i) && 
+  TEXT.length%2==0 && 
+  kouseimoji.length>=3
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(2桁区切りの数字n組を順にn-1ずつ足していく)</b>");
+  var tmp=TEXT.match(/../g);
+  var result=[];
+  for (var i=0; i<=tmp.length; i++) {
+    var j= tmp.length - i;
+    result.push(Number(tmp[i])+j);
+  }
+  htmlCode(result.join(""));
+  htmlTmp.push("==============");
+}
+
+
+
 // 数字とアルファベットでバイナリ
 if (
   TEXT.match(/^\w+$/i) && 
