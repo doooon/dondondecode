@@ -1427,7 +1427,7 @@ if (tmp.match(/^(\d*[a-z]*\d*)+$/i)) {
     htmlCode(odd);
     htmlCode(even);
     htmlCode(vigenereDec(odd, even), "", "(vig key: "+ even+")");
-    htmlCode(vigenereDec(even, odd), "", "(vig key: "+ even+")");
+    htmlCode(vigenereDec(even, odd), "", "(vig key: "+ odd+")");
   }
 
   

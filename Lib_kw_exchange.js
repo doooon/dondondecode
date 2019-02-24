@@ -8,7 +8,8 @@ function goKeywExchange() {
 
   var exL=[
   // ["","",""],
-//residual
+//Bagrat Regueni >> https://en.wikipedia.org/wiki/Bagrat_II_of_Iberia
+["bagrat ?regueni","simple","Bagrat Regueni → simple https://en.wikipedia.org/wiki/Bagrat_II_of_Iberia"],
 ["[7T][3E]chn[0o][1l][0o][6G]y","technology","leet"],
 ["residual","residual","残留物・剰余"],
 ["r[3E][5S][1i]du[4A][1l]","residual","leet"],
