@@ -44,7 +44,7 @@ if (
   for (var i=0; i<tmp.length; i++) {
     var j= tmp.length - i;
     result.push(Number(tmp[i])+j);
-    //htmlTmp.push("["+i+"] "+tmp[i]+" + "+j+" ("+tmp.length+" - "+i+")");
+    htmlTmp.push("["+i+"] "+tmp[i]+" + "+j+" ("+tmp.length+" - "+i+")");
   }
   htmlCode(result.join(""));
 
@@ -55,7 +55,7 @@ if (
   for (var i=0; i<tmp.length; i++) {
     var j= (tmp.length-1) - i;
     result.push(Number(tmp[i])+j);
-    //htmlTmp.push("["+i+"] "+tmp[i]+" + "+j+" ("+tmp.length+" - "+i+")");
+    htmlTmp.push("["+i+"] "+tmp[i]+" + "+j+" ("+tmp.length+" - "+i+")");
   }
   htmlCode(result.join(""));
   htmlTmp.push("==============");
