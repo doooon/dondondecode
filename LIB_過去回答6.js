@@ -38,6 +38,7 @@ if (
   htmlTmp.push(TEXT);
   htmlTmp. push("<b>( navajo ナバホ族の言語を利用したコード置換)</b>");
   htmlCode(navajo(TEXT, 'decode'));
+  htmlTmp.push("==============");
 }
 
 
