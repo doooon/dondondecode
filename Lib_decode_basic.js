@@ -1328,6 +1328,15 @@ if (
   alertMsg.push("abcde. fghij- k区切りモールス");
 }
 
+// navajo ナバホ族の言語を利用したコード置換
+if (
+  TEXT.match(/[a-z]/i) && 
+  TEXT.length >=10 && 
+  navajo(TEXT, 'check')
+) {
+  alertMsg.push("navajo ナバホ族の言語を利用したコード置換。(単語を3つ以上含んでいる)");
+}
+
 
 
 

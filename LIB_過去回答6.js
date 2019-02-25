@@ -28,6 +28,19 @@ if (
 */
 
 
+// navajo ナバホ族の言語を利用したコード置換
+if (
+  TEXT.match(/[a-z]/i) && 
+  TEXT.length >=15 && 
+  kouseimoji.length>=5 && 
+  navajo(TEXT, 'check')
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp. push("<b>( navajo ナバホ族の言語を利用したコード置換)</b>");
+  htmlCode(navajo(TEXT, 'decode'));
+}
+
+
 
 // 2桁区切りの数字n組を順にn-1ずつ足していく
 if (

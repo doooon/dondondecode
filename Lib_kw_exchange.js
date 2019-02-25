@@ -8,7 +8,17 @@ function goKeywExchange() {
 
   var exL=[
   // ["","",""],
-//Bagrat Regueni >> https://en.wikipedia.org/wiki/Bagrat_II_of_Iberia
+//never believed
+["narrative ?manager","owen","情報工作の専門家 → Kendra Owens → Ken Owen"], 
+["narrative ?manager","ken","情報工作の専門家 → Kendra Owens → Ken Owen"], 
+["narrative ?management","owen","情報工作の専門家 → Kendra Owens → Ken Owen"], 
+["narrative ?management","ken","情報工作の専門家 → Kendra Owens → Ken Owen"], 
+["spin ?doctor","owen","情報工作の専門家 → Kendra Owens → Ken Owen"], 
+["spin ?doctor","ken","情報工作の専門家 → Kendra Owens → Ken Owen"], 
+["(niantic ?)?calamity","Epiphany","Niantic Calamity(厄災) → Epiphany Night(啓示の夜)の事"], 
+["cassandra","cassandra","ギリシャ神話に出てくる悲劇の預言者カッサンドラ"],
+["c[4A][5s][5s][4A]ndr[4A]","cassandra","leet"],
+["never ?believed","cassandra","預言者カサンドラはアポロンによって、誰からも信じられないという呪いを受けた"],
 ["bagrat ?regueni","simple","Bagrat Regueni → simple https://en.wikipedia.org/wiki/Bagrat_II_of_Iberia"],
 ["[7T][3E]chn[0o][1l][0o][6G]y","technology","leet"],
 ["residual","residual","残留物・剰余"],

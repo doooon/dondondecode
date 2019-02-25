@@ -6,6 +6,145 @@
 //======================================
 
 
+// navajo code (ナバホ族の言葉を利用した置換)
+function navajo(str,mode='decode') {
+  // mode='decode', 'encode', 'check'
+
+  if (!str) return false;
+  
+  var renavajo = new RegExp("(WOL-?LA-?CHEE|BE-?LA-?SANA|TSE-?NILL|NA-?HASH-?CHID|SHUSH|TOISH-?JEH|MOASI|TLA-?GIN|BA-?GOSHI|BE|CHINDI|LHA-?CHA-?EH|AH-?JAH|DZEH|AH-?NAH|CHUO|TSA-?E-?DONIN-?EE|MA-?E|AH-?TAD|KLIZZIE|JEHA|TSE-?GAH|CHA|LIN|TKIN|YEH-?HES|A-?CHI|TKELE-?CHO-?G|AH-?YA-?TSINNE|YIL-?DOI|JAD-?HO-?LONI|BA-?AH-?NE-?DI-?TININ|KLIZZIE-?YAZZIE|DIBEH-?YAZZIE|AH-?JAD|NASH-?DOIE-?TSO|TSIN-?TLITI|BE-?TAS-?TNI|NA-?AS-?TSO-?SI|TSAH|A-?CHIN|A-?KHA|TLO-?CHIN|NE-?AHS-?JAH|CLA-?GI-?AIH|BI-?SO-?DIH|NE-?ZHONI|CA-?YEILTH|GAH|DAH-?NES-?TSA|AH-?LOSZ|DIBEH|KLESH|D-?AH|A-?WOH|THAN-?ZIE|SHI-?DA|NO-?DA-?IH|A-?KEH-?DI-?GLINI|GLOE-?IH|AL-?NA-?AS-?DZOH|TSAH-?AS-?ZIH|BESH-?DO-?TLIZ)", "ig");
+
+  var navajomap=[
+//["ALPHABET","NAVAJO WORD","LITERAL TRANSLATION"], 
+["A","WOL-LA-CHEE","ANT"], 
+["A","BE-LA-SANA","APPLE"], 
+["A","TSE-NILL","AXE"], 
+["B","NA-HASH-CHID","BADGER"], 
+["B","SHUSH","BEAR"], 
+["B","TOISH-JEH","BARREL"], 
+["C","MOASI","CAT"], 
+["C","TLA-GIN","COAL"], 
+["C","BA-GOSHI","COW"], 
+["D","BE","DEER"], 
+["D","CHINDI","DEVIL"], 
+["D","LHA-CHA-EH","DOG"], 
+["E","AH-JAH","EAR"], 
+["E","DZEH","ELK"], 
+["E","AH-NAH","EYE"], 
+["F","CHUO","FIR"], 
+["F","TSA-E-DONIN-EE","FLY"], 
+["F","MA-E","FOX"], 
+["G","AH-TAD","GIRL"], 
+["G","KLIZZIE","GOAT"], 
+["G","JEHA","GUM"], 
+["H","TSE-GAH","HAIR"], 
+["H","CHA","HAT"], 
+["H","LIN","HORSE"], 
+["I","TKIN","ICE"], 
+["I","YEH-HES","ITCH"], 
+["I","A-CHI","INTESTINE"], 
+["J","TKELE-CHO-G","JACKASS"], 
+["J","AH-YA-TSINNE","JAW"], 
+["J","YIL-DOI","JERK"], 
+["K","JAD-HO-LONI","KETTLE"], 
+["K","BA-AH-NE-DI-TININ","KEY"], 
+["K","KLIZZIE-YAZZIE","KID"], 
+["L","DIBEH-YAZZIE","LAMB"], 
+["L","AH-JAD","LEG"], 
+["L","NASH-DOIE-TSO","LION"], 
+["M","TSIN-TLITI","MATCH"], 
+["M","BE-TAS-TNI","MIRROR"], 
+["M","NA-AS-TSO-SI","MOUSE"], 
+["N","TSAH","NEEDLE"], 
+["N","A-CHIN","NOSE"], 
+["O","A-KHA","OIL"], 
+["O","TLO-CHIN","ONION"], 
+["O","NE-AHS-JAH","OWL"], 
+["P","CLA-GI-AIH","PANT"], 
+["P","BI-SO-DIH","PIG"], 
+["P","NE-ZHONI","PRETTY"], 
+["Q","CA-YEILTH","QUIVER"], 
+["R","GAH","RABBIT"], 
+["R","DAH-NES-TSA","RAM"], 
+["R","AH-LOSZ","RICE"], 
+["S","DIBEH","SHEEP"], 
+["S","KLESH","SNAKE"], 
+["T","D-AH","TEA"], 
+["T","A-WOH","TOOTH"], 
+["T","THAN-ZIE","TURKEY"], 
+["U","SHI-DA","UNCLE"], 
+["U","NO-DA-IH","UTE"], 
+["V","A-KEH-DI-GLINI","VICTOR"], 
+["W","GLOE-IH","WEASEL"], 
+["X","AL-NA-AS-DZOH","CROSS"], 
+["Y","TSAH-AS-ZIH","YUCCA"], 
+["Z","BESH-DO-TLIZ","ZINC"]
+  ];
+
+  navajomap.sort(function(a,b){
+        if( a[1].length > b[1].length ) return -1;
+        if( a[1].length < b[1].length ) return 1;
+        if( a[1] > b[1] ) return -1;
+        if( a[1] < b[1] ) return 1;
+        return 0;
+  });
+  
+  //navajomap.map(v => console.log(v));
+
+  if (mode=="encode") {
+    var astr = str.split("");
+    var result =[[],[]];
+    for (var i =0; i<astr.length; i++ ) {
+      for (var j in navajomap) {
+        var re = new RegExp(navajomap[j][0], "i");
+        if (astr[i].match(re)) {
+          result[0].push(navajomap[j][0]);
+          result[1].push(navajomap[j][1]);
+          break;
+        }
+      }
+    }
+    return result[1].join(",");
+
+  } else if (mode=="decode") {
+    var result = str;
+    for (var j in navajomap) {
+      var restr = navajomap[j][1].replace(/(\-)/g, "$1?");
+      var re = new RegExp(restr, "ig");
+      if (result.match(re)) {
+        result = result.replace(re, `<${navajomap[j][0]}>`);
+      }
+    }
+    if (result.match(/^\s*(<[^>]+>\s?)+$/)) {
+      result = result.replace(/^\s*(<.+>)\s*$/, "$1");
+      result = result.replace(/<([^>]+)>\s*/g, "$1");
+    }
+    return result;
+
+  } else if (mode=="check") {
+    var tmp = [];
+    if (str.match(renavajo)) {
+      tmp = str.match(renavajo);
+      tmp.sort(function(a,b){
+          if( a.length > b.length ) return -1;
+          if( a.length < b.length ) return 1;
+          if( a > b ) return -1;
+          if( a < b ) return 1;
+          return 0;
+      });
+    }
+
+    if (tmp.length >= 3 && tmp[2].length >= 4) {
+      return true;
+    } else {
+      return false;
+    }
+
+  } else {
+    return false;
+  }
+
+}
 
 // adfgvx暗号
 function adfgvx(str,key,mode) {
