@@ -9,6 +9,8 @@ function goKeywExchange() {
   var exL=[
   // ["","",""],
 //Visur Technology
+["deception","deception","欺瞞・欺騙・まやかし"],
+["Boca ?de ?Flon","deception","スペイン語で'Boca de Flon'と呼ばれる場所 → 'Deception Pass' https://en.wikipedia.org/wiki/Deception_Pass"],
 ["Visur ?(Technology)?","Visur Technology","ロシア人インターネット起業家イリヤ・ペヴソヴによって設立されたロシア系企業"],
 ["IQ ?Tech ?(Research)?","IQ Tech Research","防衛産業畑の米国企業でNIAと密接な関係を持つ"],
 ["hulong ?(Transglobal)?","Hulong Transglobal","正式名称：ヒューロン・トランスグローバル・インダストリーズ・コーポレーション 米国で教育を受けたキャサリン・ファン率いる中国系企業体"],
