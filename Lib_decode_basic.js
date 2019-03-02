@@ -2041,7 +2041,7 @@ function addKeyws() {
 
 //kw以外の注目ワードリスト(5文字以上を推奨)
 function noticeWords() {
-  return "January|February|March|April|May|June|July|August|September|October|November|December|COMBINE|siren|borrowed|good|evil|ifs".split("|");
+  return "January|February|March|April|May|June|July|August|September|October|November|December|COMBINE|siren|borrowed|good|evil".split("|");
 }
 
 
