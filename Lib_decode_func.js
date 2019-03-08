@@ -3268,7 +3268,7 @@ function semaphore(str) {
 //======================================
 
 // playfairデコード
-function playfairNew(str_0) {
+function playfair(str_0) {
   
   // Polybius square
   var  map=[
@@ -3380,7 +3380,7 @@ function playfairNew(str_0) {
 
 
 // playfairデコード
-function playfair(str) {
+function playfairOld(str) {
   if (str.length%2!=0) return str;
   
   // Polybius square
@@ -3477,7 +3477,7 @@ function playfair(str) {
 
 
 // playfairデコード
-function playfairOld(str) {
+function playfairOldOrd(str) {
   if (str.length%2!=0) return str;
   
   // Polybius square
