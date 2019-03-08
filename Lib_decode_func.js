@@ -3268,6 +3268,118 @@ function semaphore(str) {
 //======================================
 
 // playfairデコード
+function playfairNew(str_0) {
+  
+  // Polybius square
+  var  map=[
+    ["","","","","",""],
+    ["","a","b","c","d","e"],
+    ["","f","g","h","i","k"],
+    ["","l","m","n","o","p"],
+    ["","q","r","s","t","u"],
+    ["","v","w","x","y","z"]
+  ];
+  
+  var tmpResult=[];
+  var str = str_0;
+  str=str.replace(/[^a-z]/ig, "");
+  str=str.replace(/j/ig, "i");
+  for (var i in str) {
+    var matchFlag=0; //見つかったら1
+    for (var y=1; y<=5; y++) {
+      for (var x=1; x<=5; x++) {
+        var tmpRE=new RegExp(
+          map[y][x], "i");
+        if (str[i].match(tmpRE)) {
+            tmpResult.push([y,x]);
+            matchFlag=1;
+            break;
+        }
+      }
+      if (matchFlag) break;
+    }
+  }
+  
+  var result=[];
+  for (var i=0; i<tmpResult.length;i=i+2) {
+    // 2文字づつ
+    if (
+    tmpResult[i][0]==tmpResult[i+1][0] &&
+     tmpResult[i][1]==tmpResult[i+1][1]
+    ) {
+      //y軸もx軸も同じ(同じ文字)
+      var y=Number(tmpResult[i][0])-1;
+      var x=Number(tmpResult[i][1])-1;
+      if (y<1) y=5;
+      if (x<1) x=5;
+      result.push(map[y][x]); //1文字目
+      result.push(map[y][x]); //2文字目
+    } else if (
+      tmpResult[i][0]==tmpResult[i+1][0]
+    ) {
+      //y軸が同じ(同列)
+      var y=tmpResult[i][0];
+      var x=Number(tmpResult[i][1])-1;
+      if (x<1) x=5;
+      result.push(map[y][x]);
+      
+      y=tmpResult[i+1][0];
+      x=Number(tmpResult[i+1][1])-1;
+      if (x<1) x=5;
+      result.push(map[y][x]);
+    } else if (
+      tmpResult[i][1]==tmpResult[i+1][1]
+    ) {
+      //x軸が同じ(同行)
+      var y=Number(tmpResult[i][0])-1;
+      var x=tmpResult[i][1];
+      if (y<1) y=5;
+      result.push(map[y][x]);
+      
+      y=Number(tmpResult[i+1][0])-1;
+      x=tmpResult[i+1][1];
+      if (y<1) y=5;
+      result.push(map[y][x]);
+    } else {
+      var y=tmpResult[i][0];
+      var x=tmpResult[i+1][1];
+      result.push(map[y][x]);
+      
+      y=tmpResult[i+1][0];
+      x=tmpResult[i][1];
+      result.push(map[y][x]);
+    }
+  }
+  
+  // 連続する文字は間にxが挿入される
+  // ペアにならない場合は最後にxが追加される
+  for (var i=0; i<result.length-2; i+=2) {
+    if (
+      result[i]==result[i+2] && 
+      result[i+1].match(/x/i)
+    ) {
+      result[i+1]="\0";
+    }
+  }
+  
+  var res = .join("").replace(/\0/g, "");
+  var res2 = "";
+  var j=0;
+  for (var i=0; i<res.length; i++) {
+    if (str_0[j].match(/[^a-z]/i)) {
+      res2 += str_0[j];
+      i--;
+    } else {
+      res2 += res[i];
+    }
+    j++;
+  }
+
+  return res2.replace(/x$/i, "(x)");
+}
+
+
+// playfairデコード
 function playfair(str) {
   if (str.length%2!=0) return str;
   
@@ -3362,6 +3474,7 @@ function playfair(str) {
   }
   return result.join("").replace(/\0/g, "").replace(/x$/i, "(x)");
 }
+
 
 // playfairデコード
 function playfairOld(str) {
