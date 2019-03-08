@@ -3266,7 +3266,7 @@ function semaphore(str) {
 }
 
 //======================================
-
+/*
 // playfairデコード
 function playfairNew(str_0) {
   
@@ -3377,7 +3377,7 @@ function playfairNew(str_0) {
 
   return res2.replace(/x$/i, "(x)");
 }
-
+*/
 
 // playfairデコード
 function playfair(str) {
