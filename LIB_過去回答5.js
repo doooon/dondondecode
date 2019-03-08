@@ -3489,12 +3489,12 @@ if (
 }
 
 
-var phoneticRE=RegExp("Alfa|Alpha?|Bravo?|Char(lie)?|Delta?|Echo|Foxt(rot)?|Golf|Hotel?|India?|Juli(ett)?|Juli(et)?|Kilo|Lima|Mike|Nove(mber)?|Oscar?|Papa|Queb(ec)?|Romeo?|Sier(ra)?|Tango?|Unif(orm)?|Vict(or)?|Whis(key)?|(X-ray|Xray)|Yank(ee)?|Zulu","ig");
+var phoneticRE=RegExp("Alfa|Alpha?|Bravo?|Char(lie)?|Delta?|Echo|Foxt(rot)?|Golf|Hotel?|India?|Juli(ett?)?|Kilo|Lima|Mike|Nove(mber)?|Oscar?|Papa|Queb(ec)?|Romeo?|Sier(ra)?|Tango?|Unif(orm)?|Vict(or)?|Whis(key)?|(X-ray|Xray)|Yank(ee)?|Zulu","ig");
 
 function phonetic(str) {
-  var phoneticRE=RegExp("Alfa|Alpha?|Bravo?|Char(lie)?|Delta?|Echo|Foxt(rot)?|Golf|Hotel?|India?|Juli(ett)?|Juli(et)?|Kilo|Lima|Mike|Nove(mber)?|Oscar?|Papa|Queb(ec)?|Romeo?|Sier(ra)?|Tango?|Unif(orm)?|Vict(or)?|Whis(key)?|(X-ray|Xray)|Yank(ee)?|Zulu","ig");
+  var phoneticRE=RegExp("Alfa|Alpha?|Bravo?|Char(lie)?|Delta?|Echo|Foxt(rot)?|Golf|Hotel?|India?|Juli(ett?)?|Kilo|Lima|Mike|Nove(mber)?|Oscar?|Papa|Queb(ec)?|Romeo?|Sier(ra)?|Tango?|Unif(orm)?|Vict(or)?|Whis(key)?|(X-ray|Xray)|Yank(ee)?|Zulu","ig");
   
-  phoneticL=[["Alfa","A"],["Alpha?","A"],["Bravo?","B"],["Char(lie)?","C"],["Delta?","D"],["Echo","E"],["Foxt(rot)?","F"],["Golf","G"],["Hotel?","H"],["India?","I"],["Juli(ett)?","J"],["Juli(et)?","J"],["Kilo","K"],["Lima","L"],["Mike","M"],["Nove(mber)?","N"],["Oscar?","O"],["Papa","P"],["Queb(ec)?","Q"],["Romeo?","R"],["Sier(ra)?","S"],["Tango?","T"],["Unif(orm)?","U"],["Vict(or)?","V"],["Whis(key)?","W"],["(X-ray|Xray)","X"],["Yank(ee)?","Y"],["Zulu","Z"]];
+  phoneticL=[["Alfa","A"],["Alpha?","A"],["Bravo?","B"],["Char(lie)?","C"],["Delta?","D"],["Echo","E"],["Foxt(rot)?","F"],["Golf","G"],["Hotel?","H"],["India?","I"],["Juli(ett?)?","J"],["Kilo","K"],["Lima","L"],["Mike","M"],["Nove(mber)?","N"],["Oscar?","O"],["Papa","P"],["Queb(ec)?","Q"],["Romeo?","R"],["Sier(ra)?","S"],["Tango?","T"],["Unif(orm)?","U"],["Vict(or)?","V"],["Whis(key)?","W"],["(X-ray|Xray)","X"],["Yank(ee)?","Y"],["Zulu","Z"]];
   
   var tmp=str;
   var tmp2=str;
