@@ -2203,13 +2203,19 @@ if (TEXT.match(/^[a-z]+$/i)) {
    htmlTmp.push("===============");
 }
 
+
 // Playfair変換
 if (
-  TEXT.match(/^[a-z]+$/i) &&
-  TEXT.length%2==0
+  TEXT.replace(/[^a-z]/i, "").length%2==0 && 
+  TEXT.match(/[a-z]/i)
 ) {
   var r=playfair(TEXT);
-  htmlTmp.push("アルファベットのみでペアになる");
+  if (
+    TEXT.match(/^[a-z]+$/i) &&
+    TEXT.length%2==0
+  ) {
+    htmlTmp.push("アルファベットのみでペアになる");
+  }
   htmlTmp.push("<a name='playfair'><b>(Playfair)</b></a>");
   htmlCode(r);
   if (r.match(/i/i)) {
@@ -2227,6 +2233,7 @@ if (
   }
   htmlTmp.push("===============");
 }
+
 
 // semaphore セマフォ
 if (TEXT.match(/[1235679][12]?-[1235679][12]?(?=[\s/\\|]*)/g)) {
