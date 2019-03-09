@@ -1422,6 +1422,10 @@ function leetKeyws() {
     ["Akira","Tsukasa","登場人物 Akira Tsukasa"],
   */
 
+
+
+
+["k(50|L)[4A][6G][3E]?(50|L)[1i][3E]d","martin","Schäfers Klagelied > シューベルト作曲 >シューベルト繋がりで martin schubert"], 
  ["d[3E]c[3E]p[7T][1i][0o][Zn]","deception","leet"],
  ["Boca ?de ?Flon","deception","スペイン語で'Boca de Flon'と呼ばれる場所 → 'Deception Pass' https://en.wikipedia.org/wiki/Deception_Pass"],
  ["Visur ?(Technology)?","Visur Technology","ロシア人インターネット起業家イリヤ・ペヴソヴによって設立されたロシア系企業"],
