@@ -1903,7 +1903,9 @@ function getKeyws() {
   addkw.push("darzalas"); //勝手追加 2018/03/31
   addkw.push("chimera"); //勝手追加 2018/03/31
   addkw.push("prime"); //追加 2018/07/28 cassandra prime
-
+  addkw.push("osiris"); //勝手追加 2019/05/28
+  addkw.push("myriad"); //勝手追加 2019/05/28
+  addkw.push("umbra"); //勝手追加 2019/05/28
 
 
   addkw.push("cologne"); //一回きりかも2016/07/25
