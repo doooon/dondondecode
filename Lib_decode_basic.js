@@ -1889,8 +1889,7 @@ function getKeyws() {
   addkw.push("vialux"); //勝手に追加
   addkw.push("vianoir"); //勝手に追加
   addkw.push("lux"); //勝手に追加
-  addkw.push("jormungand");
-  //2017/01/14
+  addkw.push("jormungand"); //2017/01/14
   addkw.push("kodama"); //2017/01/20
   addkw.push("nova"); //2017/02/01
   addkw.push("cthulhu"); //2017/03/11
