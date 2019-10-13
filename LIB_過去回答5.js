@@ -2027,6 +2027,14 @@ if ((TEXT.match(/^([mdclxvi]+[\s\.,\/\\\|\-]?)+$/i) || TEXT.match(/^([nwxocer]+[
       tmp[i][0]+": "+tmp[i][1]);
     result.push(tmp[i][1]);
   }
+  /*
+  if(result.every(function(v){return v>=1 && v<=26})) {
+    htmlTmp.push("1〜26の組み合わせ");
+    var result=result.join(",");
+    htmlCode(result);
+    htmlTmp.push("----\n");
+  }
+  */
   htmlTmp.push("連結");
   var result=result.join("");
   htmlCode(result);

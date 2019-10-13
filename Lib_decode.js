@@ -2401,6 +2401,16 @@ function binbash(str) {
   return a.join("");
 }
 
+// 5bitバイナリから123toAZ
+function bin5toAZ(str) {
+  var a=str.match(/...../g);
+  var t=[];
+  for (var i=0; i<a.length; i++) {
+    t.push(binDec("000"+a[i]).replace(/^0/,''));
+  }
+  return t.join("");
+}
+
 // OctASCII
 //スペース区切りの8進コードから変換
 //区切りなしなら強制3桁で変換

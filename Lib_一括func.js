@@ -651,6 +651,27 @@ function goBinary(binstr) {
       binbash(strReverse(binstr))));
   }
   
+  // 5bitバイナリから123toAZ
+  if (binstr.length%5==0) {
+    htmlTmp.push("-----------------");
+    htmlTmp.push(
+      "<a name='bin5toAZ'><b>(5bitバイナリから123toAZ)</b></a>"); 
+      htmlTmp.push(
+      binstr.match(/.{5}/g).join(" "));
+    htmlCode(to123abcString(bin5toAZ(binstr)));
+    htmlTmp.push("----");
+    htmlTmp.push("(swap)"); 
+    htmlCode(to123abcString(bin5toAZ(
+      binbash(binstr))));
+    htmlTmp.push("(reverse)"); 
+    htmlCode(to123abcString(bin5toAZ(
+      strReverse(binstr))));
+    htmlTmp.push("(swap & reverse)"); 
+    htmlCode(to123abcString(bin5toAZ(
+      binbash(strReverse(binstr)))));
+    htmlTmp.push("-----------------");
+}
+    
   // braille
   if (binstr.length%6==0) {
     htmlTmp.push("<a name='braille'><b>(braille)</b></a>");

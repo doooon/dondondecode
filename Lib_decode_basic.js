@@ -202,10 +202,12 @@ function analyzeText(str) {
   result.push("HEX: 30-39(0-9), 41-5a(A-Z), 61-7a(a-z)");
   result.push("ローマ数字: 50→L, 100→C, 500→D, 1000→M");
   result.push("ローマ数字はゼロを表せない。(代わりの何かがあるかも)");
+  result.push("ローマ数字はゼロを表せない。(123toAZ)");
   result.push("3 →octが3桁");
   result.push("3 →morse");
   result.push("visiblity:none →morse");
   result.push("5 →morse数字");
+  result.push("5 →5bitで数字　(0〜31 → 00000~11111)");
   result.push("[a-z2-7=] %8 base32");
   result.push("[0-9a-v=] %8 base32hex");
   result.push("大文字小文字数字の6文字 →goo.gl/短縮url");
@@ -247,8 +249,9 @@ function analyzeText(str) {
   result.push("(よくあるLeet) 0o, 1iL, 2Z, 3E, 4A, 5vS, 6Gb, 7TL, 8B, 9gq, 10x, 100c, 500d, 1000m");
   result.push("(数字のみペアになる) 0, 8, 9が多い→ atbashで012が多い→ 012abc");
   result.push("使われている文字が8種類で文字数が偶数→semaphore");
-  result.push("5bit→baconian, baudot code, 5行AA");
+  result.push("5bit→baconian, baudot code, 5行AA, 000を足して0~31→123toAZ");
   result.push("6bit→braille");
+  result.push("7bit→7セグ");
   result.push("8bit→ASCII");
   result.push("reverseで意味を成すkw evil<>live");
   result.push("構成文字が同じkw elint<>intel");
@@ -1141,7 +1144,7 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
   }
 
   if (
-    str.length>60 &&
+    str.length>50 &&
     kouseimoji.length==2
   ) {
     if (str.length%8==0) {
@@ -1156,6 +1159,7 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
     } else if (str.length%5==0) {
       var n=str.length/5;
       alertMsg.push("<a href='#baconian'>バイナリからbaiconianの可能性 "+str.length+"文字 (5×"+n+"))</a>");
+      alertMsg.push("<a href='#bin5toAZ'>バイナリ数字(0~31 → 00000~11111)の可能性 "+str.length+"文字 (5×"+n+"))</a>");
     }
   }
 
