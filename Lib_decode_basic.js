@@ -411,7 +411,7 @@ function analyzeText(str) {
         "(ホントは文字数が8の倍数)、数字が0-9で大文字A-Vだけ若しくは小文字a-vだけなのでbase32hexの可能性あり");
     } else {
       alertMsg.push(
-        "<a href='#base32'>文字数が8の倍数、数字が0-9で大文字A-Vだけ若しくは小文字A-Vだけなのでbase32hexの可能性あり</a>");
+        "<a href='#base32hex'>文字数が8の倍数、数字が0-9で大文字A-Vだけ若しくは小文字A-Vだけなのでbase32hexの可能性あり</a>");
     }
   }
   // var tmpRE0=new RegExp(charlist[0]+charlist[0]);
