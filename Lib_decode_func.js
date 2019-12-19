@@ -4434,7 +4434,7 @@ function base32hexDec(str, targetbase) {
   map['U'] = '11110';
   map['V'] = '11111';
 
-  if (!str.match(/^[A-Z2-7]+=*$/i)) {
+  if (!str.match(/^[0-9A-V]+=*$/i)) {
     return " - ";
   }
   var tmp=[];

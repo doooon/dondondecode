@@ -225,7 +225,7 @@ function analyzeText(str) {
   result.push("Base64 旧daily 1文字目MNO");
   result.push("Base64 3文字を4文字で表現 [A-Za-z0-9+/]");
   result.push("Base32 5文字を8文字で表現 [A-Z2-7]");
-  result.push("Base32hex 5文字を8文字で表現 [A-V0-9]");
+  result.push("Base32hex 5文字を8文字で表現 [0-9A-V]");
   result.push("kw無し > destroy, separateなど、altタグならimageの内容やfile名、gryphは見当たらないか？");
   result.push("kw無し > aタグなら Link");
   result.push("kw空白 > space");
