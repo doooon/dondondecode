@@ -115,6 +115,8 @@ htmlTmp.push("(Base64 encode)");
 htmlCode(base64Enc(TEXT));
 htmlTmp.push("(Base32 encode)");
 htmlCode(base32Enc(TEXT));
+htmlTmp.push("(Base32hex encode)");
+htmlCode(base32hexEnc(TEXT));
 htmlTmp.push("===============");
 
 // 奇数偶数で抽出
@@ -922,6 +924,11 @@ if ((
   var tmp=base32Enc(base64Dec(b64TEXT, "2"),"2");
   htmlCode(tmp);
 
+  htmlTmp.push("<b>(base64 to base32hex)</b>");
+  htmlTmp.push(base64Dec(b64TEXT, "2"));
+  var tmp=base32hexEnc(base64Dec(b64TEXT, "2"),"2");
+  htmlCode(tmp);
+
   htmlTmp.push("===============");
 
   htmlTmp.push("(base64 index)");
@@ -1003,13 +1010,13 @@ if ((
 if (
   (
   (TEXT.match(
-    /^=*[A-Z0-9]+=*$/i)
+    /^=*[A-Z2-7]+=*$/)
     && TEXT.match(/[A-Z]/)
-    && TEXT.match(/[0-9]/)) ||
+    && TEXT.match(/[2-7]/)) ||
     (TEXT.match(
-    /^=*[A-Z0-9]+=*$/i)
+    /^=*[a-z2-7]+=*$/)
     && TEXT.match(/[a-z]/)
-    && TEXT.match(/[0-9]/)
+    && TEXT.match(/[2-7]/)
   )
   ) && 
   TEXT.length>=14
@@ -1068,6 +1075,80 @@ if (
 
   htmlTmp.push("<b>(base32 to base64)</b>");
   var tmp=base64Enc(base32Dec(str, "2"),"2");
+  htmlCode(tmp);
+  
+  htmlTmp.push("===============");
+}
+
+// base32hex
+if (
+  (
+  (TEXT.match(
+    /^=*[A-V0-9]+=*$/)
+    && TEXT.match(/[A-V]/)
+    && TEXT.match(/[0-9]/)) ||
+    (TEXT.match(
+    /^=*[a-v0-9]+=*$/)
+    && TEXT.match(/[a-v]/)
+    && TEXT.match(/[0-9]/)
+  )
+  ) && 
+  TEXT.length>=14
+) {
+  var str=TEXT.toUpperCase();
+  htmlTmp.push(str);
+  htmlTmp.push("<a name='base32hex'><b>(base32hex decode)</b></a>");
+  var tmp=base32hexDec(str);
+  htmlCode(tmp);
+  htmlTmp.push(
+    "(more base32hex)");
+  htmlCode(base32hexDec(tmp));
+  tmp=strReverse(tmp);
+  htmlTmp.push(
+    "(more reverse base32hex)");
+  htmlCode(base32hexDec(tmp));
+  
+  htmlTmp.push("(reverse>>base32hex)");
+  var tmp=base32hexDec(
+    strReverse(str));
+  htmlCode(tmp);
+     
+  htmlTmp.push("(atbash>>base32hex)");
+  var tmp=base32hexDec(atbash19(str));
+  htmlCode(tmp);
+  htmlTmp.push("(more atbash)");
+  htmlCode(atbash19(tmp));
+  
+  htmlTmp.push(
+    "(atbash>>reverse>>base32hex)");
+  var tmp=base32hexDec(
+    strReverse(atbash19(str)));
+  htmlCode(tmp);
+  htmlTmp.push(
+    "(more atbash reverse)");
+  htmlCode(strReverse(atbash19(tmp)));
+
+
+  htmlTmp.push("-----------");
+
+  htmlTmp.push("<b>(base32hex to bin)</b>");
+  var tmp=base32hexDec(str, "2");
+  htmlCode(tmp);
+
+  htmlTmp.push("<b>(base32hex to oct)</b>");
+  var tmp=base32hexDec(str, "8");
+  htmlCode(tmp);
+
+  htmlTmp.push("<b>(base32hex to dec)</b>");
+  var tmp=base32hexDec(str, "10");
+  htmlCode(tmp);
+
+  htmlTmp.push("<b>(base32hex to hex)</b>");
+  var tmp=base32hexDec(str, "16");
+  htmlCode(tmp);
+
+  htmlTmp.push("<b>(base32hex to base64)</b>");
+  var tmp=base64Enc(base32hexDec(str, "2"),"2");
   htmlCode(tmp);
   
   htmlTmp.push("===============");

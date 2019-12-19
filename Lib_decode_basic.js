@@ -377,11 +377,11 @@ function analyzeText(str) {
     (
       strNoSpace.match(/^[A-Z2-7=]+$/)
       && strNoSpace.match(/[A-Z]/)
-      && strNoSpace.match(/[0-9]/)
+      && strNoSpace.match(/[2-7]/)
     ) || (
       strNoSpace.match(/^[a-z2-7=]+$/)
       && strNoSpace.match(/[a-z]/)
-      && strNoSpace.match(/[0-9]/)
+      && strNoSpace.match(/[2-7]/)
     )
     ) && strNoSpace.length>=14
   ) {
@@ -391,6 +391,27 @@ function analyzeText(str) {
     } else {
       alertMsg.push(
         "<a href='#base32'>文字数が8の倍数、数字が2-7で大文字だけ若しくは小文字だけなのでbase32の可能性あり</a>");
+    }
+  }
+  if (
+    (
+    (
+      strNoSpace.match(/^[A-V0-9=]+$/)
+      && strNoSpace.match(/[A-V]/)
+      && strNoSpace.match(/[0-9]/)
+    ) || (
+      strNoSpace.match(/^[a-v0-9=]+$/)
+      && strNoSpace.match(/[a-v]/)
+      && strNoSpace.match(/[0-9]/)
+    )
+    ) && strNoSpace.length>=14
+  ) {
+    if (strNoSpace.length%8!=0) {
+      alertMsg.push(
+        "(ホントは文字数が8の倍数)、数字が0-9で大文字A-Vだけ若しくは小文字a-vだけなのでbase32hexの可能性あり");
+    } else {
+      alertMsg.push(
+        "<a href='#base32'>文字数が8の倍数、数字が0-9で大文字A-Vだけ若しくは小文字A-Vだけなのでbase32hexの可能性あり</a>");
     }
   }
   // var tmpRE0=new RegExp(charlist[0]+charlist[0]);

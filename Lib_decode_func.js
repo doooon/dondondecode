@@ -4395,6 +4395,200 @@ function base32Enc(str, inBase) {
 
 //======================================
 
+//base32hexデコード
+function base32hexDec(str, targetbase) {
+  var map = {};
+  map['0'] = '00000';
+  map['1'] = '00001';
+  map['2'] = '00010';
+  map['3'] = '00011';
+  map['4'] = '00100';
+  map['5'] = '00101';
+  map['6'] = '00110';
+  map['7'] = '00111';
+
+  map['8'] = '01000';
+  map['9'] = '01001';
+  map['A'] = '01010';
+  map['B'] = '01011';
+  map['C'] = '01100';
+  map['D'] = '01101';
+  map['E'] = '01110';
+  map['F'] = '01111';
+
+  map['G'] = '10000';
+  map['H'] = '10001';
+  map['I'] = '10010';
+  map['J'] = '10011';
+  map['K'] = '10100';
+  map['L'] = '10101';
+  map['M'] = '10110';
+  map['N'] = '10111';
+
+  map['O'] = '11000';
+  map['P'] = '11001';
+  map['Q'] = '11010';
+  map['R'] = '11011';
+  map['S'] = '11100';
+  map['T'] = '11101';
+  map['U'] = '11110';
+  map['V'] = '11111';
+
+  if (!str.match(/^[A-Z2-7]+=*$/i)) {
+    return " - ";
+  }
+  var tmp=[];
+  for (var i in str) {
+    if (str[i]=="=") break;
+    var b32RE=new RegExp(str[i],"i");
+    for (var j in map) {
+      if (j.match(b32RE)) {
+        tmp.push(map[j]);
+        break;
+      }
+    }
+  }
+  
+  if (targetbase   
+    && targetbase.match(/^\d+$/)
+  ) {
+    var result=[];
+    var tmp2=tmp.join("").match(/.{8}/g);
+    for (var i in tmp2) {
+      if (targetbase=="2") {
+        result.push(tmp2[i]);
+      } else {
+        var tmpN=parseInt(tmp2[i], 2).toString(Number(targetbase));
+        if (targetbase=="8") {
+          tmpN=(100+tmpN);
+          result.push(String(tmpN).split("").slice(-3).join(""));
+        }
+        else if (targetbase=="10") {
+          tmpN=(100+tmpN);
+          result.push(String(tmpN).split("").slice(-3).join(""));
+        }
+        else if (targetbase=="16") {
+          tmpN=(10+tmpN);
+          result.push(String(tmpN).split("").slice(-2).join(""));
+        }
+      }
+    }
+    return result.join(" ");
+  } else {
+    return binASCII(tmp.join(""));
+  }
+  
+}
+
+//======================================
+
+//base32エンコード(入力時base指定可)
+function base32hexEnc(str, inBase) {
+  if (str.match(/^\s*$/)) return str;
+  
+  var map = {};
+  map['0'] = '00000';
+  map['1'] = '00001';
+  map['2'] = '00010';
+  map['3'] = '00011';
+  map['4'] = '00100';
+  map['5'] = '00101';
+  map['6'] = '00110';
+  map['7'] = '00111';
+
+  map['8'] = '01000';
+  map['9'] = '01001';
+  map['A'] = '01010';
+  map['B'] = '01011';
+  map['C'] = '01100';
+  map['D'] = '01101';
+  map['E'] = '01110';
+  map['F'] = '01111';
+
+  map['G'] = '10000';
+  map['H'] = '10001';
+  map['I'] = '10010';
+  map['J'] = '10011';
+  map['K'] = '10100';
+  map['L'] = '10101';
+  map['M'] = '10110';
+  map['N'] = '10111';
+
+  map['O'] = '11000';
+  map['P'] = '11001';
+  map['Q'] = '11010';
+  map['R'] = '11011';
+  map['S'] = '11100';
+  map['T'] = '11101';
+  map['U'] = '11110';
+  map['V'] = '11111';
+
+  function nBase2bin(myStr, base) {
+    if (
+      base && base.match(/^(8|10|16)$/)
+    ) {
+      var bin=
+        parseInt(myStr, base).toString(2);
+      bin=(100000000+Number(bin))+"";
+      return bin.split("").slice(1,9).join("");
+    } else {
+      return String(
+        100000000+Number(
+          myStr.charCodeAt(0).toString(2))
+      ).split("").slice(1,9).join("");
+    }
+  }
+
+  var tmp=[];
+  str=str.replace(/\s+/g, "");
+
+  if (inBase && inBase.match(/^2$/)) { 
+    tmp.push(str);
+  } else if (inBase && inBase.match(/^16$/)) {
+    for (var i=0; i<str.length; i++) {
+      tmp.push(nBase2bin(
+        str[i]+str[i+1], inBase));
+      i++;
+    }
+  } else if (inBase && inBase.match(/^(8|10)$/)) {
+    for (var i=0; i<str.length; i++) {
+      tmp.push(nBase2bin(
+        str[i]+str[i+1]+str[i+2], inBase));
+      i++;
+      i++;
+    }
+  } else {
+      for (var i in str) {
+        tmp.push(
+          nBase2bin(str[i], inBase));
+      }
+  }
+ 
+  var tmpL=tmp.join("").match(/.{1,5}/g);
+
+  var tmpLastStr=tmpL[tmpL.length-1].split("").length;
+  if (tmpLastStr<5) {
+    for (var i=tmpLastStr; i<5; i++) {
+      tmpL[tmpL.length-1]="0"+tmpL[tmpL.length-1];
+    }
+  }
+
+  for (var i in tmpL) {
+    tmpL[i]=map[tmpL[i]];
+  }
+
+  if ((tmpL.length%8)>0) {
+    for (var i=(tmpL.length%8); i<8; i++) {
+      tmpL.push("=");
+    }
+  }
+
+  return tmpL.join("");
+}
+
+
+//======================================
+
 // ヴィジュネルautokeyエンコード
 function vigenereAutoEnc(phrase, key, reverseFlag) {
   if (key=="") return phrase;
