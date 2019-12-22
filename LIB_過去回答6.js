@@ -2254,7 +2254,7 @@ if (
 // abc123bash
 //CBGDGFFDCEF2FIGZ3FIFP5GHCICDCCGA
 if (
-  TEXT.match(/^[a-z1-9]+$/i) && 
+  TEXT.match(/^[a-z0-9]+$/i) && 
   kouseimoji.length>=3
 ) {
   htmlTmp.push(TEXT);
