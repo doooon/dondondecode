@@ -3300,6 +3300,8 @@ function playfair(str_0) {
     }
   }
   
+  debug(tmpResult)
+  
   var result=[];
   for (var i=0; i<tmpResult.length;i=i+2) {
     // 2文字づつ
