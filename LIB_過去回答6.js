@@ -2523,7 +2523,7 @@ if (
   }
   
   htmlTmp.push(result.join("\n"));
-  htmlCode(result.join(''));
+  htmlCode(result2.join(' '));
 
   htmlTmp.push("==============");
 }
