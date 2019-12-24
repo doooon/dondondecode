@@ -5343,4 +5343,56 @@ function morseSwap(str) {
 
 //======================================
 
+// レーベンシュタイン距離を計算する
+function levenshteinDistance(str1, str2) {
+  let len1 = str1.length;
+  let len2 = str2.length;
+  
+  // len1 x len2 の 二次元配列を用意して初期化 
+  let dp = new Array(len1+1);
+  for (let i=0; i<=len1; i++) {
+    dp[i] = new Array(len2+1).fill(0);
+  }
+
+  /*
+      s t r 1
+    0 1 2 3 4
+  s 1 * * * *
+  t 2 * * * *
+  r 3 * * * *
+  2 4 * * * *
+  */
+
+  // 空文字からの「距離」をセット
+  for (let i=0; i<=len1; i++) {
+    dp[i][0] = i;
+  }
+  for (let i=0; i<=len2; i++) {
+    dp[0][i] = i;
+  }
+ 
+  // 距離を計算
+  let cost = 0;
+  for (let i=1; i<=len1; i++) {
+    for (let j=1; j<=len2; j++) {
+      cost = str1[i-1] == str2[j-1] ? 0 : 1;
+
+      dp[i][j] = Math.min(
+        dp[i-1][j]+1,       // insertion
+        dp[i][j-1]+1,       // deletion
+        dp[i-1][j-1]+cost   // replacement
+      )
+    }
+  }
+
+  // 配列の最後の数字がレーベンシュタイン距離になる
+  if (dp[len1][len2] > 99) {
+    return dp[len1][len2];
+  } else {
+    return ('0'+dp[len1][len2]).slice(-2);
+  }
+}
+
+//======================================
+
 

@@ -2495,6 +2495,39 @@ if (
   htmlTmp.push("==============");
 }
 
+
+
+// レーベンシュタイン距離で012ABC
+if (
+  TEXT.match(/^(\w+\s+)+\w+$/)  
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>(レーベンシュタイン距離で012ABC)</b>");
+  htmlTmp.push("Levenshtein distance (edit distance)");
+  
+  var result = [];
+  var result2 = [];
+  var tmp = TEXT.split(/\s+/g);
+
+  for (let j in tmp) {
+    let rslt = "";
+    if (j==0) {
+      rslt = levenshteinDistance('',tmp[j]);
+      result.push(rslt+": "+"' ', "+tmp[j]);
+      result2.push(rslt)
+    } else {
+      rslt = levenshteinDistance(tmp[j-1],tmp[j]);
+      result.push(rslt+": "+tmp[j-1]+", "+tmp[j]);
+      result2.push(rslt)
+    }
+  }
+  
+  htmlTmp.push(result.join("\n"));
+  htmlCode(result.join(''));
+
+  htmlTmp.push("==============");
+}
+
 /*
 // n×ローマ数字+
 // 57md2cv2i77mclvi72md2cxcix7m2cl2xix90mdvi75mcl3x3i
