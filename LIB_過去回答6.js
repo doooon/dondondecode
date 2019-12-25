@@ -2525,11 +2525,9 @@ if (
   htmlTmp.push(result.join("\n"));
   htmlTmp.push(result2.join(" "));
   htmlTmp.push("(012abc)");
-  htmlTmp.push(to012abcString(result2.join(" ")));
-  htmlCode(to012abc(result2.join("")));
+  htmlCode(to012abcString(result2.join(" ")));
   htmlTmp.push("(123abc)");
-  htmlTmp.push(to123abcString(result2.join(" ")));
-  htmlCode(to123abc(result2.join("")));
+  htmlCode(to123abcString(result2.join(" ")));
 
 
   htmlTmp.push("==============");
