@@ -5,6 +5,19 @@
 
 //======================================
 
+/*
+try{
+  console.log("定義していないundefinedFuncを使用します")
+  undefinedFunc() // err 発生
+  throw new Error("err 発生させる");
+} catch(err) {
+  console.log("エラーが発生しました")
+  console.log(err.name)
+  console.log(err.message)
+} finally {
+  console.log("例外の有無に関わらず実行")
+}
+*/
 
 // navajo code (ナバホ族の言葉を利用した置換)
 function navajo(str,mode='decode') {
@@ -567,17 +580,20 @@ function rectSlide(rect,xy,val) {
   
   //スライド値を全て用意
   var valL=val.split(/,/g);
+
   if (valL.length<maxLength) {
     var n=maxLength-valL.length;
     for (var j=0; j<n; j++) { valL.push("0"); }
   } else if (valL.length>maxLength) {
     var n=valL.length-maxLength;
     valL.splice(maxLength-1, n,);
+    console.log(valL);
   }
-  
+
   // y方向なら縦横入れ替え
   if (xy.match(/y/i)) tmpL=rectReflect(tmpL,"text");
   
+
   // スライド実行
   for (var i in tmpL) {
 
@@ -3270,6 +3286,8 @@ function semaphore(str) {
 // playfairデコード
 function playfair(str_0) {
   
+  try{
+  
   // Polybius square
   var  map=[
     ["","","","","",""],
@@ -3280,6 +3298,21 @@ function playfair(str_0) {
     ["","v","w","x","y","z"]
   ];
   
+  // 大文字小文字スペースを保存(U,L,S)
+  let uls = str_0.map(v,
+    function(v){
+      let rst = "";
+      if(v.match(/[a-z]/)){
+        rst = "L";
+      } else if(v.match(/[A-Z]/)){
+        rst = "U";
+      } else if(v.match(/\s/)){
+        rst = "S";
+      }
+      return v;
+    }
+  );
+
   var tmpResult=[];
   var str = str_0;
   str=str.replace(/[^a-z]/ig, "");
@@ -3300,16 +3333,15 @@ function playfair(str_0) {
     }
   }
   
-  debug(tmpResult)
-  return "";
+  console.log(tmpResult);
 
   var result=[];
   for (var i=0; i<tmpResult.length;i=i+2) {
+    console.log("i: "+i)
+    console.log(tmpResult[i][0] + "\n" + tmpResult[i+1][0] + "\n" + tmpResult[i][1] + "\n" + tmpResult[i+1][1]);
+
     // 2文字づつ
-    if (
-    tmpResult[i][0]==tmpResult[i+1][0] &&
-     tmpResult[i][1]==tmpResult[i+1][1]
-    ) {
+    if (tmpResult[i][0]==tmpResult[i+1][0] && tmpResult[i][1]==tmpResult[i+1][1]) {
       //y軸もx軸も同じ(同じ文字)
       var y=Number(tmpResult[i][0])-1;
       var x=Number(tmpResult[i][1])-1;
@@ -3317,9 +3349,7 @@ function playfair(str_0) {
       if (x<1) x=5;
       result.push(map[y][x]); //1文字目
       result.push(map[y][x]); //2文字目
-    } else if (
-      tmpResult[i][0]==tmpResult[i+1][0]
-    ) {
+    } else if (tmpResult[i][0]==tmpResult[i+1][0]) {
       //y軸が同じ(同列)
       var y=tmpResult[i][0];
       var x=Number(tmpResult[i][1])-1;
@@ -3330,9 +3360,7 @@ function playfair(str_0) {
       x=Number(tmpResult[i+1][1])-1;
       if (x<1) x=5;
       result.push(map[y][x]);
-    } else if (
-      tmpResult[i][1]==tmpResult[i+1][1]
-    ) {
+    } else if (tmpResult[i][1]==tmpResult[i+1][1]) {
       //x軸が同じ(同行)
       var y=Number(tmpResult[i][0])-1;
       var x=tmpResult[i][1];
@@ -3354,6 +3382,9 @@ function playfair(str_0) {
     }
   }
   
+  console.log("result");
+  console.log(result);
+
   // 連続する文字は間にxが挿入される
   // ペアにならない場合は最後にxが追加される
   for (var i=0; i<result.length-2; i+=2) {
@@ -3377,11 +3408,20 @@ function playfair(str_0) {
     }
     j++;
   }
-
+  
   return res2.replace(/x$/i, "(x)");
+
+  } catch(err) {
+    console.log("エラーが発生しました")
+    console.log(err.name)
+    console.log(err.message)
+    debug("エラーが発生しました\n"+err.name+"\n"+err.message);
+    return "";
+  }
+
 }
 
-
+/*
 // playfairデコード
 function playfairOld(str) {
   if (str.length%2!=0) return str;
@@ -3417,10 +3457,7 @@ function playfairOld(str) {
   var result=[];
   for (var i=0; i<tmpResult.length;i=i+2) {
     // 2文字づつ
-    if (
-    tmpResult[i][0]==tmpResult[i+1][0] &&
-     tmpResult[i][1]==tmpResult[i+1][1]
-    ) {
+    if (tmpResult[i][0]==tmpResult[i+1][0] && tmpResult[i][1]==tmpResult[i+1][1]) {
       //y軸もx軸も同じ(同じ文字)
       var y=Number(tmpResult[i][0])-1;
       var x=Number(tmpResult[i][1])-1;
@@ -3428,9 +3465,7 @@ function playfairOld(str) {
       if (x<1) x=5;
       result.push(map[y][x]); //1文字目
       result.push(map[y][x]); //2文字目
-    } else if (
-      tmpResult[i][0]==tmpResult[i+1][0]
-    ) {
+    } else if (tmpResult[i][0]==tmpResult[i+1][0]) {
       //y軸が同じ(同列)
       var y=tmpResult[i][0];
       var x=Number(tmpResult[i][1])-1;
@@ -3441,9 +3476,7 @@ function playfairOld(str) {
       x=Number(tmpResult[i+1][1])-1;
       if (x<1) x=5;
       result.push(map[y][x]);
-    } else if (
-      tmpResult[i][1]==tmpResult[i+1][1]
-    ) {
+    } else if (tmpResult[i][1]==tmpResult[i+1][1]) {
       //x軸が同じ(同行)
       var y=Number(tmpResult[i][0])-1;
       var x=tmpResult[i][1];
@@ -3477,8 +3510,10 @@ function playfairOld(str) {
   }
   return result.join("").replace(/\0/g, "").replace(/x$/i, "(x)");
 }
+*/
 
 
+/*
 // playfairデコード
 function playfairOldOrd(str) {
   if (str.length%2!=0) return str;
@@ -3555,6 +3590,7 @@ function playfairOldOrd(str) {
   // ペアにならない場合は最後にxが追加される
   return result.join("").replace(/(.)x(\1)/ig, "$1$2").replace(/x$/i, "(x)");
 }
+*/
 
 //======================================
 

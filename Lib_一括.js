@@ -2287,8 +2287,9 @@ if (TEXT.match(/^[a-z]+$/i)) {
 
 // Playfair変換
 if (
-  TEXT.replace(/[^a-z]/i, "").length%2==0 && 
-  TEXT.match(/[a-z]/i)
+  TEXT.replace(/[^a-z]/ig, "").length%2==0 && 
+  TEXT.match(/[a-z]/i) && 
+  TEXT.match(/^[a-zA-Z ]+$/)
 ) {
   var r=playfair(TEXT);
   if (

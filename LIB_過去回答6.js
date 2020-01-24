@@ -958,6 +958,7 @@ if (
 if (
   TEXT.match(/^\w+$/) && 
   TEXT.length%3==0 &&
+  TEXT.length >= 9 &&
   kouseimoji.length>=4 &&
   TEXT.length<40
 ) {
@@ -974,7 +975,7 @@ if (
     var tmpNew=rectSlide(tmp.join("\n"),"y","+"+i+",-"+i+",+"+i);
     htmlTmp.push(tmpNew);
     htmlCode(tmpNew.split(/\n/g).join(""));
-    htmlTmp.push("--------------");
+    htmlTmp.push("- - - - - - - -");
 
     htmlTmp.push("<b>(3列 縦に-"+i+",+"+i+",-"+i+"スライド)</b>");
     var tmpNew=rectSlide(tmp.join("\n"),"y","-"+i+",+"+i+",-"+i);
@@ -990,6 +991,7 @@ if (
 if (
   TEXT.match(/^\w+$/) && 
   TEXT.length%3==0 &&
+  TEXT.length >= 9 &&
   kouseimoji.length>=4 &&
   TEXT.length<40
 ) {
@@ -1006,7 +1008,7 @@ if (
     var tmpNew=rectSlide(tmp.join("\n"),"x","+"+i+",-"+i+",+"+i);
     htmlTmp.push(tmpNew);
     htmlCode(tmpNew.split(/\n/g).join(""));
-    htmlTmp.push("--------------");
+    htmlTmp.push("- - - - - - - -");
 
     htmlTmp.push("<b>(3行 横に-"+i+",+"+i+",-"+i+"スライド)</b>");
     var tmpNew=rectSlide(tmp.join("\n"),"x","-"+i+",+"+i+",-"+i);
