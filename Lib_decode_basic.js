@@ -1363,7 +1363,11 @@ if (
 }
 
 
-
+// List of Egyptian Major deities エジプト神
+var tmp = EgyptianMajordeities(str);
+if (tmp && tmp.length>=6) {
+  alertMsg.push("<a href='#EgyptianMajorDeities'>「エジプト神」が複数含まれる</a><br>性別が男性・女性・両性の3種類に分かれる");
+}
 
 
 

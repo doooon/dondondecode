@@ -28,6 +28,34 @@ if (
 */
 
 
+// List of Egyptian Major deities エジプト神
+// からの性別分けでモールス
+var tmp = EgyptianMajordeities(TEXT);
+if (tmp && tmp.length>=6) {
+  htmlTmp.push(TEXT);
+  htmlTmp. push("<b>( <a name='EgyptianMajorDeities'>「エジプト神」が複数含まれる</a><br>性別が男性・女性・両性の3種類に分かれる)</b>");
+  var tmp0 = [];
+  var tmp1 = [];
+  tmp.forEach(val=>{
+    tmp0.push(val[0]);
+    tmp1.push(val[1]);
+  });
+  htmlTmp.push(tmp0.join(" "));
+  htmlTmp.push(tmp1.join(" "));
+  tmp1 = tmp1.map(x=>{
+    return x[0];
+  });
+  let renketsu = tmp1.join("");
+  htmlTmp.push(renketsu);
+  if(!renketsu.match(/bb/)){ //bbは連続しないハズ
+    renketsu = renketsu.replace(/b/g, " ").replace(/m/g, "-").replace(/f/g, ".");
+    htmlTmp.push(renketsu);
+    htmlCode(goMorse(renketsu));
+    htmlTmp.push("==============");
+  }
+}
+
+
 // navajo ナバホ族の言語を利用したコード置換
 if (
   TEXT.match(/[a-z]/i) && 
