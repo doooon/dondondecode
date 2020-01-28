@@ -2207,7 +2207,7 @@ if (TEXT.length%2==0
     myText.match(/../g).join(" "));
   // polybius変換
   var r=polybius(myText);
-  htmlTmp.push("1～5を使ったペアになる");
+  htmlTmp.push("<a name='polybius'>1～5を使ったペアになる");
   htmlTmp.push("<b>(polybius)</b>");
   htmlTmp.push("invalidなら文字数字やkwのi以外をjにしてみよう！！");
   htmlCode(r);
