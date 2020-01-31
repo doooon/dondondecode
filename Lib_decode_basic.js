@@ -1935,6 +1935,7 @@ function getKeyws() {
   addkw.push("myriad"); //勝手追加 2019/05/28
   addkw.push("umbra"); //勝手追加 2019/05/28
   addkw.push("nemesis"); //勝手追加 2019/06/20
+  addkw.push("sculpture"); //使用された 2020/01/29
 
   addkw.push("cologne"); //一回きりかも2016/07/25
   addkw.push("singapore"); //一回きりかも2016/07/25
