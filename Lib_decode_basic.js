@@ -1453,8 +1453,7 @@ function leetKeyws() {
 
 
 
-
-["k(50|L)[4A][6G][3E]?(50|L)[1i][3E]d","martin","Schäfers Klagelied > シューベルト作曲 >シューベルト繋がりで martin schubert"], 
+ ["k(50|L)[4A][6G][3E]?(50|L)[1i][3E]d","martin","Schäfers Klagelied > シューベルト作曲 >シューベルト繋がりで martin schubert"], 
  ["d[3E]c[3E]p[7T][1i][0o][Zn]","deception","leet"],
  ["Boca ?de ?Flon","deception","スペイン語で'Boca de Flon'と呼ばれる場所 → 'Deception Pass' https://en.wikipedia.org/wiki/Deception_Pass"],
  ["Visur ?(Technology)?","Visur Technology","ロシア人インターネット起業家イリヤ・ペヴソヴによって設立されたロシア系企業"],
@@ -1501,6 +1500,7 @@ function leetKeyws() {
  ["theimaginationofourselves", "dream", "事例あり"],
  ["Beautifulfriend", "end", "This is the end Beautiful friend で始まるDoorsのThe endという歌"],
 
+["[1i]nq[4A]mu{1i}r[3E]","inqamuire","leet"],
 ["rtist","artist","同音"], 
 ["[1i][3m]pur[3E]","impure","leet"], 
 ["[zn][3E][3w]","new","leet"], 
@@ -1939,6 +1939,8 @@ function getKeyws() {
   addkw.push("cologne"); //一回きりかも2016/07/25
   addkw.push("singapore"); //一回きりかも2016/07/25
   addkw.push("denver"); //一回きりかも2016/07/25
+  addkw.push("NicolasFlame"); //一回きりかも2020/02/10
+  addkw.push("inqamuire"); //一回きりかも2020/02/17
 
   addkw.push("sustain"); //候補
   Array.prototype.push.apply(

@@ -8,6 +8,7 @@ function goKeywExchange() {
 
   var exL=[
   // ["","",""],
+
 ["k(50|L)[4A][6G][3E]?(50|L)[1i][3E]d","martin","Schäfers Klagelied > シューベルト作曲 >シューベルト繋がりで martin schubert"], 
 ["d[3E]c[3E]p[7T][1i][0o][Zn]","deception","leet"],
 ["deception","deception","欺瞞・欺騙・まやかし"],
@@ -144,6 +145,10 @@ function goKeywExchange() {
 ["ru[6b8B][1i]c[0o]n","rubicon","leet"], 
 ["[4A][6b8B][4A]dd[0o]n","abaddon","leet"], 
 ["ph[0o][7T][1i]n[7T]","photint","leet"], 
+
+
+["NicolasFlame","NicolasFlame","錬金術に関係し、金属変成や、賢者の石の製造に成功したという伝説がある"], 
+["inqamuire","inqamuire","調べる、調査する"], 
 ["lovelace","lovelace","世界初のプログラマーと呼ばれる'エイダ・ラブレース'"], 
 ["shonin","shonin","2015 Shōnin (-1 darsana / +1 Persepolis"], 
 ["numinous","numinous","超自然的"], 
