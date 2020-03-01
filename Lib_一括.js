@@ -2336,6 +2336,8 @@ if (TEXT.replace(/\s+/g,"").length%2==0
   }
   
   htmlTmp.push("===============");
+} else {
+  debug("polybius拡張版変換");
 }
 
 
