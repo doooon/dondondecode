@@ -5217,7 +5217,7 @@ function polybiusNumAZ10(str) {
   map[0]=[];
   map[1]=" abcdef".split("");
   map[2]=" ghijkl".split("");
-  map[3]=" mnopqq".split("");
+  map[3]=" mnopqr".split("");
   map[4]=" stuvwx".split("");
   map[5]=" yz1234".split("");
   map[6]=" 567890".split("");
@@ -5239,7 +5239,7 @@ function polybiusNumAZ09(str) {
   map[0]=[];
   map[1]=" abcdef".split("");
   map[2]=" ghijkl".split("");
-  map[3]=" mnopqq".split("");
+  map[3]=" mnopqr".split("");
   map[4]=" stuvwx".split("");
   map[5]=" yz0123".split("");
   map[6]=" 456789".split("");
