@@ -312,6 +312,12 @@ function analyzeText(str) {
     alertMsg.push(
       "<a href='#polybius'>構成文字が1-5のみでペアになる。polybiusかも</a>");
   }
+  if (strNoSpace.match(
+    /^[1-6]+$/i)
+    && strNoSpace.length%2==0) {
+    alertMsg.push(
+      "<a href='#polybius'>構成文字が1-6のみでペアになる。polybius拡張版(数字を含む36文字)かも</a>");
+  }
   if (
     strNoSpace[4]&&
     strNoSpace[4].match(/[NMO]/i)
@@ -1053,6 +1059,9 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
   if (str.match(/^([5-9][5-9]){6,}$/i)) {
     alertMsg.push("atbashすると、1〜5のペア。polybius");
   }
+  if (str.match(/^([1-6][1-6]){6,}$/i)) {
+    alertMsg.push("1〜6のペア。polybiusの拡張版(数字を含む36文字)");
+  }
   if (
     str.match(/^[(\\\/_)\s]{15,}$/) &&
     str.match(/[(]/) &&
@@ -1268,9 +1277,9 @@ if (str.match(/\d+[.\/\\\-|,%]\d+/g)) {
   ) {
     if(tmp.match(/^[12345]{25,}$/i) &&
       tmp.length%2==0) {
-      alertMsg.push("<a href='#'>abc012で1〜5のみでペアになる > polybiusか？</a>");
+      alertMsg.push("<a href='#polybius'>abc012で1〜5のみでペアになる > polybiusか？</a>");
     } else if(tmp.match(/^[123456]{25,}$/i) && tmp.split("").reduce((val,e)=>Number(e)+Number(val))%8==0) {
-      alertMsg.push("<a href='#'>abc012で1〜6のみ。合計が8で割れるから、RLDからbinASCIIかも。</a>");
+      alertMsg.push("<a href='#RLD'>abc012で1〜6のみ。合計が8で割れるから、RLDからbinASCIIかも。</a>");
     }
   }
 

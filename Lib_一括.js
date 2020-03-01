@@ -2185,7 +2185,7 @@ if (TEXT.match(
 }
 
 // polybius変換
-if (TEXT.length%2==0
+if (TEXT.replace(/\s+/g,"").length%2==0
   &&  TEXT.match(/^([1-5\s]+|[0-4\s]+|[1-5\s]+|[2-6\s]+)$/)) {
   var myText="";
   if (TEXT.match(/^[0-4\s]+$/)) {
@@ -2229,6 +2229,116 @@ if (TEXT.length%2==0
   }
   htmlTmp.push("===============");
 }
+
+// polybius拡張版変換
+if (TEXT.replace(/\s+/g,"").length%2==0
+  &&  TEXT.match(/^([1-6][1-6]\s*){5,}$/)) {
+  var myText="";
+  if (TEXT.match(/^([1-6][1-6]\s){4,}[1-6][1-6]$/)) {
+    htmlTmp.push(TEXT);
+    myText+=Text.replace(/\s/g,"");
+  } else {
+    myText=TEXT;
+  }
+  htmlTmp.push(
+    myText.match(/../g).join(" "));
+
+  // polybius変換
+  var r=polybiusNumAZ10(myText);
+  htmlTmp.push("<a name='polybius'>1～6を使ったペアになる");
+  htmlTmp.push("<b>(polybius拡張版 数字を含む A~Z1~0)</b>");
+  htmlTmp.push("invalidなら文字数字やkwのi以外をjにしてみよう！！");
+  htmlCode(r);
+  if (r.match(/i/i)) {
+    htmlTmp.push("<b>i -> j</b>");
+    r=r.replace(/i/ig, "j");
+    htmlCode(r);
+  }
+  
+  htmlTmp.push("------------");
+  htmlTmp.push("(reverse)");
+  htmlTmp.push(strReverse(TEXT));
+  var r=polybiusNumAZ10(strReverse(myText));
+  htmlCode(r);
+  if (r.match(/i/i)) {
+    htmlTmp.push("i->j");
+    r=r.replace(/i/ig, "j");
+    htmlCode(r);
+  }
+
+  // polybius変換
+  var r=polybiusNumAZ09(myText);
+  htmlTmp.push("<a name='polybius'>1～6を使ったペアになる");
+  htmlTmp.push("<b>(polybius拡張版 数字を含む A~Z1~0)</b>");
+  htmlTmp.push("invalidなら文字数字やkwのi以外をjにしてみよう！！");
+  htmlCode(r);
+  if (r.match(/i/i)) {
+    htmlTmp.push("<b>i -> j</b>");
+    r=r.replace(/i/ig, "j");
+    htmlCode(r);
+  }
+  
+  htmlTmp.push("------------");
+  htmlTmp.push("(reverse)");
+  htmlTmp.push(strReverse(TEXT));
+  var r=polybiusNumAZ09(strReverse(myText));
+  htmlCode(r);
+  if (r.match(/i/i)) {
+    htmlTmp.push("i->j");
+    r=r.replace(/i/ig, "j");
+    htmlCode(r);
+  }
+
+  // polybius変換
+  var r=polybiusNum10AZ(myText);
+  htmlTmp.push("<a name='polybius'>1～6を使ったペアになる");
+  htmlTmp.push("<b>(polybius拡張版 数字を含む A~Z1~0)</b>");
+  htmlTmp.push("invalidなら文字数字やkwのi以外をjにしてみよう！！");
+  htmlCode(r);
+  if (r.match(/i/i)) {
+    htmlTmp.push("<b>i -> j</b>");
+    r=r.replace(/i/ig, "j");
+    htmlCode(r);
+  }
+  
+  htmlTmp.push("------------");
+  htmlTmp.push("(reverse)");
+  htmlTmp.push(strReverse(TEXT));
+  var r=polybiusNum10AZ(strReverse(myText));
+  htmlCode(r);
+  if (r.match(/i/i)) {
+    htmlTmp.push("i->j");
+    r=r.replace(/i/ig, "j");
+    htmlCode(r);
+  }
+  
+  // polybius変換
+  var r=polybiusNum09AZ(myText);
+  htmlTmp.push("<a name='polybius'>1～6を使ったペアになる");
+  htmlTmp.push("<b>(polybius拡張版 数字を含む A~Z1~0)</b>");
+  htmlTmp.push("invalidなら文字数字やkwのi以外をjにしてみよう！！");
+  htmlCode(r);
+  if (r.match(/i/i)) {
+    htmlTmp.push("<b>i -> j</b>");
+    r=r.replace(/i/ig, "j");
+    htmlCode(r);
+  }
+  
+  htmlTmp.push("------------");
+  htmlTmp.push("(reverse)");
+  htmlTmp.push(strReverse(TEXT));
+  var r=polybiusNum09AZ(strReverse(myText));
+  htmlCode(r);
+  if (r.match(/i/i)) {
+    htmlTmp.push("i->j");
+    r=r.replace(/i/ig, "j");
+    htmlCode(r);
+  }
+  
+  htmlTmp.push("===============");
+}
+
+
 
 // atbash polybius変換
 if (TEXT.match(/^([5-9][5-9])+$/)) {

@@ -5210,6 +5210,94 @@ function polybius(str) {
 
 //======================================
 
+// polybius換字変換(数字含むバージョン)
+function polybiusNumAZ10(str) {
+  if (str.match(/[^123456\s]/)) return null;
+  var map=new Array(7);
+  map[0]=[];
+  map[1]=" abcdef".split("");
+  map[2]=" ghijkl".split("");
+  map[3]=" mnopqq".split("");
+  map[4]=" stuvwx".split("");
+  map[5]=" yz1234".split("");
+  map[6]=" 567890".split("");
+  var result="";
+  var list=str.replace(/\s+/g,"").match(/\d\d/g);
+
+  for (var i in list) {
+    result+=map[list[i][0]][list[i][1]];
+  }
+  return result;
+}
+
+//======================================
+
+// polybius換字変換(数字含むバージョン)
+function polybiusNumAZ09(str) {
+  if (str.match(/[^123456\s]/)) return null;
+  var map=new Array(7);
+  map[0]=[];
+  map[1]=" abcdef".split("");
+  map[2]=" ghijkl".split("");
+  map[3]=" mnopqq".split("");
+  map[4]=" stuvwx".split("");
+  map[5]=" yz0123".split("");
+  map[6]=" 456789".split("");
+  var result="";
+  var list=str.replace(/\s+/g,"").match(/\d\d/g);
+
+  for (var i in list) {
+    result+=map[list[i][0]][list[i][1]];
+  }
+  return result;
+}
+
+//======================================
+
+// polybius換字変換(数字含むバージョン)
+function polybiusNum10AZ(str) {
+  if (str.match(/[^123456\s]/)) return null;
+  var map=new Array(7);
+  map[0]=[];
+  map[1]=" 123456".split("");
+  map[2]=" 7890ab".split("");
+  map[3]=" cdefgh".split("");
+  map[4]=" ijklmn".split("");
+  map[5]=" opqrst".split("");
+  map[6]=" uvwxyz".split("");
+  var result="";
+  var list=str.replace(/\s+/g,"").match(/\d\d/g);
+
+  for (var i in list) {
+    result+=map[list[i][0]][list[i][1]];
+  }
+  return result;
+}
+
+//======================================
+
+// polybius換字変換(数字含むバージョン)
+function polybiusNum09AZ(str) {
+  if (str.match(/[^123456\s]/)) return null;
+  var map=new Array(7);
+  map[0]=[];
+  map[1]=" 012345".split("");
+  map[2]=" 6789ab".split("");
+  map[3]=" cdefgh".split("");
+  map[4]=" ijklmn".split("");
+  map[5]=" opqrst".split("");
+  map[6]=" uvwxyz".split("");
+  var result="";
+  var list=str.replace(/\s+/g,"").match(/\d\d/g);
+
+  for (var i in list) {
+    result+=map[list[i][0]][list[i][1]];
+  }
+  return result;
+}
+
+//======================================
+
 //ガラケー打ち変換(連続タイプ)
 // 3332226779999
 function garake(str) {
