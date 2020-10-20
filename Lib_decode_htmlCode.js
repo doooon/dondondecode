@@ -1049,6 +1049,15 @@ function one1(a, flg) {
     a=a.replace(/sieben/ig, "7");
     a=a.replace(/acht/ig, "8");
     a=a.replace(/neun/ig, "9");
+    a=a.replace(/eleven/ig, "11");
+    a=a.replace(/twelve/ig, "12");
+    a=a.replace(/thirteen/ig, "13");
+    a=a.replace(/fourteen/ig, "14");
+    a=a.replace(/fifteen/ig, "15");
+    a=a.replace(/sixteen/ig, "16");
+    a=a.replace(/seventeen/ig, "17");
+    a=a.replace(/eighteen/ig, "18");
+    a=a.replace(/nineteen/ig, "19");
     if (flg) {
       a=a.replace(/one/ig, "1");
       a=a.replace(/zero/ig, "0");
@@ -1062,6 +1071,15 @@ function one1(a, flg) {
       a=a.replace(/sing/ig, "1");
       a=a.replace(/eins/ig, "1");
       a=a.replace(/null/ig, "0");
+      a=a.replace(/ten/ig, "10");
+      a=a.replace(/twenty/ig, "20");
+      a=a.replace(/thirty/ig, "30");
+      a=a.replace(/forty/ig, "40");
+      a=a.replace(/fifty/ig, "50");
+      a=a.replace(/sixty/ig, "60");
+      a=a.replace(/seventy/ig, "70");
+      a=a.replace(/eighty/ig, "80");
+      a=a.replace(/ninety/ig, "90");
     }
     
     var kwl=a.match(/-(\w-)+/g);
@@ -1095,10 +1113,27 @@ function one1full(a, flg) {
     a=a.replace(/seven/ig, "7");
     a=a.replace(/eight/ig, "8");
     a=a.replace(/nine/ig, "9");
+    a=a.replace(/eleven/ig, "11");
+    a=a.replace(/twelve/ig, "12");
+    a=a.replace(/thirteen/ig, "13");
+    a=a.replace(/fourteen/ig, "14");
+    a=a.replace(/fifteen/ig, "15");
+    a=a.replace(/sixteen/ig, "16");
+    a=a.replace(/seventeen/ig, "17");
+    a=a.replace(/eighteen/ig, "18");
+    a=a.replace(/nineteen/ig, "19");
     if (flg) {
       a=a.replace(/one/ig, "1");
       a=a.replace(/zero/ig, "0");
-    }
+      a=a.replace(/ten/ig, "10");
+      a=a.replace(/twenty/ig, "20");
+      a=a.replace(/thirty/ig, "30");
+      a=a.replace(/forty/ig, "40");
+      a=a.replace(/fifty/ig, "50");
+      a=a.replace(/sixty/ig, "60");
+      a=a.replace(/seventy/ig, "70");
+      a=a.replace(/eighty/ig, "80");
+      a=a.replace(/ninety/ig, "90");    }
     
     var kwl=a.match(/-(\w-)+/g);
     for (var i in kwl) {
@@ -1131,9 +1166,27 @@ function one1full_rvs(a, flg) {
     a=a.replace(/neves/ig, "7");
     a=a.replace(/thgie/ig, "8");
     a=a.replace(/enin/ig, "9");
+    a=a.replace(/nevele/ig, "11");
+    a=a.replace(/evlewt/ig, "12");
+    a=a.replace(/neetriht/ig, "13");
+    a=a.replace(/neetruof/ig, "14");
+    a=a.replace(/neetfif/ig, "15");
+    a=a.replace(/neetxis/ig, "16");
+    a=a.replace(/neetneves/ig, "17");
+    a=a.replace(/neethgie/ig, "18");
+    a=a.replace(/neetenin/ig, "19");
     if (flg) {
       a=a.replace(/eno/ig, "1");
       a=a.replace(/orez/ig, "0");
+      a=a.replace(/net/ig, "10");
+      a=a.replace(/ytnewt/ig, "20");
+      a=a.replace(/ytriht/ig, "30");
+      a=a.replace(/ytrof/ig, "40");
+      a=a.replace(/ytfif/ig, "50");
+      a=a.replace(/ytxis/ig, "60");
+      a=a.replace(/ytneves/ig, "70");
+      a=a.replace(/ythgie/ig, "80");
+      a=a.replace(/ytenin/ig, "90");
     }    
     var kwl=a.match(/-(\w-)+/g);
     for (var i in kwl) {
