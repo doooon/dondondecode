@@ -1026,6 +1026,14 @@ if (
   htmlTmp.push("<a name='base32'><b>(base32 decode)</b></a>");
   var tmp=base32Dec(str);
   htmlCode(tmp);
+
+  htmlTmp.push(
+    "(more reverse)");
+  htmlCode(strReverse(tmp));
+  htmlTmp.push(
+    "(more reverse &amp; base32)");
+  htmlCode(base32Dec(tmstrReverse(tmp)));
+
   htmlTmp.push(
     "(more base32)");
   htmlCode(base32Dec(tmp));
