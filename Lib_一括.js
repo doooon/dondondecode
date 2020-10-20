@@ -1032,7 +1032,7 @@ if (
   htmlCode(strReverse(tmp));
   htmlTmp.push(
     "(more reverse &amp; base32)");
-  htmlCode(base32Dec(tmstrReverse(tmp)));
+  htmlCode(base32Dec(strReverse(tmp)));
 
   htmlTmp.push(
     "(more base32)");
