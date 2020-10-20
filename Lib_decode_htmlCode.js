@@ -57,6 +57,7 @@ function printCheck(tmp2) {
     htmlTmp.push("(more octASCII)");
     var tmpoct = octASCII( tmp2 );
     debug(tmpoct);
+    console.log(tmpoct);
     if ( printMain( tmpoct ) == "fix" ) return;
     if ( printMain( base64Enc(tmp2, "8"), "more", "(more Base64 encode)" ) == "fix" ) return;
     decodeBase64print( tmpoct );
