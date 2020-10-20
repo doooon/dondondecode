@@ -493,13 +493,13 @@ function formatExchange(str, msg) {
   
 // Numberの配列を返す
 function addNum() {
-  return "one|two|three|four|five|six|seven|eight|nine|zero|une|due|trois|quatre|cinq|sept|huit|neuf|thre|seve|eigh|thr|fou|fiv|sev|eig|nin|zer|on|tw|th|fo|fi|si|se|ei|ni|wo|ee|ur|ve|ix|en|ht|ne|ro|hre|our|ive|eve|igh|ine|ero|eno|owt|eerht|ruof|evif|xis|neves|thgie|enin|orez|eins|zwei|drei|vier|funf|sechs|sieben|acht|neun|null|fore|nein".split("|");
+  return "one|two|three|four|five|six|seven|eight|nine|zero|une|due|trois|quatre|cinq|sept|huit|neuf|thre|seve|eigh|thr|fou|fiv|sev|eig|nin|zer|on|tw|th|fo|fi|si|se|ei|ni|wo|ee|ur|ve|ix|en|ht|ne|ro|hre|our|ive|eve|igh|ine|ero|eno|owt|eerht|ruof|evif|xis|neves|thgie|enin|orez|eins|zwei|drei|vier|funf|sechs|sieben|acht|neun|null|fore|nein|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety".split("|");
 }
 function addNumFull() {
-  return "one|two|three|four|five|six|seven|eight|nine|zero".split("|");
+  return "one|two|three|four|five|six|seven|eight|nine|zero||ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety".split("|");
 }
 function addNumFull_rvs() {
-  return "eno|owt|eerht|ruof|evif|xis|neves|thgie|enin|orez".split("|");
+  return "eno|owt|eerht|ruof|evif|xis|neves|thgie|enin|orez|ytenin|ythgie|ytneves|ytxis|ytfif|ytrof|ytriht|ytnewt|neetenin|neethgie|neetneves|neetxis|neetfif|neetruof|neetriht|evlewt|nevele|net".split("|");
 }
 function addNumFrench() {
   return "une|due|trois|quatre|cinq|six|sept|huit|neuf|zero".split("|");
