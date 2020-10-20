@@ -56,6 +56,7 @@ function printCheck(tmp2) {
   if (tmp2.match(octRE)) {
     htmlTmp.push("(more octASCII)");
     var tmpoct = octASCII( tmp2 );
+    debugg(tmpoct);
     if ( printMain( tmpoct ) == "fix" ) return;
     if ( printMain( base64Enc(tmp2, "8"), "more", "(more Base64 encode)" ) == "fix" ) return;
     decodeBase64print( tmpoct );
@@ -1133,7 +1134,8 @@ function one1full(a, flg) {
       a=a.replace(/sixty/ig, "60");
       a=a.replace(/seventy/ig, "70");
       a=a.replace(/eighty/ig, "80");
-      a=a.replace(/ninety/ig, "90");    }
+      a=a.replace(/ninety/ig, "90");
+    }
     
     var kwl=a.match(/-(\w-)+/g);
     for (var i in kwl) {
