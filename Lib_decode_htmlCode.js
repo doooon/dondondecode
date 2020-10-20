@@ -55,6 +55,7 @@ function printCheck(tmp2) {
   // 8進数 60-71, 101-132, 141-172
   if (tmp2.match(octRE)) {
     htmlTmp.push("(more octASCII)");
+    htmlTmp.push(tmp2.split(/(0?61|0?[67][0-9]|0?7[01])|(10[1-9]|1[12][0-9]|13[012])|(14[1-9]|1[56][0-9]|17[012])/g).join(" "));
     var tmpoct = octASCII( tmp2 );
     if ( printMain( tmpoct ) == "fix" ) return;
     if ( printMain( base64Enc(tmp2, "8"), "more", "(more Base64 encode)" ) == "fix" ) return;
