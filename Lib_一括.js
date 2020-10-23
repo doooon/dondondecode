@@ -537,6 +537,7 @@ if (TEXT.match(/^[\d\s.,:;\-\/|]+$/)) {
 
 //数字のみだった
 //DecASCII (強制二桁、区切りなら三桁ok)
+//HexASCII、OctASCII
 if (TEXT.match(/^[\d\s.,:;\-\/|]+$/)) {
   htmlTmp.push("数字のみ"); 
   
@@ -633,6 +634,60 @@ if (TEXT.match(/^[\d\s.,:;\-\/|]+$/)) {
     strReverse(atbash19(TEXT)));
   htmlTmp.push(
     "(atbash->reverse->decASCII)");
+  htmlCode(tmp);
+  
+  htmlTmp.push("(more atbash)");
+  htmlCode(atbash19(tmp));
+  
+  htmlTmp.push("(more reverse)");
+  htmlCode(strReverse(tmp));
+  
+  htmlTmp.push(
+    "(more reverse & atbash)");
+  htmlCode(strReverse(atbash19(tmp)));
+  htmlTmp.push("===============");
+
+  
+  var tmp=octASCII(TEXT);
+  htmlTmp.push("(octASCII)");
+  htmlCode(tmp);
+  
+  htmlTmp.push("(atbash)");
+  htmlCode(atbash19(tmp));
+  
+  htmlTmp.push("(reverse)");
+  htmlCode(strReverse(tmp));
+  
+  htmlTmp.push("------");
+  
+  var tmp=octASCII(strReverse(TEXT));
+  htmlTmp.push("(reverse->octASCII)");
+  htmlCode(tmp);
+  
+  htmlTmp.push("(more atbash)");
+  htmlCode(atbash19(tmp));
+  
+  htmlTmp.push("(more reverse)");
+  htmlCode(strReverse(tmp));
+  
+  htmlTmp.push("------");
+  
+  var tmp=octASCII(atbash19(TEXT));
+  htmlTmp.push("(atbash->octASCII)");
+  htmlCode(tmp);
+  
+  htmlTmp.push("(more atbash)");
+  htmlCode(atbash19(tmp));
+  
+  htmlTmp.push("(more reverse)");
+  htmlCode(strReverse(tmp));
+    
+  htmlTmp.push("------");
+  
+  var tmp=octASCII(
+    strReverse(atbash19(TEXT)));
+  htmlTmp.push(
+    "(atbash->reverse->octASCII)");
   htmlCode(tmp);
   
   htmlTmp.push("(more atbash)");
