@@ -393,8 +393,8 @@ htmlTmp.push("===============");
 if(TEXT.match(/^[0123456789<@ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz]+$/)){
     htmlTmp.push("<b>(Rot47)</b>");
   htmlCode(rot47(TEXT));
+  htmlTmp.push("===============");
 }
-htmlTmp.push("===============");
 
 
 if (!TEXT.match(/\d\d/) && TEXT.match(/\d/) && TEXT.match(/[a-z]/i)) {
