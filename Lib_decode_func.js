@@ -5187,6 +5187,7 @@ function rotN(str, n, flag) {
   return result.join("");
 }
 
+//======================================
 
 // Rot47
 function rot47(str){
