@@ -1947,7 +1947,7 @@ function getKeyws() {
   addkw.push("sculpture"); //使用された 2020/01/29
   addkw.push("forge"); //使用された 2020/10
   addkw.push("tabularasa"); //勝手追加 2020/10/24
-  addkw.push("(eos)?protocol"); //勝手追加 2020/10/24
+  //addkw.push("(eos)?protocol"); //勝手追加 2020/10/24
 
 
   addkw.push("cologne"); //一回きりかも2016/07/25
