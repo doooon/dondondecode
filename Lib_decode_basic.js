@@ -1949,7 +1949,6 @@ function getKeyws() {
   addkw.push("tabularasa"); //勝手追加 2020/10/24
   //addkw.push("(eos)?protocol"); //勝手追加 2020/10/24
 
-
   addkw.push("cologne"); //一回きりかも2016/07/25
   addkw.push("singapore"); //一回きりかも2016/07/25
   addkw.push("denver"); //一回きりかも2016/07/25
