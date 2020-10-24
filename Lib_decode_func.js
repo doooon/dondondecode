@@ -5190,6 +5190,7 @@ function rotN(str, n, flag) {
 //======================================
 
 // Rot47
+/*
 function rot47(str){
   var s='';
   for(var i=0;i<str.length;i++){
@@ -5203,6 +5204,7 @@ function rot47(str){
   }
   return s;
  }
+*/
 
 
 //======================================
