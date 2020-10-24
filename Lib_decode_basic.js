@@ -1379,6 +1379,14 @@ if (tmp && tmp.length>=6) {
 }
 
 
+// 数字、文字、記号を含んでいるのでRot47の可能性
+if(TEXT.match(/[!"#$%&'()*+,-./:;<=>?@[\\\]^_`{|}~]/) && TEXT.match(/[0123456789]/) && TEXT.match(/[ABCDEFGHIJKLMNOPQRSTUVWXYZ]/i)){
+  if(TEXT.match(/^[!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\\]^_`abcdefghijklmnopqrstuvwxyz{|}~]+$/)){
+    alertMsg.push("navajo ナバホ族の言語を利用したコード置換。(単語を3つ以上含んでいる)");
+  }
+}
+  
+
 
   // ===========
   if (alertMsg.length>0) {
