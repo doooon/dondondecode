@@ -5193,7 +5193,7 @@ function rotN(str, n, flag) {
 function rot47(str){
   var s='';
   for(var i=0;i<str.length;i++){
-    var j=x.charCodeAt(i);
+    var j=str.charCodeAt(i);
     if((j>=33)&&(j<=126)){
       s+=String.fromCharCode(33+((j+14)%94));
     } else {
