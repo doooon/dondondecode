@@ -5190,21 +5190,18 @@ function rotN(str, n, flag) {
 //======================================
 
 // Rot47
-/*
 function rot47(str){
   var s='';
   for(var i=0;i<str.length;i++){
-   var j=x.charCodeAt(i);
-   if((j>=33)&&(j<=126)){
-    s+=String.fromCharCode(33+((j+14)%94));
-   }
-   else {
-    s+="▯";
-   }
+    var j=x.charCodeAt(i);
+    if((j>=33)&&(j<=126)){
+      s+=String.fromCharCode(33+((j+14)%94));
+    } else {
+      s+="▯";
+    }
   }
   return s;
  }
-*/
 
 
 //======================================
