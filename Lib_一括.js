@@ -384,7 +384,14 @@ goRotate(26,TEXT,"","");
 goRotate(26,TEXT,"reverse","");
 goRotate(26,TEXT,"","atbash");
 goRotate(26,TEXT,"reverse","atbash");
+htmlTmp.push("===============");
 
+// Rot47
+// 印刷可能なASCIIの94文字を半分にローテーションする
+if(TEXT.match(/^[!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\\]^_`abcdefghijklmnopqrstuvwxyz{|}~]+$/)){
+  htmlTmp.push("<b>(Rot47)</b>");
+  htmlCode(rot47(TEXT));
+}
 htmlTmp.push("===============");
 
 if (!TEXT.match(/\d\d/) && TEXT.match(/\d/) && TEXT.match(/[a-z]/i)) {
