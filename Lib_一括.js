@@ -390,7 +390,7 @@ htmlTmp.push("===============");
 // 印刷可能なASCIIの94文字を半分にローテーションする
 
 //if(TEXT.match(/^[!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\\]^_`abcdefghijklmnopqrstuvwxyz{|}~]+$/)){
-if(TEXT.match(/^[0123456789<@ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz]+$/)){
+if(TEXT.match(/^[Ga9e5g9K@c<4@dD]+$/)){
     htmlTmp.push("<b>(Rot47)</b>");
   htmlCode(rot47(TEXT));
   htmlTmp.push("===============");
