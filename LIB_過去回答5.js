@@ -2838,6 +2838,20 @@ if (
   htmlTmp.push("==============");
 }
 
+// abc123 > polibius
+var tmp=abc123(TEXT);
+if (
+  tmp.match(/^[1-5]+$/i)
+  && tmp.length%2==0
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push(
+    "<b>(abc123 > polibius)</b>");
+  var result=polybius(tmp);
+  htmlCode(result);
+  htmlTmp.push("==============");
+}
+
 
 // kwで分割してそれぞれreverse
 // 9smo5wina7f5o
