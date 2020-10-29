@@ -2833,6 +2833,7 @@ if (
   htmlTmp.push(TEXT);
   htmlTmp.push(
     "<b>(abc012 > polibius)</b>");
+  htmlTmp.push(tmp);
   var result=polybius(tmp);
   htmlCode(result);
   htmlTmp.push("==============");
@@ -2847,6 +2848,7 @@ if (
   htmlTmp.push(TEXT);
   htmlTmp.push(
     "<b>(abc123 > polibius)</b>");
+  htmlTmp.push(tmp);
   var result=polybius(tmp);
   htmlCode(result);
   htmlTmp.push("==============");
