@@ -145,8 +145,13 @@ function goKeywExchange() {
 ["ru[6b8B][1i]c[0o]n","rubicon","leet"], 
 ["[4A][6b8B][4A]dd[0o]n","abaddon","leet"], 
 ["ph[0o][7T][1i]n[7T]","photint","leet"], 
+["Ninigret","niantic","wikipedia"], 
+["Juanemo","niantic","wikipedia"], 
 
-
+    
+    
+    
+    
 ["NicolasFlame","NicolasFlame","錬金術に関係し、金属変成や、賢者の石の製造に成功したという伝説がある"], 
 ["inqamuire","inqamuire","調べる、調査する"], 
 ["lovelace","lovelace","世界初のプログラマーと呼ばれる'エイダ・ラブレース'"], 
