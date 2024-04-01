@@ -28,6 +28,35 @@ if (
 */
 
 
+// what3words
+// https://what3words.com/owls.blocking.pools
+if (
+  TEXT.match(/\/\/\/\w+\.\w+\.\w+\b/i) && 
+  TEXT.length%3==0 && 
+  kouseimoji.length>=3
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>what3words</b>");
+  var tmp=TEXT.match(/\/\/\/(\w+\.\w+\.\w+)\b/g);
+  result.push(tmp);
+    htmlTmp.push("==============");
+}
+// what3words
+// https://what3words.com/owls.blocking.pools
+if (
+  TEXT.match(/\b\w+\.\w+\.\w+\b/i) && 
+  TEXT.length%3==0 && 
+  kouseimoji.length>=3
+) {
+  htmlTmp.push(TEXT);
+  htmlTmp.push("<b>what3words</b>");
+  var tmp=TEXT.match(/\b\w+\.\w+\.\w+\b/g);
+  result.push("https://what3words.com/" + tmp);
+    htmlTmp.push("==============");
+}
+
+
+
 // List of Egyptian Major deities エジプト神
 // からの性別分けでモールス
 var tmp = EgyptianMajordeities(TEXT);
