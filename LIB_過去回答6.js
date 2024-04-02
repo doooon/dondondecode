@@ -31,27 +31,14 @@ if (
 // what3words
 // https://what3words.com/owls.blocking.pools
 if (
-  TEXT.match(/\/\/\/\w+\.\w+\.\w+\b/i) && 
-  TEXT.length%3==0 && 
+  TEXT.match(/(?:\/\/\/)?\w+\.\w+\.\w+\b/i) && 
+  TEXT.length > 10 && 
   kouseimoji.length>=3
 ) {
   htmlTmp.push(TEXT);
   htmlTmp.push("<b>what3words</b>");
-  var tmp=TEXT.match(/\/\/\/(\w+\.\w+\.\w+)\b/g);
-  result.push(tmp);
-    htmlTmp.push("==============");
-}
-// what3words
-// https://what3words.com/owls.blocking.pools
-if (
-  TEXT.match(/\b\w+\.\w+\.\w+\b/i) && 
-  TEXT.length%3==0 && 
-  kouseimoji.length>=3
-) {
-  htmlTmp.push(TEXT);
-  htmlTmp.push("<b>what3words</b>");
-  var tmp=TEXT.match(/\b\w+\.\w+\.\w+\b/g);
-  result.push("https://what3words.com/" + tmp);
+  var tmp=TEXT.match(/\/\/\/(\w+\.\w+\.\w+)\b/i);
+  htmlTmp.push("https://what3words.com/" + tmp[1]);
     htmlTmp.push("==============");
 }
 

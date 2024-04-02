@@ -1371,6 +1371,16 @@ if (
   alertMsg.push("navajo ナバホ族の言語を利用したコード置換。(単語を3つ以上含んでいる)");
 }
 
+// what3wordsでの位置情報
+if (
+  TEXT.match(/(?:\/\/\/)?(\w+)(\W)(\w+)(\W)(\w+)\b/i) && 
+  TEXT.length > 10 && 
+  kouseimoji.length>=3
+) {
+  var tmp = TEXT.match(/(?:\/\/\/)?(\w+)(\W)(\w+)(\W)(\w+)\b/i);
+  var tmp_url = "https://what3words.com/" + tmp[1] + "." + tmp[3] + "." + tmp[5];
+  alertMsg.push("what3words で単語三つでの位置情報の可能性\r\n" + "<a href='" + tmp_url + "' target='_blank'>" + tmp_url + "</a>");
+}
 
 // List of Egyptian Major deities エジプト神
 var tmp = EgyptianMajordeities(str);
